@@ -1,0 +1,275 @@
+import os
+import re
+from datetime import datetime
+
+ARTICLES_DIR = "articles"
+OUTPUT = "index.html"
+
+def get_title(filepath):
+    try:
+        with open(filepath, encoding="utf-8") as f:
+            content = f.read()
+        match = re.search(r"<title>(.*?)</title>", content, re.IGNORECASE)
+        if match:
+            return match.group(1).strip()
+    except:
+        pass
+    name = os.path.basename(filepath).replace(".html", "").replace("-", " ")
+    return name.capitalize()
+
+def get_meta(filepath, name):
+    try:
+        with open(filepath, encoding="utf-8") as f:
+            content = f.read()
+        match = re.search(rf'<meta\s+name="{name}"\s+content="(.*?)"', content, re.IGNORECASE)
+        if match:
+            return match.group(1).strip()
+    except:
+        pass
+    return ""
+
+files = []
+for f in sorted(os.listdir(ARTICLES_DIR)):
+    if not f.endswith(".html"):
+        continue
+    path = os.path.join(ARTICLES_DIR, f)
+    mtime = os.path.getmtime(path)
+    title = get_title(path)
+    tag = get_meta(path, "tag") or "autre"
+    date = get_meta(path, "date") or datetime.fromtimestamp(mtime).strftime("%Y-%m-%d")
+    files.append({"file": f"articles/{f}", "title": title, "tag": tag, "date": date})
+
+files.sort(key=lambda x: x["date"], reverse=True)
+
+articles_js = ",\n    ".join([
+    f'{{ date: "{a["date"]}", title: "{a["title"]}", tag: "{a["tag"]}", file: "{a["file"]}" }}'
+    for a in files
+])
+
+# Collect all unique tags for filter buttons
+all_tags = sorted(set(a["tag"] for a in files))
+filter_buttons = '\n    <button class="filter-btn active" onclick="filter(\'tous\')">Tous</button>\n'
+for t in all_tags:
+    filter_buttons += f'    <button class="filter-btn" onclick="filter(\'{t}\')">{t.capitalize()}</button>\n'
+
+html = f"""<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ressources SEO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {{
+      --ink: #0d0d0d;
+      --ink-2: #3a3a3a;
+      --ink-3: #7a7a7a;
+      --paper: #f5f2ed;
+      --paper-2: #eceae4;
+      --paper-3: #e2dfd8;
+      --accent: #d44c1a;
+      --mono: 'DM Mono', monospace;
+      --sans: 'DM Sans', sans-serif;
+      --display: 'Syne', sans-serif;
+    }}
+    * {{ box-sizing: border-box; margin: 0; padding: 0; }}
+    body {{ font-family: var(--sans); background: var(--paper); color: var(--ink); font-size: 15px; line-height: 1.6; font-weight: 300; }}
+    .wrap {{ max-width: 860px; margin: 0 auto; padding: 0 2rem; }}
+
+    header {{
+      border-bottom: 1px solid var(--paper-3);
+      padding: 2.5rem 0 2rem;
+      margin-bottom: 0;
+    }}
+    header h1 {{
+      font-family: var(--display);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }}
+    header h1 em {{ font-style: normal; color: var(--accent); }}
+    header p {{
+      font-size: 0.9rem;
+      color: var(--ink-3);
+      margin-top: 0.4rem;
+      font-family: var(--mono);
+      letter-spacing: 0.03em;
+    }}
+
+    .filters {{
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin: 2rem 0 1rem;
+    }}
+    .filter-btn {{
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.9rem;
+      border-radius: 2px;
+      border: 1px solid var(--paper-3);
+      background: transparent;
+      cursor: pointer;
+      color: var(--ink-3);
+      transition: all 0.15s;
+    }}
+    .filter-btn:hover {{ border-color: var(--ink-3); color: var(--ink); }}
+    .filter-btn.active {{ background: var(--ink); color: var(--paper); border-color: var(--ink); }}
+
+    .meta-line {{
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--ink-3);
+      letter-spacing: 0.04em;
+      margin-bottom: 1rem;
+    }}
+
+    .list {{
+      border-top: 1px solid var(--paper-3);
+    }}
+    .item {{
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--paper-3);
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.1s;
+    }}
+    .item:hover {{ padding-left: 0.5rem; }}
+    .item-date {{
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--ink-3);
+      letter-spacing: 0.04em;
+      min-width: 82px;
+    }}
+    .item-title {{
+      flex: 1;
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: var(--ink);
+    }}
+    .item:hover .item-title {{ color: var(--accent); }}
+    .item-tag {{
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border: 1px solid var(--paper-3);
+      border-radius: 2px;
+      color: var(--ink-3);
+      white-space: nowrap;
+    }}
+    .item-tag.technique {{ border-color: #b3c6e8; color: #2a4da0; background: #f0f4fc; }}
+    .item-tag.seo {{ border-color: #b3d9b3; color: #2d7a2d; background: #f0faf0; }}
+    .item-tag.outils {{ border-color: #e8d0b3; color: #a06020; background: #fdf8f0; }}
+    .item-tag.contenu {{ border-color: #d4b3e8; color: #7a2d9a; background: #f8f0fc; }}
+    .arrow {{
+      font-size: 0.85rem;
+      color: var(--paper-3);
+      transition: color 0.15s;
+    }}
+    .item:hover .arrow {{ color: var(--accent); }}
+
+    .empty {{
+      padding: 3rem 0;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--ink-3);
+      letter-spacing: 0.05em;
+    }}
+
+    footer {{
+      margin: 4rem 0 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--paper-3);
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--ink-3);
+      letter-spacing: 0.05em;
+    }}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>Base de<br>connaissance <em>SEO</em></h1>
+    <p>Notes &amp; ressources — Usage interne</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="filters">
+    {filter_buttons}
+  </div>
+
+  <p class="meta-line" id="count"></p>
+
+  <div class="list" id="list"></div>
+
+  <footer>
+    <span>Base de connaissance SEO</span>
+    <span>Généré automatiquement</span>
+  </footer>
+</div>
+
+<script>
+  const articles = [
+    {articles_js}
+  ];
+
+  let current = "tous";
+
+  function fmt(s) {{
+    const d = new Date(s + "T00:00:00");
+    return d.toLocaleDateString("fr-FR", {{ day: "2-digit", month: "short", year: "numeric" }});
+  }}
+
+  function filter(tag) {{
+    current = tag;
+    document.querySelectorAll(".filter-btn").forEach(b => {{
+      b.classList.toggle("active",
+        (tag === "tous" && b.textContent === "Tous") ||
+        b.textContent.toLowerCase() === tag
+      );
+    }});
+    render();
+  }}
+
+  function render() {{
+    const filtered = current === "tous" ? articles : articles.filter(a => a.tag === current);
+    document.getElementById("count").textContent = filtered.length + " article" + (filtered.length > 1 ? "s" : "");
+    if (filtered.length === 0) {{
+      document.getElementById("list").innerHTML = '<p class="empty">Aucun article dans cette catégorie.</p>';
+      return;
+    }}
+    document.getElementById("list").innerHTML = filtered.map(a => `
+      <a class="item" href="${{a.file}}">
+        <span class="item-date">${{fmt(a.date)}}</span>
+        <span class="item-title">${{a.title}}</span>
+        <span class="item-tag ${{a.tag}}">${{a.tag}}</span>
+        <span class="arrow">→</span>
+      </a>
+    `).join("");
+  }}
+
+  render();
+</script>
+
+</body>
+</html>"""
+
+with open(OUTPUT, "w", encoding="utf-8") as f:
+    f.write(html)
+
+print(f"Built index.html — {len(files)} article(s).")
