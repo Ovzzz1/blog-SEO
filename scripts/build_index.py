@@ -171,6 +171,7 @@ html = f"""<!DOCTYPE html>
     .item-tag.seo {{ border-color: rgba(52, 211, 153, 0.3); color: #6ee7b7; background: rgba(52, 211, 153, 0.1); }}
     .item-tag.outils {{ border-color: rgba(251, 191, 36, 0.3); color: #fcd34d; background: rgba(251, 191, 36, 0.1); }}
     .item-tag.contenu {{ border-color: rgba(192, 132, 252, 0.3); color: #d8b4fe; background: rgba(192, 132, 252, 0.1); }}
+    .item-tag.linkbuilding {{ border-color: rgba(239, 68, 68, 0.3); color: #f87171; background: rgba(239, 68, 68, 0.1); }}
     .arrow {{
       font-size: 0.85rem;
       color: var(--paper-3);

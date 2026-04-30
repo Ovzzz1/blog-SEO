@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="tag" content="linkbuilding">
+<meta name="date" content="2026-04-30">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entity Stacking — SEO Knowledge Base</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #f9fafb;
+    --ink-2: #d1d5db;
+    --ink-3: #9ca3af;
+    --paper: #17191a;
+    --paper-2: #212426;
+    --paper-3: #2d3134;
+    --accent: #ff6e40;
+    --accent-2: #60a5fa;
+    --success: #34d399;
+    --warn: #fbbf24;
+    --danger: #f87171;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+    --display: 'Syne', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .page-wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+  /* HEADER */
+  .site-header { border-bottom: 1px solid var(--paper-3); padding: 2rem 0 1.5rem; margin-bottom: 0; }
+  .header-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+  .tag-badge { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border: 1px solid var(--paper-3); border-radius: 2px; color: var(--ink-3); }
+  .tag-badge.accent { border-color: var(--accent); color: var(--accent); }
+
+  .hero-grid { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: end; padding-bottom: 2.5rem; }
+  .hero-title { font-family: var(--display); font-size: clamp(2.8rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.0; letter-spacing: -0.03em; color: var(--ink); }
+  .hero-title em { font-style: normal; color: var(--accent); }
+  .hero-subtitle { font-family: var(--sans); font-size: 1rem; font-weight: 300; color: var(--ink-3); margin-top: 0.75rem; line-height: 1.5; }
+  .version-box { font-family: var(--mono); font-size: 10px; color: var(--ink-3); line-height: 1.8; letter-spacing: 0.05em; text-align: right; }
+
+  /* TOC */
+  .toc-bar { background: var(--paper-2); border: 1px solid var(--paper-3); padding: 1.5rem 2rem; margin: 0 -2rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.25rem 2rem; }
+  .toc-item { font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; padding: 0.3rem 0; color: rgba(249,250,251,0.6); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.15s; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .toc-item:hover { color: var(--ink); }
+  .toc-num { color: var(--accent); font-weight: 500; min-width: 20px; }
+
+  /* SECTIONS */
+  .section { padding: 4rem 0 2rem; border-bottom: 1px solid var(--paper-3); }
+  .section:last-child { border-bottom: none; }
+  .section-header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 2rem; }
+  .section-num { font-family: var(--mono); font-size: 11px; font-weight: 500; color: var(--accent); letter-spacing: 0.1em; min-width: 32px; }
+
+  h2 { font-family: var(--display); font-size: 1.6rem; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: var(--ink); margin-top: 15px; }
+  h3 { font-family: var(--display); font-size: 1.05rem; font-weight: 600; color: var(--ink); margin: calc(2rem + 16px) 0 0.75rem; letter-spacing: -0.01em; }
+
+  p { margin-bottom: 1rem; color: var(--ink-2); }
+  strong { font-weight: 500; color: var(--ink); }
+  code { font-family: var(--mono); font-size: 0.82em; background: var(--paper-2); border: 1px solid var(--paper-3); border-radius: 3px; padding: 1px 5px; color: var(--accent-2); }
+
+  /* CALLOUTS */
+  .callout { border-left: 3px solid; padding: 1rem 1.25rem; margin: 1.5rem 0; border-radius: 0 4px 4px 0; }
+  .callout p { margin-bottom: 0; font-size: 0.92rem; }
+  .callout p + p { margin-top: 0.5rem; }
+  .callout-label { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .callout.info { border-color: var(--accent-2); background: rgba(96,165,250,0.1); }
+  .callout.info .callout-label { color: var(--accent-2); }
+  .callout.warn { border-color: var(--warn); background: rgba(251,191,36,0.1); }
+  .callout.warn .callout-label { color: var(--warn); }
+  .callout.danger { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .callout.danger .callout-label { color: var(--danger); }
+  .callout.success { border-color: var(--success); background: rgba(52,211,153,0.1); }
+  .callout.success .callout-label { color: var(--success); }
+  .callout.edge { border-color: #a78bfa; background: rgba(167,139,250,0.1); }
+  .callout.edge .callout-label { color: #a78bfa; }
+
+  /* TABLES */
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  thead tr { background: var(--paper-2); color: var(--ink); }
+  thead th { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.75rem 1rem; text-align: left; }
+  tbody tr { border-bottom: 1px solid var(--paper-2); }
+  tbody tr:hover { background: var(--paper-2); }
+  tbody td { padding: 0.65rem 1rem; color: var(--ink-2); vertical-align: top; }
+  tbody td:first-child { font-weight: 400; color: var(--ink); }
+
+  /* KPI GRID */
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1px; background: var(--paper-3); border: 1px solid var(--paper-3); border-radius: 6px; overflow: hidden; margin: 1.5rem 0; }
+  .kpi-item { background: var(--paper); padding: 1.25rem; }
+  .kpi-label { font-family: var(--mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 0.4rem; }
+  .kpi-value { font-family: var(--display); font-size: 1.4rem; font-weight: 700; color: var(--ink); line-height: 1; margin-bottom: 0.3rem; }
+  .kpi-sub { font-size: 0.78rem; color: var(--ink-3); line-height: 1.4; }
+
+  /* RULES GRID */
+  .rules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--paper-3); border: 1px solid var(--paper-3); border-radius: 6px; overflow: hidden; margin: 1.5rem 0; }
+  .rule-item { background: var(--paper); padding: 1.25rem 1.5rem; }
+  .rule-title { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 0.5rem; }
+  .rule-content { font-size: 0.88rem; color: var(--ink-2); line-height: 1.6; }
+
+  /* CATEGORY CARDS */
+  .cat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1px; background: var(--paper-3); border: 1px solid var(--paper-3); border-radius: 6px; overflow: hidden; margin: 1.5rem 0; }
+  .cat-card { background: var(--paper); padding: 1.25rem 1.5rem; }
+  .cat-title { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem; }
+  .cat-list { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; }
+  .cat-list li { font-size: 0.85rem; color: var(--ink-2); display: flex; align-items: baseline; gap: 0.5rem; }
+  .cat-list li::before { content: '—'; font-family: var(--mono); font-size: 10px; color: var(--accent); flex-shrink: 0; }
+
+  /* YOUTUBE EMBED */
+  .yt-wrap { margin: 1.5rem 0; border: 1px solid var(--paper-3); border-radius: 6px; overflow: hidden; background: #000; }
+  .yt-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); padding: 0.6rem 1rem; background: var(--paper-2); border-bottom: 1px solid var(--paper-3); }
+  .yt-wrap iframe { display: block; width: 100%; aspect-ratio: 16/9; border: none; }
+
+  /* FOOTER */
+  .site-footer { margin-top: 4rem; padding: 2rem 0; border-top: 1px solid var(--paper-3); display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 11px; color: var(--ink-3); letter-spacing: 0.05em; }
+
+  @media (max-width: 600px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-side { display: none; }
+    .rules-grid { grid-template-columns: 1fr; }
+    .cat-grid { grid-template-columns: 1fr; }
+    .toc-bar { grid-template-columns: 1fr 1fr; }
+  }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  .section { animation: fadeUp 0.4s ease both; }
+  .section:nth-child(1) { animation-delay: 0.05s; }
+  .section:nth-child(2) { animation-delay: 0.1s; }
+  .section:nth-child(3) { animation-delay: 0.15s; }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <div style="padding-top: 2rem;">
+    <a href="../index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-3)'">← Back to home</a>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-meta">
+      <span class="tag-badge accent">SEO Knowledge Base</span>
+      <span class="tag-badge">Internal use</span>
+      <span class="tag-badge">v1.0 — April 2026</span>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1 class="hero-title">Entity<br><em>Stacking</em></h1>
+        <p class="hero-subtitle">Build the off-page consensus Google needs to<br>trust, understand and rank your brand.</p>
+      </div>
+      <div class="hero-side">
+        <div class="version-box">
+          4 sections<br>
+          6 platform types<br>
+          30+ offpage signals<br>
+          Updated 2026
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- TOC -->
+  <nav class="toc-bar">
+    <a href="#s1" class="toc-item"><span class="toc-num">01</span> Why Entity Stacking</a>
+    <a href="#s2" class="toc-item"><span class="toc-num">02</span> Platform Types</a>
+    <a href="#s3" class="toc-item"><span class="toc-num">03</span> Consistency Rules</a>
+    <a href="#s4" class="toc-item"><span class="toc-num">04</span> How Many Signals</a>
+  </nav>
+
+  <!-- VIDEO -->
+  <a href="https://www.youtube.com/watch?v=4wwnMx86bWA&t=2s" target="_blank" rel="noopener" style="text-decoration:none; display:block; margin: 2rem 0;">
+    <div class="yt-wrap">
+      <div class="yt-label">📹 Deep dive — Entity Stacking explained — click to watch</div>
+      <div style="position:relative; width:100%; aspect-ratio:16/9; background:#000;">
+        <img src="https://img.youtube.com/vi/4wwnMx86bWA/maxresdefault.jpg" alt="Entity Stacking explained" style="width:100%;height:100%;object-fit:cover;opacity:0.85;">
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+          <div style="width:68px;height:48px;background:#ff0000;border-radius:12px;display:flex;align-items:center;justify-content:center;">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+
+  <!-- ─── SECTION 1 ─── -->
+  <section class="section" id="s1">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2>Why Entity Stacking</h2>
+    </div>
+
+    <p>Entity stacking is the practice of building a structured presence across trusted, authoritative platforms so that Google can form a coherent understanding of who you are and what your site is about. It's not optional — nobody is going to build that presence for you.</p>
+
+    <div class="rules-grid">
+      <div class="rule-item">
+        <div class="rule-title">Nobody does it for us</div>
+        <div class="rule-content">Your entity footprint doesn't build itself. If you're not actively creating and aligning signals, the void gets filled by inconsistent or missing data — which Google reads as low trust.</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-title">Google needs it to understand you</div>
+        <div class="rule-content">Mentions, citations and references across trusted platforms are how Google builds a picture of your brand identity, your niche, and your legitimacy. Without this, you're invisible in the Knowledge Graph.</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-title">Trust by association</div>
+        <div class="rule-content">When your brand appears on platforms Google already trusts — Wikipedia, Crunchbase, Trustpilot — some of that trust transfers. You're borrowing credibility from established sources.</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-title">Safe, free & Google-recommended</div>
+        <div class="rule-content">Unlike paid links, entity stacking carries no penalty risk. Google actively recommends it, especially for local SEO via NAP consistency. It's the lowest-risk lever in the off-page playbook.</div>
+      </div>
+    </div>
+
+    <div class="callout warn">
+      <div class="callout-label">⏳ vs Organic Trust</div>
+      <p>Building trust organically — through earned mentions, natural press, word-of-mouth — takes significantly longer and is largely outside your control. Entity stacking gives you a <strong>structured, controllable shortcut</strong> to establish the same signals faster. It doesn't replace organic trust, but it lays the foundation while you wait for it to accumulate.</p>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 2 ─── -->
+  <section class="section" id="s2">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>Platform Types</h2>
+    </div>
+
+    <p>Not all entity signals are equal. The goal is to cover multiple platform categories to build a diverse, credible footprint — not just stack 50 directory listings of the same type.</p>
+
+    <div class="cat-grid">
+      <div class="cat-card">
+        <div class="cat-title" style="color: var(--accent-2);">Social Media</div>
+        <ul class="cat-list">
+          <li>X (Twitter)</li>
+          <li>Facebook</li>
+          <li>LinkedIn</li>
+          <li>YouTube</li>
+          <li>Pinterest</li>
+        </ul>
+      </div>
+      <div class="cat-card">
+        <div class="cat-title" style="color: var(--success);">Citations</div>
+        <ul class="cat-list">
+          <li>Yelp</li>
+          <li>Foursquare</li>
+          <li>ZoomInfo</li>
+          <li>PitchBook</li>
+          <li>BBB</li>
+        </ul>
+      </div>
+      <div class="cat-card">
+        <div class="cat-title" style="color: var(--warn);">Reference Sites</div>
+        <ul class="cat-list">
+          <li>Wikipedia</li>
+          <li>Reddit</li>
+          <li>Quora</li>
+          <li>Crunchbase</li>
+          <li>SimilarWeb</li>
+          <li>IMDB</li>
+        </ul>
+      </div>
+      <div class="cat-card">
+        <div class="cat-title" style="color: #a78bfa;">Web 2.0</div>
+        <ul class="cat-list">
+          <li>Medium</li>
+          <li>Blogger</li>
+          <li>HubPages</li>
+          <li>Substack</li>
+          <li>LiveJournal</li>
+        </ul>
+      </div>
+      <div class="cat-card">
+        <div class="cat-title" style="color: var(--danger);">Review Sites</div>
+        <ul class="cat-list">
+          <li>Trustpilot</li>
+          <li>TripAdvisor</li>
+          <li>Reviews.io</li>
+          <li>YELL</li>
+        </ul>
+      </div>
+      <div class="cat-card">
+        <div class="cat-title" style="color: var(--accent);">Digital PR</div>
+        <ul class="cat-list">
+          <li>Interviews</li>
+          <li>Features</li>
+          <li>Product launches</li>
+          <li>Expert roundups</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout edge">
+      <div class="callout-label">💡 IMDB Tip — Entity for People</div>
+      <p>IMDB is one of the most effective ways to build a <strong>personal entity in the Knowledge Graph</strong>. The hack: pay to be an extra in a short film or indie production — even a very minor role. This creates a legitimate IMDB profile, which Google treats as a strong entity signal for the person. From there, you can develop and expand that Knowledge Graph profile progressively. Underused and highly effective.</p>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 3 ─── -->
+  <section class="section" id="s3">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2>Consistency Rules</h2>
+    </div>
+
+    <p>Entity stacking only works if every single piece of information across every platform is <strong>perfectly aligned</strong>. One inconsistency — a different address format, a slightly different brand name, a mismatched phone number — weakens the signal and creates confusion in Google's entity resolution process.</p>
+
+    <div class="callout danger">
+      <div class="callout-label">❌ Non-negotiable</div>
+      <p>Consistency is not a best practice — it's a hard requirement. If you have 40 entity signals but half of them use "Company Inc." and the other half use "Company" with a different URL, you're building noise, not consensus. <strong>Audit every profile before and after creation.</strong></p>
+    </div>
+
+    <h3>What needs to be consistent</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Field</th><th>Rule</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Brand Name</td><td>Exact same formatting across every platform. Casing, punctuation, legal suffix — all identical.</td></tr>
+          <tr><td>Website URL</td><td>Always the canonical domain. No www vs non-www variation. Always same protocol (https).</td></tr>
+          <tr><td>Address / NAP</td><td>Critical for local. Street format, city, postal code — copy-paste exact, never retype from memory.</td></tr>
+          <tr><td>Description</td><td>Core messaging consistent. Can be adapted in length but never contradictory in what the company does.</td></tr>
+          <tr><td>Category / Niche</td><td>Always the same primary category. Google uses this to understand your vertical.</td></tr>
+          <tr><td>Logo / Visuals</td><td>Same logo, same profile image where applicable. Visual consistency reinforces entity identity.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 4 ─── -->
+  <section class="section" id="s4">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2>How Many Signals?</h2>
+    </div>
+
+    <p>There's no universal answer — but there are strong baselines and niche-specific adjustments to factor in.</p>
+
+    <div class="callout info">
+      <div class="callout-label">📌 Jason Barnard (Kalicube)</div>
+      <p>Kalicube's research recommends a minimum of <strong>30 off-page entity signals</strong> as a baseline to establish a credible entity footprint. This is the floor — not the target. Think of it as the minimum viable entity presence before Google starts forming a reliable understanding of who you are.</p>
+    </div>
+
+    <h3>Adjust by niche</h3>
+    <p>30 is a starting point — your actual target varies significantly depending on the competitive and trust demands of your vertical.</p>
+
+    <div class="kpi-grid">
+      <div class="kpi-item">
+        <div class="kpi-label">Baseline</div>
+        <div class="kpi-value" style="color: var(--accent-2);">30+</div>
+        <div class="kpi-sub">Minimum for any niche. Below this, entity recognition is unreliable.</div>
+      </div>
+      <div class="kpi-item">
+        <div class="kpi-label">Standard Niche</div>
+        <div class="kpi-value" style="color: var(--success);">40–60</div>
+        <div class="kpi-sub">E-commerce, SaaS, editorial. Solid coverage across all 6 platform types.</div>
+      </div>
+      <div class="kpi-item">
+        <div class="kpi-label">YMYL Niche</div>
+        <div class="kpi-value" style="color: var(--warn);">60–100+</div>
+        <div class="kpi-sub">Healthcare, finance, legal. Google's trust bar is much higher. More signals, higher authority sources.</div>
+      </div>
+    </div>
+
+    <div class="callout warn">
+      <div class="callout-label">⚠ YMYL context</div>
+      <p>For <strong>Your Money Your Life</strong> verticals — healthcare, finance, insurance, legal — Google's entity trust requirements are significantly stricter. More signals are needed, and the <strong>quality and authority of the platforms</strong> matters more than for standard niches. Wikipedia, major press, and verified professional directories carry far more weight here than Web 2.0 or generic citation sites.</p>
+    </div>
+
+    <h3>Quality over quantity</h3>
+    <p>Hitting 30 low-quality citations on obscure directories is not the same as 30 signals across diverse, high-trust platform categories. <strong>Coverage across types matters as much as volume.</strong> Aim for at least one strong signal in each of the 6 platform categories before expanding volume within any single category.</p>
+
+    <div class="callout success">
+      <div class="callout-label">✓ Right approach</div>
+      <p>Build coverage breadth first (one per platform type) → then add volume within categories → then upgrade quality within categories. This order ensures Google builds a multi-dimensional picture of your entity rather than a lopsided one.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <span>SEO Knowledge Base — Internal use</span>
+    <span>Entity Stacking — v1.0 — April 2026</span>
+  </footer>
+
+</div>
+</body>
+</html>
