@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="tag" content="strategy">
+<meta name="date" content="2026-04-30">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linkbuilding Strategy at Scale — SEO Knowledge Base</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #f9fafb;
+    --ink-2: #d1d5db;
+    --ink-3: #9ca3af;
+    --paper: #17191a;
+    --paper-2: #212426;
+    --paper-3: #2d3134;
+    --accent: #ff6e40;
+    --accent-2: #60a5fa;
+    --accent-light: #2a1a15;
+    --success: #34d399;
+    --warn: #fbbf24;
+    --danger: #f87171;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+    --display: 'Syne', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  /* ── LAYOUT ── */
+  .page-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    border-bottom: 1px solid var(--paper-3);
+    padding: 2rem 0 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .header-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .tag-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--paper-3);
+    border-radius: 2px;
+    color: var(--ink-3);
+  }
+
+  .tag-badge.accent { border-color: var(--accent); color: var(--accent); }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: end;
+    padding-bottom: 2.5rem;
+  }
+
+  .hero-title {
+    font-family: var(--display);
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+  }
+
+  .hero-title em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .hero-subtitle {
+    font-family: var(--sans);
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--ink-3);
+    margin-top: 0.75rem;
+    line-height: 1.5;
+  }
+
+  .hero-side {
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .version-box {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-3);
+    line-height: 1.8;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── TOC ── */
+  .toc-bar {
+    background: var(--paper-2);
+    border: 1px solid var(--paper-3);
+    color: var(--ink);
+    padding: 1.5rem 2rem;
+    margin: 0 -2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.25rem 2rem;
+  }
+
+  .toc-item {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    padding: 0.3rem 0;
+    color: rgba(249,250,251,0.6);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.15s;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .toc-item:hover { color: var(--ink); }
+
+  .toc-num {
+    color: var(--accent);
+    font-weight: 500;
+    min-width: 20px;
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    padding: 4rem 0 2rem;
+    border-bottom: 1px solid var(--paper-3);
+  }
+
+  .section:last-child { border-bottom: none; }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .section-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    min-width: 32px;
+  }
+
+  h2 {
+    font-family: var(--display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-top: 15px;
+  }
+
+  h3 {
+    font-family: var(--display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: calc(2rem + 16px) 0 0.75rem;
+    letter-spacing: -0.01em;
+  }
+
+  h4 {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 1.5rem 0 0.5rem;
+  }
+
+  p { margin-bottom: 1rem; color: var(--ink-2); }
+
+  strong { font-weight: 500; color: var(--ink); }
+
+  /* ── CODE ── */
+  code {
+    font-family: var(--mono);
+    font-size: 0.82em;
+    background: var(--paper-2);
+    border: 1px solid var(--paper-3);
+    border-radius: 3px;
+    padding: 1px 5px;
+    color: var(--accent-2);
+  }
+
+  pre {
+    background: #0f1113;
+    border: 1px solid var(--paper-3);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+
+  pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.82rem;
+    line-height: 1.7;
+    color: #a8d8b8;
+  }
+
+  /* ── CALLOUTS ── */
+  .callout {
+    border-left: 3px solid;
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .callout p { margin-bottom: 0; font-size: 0.92rem; }
+  .callout p + p { margin-top: 0.5rem; }
+
+  .callout-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+
+  .callout.info { border-color: var(--accent-2); background: rgba(96, 165, 250, 0.1); }
+  .callout.info .callout-label { color: var(--accent-2); }
+  .callout.warn { border-color: var(--warn); background: rgba(251, 191, 36, 0.1); }
+  .callout.warn .callout-label { color: var(--warn); }
+  .callout.danger { border-color: var(--danger); background: rgba(239, 68, 68, 0.1); }
+  .callout.danger .callout-label { color: var(--danger); }
+  .callout.success { border-color: var(--success); background: rgba(52, 211, 153, 0.1); }
+  .callout.success .callout-label { color: var(--success); }
+  .callout.edge { border-color: #a78bfa; background: rgba(167, 139, 250, 0.1); }
+  .callout.edge .callout-label { color: #a78bfa; }
+
+  /* ── TABLES ── */
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+
+  thead tr {
+    background: var(--paper-2);
+    color: var(--ink);
+  }
+
+  thead th {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.75rem 1rem;
+    text-align: left;
+  }
+
+  tbody tr { border-bottom: 1px solid var(--paper-2); }
+  tbody tr:hover { background: var(--paper-2); }
+
+  tbody td {
+    padding: 0.65rem 1rem;
+    color: var(--ink-2);
+    vertical-align: top;
+  }
+
+  tbody td:first-child { font-weight: 400; color: var(--ink); }
+
+  /* ── PIPELINE DIAGRAM ── */
+  .pipeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 1.5rem 0;
+    font-family: var(--mono);
+  }
+
+  .pipeline-step {
+    display: grid;
+    grid-template-columns: 28px 1fr auto;
+    align-items: start;
+    gap: 0.75rem;
+  }
+
+  .pipeline-line {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 6px;
+  }
+
+  .pipeline-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .pipeline-connector {
+    width: 1px;
+    height: 2rem;
+    background: var(--paper-3);
+    margin-top: 2px;
+  }
+
+  .pipeline-step:last-child .pipeline-connector { display: none; }
+
+  .pipeline-content {
+    padding: 4px 0 2rem;
+  }
+
+  .pipeline-title {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: 0.04em;
+    margin-bottom: 2px;
+  }
+
+  .pipeline-desc {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--ink-3);
+    line-height: 1.5;
+  }
+
+  .pipeline-badge {
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 2px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    margin-top: 5px;
+    align-self: start;
+  }
+
+  .badge-ok { background: rgba(52, 211, 153, 0.1); color: var(--success); }
+  .badge-warn { background: rgba(251, 191, 36, 0.1); color: var(--warn); }
+  .badge-full { background: rgba(96, 165, 250, 0.1); color: var(--accent-2); }
+
+  /* ── KPI GRID ── */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1px;
+    background: var(--paper-3);
+    border: 1px solid var(--paper-3);
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 1.5rem 0;
+  }
+
+  .kpi-item {
+    background: var(--paper);
+    padding: 1.25rem;
+  }
+
+  .kpi-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 0.4rem;
+  }
+
+  .kpi-value {
+    font-family: var(--display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .kpi-sub {
+    font-size: 0.78rem;
+    color: var(--ink-3);
+    line-height: 1.4;
+  }
+
+  /* ── RULES GRID ── */
+  .rules-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--paper-3);
+    border: 1px solid var(--paper-3);
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 1.5rem 0;
+  }
+
+  .rule-item {
+    background: var(--paper);
+    padding: 1.25rem 1.5rem;
+  }
+
+  .rule-title {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 0.5rem;
+  }
+
+  .rule-content {
+    font-size: 0.88rem;
+    color: var(--ink-2);
+    line-height: 1.6;
+  }
+
+  /* ── STATUS PILLS ── */
+  .status { display: inline-block; font-size: 0.75rem; font-weight: 400; padding: 1px 7px; border-radius: 2px; font-family: var(--mono); }
+  .status-ok { background: rgba(52, 211, 153, 0.1); color: var(--success); }
+  .status-warn { background: rgba(251, 191, 36, 0.1); color: var(--warn); }
+  .status-bad { background: rgba(239, 68, 68, 0.1); color: var(--danger); }
+  .status-exp { background: rgba(167, 139, 250, 0.1); color: #a78bfa; }
+
+  /* ── CHECKLIST ── */
+  .checklist {
+    margin: 1.25rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .check-item {
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    gap: 0.5rem;
+    font-size: 0.88rem;
+    color: var(--ink-2);
+    align-items: baseline;
+  }
+
+  .check-num {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    margin-top: 4rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--paper-3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-3);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-side { display: none; }
+    .rules-grid { grid-template-columns: 1fr; }
+    .toc-bar { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .section { animation: fadeUp 0.4s ease both; }
+  .section:nth-child(1) { animation-delay: 0.05s; }
+  .section:nth-child(2) { animation-delay: 0.1s; }
+  .section:nth-child(3) { animation-delay: 0.15s; }
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+  <div style="padding-top: 2rem;">
+    <a href="../index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-3)'">← Back to home</a>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-meta">
+      <span class="tag-badge accent">SEO Knowledge Base</span>
+      <span class="tag-badge">Internal use</span>
+      <span class="tag-badge">v1.0 — April 2026</span>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1 class="hero-title">Link<em>building</em><br>at Scale</h1>
+        <p class="hero-subtitle">Tips & strategy from C.Floate's masterclass.<br>How to scale your LB without risking your site.</p>
+      </div>
+      <div class="hero-side">
+        <div class="version-box">
+          6 sections<br>
+          19-point audit<br>
+          Full diversification<br>
+          Updated 2026
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- TOC -->
+  <nav class="toc-bar">
+    <a href="#s1" class="toc-item"><span class="toc-num">01</span> Entity Stacking</a>
+    <a href="#s2" class="toc-item"><span class="toc-num">02</span> Authority vs Relevancy</a>
+    <a href="#s3" class="toc-item"><span class="toc-num">03</span> Money / Supporting / Homepage</a>
+    <a href="#s4" class="toc-item"><span class="toc-num">04</span> Anchor Text</a>
+    <a href="#s5" class="toc-item"><span class="toc-num">05</span> Anti-spam Policy</a>
+    <a href="#s6" class="toc-item"><span class="toc-num">06</span> How to Vet a Website</a>
+  </nav>
+
+  <!-- ─── SECTION 1 ─── -->
+  <section class="section" id="s1">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2>Entity Stacking</h2>
+    </div>
+
+    <p>Linking branded profiles, references and citations across trusted sources and authority platforms to get Google to recognize brand identity — <strong>building consensus through neutral or positive mentions</strong>.</p>
+
+    <div class="callout info">
+      <div class="callout-label">💡 Example — Stake</div>
+      <p>Stake fully succeeded in embedding themselves into the Knowledge Graph via multiple coordinated elements: Wikipedia page, About Page, Social networks, Press coverage. The key: perfect alignment across all mentioned information.</p>
+    </div>
+
+    <h3>How to build a real consensus</h3>
+    <p>The goal is to achieve a full, coherent alignment across all the places your brand is mentioned. Inconsistency between sources weakens the signal. Every mention should reinforce the same entity identity.</p>
+
+    <div class="pipeline">
+      <div class="pipeline-step">
+        <div class="pipeline-line"><div class="pipeline-dot"></div><div class="pipeline-connector"></div></div>
+        <div class="pipeline-content">
+          <div class="pipeline-title">Wikipedia / Authority Reference</div>
+          <div class="pipeline-desc">Highest-trust entity signal. Hard to get, highest ROI.</div>
+        </div>
+        <div><span class="pipeline-badge badge-ok">Tier 1</span></div>
+      </div>
+      <div class="pipeline-step">
+        <div class="pipeline-line"><div class="pipeline-dot"></div><div class="pipeline-connector"></div></div>
+        <div class="pipeline-content">
+          <div class="pipeline-title">Press & Media Coverage</div>
+          <div class="pipeline-desc">Neutral or positive brand mentions in editorial content.</div>
+        </div>
+        <div><span class="pipeline-badge badge-ok">Tier 1</span></div>
+      </div>
+      <div class="pipeline-step">
+        <div class="pipeline-line"><div class="pipeline-dot"></div><div class="pipeline-connector"></div></div>
+        <div class="pipeline-content">
+          <div class="pipeline-title">Social Networks & About Pages</div>
+          <div class="pipeline-desc">Consistent NAP and brand signals across all platforms.</div>
+        </div>
+        <div><span class="pipeline-badge badge-warn">Tier 2</span></div>
+      </div>
+      <div class="pipeline-step">
+        <div class="pipeline-line"><div class="pipeline-dot" style="background:var(--accent-2)"></div></div>
+        <div class="pipeline-content">
+          <div class="pipeline-title">Citations & Directories</div>
+          <div class="pipeline-desc">Supporting layer — volume with consistency.</div>
+        </div>
+        <div><span class="pipeline-badge badge-full">Supporting</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 2 ─── -->
+  <section class="section" id="s2">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>Authority vs Relevancy</h2>
+    </div>
+
+    <p>The theoretical optimum is a DR 99 referring domain fully relevant to your niche — which is nearly impossible to achieve in practice. The real work is finding <strong>the best balance between the two</strong>.</p>
+
+    <div class="callout warn">
+      <div class="callout-label">⚠ Key Observation</div>
+      <p><strong>Authority seems to outweigh relevancy</strong> — and this tendency is growing. Small entities and niche experts are being outranked by major authority players who are neither perfectly relevant nor targeting search intent well. Classic example: Forbes outranking healthcare providers on health-related SERPs.</p>
+    </div>
+
+    <div class="rules-grid">
+      <div class="rule-item">
+        <div class="rule-title">Authority-first signal</div>
+        <div class="rule-content">A high-DR link from a semi-relevant domain often outperforms a low-DR link from a perfectly relevant one. Authority carries the floor.</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-title">Relevancy still matters</div>
+        <div class="rule-content">Relevancy amplifies authority when it's present. A DR 70 + relevant domain is close to optimal. Never ignore it entirely.</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-title">How to spot the trend</div>
+        <div class="rule-content">Reverse-engineer the SERPs by comparing Ahrefs data year-over-year. Evolution inspection is the most reliable signal.</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-title">Ranking shift</div>
+        <div class="rule-content">This authority-over-relevancy pattern applies both to linking and to general rankings. Factor it into your site-wide strategy.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 3 ─── -->
+  <section class="section" id="s3">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2>Money Pages vs Supporting Pages vs Homepage</h2>
+    </div>
+
+    <h3>Money Pages</h3>
+    <p>Before building any links to money pages, <strong>analyse the SERP to understand what consensus you need to fit</strong>. Just like content needs to match the intent and topical consensus, linking needs to mirror what the SERP's top players actually look like.</p>
+
+    <div class="callout info">
+      <div class="callout-label">💡 Floate's Principle</div>
+      <p>As much as we want to fit the consensus on the SERP through content, we need to do so through linking too.</p>
+    </div>
+
+    <p>Having links when they're not needed delivers <strong>negative ROI at best, risk at worst</strong>. Money pages should always receive the safest and most powerful links in your arsenal.</p>
+
+    <h3>Supporting Pages</h3>
+    <p>Supporting pages (typically blog content) are useful because they can distribute link equity via multiple internal links — and you can afford to be <strong>more aggressive</strong> when acquiring links towards them.</p>
+
+    <div class="callout warn">
+      <div class="callout-label">⚠ Cluster Rule</div>
+      <p>Use a supporting page from a given cluster to push money pages of <strong>that same cluster only</strong>. Link equity shouldn't bleed out of its cluster. A sports betting supporting page should push the sports betting LP — not casino, not horse bet.</p>
+    </div>
+
+    <p>If bad links hit a supporting page, the damage stays there rather than directly hitting the money page. However, if volume is high enough, the negative effect will become site-wide regardless.</p>
+
+    <h3>Homepage</h3>
+    <p>The homepage is the <strong>foundation of trust and site-wide authority</strong>. When homepage authority increases, the entire website theoretically benefits. It's the primary target for entity stacking, fake interviews, quoting and brand mentions.</p>
+
+    <div class="kpi-grid">
+      <div class="kpi-item">
+        <div class="kpi-label">Money Pages</div>
+        <div class="kpi-value" style="color:var(--danger)">Safe</div>
+        <div class="kpi-sub">Safest + most powerful links only. SERP consensus first.</div>
+      </div>
+      <div class="kpi-item">
+        <div class="kpi-label">Supporting Pages</div>
+        <div class="kpi-value" style="color:var(--warn)">Flexible</div>
+        <div class="kpi-sub">More aggressive allowed. Same cluster rule applies.</div>
+      </div>
+      <div class="kpi-item">
+        <div class="kpi-label">Homepage</div>
+        <div class="kpi-value" style="color:var(--success)">Entity</div>
+        <div class="kpi-sub">Trust foundation. Stacking, press, brand mentions.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 4 ─── -->
+  <section class="section" id="s4">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2>How to Pick Anchor Text</h2>
+    </div>
+
+    <p>Anchor ratios and percentages are <strong>overrated and largely useless</strong>. The more important factor is naturalness — especially the paragraph surrounding the link.</p>
+
+    <div class="callout success">
+      <div class="callout-label">✓ Core Rule</div>
+      <p>The paragraph around the link needs to be clean, semantically rich and contextually relevant to the linked page. The best way to achieve this is through proper human editing — not templated insertion.</p>
+    </div>
+
+    <div class="rules-grid">
+      <div class="rule-item">
+        <div class="rule-title">Capitalization</div>
+        <div class="rule-content">One of the most common spam signals Google uses. "Stake is the Best Online Casino" — capitalized anchors get flagged. Stay natural.</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-title">Competitive Match</div>
+        <div class="rule-content">Most competitive anchor → most competitive page. Match anchor aggressiveness to page target intentionally.</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-title">Anchor Diversity</div>
+        <div class="rule-content">Mix optimized, semi-optimized, branded, URL and generic anchors. No single type should dominate.</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-title">Context > Anchor</div>
+        <div class="rule-content">A well-written surrounding paragraph with a generic anchor often outperforms an exact-match anchor dropped into thin content.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 5 ─── -->
+  <section class="section" id="s5">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2>How to Avoid Anti-Spam Policy</h2>
+    </div>
+
+    <h3>Rank your guest posts</h3>
+    <p>Having guest posts that actually rank and receive direct signals from Google is far more valuable than anything else. Getting links on <strong>existing, already-ranking pages</strong> is a massive lever. Tier 2 linking on blog posts is one effective way to both make posts rank and offset potential spam signals.</p>
+
+    <div class="callout danger">
+      <div class="callout-label">❌ Avoid</div>
+      <p><strong>Linking to orphan pages.</strong> Paid pages in particular absolutely need other forms of link equity through internal linking. An orphan paid page is a red flag.</p>
+    </div>
+
+    <h3>Full Diversification Framework</h3>
+    <p>Diversification goes way beyond the dofollow/nofollow split. It needs to be systematic across every dimension:</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Dimension</th><th>What to vary</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Link Type</td><td>PR, guest post, image links, forum, citations, interviews…</td></tr>
+          <tr><td>Geo</td><td>Links from other geos but same language can add value — evaluate by project</td></tr>
+          <tr><td>Metatags</td><td>Dofollow, Nofollow, Sponsored — mix all three</td></tr>
+          <tr><td>CMS / Platform</td><td>Avoid using the same WordPress template over and over</td></tr>
+          <tr><td>Anchor Type</td><td>Optimized, semi-optimized, branded, URL, generic</td></tr>
+          <tr><td>Content Type</td><td>Press, guest post, interview, roundup, resource page…</td></tr>
+          <tr><td>Relevancy</td><td>Not every link needs to be 100% niche-relevant</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Link Velocity</h3>
+    <p>Velocity is hard to manage because it depends on site-specific factors: age, authority, page count, current linking baseline. A few key principles:</p>
+
+    <ul style="margin: 0.75rem 0 1.5rem 1.25rem; color: var(--ink-2); font-size: 0.92rem;">
+      <li style="margin-bottom:0.6rem"><strong>Do not count pillow links</strong> in your velocity strategy — they operate at a different layer.</li>
+      <li style="margin-bottom:0.6rem"><strong>Don't over-accelerate</strong> — avoid having dramatically more links than new articles being published.</li>
+      <li><strong>Be logical and natural</strong> — velocity spikes that don't match the site's content output are easy to identify algorithmically.</li>
+    </ul>
+  </section>
+
+  <!-- ─── SECTION 6 ─── -->
+  <section class="section" id="s6">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2>How to Vet a Website Before Linking From It</h2>
+    </div>
+
+    <p>19-point checklist — from editorial quality to ROI. Every referring domain should pass through this before acquisition.</p>
+
+    <div class="checklist">
+      <div class="check-item"><span class="check-num">01</span><span><strong>Publishing relevance</strong> — Are they currently publishing content relevant to your niche? Not unrelated or flagged topics (casino, adult…)?</span></div>
+      <div class="check-item"><span class="check-num">02</span><span><strong>Publishing rhythm</strong> — 1 article/day vs 10/day changes the value of each post significantly.</span></div>
+      <div class="check-item"><span class="check-num">03</span><span><strong>Niche relevance</strong> — Is the site actually relevant to your vertical?</span></div>
+      <div class="check-item"><span class="check-num">04</span><span><strong>Content depth</strong> — Thin, low-quality content? Or rich, entity-filled, genuinely useful articles?</span></div>
+      <div class="check-item"><span class="check-num">05</span><span><strong>Ranking velocity</strong> — Do they rank quickly? Do they rank at all?</span></div>
+      <div class="check-item"><span class="check-num">06</span><span><strong>Wayback Machine check</strong> — Has the site kept the same thematic focus over time? Did someone buy an expired domain and pivot it?</span></div>
+      <div class="check-item"><span class="check-num">07</span><span><strong>Redirect history</strong> — Has the domain ever had significant redirects?</span></div>
+      <div class="check-item"><span class="check-num">08</span><span><strong>Spam signals</strong> — Chinese, Indonesian or other spammy patterns in the backlink profile?</span></div>
+      <div class="check-item"><span class="check-num">09</span><span><strong>Traffic & link sources</strong> — Check traffic directories and source quality.</span></div>
+      <div class="check-item"><span class="check-num">10</span><span><strong>Fake traffic</strong> — Is the traffic real? Is it relevant to your niche?</span></div>
+      <div class="check-item"><span class="check-num">11</span><span><strong>DR quality</strong> — Is DR inflated by redirects pointing to the homepage? Check UR of internal pages vs homepage DR gap.</span></div>
+      <div class="check-item"><span class="check-num">12</span><span><strong>Content quality</strong> — Fully AI-generated? Still acceptable if it ranks, but slightly less optimal.</span></div>
+      <div class="check-item"><span class="check-num">13</span><span><strong>Internal linking</strong> — Is content internally linked properly or are pages isolated?</span></div>
+      <div class="check-item"><span class="check-num">14</span><span><strong>Enrichment signals</strong> — Schema, microdata or other structured data present?</span></div>
+      <div class="check-item"><span class="check-num">15</span><span><strong>Formatting</strong> — Font issues, broken Hn hierarchy, wall-of-text, blank spaces — all negative signals.</span></div>
+      <div class="check-item"><span class="check-num">16</span><span><strong>Page/traffic ratio</strong> — 2,000 pages / 2,000 traffic = bad. 100 pages / 2,000 traffic = excellent. Higher perceived value per page.</span></div>
+      <div class="check-item"><span class="check-num">17</span><span><strong>ROI potential</strong> — What's the expected return vs price for this geo / language / niche combination?</span></div>
+      <div class="check-item"><span class="check-num">18</span><span><strong>Risk assessment</strong> — Aggregate of all previous signals. What's the overall risk level of linking from here?</span></div>
+      <div class="check-item"><span class="check-num">19</span><span><strong>Publisher policy</strong> — How many links allowed? Images? Internal links? What can you actually get for your article?</span></div>
+    </div>
+
+    <div class="callout edge">
+      <div class="callout-label">🔬 Key ratio to remember</div>
+      <p>The page/traffic ratio (point 16) is one of the strongest signals of domain quality. A site with 100 pages and 2K traffic has high perceived page value — your sponsored article has a much better chance of ranking on it than on a 2K-page site with the same traffic.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <span>SEO Knowledge Base — Internal use</span>
+    <span>Linkbuilding Strategy at Scale — v1.0 — April 2026</span>
+  </footer>
+
+</div>
+
+</body>
+</html>
