@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="tag" content="technique">
+<meta name="date" content="2026-05-09">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Python pour le Consultant SEO en Agence — SEO Knowledge Base</title>
+<link rel="icon" type="image/png" href="../image/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #f9fafb;
+    --ink-2: #d1d5db;
+    --ink-3: #9ca3af;
+    --paper: #17191a;
+    --paper-2: #212426;
+    --paper-3: #2d3134;
+    --accent: #ff6e40;
+    --accent-2: #60a5fa;
+    --success: #34d399;
+    --warn: #fbbf24;
+    --danger: #f87171;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+    --display: 'Syne', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .page-wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+  /* HEADER */
+  .site-header { border-bottom: 1px solid var(--paper-3); padding: 2rem 0 1.5rem; margin-bottom: 0; }
+  .header-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+  .tag-badge { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border: 1px solid var(--paper-3); border-radius: 2px; color: var(--ink-3); }
+  .tag-badge.accent { border-color: var(--accent); color: var(--accent); }
+
+  .hero-grid { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: end; padding-bottom: 2.5rem; }
+  .hero-title { font-family: var(--display); font-size: clamp(2.8rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.0; letter-spacing: -0.03em; color: var(--ink); }
+  .hero-title em { font-style: normal; color: var(--accent); }
+  .hero-subtitle { font-family: var(--sans); font-size: 1rem; font-weight: 300; color: var(--ink-3); margin-top: 0.75rem; line-height: 1.5; }
+  .version-box { font-family: var(--mono); font-size: 10px; color: var(--ink-3); line-height: 1.8; letter-spacing: 0.05em; text-align: right; }
+
+  /* TOC */
+  .toc-bar { background: var(--paper-2); border: 1px solid var(--paper-3); padding: 1.5rem 2rem; margin: 0 -2rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.25rem 2rem; }
+  .toc-item { font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; padding: 0.3rem 0; color: rgba(249,250,251,0.6); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.15s; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .toc-item:hover { color: var(--ink); }
+  .toc-num { color: var(--accent); font-weight: 500; min-width: 20px; }
+
+  /* SECTIONS */
+  .section { padding: 4rem 0 2rem; border-bottom: 1px solid var(--paper-3); }
+  .section:last-child { border-bottom: none; }
+  .section-header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 2rem; }
+  .section-num { font-family: var(--mono); font-size: 11px; font-weight: 500; color: var(--accent); letter-spacing: 0.1em; min-width: 32px; }
+
+  h2 { font-family: var(--display); font-size: 1.6rem; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: var(--ink); margin-top: 15px; }
+  h3 { font-family: var(--display); font-size: 1.05rem; font-weight: 600; color: var(--ink); margin: calc(2rem + 16px) 0 0.75rem; letter-spacing: -0.01em; }
+  h4 { font-family: var(--display); font-size: 1rem; font-weight: 600; color: var(--ink-2); margin: calc(1.5rem + 10px) 0 0.5rem; letter-spacing: -0.01em; }
+
+  p { margin-bottom: 1rem; color: var(--ink-2); }
+  strong { font-weight: 500; color: var(--ink); }
+  em { color: var(--ink-2); font-style: italic; }
+  code { font-family: var(--mono); font-size: 0.82em; background: var(--paper-2); border: 1px solid var(--paper-3); border-radius: 3px; padding: 1px 5px; color: var(--accent-2); }
+
+  ul { margin-bottom: 1rem; padding-left: 1.5rem; color: var(--ink-2); }
+  li { margin-bottom: 0.5rem; }
+
+  /* CALLOUTS */
+  .callout { border-left: 3px solid; padding: 1rem 1.25rem; margin: 1.5rem 0; border-radius: 0 4px 4px 0; }
+  .callout p { margin-bottom: 0; font-size: 0.92rem; }
+  .callout p + p { margin-top: 0.5rem; }
+  .callout-label { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .callout.info { border-color: var(--accent-2); background: rgba(96,165,250,0.1); }
+  .callout.info .callout-label { color: var(--accent-2); }
+  .callout.warn { border-color: var(--warn); background: rgba(251,191,36,0.1); }
+  .callout.warn .callout-label { color: var(--warn); }
+  
+  /* TABLES */
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  thead tr { background: var(--paper-2); color: var(--ink); }
+  thead th { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.75rem 1rem; text-align: left; }
+  tbody tr { border-bottom: 1px solid var(--paper-2); }
+  tbody tr:hover { background: var(--paper-2); }
+  tbody td { padding: 0.65rem 1rem; color: var(--ink-2); vertical-align: top; }
+  tbody td:first-child { font-weight: 400; color: var(--ink); }
+
+  /* FOOTER */
+  .site-footer { margin-top: 4rem; padding: 2rem 0; border-top: 1px solid var(--paper-3); display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 11px; color: var(--ink-3); letter-spacing: 0.05em; }
+
+  @media (max-width: 600px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-side { display: none; }
+    .toc-bar { grid-template-columns: 1fr 1fr; }
+  }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  .section { animation: fadeUp 0.4s ease both; }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <div style="padding-top: 2rem;">
+    <a href="../index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-3)'">← Back to home</a>
+  </div>
+
+  <header class="site-header">
+    <div class="header-meta">
+      <span class="tag-badge accent">SEO Knowledge Base</span>
+      <span class="tag-badge">Internal use</span>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1 class="hero-title">Python<br><em>pour SEO</em></h1>
+        <p class="hero-subtitle">Le 80/20 actionnable pour le Consultant SEO en Agence (contexte Eskimoz)</p>
+      </div>
+      <div class="hero-side">
+        <div class="version-box">
+          9 sections<br>
+          Updated 2026
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="toc-bar">
+    <a href="#s1" class="toc-item"><span class="toc-num">01</span> TL;DR</a>
+    <a href="#s2" class="toc-item"><span class="toc-num">02</span> Ce qu'Eskimoz attend concrètement</a>
+    <a href="#s3" class="toc-item"><span class="toc-num">03</span> Pourquoi Python en agence SEO</a>
+    <a href="#s4" class="toc-item"><span class="toc-num">04</span> Les use cases Python les plus rentables</a>
+    <a href="#s5" class="toc-item"><span class="toc-num">05</span> Les librairies Python à connaître</a>
+    <a href="#s6" class="toc-item"><span class="toc-num">06</span> Ce qu'un consultant doit comprendre</a>
+    <a href="#s7" class="toc-item"><span class="toc-num">07</span> Top 10 priorisé (scripts à maîtriser)</a>
+    <a href="#s8" class="toc-item"><span class="toc-num">08</span> Ressources d'apprentissage & Stack</a>
+    <a href="#s9" class="toc-item"><span class="toc-num">09</span> Caveats</a>
+  </nav>
+
+  <section class="section" id="s1">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2>TL;DR</h2>
+    </div>
+    <ul>
+      <li><strong>L'offre Eskimoz "Consultant·e SEO & GEO" demande explicitement "Premières compétences en Python OU en automation (Make, n8n)"</strong> — Python est listé dans leur stack "IA & Automation" aux côtés de ChatGPT, Claude, Make, n8n et l'API Ahrefs. Ce n'est pas un poste de dev : on cherche un consultant qui sait <em>lire un script, l'adapter, le lancer et automatiser un peu</em>. Le R&D et la data lourde sont gérés par leur pôle Data Scientists / Data Engineers internes.</li>
+      <li><strong>Le 80% de la valeur tient en ~7 cas d'usage</strong> : (1) manipuler des exports CSV/Excel volumineux avec <strong>pandas</strong>, (2) requêter l'<strong>API Google Search Console</strong>, (3) faire du <strong>redirect mapping</strong> avec polyfuzz/RapidFuzz, (4) <strong>analyser des log files</strong>, (5) <strong>clusteriser des keywords</strong> par embeddings, (6) <strong>scraper / crawler</strong> des pages, (7) <strong>automatiser des reportings</strong>.</li>
+      <li><strong>Les 5 concepts à maîtriser absolument</strong> : variables/types, listes & dictionnaires, boucles <code>for</code>, lecture/écriture CSV-Excel via pandas, gestion d'API avec <code>requests</code> + JSON, et le réflexe Google Colab. Si tu maîtrises ces blocs + 2-3 scripts génériques, tu couvres déjà 80% des demandes opérationnelles.</li>
+    </ul>
+  </section>
+
+  <section class="section" id="s2">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>Ce qu'Eskimoz attend concrètement</h2>
+    </div>
+    <p><strong>Contexte société</strong> : 250+ collaborateurs, 7 pays, 35 M€ de CA, 80+ consultants SEO en France. Outils propriétaires (App Eskimoz, Predictive Ranking) développés par un pôle R&D Data Science. L'agence se positionne sur le SEO + GEO.</p>
+    <p><strong>Ce que fait le Consultant SEO & GEO au quotidien</strong> :</p>
+    <ul>
+      <li>Gestion d'un portefeuille de clients variés (start-ups, PME, ETI, CAC40, tous secteurs), souvent en binôme avec un manager.</li>
+      <li>Audits SEO complets : technique, sémantique, concurrentiel, off-site.</li>
+      <li>Recommandations techniques, éditoriales, off-site et accompagnement à la mise en œuvre.</li>
+      <li>Production de livrables, comités de pilotage, GEO (visibilité dans les LLMs).</li>
+      <li>Contribution aux projets R&D du pôle SEO/GEO.</li>
+    </ul>
+    <p><strong>Stack outils explicitement listée dans l'offre</strong> :</p>
+    <ul>
+      <li><strong>Crawl & Technique</strong> : Screaming Frog, Oncrawl, Botify, Google Search Console, PageSpeed Insights, WebPageTest.</li>
+      <li><strong>Sémantique & Keywords</strong> : Ahrefs, SEMrush, Haloscan, Yourtext.guru, Monitorank.</li>
+      <li><strong>Netlinking & Autorité</strong> : Ahrefs, Majestic SEO, SEObserver, Babbar.</li>
+      <li><strong>Analytics & Reporting</strong> : GA4, Looker Studio, BigQuery, Piano Analytics.</li>
+      <li><strong>IA & Automation</strong> : ChatGPT, Claude, Perplexity, <strong>Make, n8n, Python, API Ahrefs</strong>.</li>
+      <li><strong>GEO Monitoring</strong> : Ahrefs Brand Radar, LLM Ranking, Peec.ai, Otterly.</li>
+    </ul>
+    <p><strong>Sur Python précisément</strong>, l'offre le formule ainsi : <em>"Premières compétences en Python ou en automation (Make, n8n)"</em>. Python est un atout différenciant mais pas obligatoire — l'alternative no-code est acceptée. La barre est donc <em>"je sais lancer, lire et adapter un script"</em>, pas <em>"je sais en écrire un from scratch"</em>.</p>
+    <div class="callout info">
+      <div class="callout-label">💡 Process de recrutement</div>
+      <p>1. Échange visio RH (~30 min). 2. Entretien technique (~1 h) + restitution d'un cas pratique SEO/GEO (~1 h). <strong>C'est ici que la maîtrise concrète de Python/automation peut faire la différence</strong>. 3. Entretien final (~1 h).</p>
+    </div>
+  </section>
+
+  <section class="section" id="s3">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2>Pourquoi Python en agence SEO</h2>
+    </div>
+    <ul>
+      <li><strong>Les exports SEO crashent Excel</strong> : un crawl complet ou un export GSC dépasse la capacité d'Excel. Pandas avale 1M+ lignes sans broncher.</li>
+      <li><strong>Les API gratuites sont sous-exploitées</strong> : GSC API, GA4 Data API, PageSpeed API, Indexing API. Trois lignes de Python remplacent une demi-journée de copier-coller.</li>
+      <li><strong>L'effet de levier sur le portefeuille</strong> : un script de redirect mapping fait passer une migration de "10 heures de junior" à "5 minutes de script + 2 h de QA".</li>
+      <li><strong>Le pivot GEO/IA</strong> : l'écosystème SEO mélange embeddings, appels LLM et monitoring de citations. Python est la lingua franca de cet écosystème.</li>
+    </ul>
+  </section>
+
+  <section class="section" id="s4">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2>Les use cases Python les plus rentables</h2>
+    </div>
+    
+    <h3>Manipulation d'exports tabulaires (le pain quotidien)</h3>
+    <ul>
+      <li><strong>Lire un crawl Screaming Frog</strong> avec <code>pd.read_csv()</code> ou <code>pd.read_excel()</code>.</li>
+      <li>Filtrer les URLs en <code>noindex</code>, les title vides, les title &gt;60 caractères, les pages orphelines, les redirections en chaîne.</li>
+      <li><strong>Croiser plusieurs sources</strong> : GSC + GA4 + crawl + Ahrefs sur la clé "URL" via <code>pd.merge()</code>.</li>
+      <li><strong>Comparer deux crawls</strong> (text-only vs JavaScript rendered) pour détecter les pages où Googlebot ne voit pas le contenu.</li>
+    </ul>
+
+    <h3>Analyse GSC à grande échelle</h3>
+    <ul>
+      <li>L'UI GSC est plafonnée à 1 000 lignes par export. Avec <strong>l'API GSC + Python</strong>, on extrait 25 000 lignes par requête.</li>
+      <li>Use cases concrets : <strong>détection de cannibalisation de mots-clés</strong>, pages "striking distance" (positions 11-20), opportunités de CTR.</li>
+    </ul>
+
+    <h3>Redirect mapping pour migrations</h3>
+    <ul>
+      <li>Crawl du site legacy + crawl du site cible avec Screaming Frog.</li>
+      <li>Script Python qui matche les URLs anciennes/nouvelles via fuzzy matching sur le slug, le H1 et le title.</li>
+      <li>Librairies : <strong>polyfuzz</strong> ou <strong>RapidFuzz</strong>.</li>
+    </ul>
+
+    <h3>Analyse de log files (Googlebot)</h3>
+    <ul>
+      <li>Quelles sections du site Googlebot crawle réellement.</li>
+      <li>Pages crawlées <strong>mais</strong> non indexées (cassure de crawl budget).</li>
+      <li>Outil de référence : <strong>advertools.logs_to_df()</strong> qui parse un access log directement en DataFrame parquet.</li>
+    </ul>
+
+    <h3>Crawl & scraping ciblés</h3>
+    <ul>
+      <li><strong>Crawl de masse</strong> : <code>advertools.crawl()</code> ou <code>screamingfrogseospider</code> en CLI.</li>
+      <li><strong>Scraping ponctuel</strong> : <code>requests</code> + <code>BeautifulSoup</code>.</li>
+    </ul>
+
+    <h3>Clustering sémantique de keywords</h3>
+    <ul>
+      <li>Méthode : <strong>embeddings</strong> (OpenAI ou sentence-transformers) + clustering (hdbscan ou KMeans).</li>
+      <li>Use case : sortir d'un export Ahrefs de 50 000 keywords des clusters d'intention de recherche.</li>
+    </ul>
+
+    <h3>Reporting / dashboards automatisés</h3>
+    <ul>
+      <li><strong>Pull GA4</strong> : librairie <code>google-analytics-data</code>.</li>
+      <li><strong>Pull GSC</strong> : <code>google-searchconsole</code>.</li>
+      <li><strong>Push vers Google Sheets / Looker Studio / BigQuery</strong> : <code>gspread</code>, <code>pandas-gbq</code>.</li>
+    </ul>
+  </section>
+
+  <section class="section" id="s5">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2>Les librairies Python à connaître</h2>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Librairie</th><th>À quoi ça sert concrètement en SEO</th><th>Niveau</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>pandas</strong></td><td>Lire/écrire CSV, Excel. Filtrer, grouper, merger des exports. Remplace 90% d'Excel.</td><td>Indispensable</td></tr>
+          <tr><td><strong>requests</strong></td><td>Faire des appels HTTP : tester des status codes, appeler des API, récupérer du HTML brut.</td><td>Indispensable</td></tr>
+          <tr><td><strong>BeautifulSoup (bs4)</strong></td><td>Parser du HTML. Extraire title, H1, balises canonical, liens internes.</td><td>Indispensable</td></tr>
+          <tr><td><strong>advertools</strong></td><td>Crawl, parsing sitemap, parsing logs, parsing robots.txt, analyse SERP.</td><td>Très recommandée</td></tr>
+          <tr><td><strong>google-searchconsole</strong></td><td>Wrapper API GSC : auth OAuth simplifiée, retourne des DataFrames.</td><td>Indispensable si GSC</td></tr>
+          <tr><td><strong>polyfuzz / RapidFuzz</strong></td><td>Fuzzy matching pour le redirect mapping.</td><td>Spécialisée</td></tr>
+          <tr><td><strong>sentence-transformers</strong></td><td>Embeddings locaux gratuits. Clustering keyword, similarité sémantique.</td><td>Recommandée</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section" id="s6">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2>Ce qu'un consultant doit comprendre</h2>
+    </div>
+    <p>L'objectif n'est pas de devenir développeur. C'est de <strong>lire un script, le modifier, le faire tourner sans paniquer quand une erreur s'affiche, et savoir demander à ChatGPT/Claude de l'adapter</strong>.</p>
+    <ul>
+      <li><strong>Variables et types</strong> (<code>str</code>, <code>int</code>, <code>float</code>, <code>bool</code>).</li>
+      <li><strong>Listes <code>[ ]</code> et dictionnaires <code>{ }</code></strong>.</li>
+      <li><strong>Boucles <code>for</code></strong> : <code>for url in urls:</code> parcourir une liste d'URLs.</li>
+      <li><strong>Conditions <code>if / elif / else</code></strong> : tester un status code, vérifier qu'un H1 existe.</li>
+      <li><strong>Lecture/écriture de fichiers tabulaires</strong> : <code>pd.read_csv('export.csv')</code>, <code>df.to_excel('output.xlsx')</code>.</li>
+      <li><strong>Manipulations pandas de base</strong> : <code>df.head()</code>, <code>df.shape</code>, <code>df[df['Status Code'] == 404]</code>.</li>
+      <li><strong>Appel à une API REST</strong> : <code>requests.get(url)</code>.</li>
+      <li><strong>Environnements</strong> : utiliser <strong>Google Colab</strong> pour 80% des cas.</li>
+    </ul>
+    <div class="callout info">
+      <div class="callout-label">💡 Hack 2026</div>
+      <p>Avec Claude Code, Cursor ou ChatGPT, un consultant non-dev peut générer 80% du code dont il a besoin <strong>à condition de savoir formuler la demande avec les bonnes briques mentales</strong>.</p>
+    </div>
+  </section>
+
+  <section class="section" id="s7">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2>Top 10 priorisé (scripts à maîtriser)</h2>
+    </div>
+    <ul>
+      <li><strong>Priorité 1</strong> — pandas + lecture/jointure d'exports CSV (Screaming Frog, GSC, Ahrefs).</li>
+      <li><strong>Priorité 2</strong> — Lancer Google Colab et exécuter un notebook existant.</li>
+      <li><strong>Priorité 3</strong> — Redirect mapper (polyfuzz / RapidFuzz).</li>
+      <li><strong>Priorité 4</strong> — API GSC avec <code>google-searchconsole</code>.</li>
+      <li><strong>Priorité 5</strong> — <code>requests</code> + BeautifulSoup pour scraper en bulk un élément précis.</li>
+      <li><strong>Priorité 6</strong> — <code>advertools</code> pour crawl + sitemap + logs.</li>
+      <li><strong>Priorité 7</strong> — Clustering sémantique de keywords (embeddings + KMeans/HDBSCAN).</li>
+      <li><strong>Priorité 8</strong> — Pull GA4 via l'API + génération d'un Sheet de reporting.</li>
+      <li><strong>Priorité 9</strong> — Analyse de log files (Googlebot).</li>
+      <li><strong>Priorité 10</strong> — Wrapping LLM (OpenAI/Claude API) pour audit/rewriting à l'échelle.</li>
+    </ul>
+  </section>
+
+  <section class="section" id="s8">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <h2>Ressources d'apprentissage & Stack</h2>
+    </div>
+    
+    <h3>Blogs & sites de référence (qualité agence)</h3>
+    <ul>
+      <li><strong>JC Chouinard</strong> — la ressource n°1. Guide "Python for SEO: Complete Guide".</li>
+      <li><strong>Hamlet Batista</strong> — fondateur du mouvement Python-for-SEO.</li>
+      <li><strong>Greg Bernhardt</strong> — 100+ scripts pratiques.</li>
+      <li><strong>Lee Foot</strong> — scripts agence prêts à l'emploi.</li>
+      <li><strong>Elias Dabbas</strong> — créateur d'advertools.</li>
+      <li><strong>Antoine Eripret</strong> — francophone, articles concis et orientés agence.</li>
+    </ul>
+
+    <h3>Repos GitHub à cloner</h3>
+    <ul>
+      <li><code>searchsolved/search-solved-public-seo</code> (Lee Foot)</li>
+      <li><code>eliasdabbas/advertools</code></li>
+      <li><code>jamesaphoenix/Python_For_SEO</code></li>
+    </ul>
+
+    <h3>Stack typique côté agence française (2025-2026)</h3>
+    <ul>
+      <li><strong>Crawl</strong> : Screaming Frog, Oncrawl, Botify.</li>
+      <li><strong>Data</strong> : BigQuery + Looker Studio + Python.</li>
+      <li><strong>Automation</strong> : Make, n8n, Zapier côté no-code ; Python côté code.</li>
+      <li><strong>IA</strong> : ChatGPT, Claude, Perplexity ; OpenAI/Anthropic API pour l'industrialisation.</li>
+    </ul>
+  </section>
+
+  <section class="section" id="s9">
+    <div class="section-header">
+      <span class="section-num">09</span>
+      <h2>Caveats</h2>
+    </div>
+    <div class="callout warn">
+      <div class="callout-label">⚠ Attention</div>
+      <p>L'offre WTTJ Eskimoz n'a pas pu être fetchée directement (URL bloquée) ; les éléments cités viennent du cache Google. L'écosystème Python-for-SEO bouge vite : pyGTrends est obsolète, et l'API Universal Analytics est dépréciée au profit de GA4.</p>
+    </div>
+    <ul>
+      <li><strong>"Premières compétences en Python ou en automation"</strong> est une formulation <strong>soft</strong>. Concrètement, tu peux passer le process avec uniquement Make/n8n + de la curiosité Python.</li>
+      <li>Attention au scraping de Google directement : les ToS l'interdisent. Passer par une API tierce (SerpApi, ValueSERP, DataForSEO).</li>
+      <li>La distinction <strong>Python "vrai" vs Python "via LLM"</strong> n'a jamais été aussi floue qu'en 2026. Un consultant équipé de Claude/Cursor peut produire des scripts qu'il ne saurait pas écrire de tête.</li>
+    </ul>
+  </section>
+
+  <footer class="site-footer">
+    <span>SEO Knowledge Base — Internal use</span>
+    <span>Python SEO — v1.0</span>
+  </footer>
+
+</div>
+</body>
+</html>
