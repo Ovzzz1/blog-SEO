@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="tag" content="technique">
 <meta name="date" content="2026-05-09">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Python pour le Consultant SEO en Agence — SEO Knowledge Base</title>
+<title>Python for SEO — SEO Knowledge Base</title>
 <link rel="icon" type="image/png" href="../image/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
@@ -41,7 +41,6 @@
 
   .page-wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
 
-  /* HEADER */
   .site-header { border-bottom: 1px solid var(--paper-3); padding: 2rem 0 1.5rem; margin-bottom: 0; }
   .header-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
   .tag-badge { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border: 1px solid var(--paper-3); border-radius: 2px; color: var(--ink-3); }
@@ -53,13 +52,11 @@
   .hero-subtitle { font-family: var(--sans); font-size: 1rem; font-weight: 300; color: var(--ink-3); margin-top: 0.75rem; line-height: 1.5; }
   .version-box { font-family: var(--mono); font-size: 10px; color: var(--ink-3); line-height: 1.8; letter-spacing: 0.05em; text-align: right; }
 
-  /* TOC */
   .toc-bar { background: var(--paper-2); border: 1px solid var(--paper-3); padding: 1.5rem 2rem; margin: 0 -2rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.25rem 2rem; }
   .toc-item { font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; padding: 0.3rem 0; color: rgba(249,250,251,0.6); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.15s; border-bottom: 1px solid rgba(255,255,255,0.06); }
   .toc-item:hover { color: var(--ink); }
   .toc-num { color: var(--accent); font-weight: 500; min-width: 20px; }
 
-  /* SECTIONS */
   .section { padding: 4rem 0 2rem; border-bottom: 1px solid var(--paper-3); }
   .section:last-child { border-bottom: none; }
   .section-header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 2rem; }
@@ -74,10 +71,27 @@
   em { color: var(--ink-2); font-style: italic; }
   code { font-family: var(--mono); font-size: 0.82em; background: var(--paper-2); border: 1px solid var(--paper-3); border-radius: 3px; padding: 1px 5px; color: var(--accent-2); }
 
-  ul { margin-bottom: 1rem; padding-left: 1.5rem; color: var(--ink-2); }
+  ul, ol { margin-bottom: 1rem; padding-left: 1.5rem; color: var(--ink-2); }
   li { margin-bottom: 0.5rem; }
+  ol { list-style: decimal; }
 
-  /* CALLOUTS */
+  pre {
+    background: var(--paper-2);
+    border: 1px solid var(--paper-3);
+    border-left: 3px solid var(--paper-3);
+    border-radius: 0 4px 4px 0;
+    padding: 1.25rem 1.5rem;
+    overflow-x: auto;
+    margin: 1.25rem 0;
+    font-family: var(--mono);
+    font-size: 0.8em;
+    line-height: 1.65;
+    color: var(--ink-2);
+  }
+  pre code { background: none; border: none; padding: 0; font-size: inherit; color: inherit; }
+
+  .code-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); margin-top: 1.5rem; margin-bottom: -0.5rem; display: block; }
+
   .callout { border-left: 3px solid; padding: 1rem 1.25rem; margin: 1.5rem 0; border-radius: 0 4px 4px 0; }
   .callout p { margin-bottom: 0; font-size: 0.92rem; }
   .callout p + p { margin-top: 0.5rem; }
@@ -86,8 +100,9 @@
   .callout.info .callout-label { color: var(--accent-2); }
   .callout.warn { border-color: var(--warn); background: rgba(251,191,36,0.1); }
   .callout.warn .callout-label { color: var(--warn); }
-  
-  /* TABLES */
+  .callout.success { border-color: var(--success); background: rgba(52,211,153,0.08); }
+  .callout.success .callout-label { color: var(--success); }
+
   .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
   table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
   thead tr { background: var(--paper-2); color: var(--ink); }
@@ -97,7 +112,16 @@
   tbody td { padding: 0.65rem 1rem; color: var(--ink-2); vertical-align: top; }
   tbody td:first-child { font-weight: 400; color: var(--ink); }
 
-  /* FOOTER */
+  .d1 { color: var(--success); font-family: var(--mono); font-size: 0.85em; }
+  .d2 { color: var(--warn); font-family: var(--mono); font-size: 0.85em; }
+  .d3 { color: var(--accent); font-family: var(--mono); font-size: 0.85em; }
+  .d4 { color: var(--danger); font-family: var(--mono); font-size: 0.85em; }
+
+  .week-item { border-left: 2px solid var(--paper-3); padding: 0.5rem 0 0.5rem 1.5rem; margin-bottom: 2rem; transition: border-color 0.15s; }
+  .week-item:hover { border-color: var(--accent); }
+  .week-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.2rem; }
+  .week-goal { font-weight: 500; color: var(--ink); margin-bottom: 0.4rem; font-size: 0.95rem; }
+
   .site-footer { margin-top: 4rem; padding: 2rem 0; border-top: 1px solid var(--paper-3); display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 11px; color: var(--ink-3); letter-spacing: 0.05em; }
 
   @media (max-width: 600px) {
@@ -124,12 +148,12 @@
     </div>
     <div class="hero-grid">
       <div>
-        <h1 class="hero-title">Python<br><em>pour SEO</em></h1>
-        <p class="hero-subtitle">Le 80/20 actionnable pour le Consultant SEO en Agence (contexte Eskimoz)</p>
+        <h1 class="hero-title">Python<br><em>for SEO</em></h1>
+        <p class="hero-subtitle">The complete practical guide for the non-developer SEO consultant — from reading your first script to running real automations at scale</p>
       </div>
       <div class="hero-side">
         <div class="version-box">
-          9 sections<br>
+          14 sections<br>
           Updated 2026
         </div>
       </div>
@@ -137,241 +161,1113 @@
   </header>
 
   <nav class="toc-bar">
-    <a href="#s1" class="toc-item"><span class="toc-num">01</span> TL;DR</a>
-    <a href="#s2" class="toc-item"><span class="toc-num">02</span> Ce qu'Eskimoz attend concrètement</a>
-    <a href="#s3" class="toc-item"><span class="toc-num">03</span> Pourquoi Python en agence SEO</a>
-    <a href="#s4" class="toc-item"><span class="toc-num">04</span> Les use cases Python les plus rentables</a>
-    <a href="#s5" class="toc-item"><span class="toc-num">05</span> Les librairies Python à connaître</a>
-    <a href="#s6" class="toc-item"><span class="toc-num">06</span> Ce qu'un consultant doit comprendre</a>
-    <a href="#s7" class="toc-item"><span class="toc-num">07</span> Top 10 priorisé (scripts à maîtriser)</a>
-    <a href="#s8" class="toc-item"><span class="toc-num">08</span> Ressources d'apprentissage & Stack</a>
-    <a href="#s9" class="toc-item"><span class="toc-num">09</span> Caveats</a>
+    <a href="#s1"  class="toc-item"><span class="toc-num">01</span> TL;DR</a>
+    <a href="#s2"  class="toc-item"><span class="toc-num">02</span> Python Foundations</a>
+    <a href="#s3"  class="toc-item"><span class="toc-num">03</span> Environments & Setup</a>
+    <a href="#s4"  class="toc-item"><span class="toc-num">04</span> Key Libraries</a>
+    <a href="#s5"  class="toc-item"><span class="toc-num">05</span> Web Scraping</a>
+    <a href="#s6"  class="toc-item"><span class="toc-num">06</span> Data Manipulation (pandas)</a>
+    <a href="#s7"  class="toc-item"><span class="toc-num">07</span> Google Search Console API</a>
+    <a href="#s8"  class="toc-item"><span class="toc-num">08</span> Log File Analysis</a>
+    <a href="#s9"  class="toc-item"><span class="toc-num">09</span> Redirect Mapping</a>
+    <a href="#s10" class="toc-item"><span class="toc-num">10</span> Keyword Clustering</a>
+    <a href="#s11" class="toc-item"><span class="toc-num">11</span> Automation & Reporting</a>
+    <a href="#s12" class="toc-item"><span class="toc-num">12</span> AI & LLM Integration</a>
+    <a href="#s13" class="toc-item"><span class="toc-num">13</span> 8-Week Roadmap</a>
+    <a href="#s14" class="toc-item"><span class="toc-num">14</span> Caveats</a>
   </nav>
 
+
+  <!-- ═══════════════════════════════════════════════════════ 01 TL;DR -->
   <section class="section" id="s1">
     <div class="section-header">
       <span class="section-num">01</span>
       <h2>TL;DR</h2>
     </div>
+
+    <div class="callout success">
+      <div class="callout-label">The Consultant's Mindset</div>
+      <p>Think of Python like HTML. You know <code>&lt;h1&gt;</code>, <code>&lt;a href=""&gt;</code>, <code>&lt;div class=""&gt;</code> — you can read any HTML file, understand its structure, and edit it without being a front-end developer. That's exactly the level you need with Python: know the constructs, read a script, adapt it, run it. You don't need to write from scratch.</p>
+    </div>
+
+    <h3>The 7 highest-value use cases</h3>
     <ul>
-      <li><strong>L'offre Eskimoz "Consultant·e SEO & GEO" demande explicitement "Premières compétences en Python OU en automation (Make, n8n)"</strong> — Python est listé dans leur stack "IA & Automation" aux côtés de ChatGPT, Claude, Make, n8n et l'API Ahrefs. Ce n'est pas un poste de dev : on cherche un consultant qui sait <em>lire un script, l'adapter, le lancer et automatiser un peu</em>. Le R&D et la data lourde sont gérés par leur pôle Data Scientists / Data Engineers internes.</li>
-      <li><strong>Le 80% de la valeur tient en ~7 cas d'usage</strong> : (1) manipuler des exports CSV/Excel volumineux avec <strong>pandas</strong>, (2) requêter l'<strong>API Google Search Console</strong>, (3) faire du <strong>redirect mapping</strong> avec polyfuzz/RapidFuzz, (4) <strong>analyser des log files</strong>, (5) <strong>clusteriser des keywords</strong> par embeddings, (6) <strong>scraper / crawler</strong> des pages, (7) <strong>automatiser des reportings</strong>.</li>
-      <li><strong>Les 5 concepts à maîtriser absolument</strong> : variables/types, listes & dictionnaires, boucles <code>for</code>, lecture/écriture CSV-Excel via pandas, gestion d'API avec <code>requests</code> + JSON, et le réflexe Google Colab. Si tu maîtrises ces blocs + 2-3 scripts génériques, tu couvres déjà 80% des demandes opérationnelles.</li>
+      <li><strong>Manipulate large exports with pandas</strong> — Excel dies above 100K rows. pandas handles 10M+ and lets you filter, join, and pivot Screaming Frog / GSC / Ahrefs exports in seconds.</li>
+      <li><strong>Query the GSC API</strong> — the UI caps at 1,000 rows. The API gives 25,000 per request and 16 months of history. Striking-distance pages, cannibalisation, CTR anomalies — all unlocked.</li>
+      <li><strong>Redirect mapping for migrations</strong> — a fuzzy-matching script maps 10K old URLs to 10K new URLs in 5 minutes. Without Python: 10 hours for a junior.</li>
+      <li><strong>Scrape competitor pages at scale</strong> — bulk title / H1 / canonical / JSON-LD checker across any list of URLs.</li>
+      <li><strong>Analyse log files</strong> — the only ground-truth source for what Googlebot actually crawls, at what frequency, and which sections eat your crawl budget.</li>
+      <li><strong>Cluster keywords semantically</strong> — embeddings + clustering turns a 50K-keyword Ahrefs export into topical content clusters in under an hour.</li>
+      <li><strong>Automate reporting</strong> — weekly GSC dump → Google Sheet → Looker Studio, running itself every Monday without touching a browser.</li>
     </ul>
+
+    <h3>The 5 concepts you absolutely need</h3>
+    <ul>
+      <li><strong>Variables, lists, dicts</strong> — the containers that hold every piece of SEO data.</li>
+      <li><strong>For loops + if/else</strong> — iterate over URL lists, apply conditional logic per row.</li>
+      <li><strong>pandas read/filter/merge</strong> — replaces 90% of Excel work.</li>
+      <li><strong>requests + JSON</strong> — call any API (GSC, GA4, PageSpeed, Ahrefs) and parse the response.</li>
+      <li><strong>Google Colab</strong> — zero-install environment, runs in a browser, every library pre-installed.</li>
+    </ul>
+
+    <div class="callout info">
+      <div class="callout-label">2026 reality check</div>
+      <p>With Claude Code, Cursor, or ChatGPT, a non-developer can generate 80% of the code they need — <strong>as long as they have the right mental models</strong> to prompt correctly, understand the output, and debug when something fails. This guide builds exactly those mental models.</p>
+    </div>
   </section>
 
+
+  <!-- ════════════════════════════════════════ 02 Python Foundations -->
   <section class="section" id="s2">
     <div class="section-header">
       <span class="section-num">02</span>
-      <h2>Ce qu'Eskimoz attend concrètement</h2>
+      <h2>Python Foundations</h2>
     </div>
-    <p><strong>Contexte société</strong> : 250+ collaborateurs, 7 pays, 35 M€ de CA, 80+ consultants SEO en France. Outils propriétaires (App Eskimoz, Predictive Ranking) développés par un pôle R&D Data Science. L'agence se positionne sur le SEO + GEO.</p>
-    <p><strong>Ce que fait le Consultant SEO & GEO au quotidien</strong> :</p>
-    <ul>
-      <li>Gestion d'un portefeuille de clients variés (start-ups, PME, ETI, CAC40, tous secteurs), souvent en binôme avec un manager.</li>
-      <li>Audits SEO complets : technique, sémantique, concurrentiel, off-site.</li>
-      <li>Recommandations techniques, éditoriales, off-site et accompagnement à la mise en œuvre.</li>
-      <li>Production de livrables, comités de pilotage, GEO (visibilité dans les LLMs).</li>
-      <li>Contribution aux projets R&D du pôle SEO/GEO.</li>
-    </ul>
-    <p><strong>Stack outils explicitement listée dans l'offre</strong> :</p>
-    <ul>
-      <li><strong>Crawl & Technique</strong> : Screaming Frog, Oncrawl, Botify, Google Search Console, PageSpeed Insights, WebPageTest.</li>
-      <li><strong>Sémantique & Keywords</strong> : Ahrefs, SEMrush, Haloscan, Yourtext.guru, Monitorank.</li>
-      <li><strong>Netlinking & Autorité</strong> : Ahrefs, Majestic SEO, SEObserver, Babbar.</li>
-      <li><strong>Analytics & Reporting</strong> : GA4, Looker Studio, BigQuery, Piano Analytics.</li>
-      <li><strong>IA & Automation</strong> : ChatGPT, Claude, Perplexity, <strong>Make, n8n, Python, API Ahrefs</strong>.</li>
-      <li><strong>GEO Monitoring</strong> : Ahrefs Brand Radar, LLM Ranking, Peec.ai, Otterly.</li>
-    </ul>
-    <p><strong>Sur Python précisément</strong>, l'offre le formule ainsi : <em>"Premières compétences en Python ou en automation (Make, n8n)"</em>. Python est un atout différenciant mais pas obligatoire — l'alternative no-code est acceptée. La barre est donc <em>"je sais lancer, lire et adapter un script"</em>, pas <em>"je sais en écrire un from scratch"</em>.</p>
-    <div class="callout info">
-      <div class="callout-label">💡 Process de recrutement</div>
-      <p>1. Échange visio RH (~30 min). 2. Entretien technique (~1 h) + restitution d'un cas pratique SEO/GEO (~1 h). <strong>C'est ici que la maîtrise concrète de Python/automation peut faire la différence</strong>. 3. Entretien final (~1 h).</p>
+    <p>Python is an interpreted language: you write a <code>.py</code> file and the interpreter reads it line by line at runtime — no compiling step, no build process. That makes the feedback loop fast and the language beginner-friendly. Below are the 12 constructs you'll encounter in every SEO script.</p>
+
+    <h3>1. Variables & types</h3>
+    <p>Python infers types automatically. The four primitives you'll use constantly:</p>
+<pre><code>url           = "https://example.com/page"   # str   — any text
+status_code   = 200                          # int   — whole numbers
+load_time     = 1.42                         # float — decimals
+is_indexable  = True                         # bool  — True or False
+
+title = "Best Running Shoes 2026 | Acme"
+print(len(title))        # 40 — handy for title-length QA
+print(type(title))       # &lt;class 'str'&gt;
+
+status_str = "404"
+status_int = int(status_str)   # convert string → int when CSV cells come as text</code></pre>
+
+    <h3>2. Lists <code>[]</code> and Dictionaries <code>{}</code></h3>
+    <p>A <strong>list</strong> is an ordered sequence. A <strong>dict</strong> maps keys to values. These are the bread and butter of every SEO script — API responses always come back as lists of dicts.</p>
+<pre><code>urls = [
+    "https://example.com/",
+    "https://example.com/about",
+    "https://example.com/blog",
+]
+print(urls[0])      # https://example.com/
+print(len(urls))    # 3
+
+# Dict: URL → status code (typical scraper output)
+status_map = {
+    "https://example.com/":       200,
+    "https://example.com/old":    301,
+    "https://example.com/dead":   404,
+}
+print(status_map["https://example.com/dead"])   # 404
+
+# Loop a dict
+for url, code in status_map.items():
+    if code != 200:
+        print(f"Issue: {url} → {code}")</code></pre>
+
+    <p>Lists of dicts are everywhere — it's the shape every REST API returns, and it converts directly to a pandas DataFrame:</p>
+<pre><code>crawl = [
+    {"url": "/a", "title": "Page A", "status": 200},
+    {"url": "/b", "title": "Page B", "status": 404},
+]
+import pandas as pd
+df = pd.DataFrame(crawl)   # instant DataFrame, no fuss</code></pre>
+
+    <h3>3. For loops</h3>
+    <p>Runs once per item in a list. The most common pattern in SEO scripts: loop URLs → do something → store result.</p>
+<pre><code>titles = ["Acme Running Shoes", "Generic Trainers", "Acme Trail Runners"]
+for title in titles:
+    if "Acme" in title:
+        print(f"On-brand: {title}")
+
+# Paginate an API — fetch pages until you get an empty result
+page = 1
+while page &lt;= 10:
+    print(f"Fetching page {page}")
+    page += 1</code></pre>
+
+    <h3>4. If / elif / else</h3>
+    <p>Conditional logic. Indentation (4 spaces) is enforced by the language — no curly braces.</p>
+<pre><code># Status-code triage
+if status_code == 404:
+    action = "create redirect"
+elif status_code in (301, 302):
+    action = "review chain"
+elif status_code &gt;= 500:
+    action = "raise with dev"
+else:
+    action = "ok"
+
+# Title-length QA
+n = len(title)
+if n &gt; 60:
+    flag = "too long"
+elif n &lt; 30:
+    flag = "too short"
+else:
+    flag = "ok"</code></pre>
+
+    <h3>5. Functions (<code>def</code>)</h3>
+    <p>Package reusable logic. Write the title-length check once, run it on 10K rows. Type hints are optional but improve readability.</p>
+<pre><code>def title_quality(title: str, min_len: int = 30, max_len: int = 60) -&gt; str:
+    if not title:
+        return "missing"
+    n = len(title)
+    if n &gt; max_len:
+        return "too long"
+    if n &lt; min_len:
+        return "too short"
+    return "ok"
+
+print(title_quality("Acme Running Shoes — Free UK Delivery"))  # ok
+print(title_quality(""))                                        # missing</code></pre>
+
+    <h3>6. Imports — how libraries work</h3>
+    <p><strong>Two distinct steps</strong>: <code>pip install pandas</code> downloads the library to your machine (once per environment). <code>import pandas as pd</code> loads it into the current script. If you forget the first step, Python raises <code>ModuleNotFoundError</code> — the fix is always <code>pip install &lt;name&gt;</code>.</p>
+<pre><code>import pandas as pd             # 'pd' is universal convention
+import requests                 # no alias — short enough
+from bs4 import BeautifulSoup   # import a single class from a library
+import advertools as adv        # advertools' standard alias</code></pre>
+
+    <h3>7. Reading files with pandas</h3>
+    <p>In SEO, 90% of your data is CSV or Excel. pandas makes this one line.</p>
+<pre><code>import pandas as pd
+
+df  = pd.read_csv("screaming_frog_internal_html.csv")
+gsc = pd.read_excel("gsc_export.xlsx")
+log = pd.read_json("crawl.jl", lines=True)    # advertools crawl output
+
+df.shape      # (rows, cols)
+df.head()     # first 5 rows
+df.info()     # dtypes + null counts
+
+df.to_csv("output.csv", index=False)
+df.to_excel("output.xlsx", index=False)</code></pre>
+
+    <h3>8. API calls with <code>requests</code></h3>
+    <p>A REST API is an HTTP endpoint that returns JSON. <code>requests</code> is the standard library for hitting any of them — GSC, GA4, PageSpeed, Ahrefs, OpenAI, anything.</p>
+<pre><code>import requests
+
+resp = requests.get(
+    "https://www.googleapis.com/pagespeedonline/v5/runPagespeed",
+    params  = {"url": "https://example.com", "key": "AIza...", "strategy": "mobile"},
+    headers = {"User-Agent": "MyAuditScript/1.0"},
+    timeout = 60,
+)
+data  = resp.json()                  # parse JSON response → Python dict
+score = data["lighthouseResult"]["categories"]["performance"]["score"] * 100
+print(f"Perf score: {score:.0f}")    # Perf score: 78</code></pre>
+
+    <h3>9. Error handling (<code>try / except</code>)</h3>
+    <p>Non-optional in any script that hits the network. Without this, one timeout on row 327 kills your 50K-URL crawl.</p>
+<pre><code>import requests
+
+def fetch_status(url: str) -&gt; str | int:
+    try:
+        r = requests.get(url, timeout=10, allow_redirects=True)
+        r.raise_for_status()
+        return r.status_code
+    except requests.Timeout:
+        return "TIMEOUT"
+    except requests.ConnectionError:
+        return "CONN_ERR"
+    except requests.HTTPError as e:
+        return f"HTTP_{e.response.status_code}"
+    except Exception as e:
+        return f"OTHER:{e}"</code></pre>
+
+    <h3>10. String manipulation</h3>
+    <p>Every scraped element arrives as a messy string. The cleanup toolkit:</p>
+<pre><code>title = "  Best Running Shoes | Acme  \n"
+
+clean   = title.strip()           # remove whitespace + newline
+lower   = clean.lower()           # "best running shoes | acme"
+no_brand= clean.replace(" | Acme", "")
+parts   = clean.split("|")        # ['Best Running Shoes ', ' Acme  ']
+
+keyword = "running shoes"
+volume  = 8400
+print(f"{keyword}: {volume:,} searches")   # running shoes: 8,400 searches
+
+# Slug generation (common in redirect mapping)
+import re
+def slugify(text: str) -&gt; str:
+    text = text.lower().strip()
+    text = re.sub(r"[^\w\s-]", "", text)
+    text = re.sub(r"[\s_]+", "-", text)
+    return text.strip("-")
+
+slugify("Best Running Shoes (2026)!")   # 'best-running-shoes-2026'</code></pre>
+
+    <h3>11. List comprehensions</h3>
+    <p>A compact for-loop-into-a-list. You'll see this everywhere — once you can read it, half of every Colab snippet makes sense.</p>
+<pre><code>urls = ["/a", "/b", "/c"]
+
+# Long form
+abs_urls = []
+for u in urls:
+    abs_urls.append("https://example.com" + u)
+
+# Compact — identical result
+abs_urls = ["https://example.com" + u for u in urls]
+
+# With filter: only 404s
+status = {"/a": 200, "/b": 404, "/c": 301}
+broken = [u for u, s in status.items() if s == 404]   # ['/b']</code></pre>
+
+    <h3>12. <code>.py</code> files vs Jupyter notebooks (<code>.ipynb</code>)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th></th><th>.py file</th><th>Jupyter / Colab .ipynb</th></tr></thead>
+        <tbody>
+          <tr><td>Format</td><td>Plain text</td><td>JSON containing cells</td></tr>
+          <tr><td>Run as</td><td><code>python script.py</code> (top-to-bottom)</td><td>Cell-by-cell, any order</td></tr>
+          <tr><td>Best for</td><td>Production, scheduled jobs, cron</td><td>Exploration, tutorials, sharing</td></tr>
+          <tr><td>Output</td><td>Stdout / files</td><td>Inline charts + DataFrames</td></tr>
+        </tbody>
+      </table>
     </div>
+    <p><strong>Rule of thumb:</strong> start in a notebook to figure out the script, then copy it into a <code>.py</code> file once stable for scheduling.</p>
   </section>
 
+
+  <!-- ══════════════════════════════════════ 03 Environments & Setup -->
   <section class="section" id="s3">
     <div class="section-header">
       <span class="section-num">03</span>
-      <h2>Pourquoi Python en agence SEO</h2>
+      <h2>Environments &amp; Setup</h2>
     </div>
-    <ul>
-      <li><strong>Les exports SEO crashent Excel</strong> : un crawl complet ou un export GSC dépasse la capacité d'Excel. Pandas avale 1M+ lignes sans broncher.</li>
-      <li><strong>Les API gratuites sont sous-exploitées</strong> : GSC API, GA4 Data API, PageSpeed API, Indexing API. Trois lignes de Python remplacent une demi-journée de copier-coller.</li>
-      <li><strong>L'effet de levier sur le portefeuille</strong> : un script de redirect mapping fait passer une migration de "10 heures de junior" à "5 minutes de script + 2 h de QA".</li>
-      <li><strong>Le pivot GEO/IA</strong> : l'écosystème SEO mélange embeddings, appels LLM et monitoring de citations. Python est la lingua franca de cet écosystème.</li>
-    </ul>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Environment</th><th>What it is</th><th>Pros</th><th>Best for</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Google Colab</strong></td>
+            <td>Free hosted Jupyter notebook. Open colab.research.google.com in any browser.</td>
+            <td>Zero install. pandas, numpy, sklearn pre-installed. Easy sharing (Google Doc for code).</td>
+            <td><strong>Your default starting point.</strong> 80% of Python-for-SEO tutorials ship as Colabs.</td>
+          </tr>
+          <tr>
+            <td><strong>Jupyter (local)</strong></td>
+            <td>Same .ipynb format, runs on your machine.</td>
+            <td>Full filesystem. Works offline. Persistent sessions.</td>
+            <td>Client data you can't upload to Google.</td>
+          </tr>
+          <tr>
+            <td><strong>VS Code</strong></td>
+            <td>Free code editor with first-class Python + notebook support.</td>
+            <td>Best of both worlds: notebook cells + real IDE (debugger, Git, terminal, AI assist).</td>
+            <td>Once you have 5+ scripts and want version control.</td>
+          </tr>
+          <tr>
+            <td><strong>Terminal</strong></td>
+            <td>Raw <code>python script.py</code> execution.</td>
+            <td>Required for cron jobs, GitHub Actions, headless crawls.</td>
+            <td>Production / scheduled scripts.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-label">Recommendation</div>
+      <p>Start in <strong>Google Colab</strong> for the first month (zero friction, everything pre-installed). Install <strong>VS Code + Python locally</strong> around week 5 when you want scheduling and version control.</p>
+    </div>
+
+    <h3>pip and virtual environments</h3>
+    <p><code>pip</code> is Python's package manager — it pulls libraries from PyPI (the npm of Python). A <strong>virtual environment</strong> (<code>venv</code>) is an isolated copy of Python per project, so library versions don't conflict between clients.</p>
+<pre><code># Create project folder + isolated environment
+mkdir client-a-seo &amp;&amp; cd client-a-seo
+python3 -m venv .venv
+
+# Activate (you'll see (.venv) in your prompt)
+source .venv/bin/activate         # Mac / Linux
+.venv\Scripts\activate            # Windows PowerShell
+
+# Install libraries into this env only
+pip install pandas requests beautifulsoup4 advertools google-searchconsole
+
+# Save exact versions so the script is reproducible elsewhere
+pip freeze &gt; requirements.txt
+
+# On a new machine: reproduce the exact environment
+pip install -r requirements.txt</code></pre>
   </section>
 
+
+  <!-- ═══════════════════════════════════════════ 04 Key Libraries -->
   <section class="section" id="s4">
     <div class="section-header">
       <span class="section-num">04</span>
-      <h2>Les use cases Python les plus rentables</h2>
+      <h2>Key Libraries at a Glance</h2>
     </div>
-    
-    <h3>Manipulation d'exports tabulaires (le pain quotidien)</h3>
-    <ul>
-      <li><strong>Lire un crawl Screaming Frog</strong> avec <code>pd.read_csv()</code> ou <code>pd.read_excel()</code>.</li>
-      <li>Filtrer les URLs en <code>noindex</code>, les title vides, les title &gt;60 caractères, les pages orphelines, les redirections en chaîne.</li>
-      <li><strong>Croiser plusieurs sources</strong> : GSC + GA4 + crawl + Ahrefs sur la clé "URL" via <code>pd.merge()</code>.</li>
-      <li><strong>Comparer deux crawls</strong> (text-only vs JavaScript rendered) pour détecter les pages où Googlebot ne voit pas le contenu.</li>
-    </ul>
 
-    <h3>Analyse GSC à grande échelle</h3>
-    <ul>
-      <li>L'UI GSC est plafonnée à 1 000 lignes par export. Avec <strong>l'API GSC + Python</strong>, on extrait 25 000 lignes par requête.</li>
-      <li>Use cases concrets : <strong>détection de cannibalisation de mots-clés</strong>, pages "striking distance" (positions 11-20), opportunités de CTR.</li>
-    </ul>
-
-    <h3>Redirect mapping pour migrations</h3>
-    <ul>
-      <li>Crawl du site legacy + crawl du site cible avec Screaming Frog.</li>
-      <li>Script Python qui matche les URLs anciennes/nouvelles via fuzzy matching sur le slug, le H1 et le title.</li>
-      <li>Librairies : <strong>polyfuzz</strong> ou <strong>RapidFuzz</strong>.</li>
-    </ul>
-
-    <h3>Analyse de log files (Googlebot)</h3>
-    <ul>
-      <li>Quelles sections du site Googlebot crawle réellement.</li>
-      <li>Pages crawlées <strong>mais</strong> non indexées (cassure de crawl budget).</li>
-      <li>Outil de référence : <strong>advertools.logs_to_df()</strong> qui parse un access log directement en DataFrame parquet.</li>
-    </ul>
-
-    <h3>Crawl & scraping ciblés</h3>
-    <ul>
-      <li><strong>Crawl de masse</strong> : <code>advertools.crawl()</code> ou <code>screamingfrogseospider</code> en CLI.</li>
-      <li><strong>Scraping ponctuel</strong> : <code>requests</code> + <code>BeautifulSoup</code>.</li>
-    </ul>
-
-    <h3>Clustering sémantique de keywords</h3>
-    <ul>
-      <li>Méthode : <strong>embeddings</strong> (OpenAI ou sentence-transformers) + clustering (hdbscan ou KMeans).</li>
-      <li>Use case : sortir d'un export Ahrefs de 50 000 keywords des clusters d'intention de recherche.</li>
-    </ul>
-
-    <h3>Reporting / dashboards automatisés</h3>
-    <ul>
-      <li><strong>Pull GA4</strong> : librairie <code>google-analytics-data</code>.</li>
-      <li><strong>Pull GSC</strong> : <code>google-searchconsole</code>.</li>
-      <li><strong>Push vers Google Sheets / Looker Studio / BigQuery</strong> : <code>gspread</code>, <code>pandas-gbq</code>.</li>
-    </ul>
-  </section>
-
-  <section class="section" id="s5">
-    <div class="section-header">
-      <span class="section-num">05</span>
-      <h2>Les librairies Python à connaître</h2>
-    </div>
     <div class="table-wrap">
       <table>
-        <thead>
-          <tr><th>Librairie</th><th>À quoi ça sert concrètement en SEO</th><th>Niveau</th></tr>
-        </thead>
+        <thead><tr><th>Library</th><th>What it does in SEO</th><th>Level</th><th>Install</th></tr></thead>
         <tbody>
-          <tr><td><strong>pandas</strong></td><td>Lire/écrire CSV, Excel. Filtrer, grouper, merger des exports. Remplace 90% d'Excel.</td><td>Indispensable</td></tr>
-          <tr><td><strong>requests</strong></td><td>Faire des appels HTTP : tester des status codes, appeler des API, récupérer du HTML brut.</td><td>Indispensable</td></tr>
-          <tr><td><strong>BeautifulSoup (bs4)</strong></td><td>Parser du HTML. Extraire title, H1, balises canonical, liens internes.</td><td>Indispensable</td></tr>
-          <tr><td><strong>advertools</strong></td><td>Crawl, parsing sitemap, parsing logs, parsing robots.txt, analyse SERP.</td><td>Très recommandée</td></tr>
-          <tr><td><strong>google-searchconsole</strong></td><td>Wrapper API GSC : auth OAuth simplifiée, retourne des DataFrames.</td><td>Indispensable si GSC</td></tr>
-          <tr><td><strong>polyfuzz / RapidFuzz</strong></td><td>Fuzzy matching pour le redirect mapping.</td><td>Spécialisée</td></tr>
-          <tr><td><strong>sentence-transformers</strong></td><td>Embeddings locaux gratuits. Clustering keyword, similarité sémantique.</td><td>Recommandée</td></tr>
+          <tr><td><strong>requests</strong></td><td>HTTP client — hit any URL or REST API, get status codes, headers, HTML.</td><td class="d1">★ Beginner</td><td><code>pip install requests</code></td></tr>
+          <tr><td><strong>beautifulsoup4</strong></td><td>HTML parser — extract title, H1, canonical, meta, schema, internal links.</td><td class="d1">★ Beginner</td><td><code>pip install beautifulsoup4 lxml</code></td></tr>
+          <tr><td><strong>pandas</strong></td><td>DataFrames — read/filter/join/group any SEO export (crawl, GSC, Ahrefs).</td><td class="d2">★★ Medium</td><td><code>pip install pandas openpyxl</code></td></tr>
+          <tr><td><strong>advertools</strong></td><td>All-in-one SEO toolkit: crawl, sitemap parsing, log parsing, robots.txt, SERP.</td><td class="d2">★★ Medium</td><td><code>pip install advertools</code></td></tr>
+          <tr><td><strong>google-searchconsole</strong></td><td>GSC API wrapper — 25K-row queries, 16 months of data, returns DataFrames.</td><td class="d2">★★ Medium</td><td><code>pip install google-searchconsole</code></td></tr>
+          <tr><td><strong>google-analytics-data</strong></td><td>Official GA4 client — sessions, conversions, landing pages.</td><td class="d2">★★ Medium</td><td><code>pip install google-analytics-data</code></td></tr>
+          <tr><td><strong>polyfuzz</strong></td><td>Fuzzy string matching — the engine behind redirect mapping.</td><td class="d2">★★ Medium</td><td><code>pip install polyfuzz</code></td></tr>
+          <tr><td><strong>rapidfuzz</strong></td><td>Fast Levenshtein matching — lighter alternative for quick fuzzy matches.</td><td class="d1">★ Beginner</td><td><code>pip install rapidfuzz</code></td></tr>
+          <tr><td><strong>sentence-transformers</strong></td><td>Local BERT embeddings — semantic keyword clustering, content similarity.</td><td class="d3">★★★ Advanced</td><td><code>pip install sentence-transformers</code></td></tr>
+          <tr><td><strong>scikit-learn</strong></td><td>Classical ML — KMeans, TF-IDF, classification, cosine similarity.</td><td class="d3">★★★ Advanced</td><td><code>pip install scikit-learn</code></td></tr>
+          <tr><td><strong>hdbscan</strong></td><td>Density clustering — finds natural keyword clusters without specifying K.</td><td class="d2">★★ Medium</td><td><code>pip install hdbscan</code></td></tr>
+          <tr><td><strong>gspread</strong></td><td>Google Sheets API — read/write Sheets from Python for dashboard automation.</td><td class="d2">★★ Medium</td><td><code>pip install gspread</code></td></tr>
+          <tr><td><strong>plotly</strong></td><td>Interactive charts — GSC bubble charts, keyword scatter plots, dashboards.</td><td class="d2">★★ Medium</td><td><code>pip install plotly</code></td></tr>
+          <tr><td><strong>openai</strong></td><td>OpenAI API — embeddings, GPT-4o, web search tool.</td><td class="d2">★★ Medium</td><td><code>pip install openai</code></td></tr>
+          <tr><td><strong>anthropic</strong></td><td>Claude API — completions, structured output, batch processing.</td><td class="d2">★★ Medium</td><td><code>pip install anthropic</code></td></tr>
+          <tr><td><strong>python-dotenv</strong></td><td>Load <code>.env</code> files — keeps API keys out of your scripts.</td><td class="d1">★ Beginner</td><td><code>pip install python-dotenv</code></td></tr>
+          <tr><td><strong>tqdm</strong></td><td>Progress bars — see a 50K-URL crawl advance in real time.</td><td class="d1">★ Beginner</td><td><code>pip install tqdm</code></td></tr>
+          <tr><td><strong>Scrapy</strong></td><td>Full crawling framework — async, pipelines, production-scale crawls.</td><td class="d4">★★★★ Expert</td><td><code>pip install scrapy</code></td></tr>
+          <tr><td><strong>dnspython</strong></td><td>DNS lookups — verify real Googlebot via reverse DNS in log analysis.</td><td class="d2">★★ Medium</td><td><code>pip install dnspython</code></td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
+
+  <!-- ══════════════════════════════════════════ 05 Web Scraping -->
+  <section class="section" id="s5">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2>Web Scraping</h2>
+    </div>
+    <p>Scraping is for pages that don't expose an API: competitor product pages, supplier catalogues, news sites, your own site when dev won't give DB access. If an API exists, use it instead.</p>
+
+    <h3>requests — the HTTP fetch</h3>
+    <p>The <code>requests</code> library makes an HTTP call and returns the raw response. Always set a real <code>User-Agent</code> — many sites block Python's default one.</p>
+<pre><code>import requests
+
+HEADERS = {
+    "User-Agent": ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                   "AppleWebKit/537.36 Chrome/124 Safari/537.36"),
+    "Accept-Language": "en-GB,en;q=0.9",
+}
+
+r = requests.get("https://example.com/", headers=HEADERS, timeout=15)
+print(r.status_code)   # 200
+print(r.url)           # final URL after any redirects
+print(r.history)       # redirect chain as a list
+
+# Useful response attributes for SEO:
+# r.text            → HTML as string
+# r.headers         → response headers (X-Robots-Tag, Content-Type, Last-Modified)
+# r.history         → redirect chain</code></pre>
+
+    <h3>BeautifulSoup — parse and extract from HTML</h3>
+    <p>Turn raw HTML into a navigable tree. This single block is the foundation of 80% of "what's on these 10K pages" scripts.</p>
+<pre><code>from bs4 import BeautifulSoup
+import json
+
+soup = BeautifulSoup(r.text, "lxml")
+
+title       = soup.find("title").get_text(strip=True)
+h1          = soup.find("h1").get_text(strip=True)  if soup.find("h1")  else None
+canonical   = (soup.find("link", rel="canonical") or {}).get("href")
+meta_robots = (soup.find("meta", attrs={"name": "robots"}) or {}).get("content")
+description = (soup.find("meta", attrs={"name": "description"}) or {}).get("content")
+
+# All internal links
+internal = [a["href"] for a in soup.find_all("a", href=True)
+            if a["href"].startswith("/") or "example.com" in a["href"]]
+
+# JSON-LD structured data (every block on the page)
+ld_blocks = [json.loads(s.string)
+             for s in soup.find_all("script", type="application/ld+json")
+             if s.string]
+
+# Hreflang map
+hreflang = [(t.get("hreflang"), t.get("href"))
+            for t in soup.find_all("link", rel="alternate")]</code></pre>
+
+    <h3>Politeness — always add sleep</h3>
+<pre><code>import time, random
+
+for page_num in range(1, 51):
+    r = requests.get(f"https://example.com/blog?page={page_num}",
+                     headers=HEADERS, timeout=15)
+    if r.status_code != 200:
+        break
+    # ... parse ...
+    time.sleep(random.uniform(1.0, 2.5))   # 1–2.5s pause — be a polite citizen</code></pre>
+
+    <h3>advertools.crawl() — the high-level shortcut</h3>
+    <p>Elias Dabbas's <code>advertools</code> wraps Scrapy with sensible SEO defaults. One call crawls an entire site and produces a DataFrame with every on-page element extracted automatically — title, all Hn levels, canonicals, meta robots, OG tags, JSON-LD, response headers, internal links.</p>
+<pre><code>import advertools as adv
+import pandas as pd
+
+adv.crawl(
+    "https://example.com",
+    output_file  = "crawl.jl",
+    follow_links = True,
+    custom_settings = {"CONCURRENT_REQUESTS": 5},
+)
+df = pd.read_json("crawl.jl", lines=True)
+df[["url", "title", "h1", "meta_desc", "status", "canonical"]].head()</code></pre>
+
+    <div class="callout warn">
+      <div class="callout-label">Never scrape Google directly</div>
+      <p>Hammering <code>google.com/search</code> violates Google's ToS and will get your IP blocked within minutes. Use a SERP API instead: <strong>SerpApi</strong>, <strong>DataForSEO SERP API</strong>, <strong>ValueSERP</strong>, or <strong>Bright Data</strong>. They handle proxies, CAPTCHAs, and ToS exposure.</p>
+    </div>
+
+    <h3>Quick selector reference</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>What you want</th><th>BeautifulSoup pattern</th></tr></thead>
+        <tbody>
+          <tr><td>Title tag</td><td><code>soup.find("title").get_text(strip=True)</code></td></tr>
+          <tr><td>H1</td><td><code>soup.find("h1").get_text(strip=True)</code></td></tr>
+          <tr><td>Meta description</td><td><code>soup.find("meta", attrs={"name":"description"}).get("content")</code></td></tr>
+          <tr><td>Canonical URL</td><td><code>soup.find("link", rel="canonical").get("href")</code></td></tr>
+          <tr><td>Meta robots</td><td><code>soup.find("meta", attrs={"name":"robots"}).get("content")</code></td></tr>
+          <tr><td>All internal links</td><td><code>soup.find_all("a", href=True)</code> filtered by domain</td></tr>
+          <tr><td>JSON-LD blocks</td><td><code>soup.find_all("script", type="application/ld+json")</code></td></tr>
+          <tr><td>Hreflang tags</td><td><code>soup.find_all("link", rel="alternate", hreflang=True)</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════ 06 Data Manipulation -->
   <section class="section" id="s6">
     <div class="section-header">
       <span class="section-num">06</span>
-      <h2>Ce qu'un consultant doit comprendre</h2>
+      <h2>Data Manipulation with pandas</h2>
     </div>
-    <p>L'objectif n'est pas de devenir développeur. C'est de <strong>lire un script, le modifier, le faire tourner sans paniquer quand une erreur s'affiche, et savoir demander à ChatGPT/Claude de l'adapter</strong>.</p>
-    <ul>
-      <li><strong>Variables et types</strong> (<code>str</code>, <code>int</code>, <code>float</code>, <code>bool</code>).</li>
-      <li><strong>Listes <code>[ ]</code> et dictionnaires <code>{ }</code></strong>.</li>
-      <li><strong>Boucles <code>for</code></strong> : <code>for url in urls:</code> parcourir une liste d'URLs.</li>
-      <li><strong>Conditions <code>if / elif / else</code></strong> : tester un status code, vérifier qu'un H1 existe.</li>
-      <li><strong>Lecture/écriture de fichiers tabulaires</strong> : <code>pd.read_csv('export.csv')</code>, <code>df.to_excel('output.xlsx')</code>.</li>
-      <li><strong>Manipulations pandas de base</strong> : <code>df.head()</code>, <code>df.shape</code>, <code>df[df['Status Code'] == 404]</code>.</li>
-      <li><strong>Appel à une API REST</strong> : <code>requests.get(url)</code>.</li>
-      <li><strong>Environnements</strong> : utiliser <strong>Google Colab</strong> pour 80% des cas.</li>
-    </ul>
+    <p>Every SEO data export — Screaming Frog crawl, GSC export, Ahrefs backlink list, SEMrush keyword report — is tabular. pandas turns those into in-memory DataFrames you can filter, join, group, and pivot in seconds. This is the single skill that saves the most time in agency SEO.</p>
+
+    <h3>Reading and inspecting exports</h3>
+<pre><code>import pandas as pd
+
+crawl  = pd.read_csv("internal_html.csv")        # Screaming Frog
+gsc    = pd.read_excel("gsc_pages.xlsx")          # GSC export
+ahrefs = pd.read_csv("ahrefs_backlinks.csv")
+adv_df = pd.read_json("crawl.jl", lines=True)    # advertools output
+
+crawl.shape           # (45230, 32) — rows, columns
+crawl.head()          # first 5 rows
+crawl.info()          # dtypes + null count per column
+crawl.describe()      # numeric summary
+crawl.columns.tolist()# list all column names</code></pre>
+
+    <h3>Filtering — the core skill</h3>
+<pre><code># All 404s
+df_404 = crawl[crawl["Status Code"] == 404]
+
+# Title length issues
+long_titles  = crawl[crawl["Title 1 Length"] &gt; 60]
+short_titles = crawl[crawl["Title 1 Length"] &lt; 30]
+
+# Blog pages only
+blog = crawl[crawl["Address"].str.contains("/blog/", na=False)]
+
+# Multiple conditions — use & for AND, | for OR, always wrap each in ()
+indexable_200 = crawl[(crawl["Status Code"] == 200) &amp; (crawl["Indexability"] == "Indexable")]
+missing_h1    = crawl[crawl["H1-1"].isna()]
+
+# Pages with impressions but no clicks (CTR opportunity)
+gsc_opp = gsc[(gsc["Impressions"] &gt; 100) &amp; (gsc["Clicks"] == 0)]</code></pre>
+
+    <h3>Merging — the VLOOKUP for Python</h3>
+    <p>This is the most valuable pandas skill for an SEO. You constantly need to glue crawl + GSC + GA4 + backlinks together on a URL key.</p>
+<pre><code># Rename URL columns so they match for the merge
+crawl = crawl.rename(columns={"Address": "url"})
+gsc   = gsc.rename(columns={"Page": "url"})
+ga4   = ga4.rename(columns={"pagePath": "url"})
+
+# Left join: keep every crawl row even if no GSC or GA4 match
+combined = (crawl
+            .merge(gsc,  on="url", how="left")
+            .merge(ga4,  on="url", how="left"))
+
+# Now you have a single DataFrame: crawl data + clicks + sessions per URL
+combined[["url", "Title 1", "Status Code", "Clicks", "sessions"]].head(10)</code></pre>
+
     <div class="callout info">
-      <div class="callout-label">💡 Hack 2026</div>
-      <p>Avec Claude Code, Cursor ou ChatGPT, un consultant non-dev peut générer 80% du code dont il a besoin <strong>à condition de savoir formuler la demande avec les bonnes briques mentales</strong>.</p>
+      <div class="callout-label">how="left" means VLOOKUP</div>
+      <p>All rows from the left DataFrame are kept even when there's no match on the right. Unmatched rows get <code>NaN</code> — the equivalent of a VLOOKUP returning N/A. Use <code>how="inner"</code> to keep only rows that match on both sides.</p>
     </div>
+
+    <h3>groupby &amp; aggregations</h3>
+<pre><code># 404s per site section
+errors = crawl[crawl["Status Code"] == 404].copy()
+errors["folder"] = errors["url"].str.split("/").str[3]
+errors.groupby("folder").size().sort_values(ascending=False)
+
+# Average word count by content category
+crawl.groupby("category")["Word Count"].mean().round(0)
+
+# Multi-metric rollup per category
+crawl.groupby("category").agg(
+    pages        = ("url",       "count"),
+    avg_wc       = ("Word Count","mean"),
+    total_clicks = ("Clicks",    "sum"),
+).sort_values("total_clicks", ascending=False)</code></pre>
+
+    <h3>Cleaning, deduplication, output</h3>
+<pre><code>df = df.drop_duplicates(subset=["url"])
+df = df.sort_values("Clicks", ascending=False).reset_index(drop=True)
+
+df.to_csv("output.csv", index=False)
+df.to_excel("output.xlsx", index=False)
+df.to_parquet("output.parquet")       # 10-100x smaller than CSV, much faster</code></pre>
+
+    <h3>Real SEO use cases</h3>
+    <ul>
+      <li><strong>Duplicate title detection</strong> — <code>df[df.duplicated(subset=["Title 1"], keep=False)]</code></li>
+      <li><strong>Cannibalisation check</strong> — group GSC by query, count distinct pages ranking, flag queries where <code>nunique("Page") &gt; 1</code></li>
+      <li><strong>Striking-distance pages</strong> — <code>gsc[(gsc.position.between(11, 20)) &amp; (gsc.impressions &gt; 100)]</code></li>
+      <li><strong>Content gap</strong> — anti-join competitor keywords vs your own ranking keywords</li>
+      <li><strong>Compare two crawls</strong> — merge on URL, compare <code>Status Code_x</code> vs <code>Status Code_y</code> to find new 404s</li>
+    </ul>
   </section>
 
+
+  <!-- ════════════════════════════════ 07 Google Search Console API -->
   <section class="section" id="s7">
     <div class="section-header">
       <span class="section-num">07</span>
-      <h2>Top 10 priorisé (scripts à maîtriser)</h2>
+      <h2>Google Search Console API</h2>
     </div>
-    <ul>
-      <li><strong>Priorité 1</strong> — pandas + lecture/jointure d'exports CSV (Screaming Frog, GSC, Ahrefs).</li>
-      <li><strong>Priorité 2</strong> — Lancer Google Colab et exécuter un notebook existant.</li>
-      <li><strong>Priorité 3</strong> — Redirect mapper (polyfuzz / RapidFuzz).</li>
-      <li><strong>Priorité 4</strong> — API GSC avec <code>google-searchconsole</code>.</li>
-      <li><strong>Priorité 5</strong> — <code>requests</code> + BeautifulSoup pour scraper en bulk un élément précis.</li>
-      <li><strong>Priorité 6</strong> — <code>advertools</code> pour crawl + sitemap + logs.</li>
-      <li><strong>Priorité 7</strong> — Clustering sémantique de keywords (embeddings + KMeans/HDBSCAN).</li>
-      <li><strong>Priorité 8</strong> — Pull GA4 via l'API + génération d'un Sheet de reporting.</li>
-      <li><strong>Priorité 9</strong> — Analyse de log files (Googlebot).</li>
-      <li><strong>Priorité 10</strong> — Wrapping LLM (OpenAI/Claude API) pour audit/rewriting à l'échelle.</li>
-    </ul>
+    <p>The GSC UI caps at <strong>1,000 rows</strong> per export and only 3 months for most views. The API gives up to <strong>25,000 rows per request</strong> (paginated to effectively unlimited) and the full <strong>16 months</strong> of data. For any serious site, the API is non-negotiable.</p>
+
+    <h3>Setup</h3>
+    <ol>
+      <li>Go to <strong>Google Cloud Console</strong> → create a project.</li>
+      <li>Enable the <strong>Search Console API</strong>.</li>
+      <li>Credentials → <strong>Create OAuth client ID</strong> → Desktop application → download <code>client_secrets.json</code>.</li>
+      <li>Verify that the GSC property is owned by your Google account.</li>
+    </ol>
+
+    <h3>Querying with google-searchconsole (Josh Carty's wrapper)</h3>
+    <p>This library abstracts the OAuth flow and returns pandas DataFrames directly — the cleanest approach for consultants.</p>
+<pre><code>import searchconsole
+import pandas as pd
+
+# First run: opens a browser to authenticate
+account = searchconsole.authenticate(
+    client_config = "client_secrets.json",
+    credentials   = "credentials.json",    # created on first auth, reused after
+)
+webproperty = account["https://www.example.com/"]
+
+# Pull 90 days of page + query data
+df = (webproperty.query
+      .range("today", days=-90)
+      .dimension("page", "query")
+      .limit(25000)
+      .get()
+      .to_dataframe())
+
+df.head()
+# url | query | clicks | impressions | ctr | position</code></pre>
+
+    <p>Filter by device, country, or URL segment:</p>
+<pre><code>mobile_blog = (webproperty.query
+               .range("today", days=-90)
+               .dimension("query")
+               .filter("device", "MOBILE", "equals")
+               .filter("page", "/blog/", "contains")
+               .get()
+               .to_dataframe())</code></pre>
+
+    <h3>Key use cases</h3>
+<pre><code># 1. Striking-distance pages (positions 11-20, decent impressions)
+striking = df[(df.position.between(11, 20)) &amp; (df.impressions &gt; 100)]
+striking.sort_values("impressions", ascending=False)
+
+# 2. Keyword cannibalisation (same query, multiple ranking pages)
+cannib = (df.groupby("query")
+            .agg(pages=("page","nunique"), clicks=("clicks","sum"))
+            .query("pages > 1 and clicks > 10")
+            .sort_values("clicks", ascending=False))
+
+# 3. Brand vs non-brand split
+df["is_brand"] = df["query"].str.contains("your-brand", case=False)
+df.groupby("is_brand")["clicks"].sum()
+
+# 4. CTR opportunity — pages that rank but barely get clicks
+df["expected_ctr"] = 0.30 / df["position"]     # rough model
+df["ctr_gap"] = df["expected_ctr"] - df["ctr"]
+df[df["ctr_gap"] &gt; 0.05].sort_values("impressions", ascending=False)</code></pre>
   </section>
 
+
+  <!-- ══════════════════════════════════════ 08 Log File Analysis -->
   <section class="section" id="s8">
     <div class="section-header">
       <span class="section-num">08</span>
-      <h2>Ressources d'apprentissage & Stack</h2>
+      <h2>Log File Analysis (Googlebot)</h2>
     </div>
-    
-    <h3>Blogs & sites de référence (qualité agence)</h3>
-    <ul>
-      <li><strong>JC Chouinard</strong> — la ressource n°1. Guide "Python for SEO: Complete Guide".</li>
-      <li><strong>Hamlet Batista</strong> — fondateur du mouvement Python-for-SEO.</li>
-      <li><strong>Greg Bernhardt</strong> — 100+ scripts pratiques.</li>
-      <li><strong>Lee Foot</strong> — scripts agence prêts à l'emploi.</li>
-      <li><strong>Elias Dabbas</strong> — créateur d'advertools.</li>
-      <li><strong>Antoine Eripret</strong> — francophone, articles concis et orientés agence.</li>
-    </ul>
+    <p>Server logs are the <strong>only ground-truth source</strong> for what Googlebot actually does on your site. They answer: which URLs get crawled, how often, which sections eat your crawl budget, and whether your JS-rendered pages are being fetched correctly.</p>
 
-    <h3>Repos GitHub à cloner</h3>
-    <ul>
-      <li><code>searchsolved/search-solved-public-seo</code> (Lee Foot)</li>
-      <li><code>eliasdabbas/advertools</code></li>
-      <li><code>jamesaphoenix/Python_For_SEO</code></li>
-    </ul>
+    <h3>What a Googlebot log line looks like</h3>
+<pre><code>66.249.73.72 - - [16/Feb/2026:00:18:53 +0000] "GET /page HTTP/1.1" 200 1095 "-"
+"Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X) ... (compatible; Googlebot/2.1)"</code></pre>
+    <p>Fields: IP, timestamp, request (method + path + protocol), status code, bytes, referrer, user-agent.</p>
 
-    <h3>Stack typique côté agence française (2025-2026)</h3>
+    <div class="callout warn">
+      <div class="callout-label">Validate Googlebot — user-agent strings are trivially spoofed</div>
+      <p>20–40% of traffic claiming to be Googlebot typically fails reverse-DNS verification (scrapers, bots). Never trust user-agent alone for log analysis conclusions.</p>
+    </div>
+
+    <h3>advertools.logs_to_df() — parse in one call</h3>
+<pre><code>import advertools as adv
+import pandas as pd
+
+adv.logs_to_df(
+    log_file    = "access.log",
+    output_file = "access.parquet",    # parquet is required (much faster than CSV)
+    errors_file = "errors.csv",        # malformed lines go here
+    log_format  = "combined",          # or "common" — matches your server format
+)
+df = pd.read_parquet("access.parquet")</code></pre>
+
+    <p>Verify real Googlebot hits via reverse DNS (advertools ships a vectorised version):</p>
+<pre><code># Get unique IPs claiming to be Googlebot
+claimed_ips = df[df["user_agent"].str.contains("Googlebot", na=False)]["client"].unique()
+
+# Verify via reverse DNS — returns DataFrame with hostname + is_real column
+verified = adv.reverse_dns_lookup(claimed_ips.tolist())
+real_gb   = verified[verified["hostname"].str.endswith((".googlebot.com", ".google.com"), na=False)]
+real_ips  = set(real_gb["ip"])
+
+gb = df[(df["client"].isin(real_ips)) &amp; df["user_agent"].str.contains("Googlebot", na=False)]</code></pre>
+
+    <h3>Key metrics to extract</h3>
+<pre><code># Crawl frequency by URL — top 20 most-crawled
+gb.groupby("request").size().sort_values(ascending=False).head(20)
+
+# Crawl budget by site section
+gb["section"] = gb["request"].str.split("/").str[1]
+gb.groupby("section").size().sort_values(ascending=False)
+
+# Status distribution as Googlebot sees it
+gb["status_code"].value_counts(normalize=True).mul(100).round(1)
+
+# Pages in sitemap not crawled in 30 days
+import advertools as adv
+sitemap_urls  = set(adv.sitemap_to_df("https://example.com/sitemap.xml")["loc"])
+crawled_urls  = set(gb["request"])
+not_crawled   = sitemap_urls - crawled_urls
+print(f"{len(not_crawled)} sitemap URLs Googlebot hasn't visited in 30 days")</code></pre>
+
+    <h3>Real use cases</h3>
     <ul>
-      <li><strong>Crawl</strong> : Screaming Frog, Oncrawl, Botify.</li>
-      <li><strong>Data</strong> : BigQuery + Looker Studio + Python.</li>
-      <li><strong>Automation</strong> : Make, n8n, Zapier côté no-code ; Python côté code.</li>
-      <li><strong>IA</strong> : ChatGPT, Claude, Perplexity ; OpenAI/Anthropic API pour l'industrialisation.</li>
+      <li><strong>Crawl budget waste</strong> — 60% of hits going to pagination / faceted filters? Block them in robots.txt.</li>
+      <li><strong>JS rendering check</strong> — two requests per page (HTML + JS bundle) = Googlebot is rendering. One request only = rendering may not happen.</li>
+      <li><strong>Indexation lag</strong> — join logs with publish date to measure how long new pages take to get crawled.</li>
+      <li><strong>Bot traffic audit</strong> — what share of claimed Googlebot traffic fails reverse-DNS verification.</li>
     </ul>
   </section>
 
+
+  <!-- ═══════════════════════════════════════ 09 Redirect Mapping -->
   <section class="section" id="s9">
     <div class="section-header">
       <span class="section-num">09</span>
-      <h2>Caveats</h2>
+      <h2>Redirect Mapping for Migrations</h2>
     </div>
-    <div class="callout warn">
-      <div class="callout-label">⚠ Attention</div>
-      <p>L'offre WTTJ Eskimoz n'a pas pu être fetchée directement (URL bloquée) ; les éléments cités viennent du cache Google. L'écosystème Python-for-SEO bouge vite : pyGTrends est obsolète, et l'API Universal Analytics est dépréciée au profit de GA4.</p>
+    <p>A migration moves 10,000 URLs from <code>/old/whatever/</code> to <code>/new/redesigned/</code>. Without a mapping table, every old URL becomes a 404, destroying link equity. Manually mapping 10K URLs is a week of misery. Python does it in 5 minutes.</p>
+
+    <h3>The approach: fuzzy match on titles, not URLs</h3>
+    <p>URLs change format on migrations. Titles usually don't change meaning. Match on the <strong>title</strong> (or H1) of the old page to the title of the new page — you get far better accuracy.</p>
+
+    <h3>polyfuzz — the canonical library</h3>
+<pre><code>from polyfuzz import PolyFuzz
+import pandas as pd
+
+# Start with Screaming Frog crawls of old and new sites
+old_df = pd.read_csv("internal_html_old.csv")
+new_df = pd.read_csv("internal_html_new.csv")
+
+# Match titles — TF-IDF mode (fast, no GPU needed)
+model = PolyFuzz("TF-IDF").match(
+    old_df["Title 1"].tolist(),
+    new_df["Title 1"].tolist(),
+)
+matches = model.get_matches()
+# DataFrame: From (old title) | To (new title) | Similarity (0–1)
+
+# Attach original URLs back
+matches = matches.merge(old_df[["Title 1", "Address"]], left_on="From", right_on="Title 1")
+matches = matches.merge(new_df[["Title 1", "Address"]], left_on="To",   right_on="Title 1")
+matches = matches.rename(columns={"Address_x": "old_url", "Address_y": "new_url"})
+
+# Apply quality thresholds
+matches["bucket"] = pd.cut(
+    matches["Similarity"],
+    bins   = [-0.01, 0.70, 0.90, 1.01],
+    labels = ["manual", "qa", "auto"],
+)</code></pre>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Similarity</th><th>Action</th></tr></thead>
+        <tbody>
+          <tr><td><strong>≥ 90%</strong></td><td>Auto-accept — high confidence, import directly into the redirect sheet</td></tr>
+          <tr><td><strong>70–90%</strong></td><td>Human QA — likely correct but worth a glance</td></tr>
+          <tr><td><strong>&lt; 70%</strong></td><td>Manual mapping or redirect to the closest parent category</td></tr>
+        </tbody>
+      </table>
     </div>
+
+    <h3>When to use SentenceTransformer mode instead of TF-IDF</h3>
+    <p>TF-IDF is fast and good when the wording is similar ("Best Trail Running Shoes 2024" → "Best Trail Running Shoes 2025"). Use embedding-based matching when the wording changed substantially during the migration ("Best Trail Running Shoes 2024" → "Top Outdoor Runner Buyer Guide") — it captures meaning, not just word overlap.</p>
+
+    <h3>Edge cases to handle</h3>
     <ul>
-      <li><strong>"Premières compétences en Python ou en automation"</strong> est une formulation <strong>soft</strong>. Concrètement, tu peux passer le process avec uniquement Make/n8n + de la curiosité Python.</li>
-      <li>Attention au scraping de Google directement : les ToS l'interdisent. Passer par une API tierce (SerpApi, ValueSERP, DataForSEO).</li>
-      <li>La distinction <strong>Python "vrai" vs Python "via LLM"</strong> n'a jamais été aussi floue qu'en 2026. Un consultant équipé de Claude/Cursor peut produire des scripts qu'il ne saurait pas écrire de tête.</li>
+      <li><strong>Trailing slashes</strong> — normalise with <code>url.rstrip("/")</code> on both lists before matching.</li>
+      <li><strong>URL encoding</strong> — <code>urllib.parse.unquote(url)</code> decodes <code>%20</code> → space.</li>
+      <li><strong>Pagination</strong> — <code>?page=2</code> URLs should redirect to their unparameterised parent on most migrations.</li>
+      <li><strong>Languages</strong> — match within language buckets, never across them.</li>
     </ul>
   </section>
 
+
+  <!-- ══════════════════════════════════════ 10 Keyword Clustering -->
+  <section class="section" id="s10">
+    <div class="section-header">
+      <span class="section-num">10</span>
+      <h2>Keyword Clustering &amp; Semantic Analysis</h2>
+    </div>
+    <p>A modern Ahrefs or SEMrush export is 10K–500K keywords. Manually grouping them into topical clusters for content briefs is impossible. Clustering only works at scale with code.</p>
+
+    <h3>Two families of approach</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Approach</th><th>Library</th><th>Speed</th><th>Quality</th><th>When to use</th></tr></thead>
+        <tbody>
+          <tr><td><strong>TF-IDF + cosine similarity</strong></td><td>scikit-learn</td><td>Very fast, CPU-only</td><td>Good for exact/phrase variants ("running shoes" / "running shoe")</td><td>Big lists where wording overlap is enough</td></tr>
+          <tr><td><strong>Embedding-based</strong></td><td>sentence-transformers (free) or OpenAI API</td><td>Slower — GPU helps; OpenAI costs ~$0.02/1M tokens</td><td>Captures <em>meaning</em> — "trainers for marathon" clusters with "long-distance running shoes"</td><td>Topical / intent clustering</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Embedding-based clustering with sentence-transformers</h3>
+    <p>The model <code>all-MiniLM-L6-v2</code> — 80MB, fast on CPU, strong on short text — is the community default for SEO keyword clustering:</p>
+<pre><code>from sentence_transformers import SentenceTransformer
+import pandas as pd, numpy as np
+
+kws = pd.read_csv("keywords.csv")["Keyword"].tolist()
+
+model = SentenceTransformer("all-MiniLM-L6-v2")
+emb   = model.encode(kws, show_progress_bar=True, convert_to_numpy=True)
+# emb is now an array of shape (num_keywords, 384)</code></pre>
+
+    <h3>Clustering algorithms</h3>
+<pre><code># A) HDBSCAN — no need to specify K, labels noise as -1
+import hdbscan
+labels = hdbscan.HDBSCAN(min_cluster_size=5).fit_predict(emb)
+
+# B) KMeans — you specify K
+from sklearn.cluster import KMeans
+km = KMeans(n_clusters=50, n_init="auto").fit(emb)
+labels = km.labels_
+
+# Attach labels to keywords
+kw_df = pd.DataFrame({"keyword": kws, "cluster": labels})
+
+# Top 3 keywords per cluster
+kw_df[kw_df.cluster != -1].groupby("cluster").head(3)</code></pre>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Algorithm</th><th>Pros</th><th>Cons</th></tr></thead>
+        <tbody>
+          <tr><td><strong>HDBSCAN</strong></td><td>No need to guess K. Naturally identifies noise keywords. Variable-density clusters.</td><td>Leaves some keywords unclustered (-1). Sensitive to <code>min_cluster_size</code>.</td></tr>
+          <tr><td><strong>KMeans</strong></td><td>Fast. Every keyword gets a cluster. Simple to explain.</td><td>Must guess K. Assumes globular clusters. Pulls in unrelated outliers.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Cannibalisation detection from GSC</h3>
+    <p>Cluster every query in GSC, then for each cluster look at how many URLs receive impressions. If 3 URLs share clicks for one cluster, you have a cannibalisation problem to consolidate.</p>
+
+    <div class="callout info">
+      <div class="callout-label">Reference Colab</div>
+      <p>Lee Foot's <strong>Semantic Keyword Clustering</strong> Colab (searchsolved / search-solved-public-seo on GitHub) is the production reference. It uses <code>all-MiniLM-L6-v2</code> with a community-detection approach and exposes a single <code>cluster_accuracy</code> parameter (0–100). Works on 10K+ keyword lists.</p>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════ 11 Automation & Reporting -->
+  <section class="section" id="s11">
+    <div class="section-header">
+      <span class="section-num">11</span>
+      <h2>Automation &amp; Reporting</h2>
+    </div>
+    <p>Automation means scripts that run on a schedule, batch-process folders of files, replace recurring manual chores, and connect tools that don't natively talk to each other.</p>
+
+    <h3>Scheduling</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Platform</th><th>Tool</th><th>Typical use</th></tr></thead>
+        <tbody>
+          <tr><td>Mac / Linux</td><td><code>cron</code> (<code>crontab -e</code>)</td><td><code>0 7 * * 1 /path/.venv/bin/python /path/script.py</code> — every Monday at 07:00</td></tr>
+          <tr><td>Windows</td><td>Task Scheduler</td><td>GUI equivalent of cron</td></tr>
+          <tr><td>Cloud (free)</td><td><strong>GitHub Actions</strong></td><td>A <code>.yml</code> workflow that runs your script on a hosted runner on a cron schedule — perfect for weekly GSC dumps</td></tr>
+          <tr><td>Cloud (paid)</td><td>Google Cloud Scheduler + Cloud Run</td><td>Heavier jobs, reliable, scales up</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>gspread — write results to Google Sheets</h3>
+    <p>The backbone of every "dashboard auto-updates from a script" workflow. Looker Studio can read directly from a Sheet, so this pattern gives you a full auto-refreshing dashboard for free.</p>
+<pre><code>import gspread, pandas as pd
+
+gc = gspread.service_account(filename="service_account.json")
+sh = gc.open_by_key("1AbC...the_sheet_id_from_URL")
+ws = sh.worksheet("GSC Weekly")
+
+# Read Sheet into DataFrame
+df = pd.DataFrame(ws.get_all_records())
+
+# Write DataFrame back to Sheet
+ws.clear()
+ws.update([df.columns.tolist()] + df.values.tolist())</code></pre>
+
+    <h3>GA4 Data API</h3>
+<pre><code>from google.analytics.data_v1beta import BetaAnalyticsDataClient
+from google.analytics.data_v1beta.types import RunReportRequest, Dimension, Metric, DateRange
+import os, pandas as pd
+
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "service_account.json"
+client = BetaAnalyticsDataClient()
+
+req = RunReportRequest(
+    property     = f"properties/{PROPERTY_ID}",
+    date_ranges  = [DateRange(start_date="28daysAgo", end_date="today")],
+    dimensions   = [Dimension(name="pagePath"), Dimension(name="sessionDefaultChannelGroup")],
+    metrics      = [Metric(name="sessions"), Metric(name="conversions")],
+    limit        = 100_000,
+)
+resp = client.run_report(req)
+
+rows = [[v.value for v in r.dimension_values] + [v.value for v in r.metric_values]
+        for r in resp.rows]
+cols = [d.name for d in resp.dimension_headers] + [m.name for m in resp.metric_headers]
+ga4  = pd.DataFrame(rows, columns=cols)</code></pre>
+
+    <h3>Make / n8n vs Python</h3>
+    <ul>
+      <li><strong>Make.com / n8n / Zapier</strong> — best for stitching SaaS APIs together with no code. Limited when you need pandas-grade data manipulation or custom logic.</li>
+      <li><strong>Python</strong> — best when the heart of the workflow is <em>transforming</em> or <em>modelling</em> data, or when SaaS per-operation billing gets expensive.</li>
+      <li><strong>Common hybrid pattern</strong> — n8n triggers a Python script via webhook, Python does the heavy work, n8n distributes the result to Slack / Sheets / client portal.</li>
+    </ul>
+
+    <h3>Real automation examples</h3>
+    <ul>
+      <li><strong>Weekly GSC dump → Google Sheet</strong> — cron + <code>google-searchconsole</code> + <code>gspread</code>. Manual GSC exports: never again.</li>
+      <li><strong>Daily redirect-chain checker</strong> — emails you any time a 200→301→200 chain breaks after a deployment.</li>
+      <li><strong>Scheduled crawl diff</strong> — compares this week's crawl against last week's, alerts on new 404s, new noindexes, missing canonicals.</li>
+      <li><strong>PageSpeed tracker</strong> — logs LCP/CLS/INP for the top 100 URLs every Monday into BigQuery.</li>
+    </ul>
+  </section>
+
+
+  <!-- ══════════════════════════════════════ 12 AI & LLM Integration -->
+  <section class="section" id="s12">
+    <div class="section-header">
+      <span class="section-num">12</span>
+      <h2>AI &amp; LLM Integration (GEO Bonus)</h2>
+    </div>
+    <p>LLMs unlock three categories of SEO work that were impractical at scale: <strong>content generation with guardrails</strong>, <strong>classification at scale</strong>, and <strong>brand citation monitoring (GEO)</strong>.</p>
+
+    <h3>The deterministic-first pattern</h3>
+    <p>Don't spray LLM tokens at problems Python solves cheaply. Filter first; LLM only the residual cases that actually need it. Hamlet Batista's last SEJ columns evangelised exactly this approach.</p>
+<pre><code>def needs_llm(row) -&gt; bool:
+    if row["status"] != 200: return False        # not live — skip
+    meta = row.get("meta_desc", "")
+    if meta and 140 &lt;= len(meta) &lt;= 160:
+        return False                              # already fine — skip
+    return True
+
+todo = crawl[crawl.apply(needs_llm, axis=1)]    # only pages that actually need work</code></pre>
+
+    <h3>Bulk meta description generation — Claude</h3>
+<pre><code>from anthropic import Anthropic
+client = Anthropic()
+
+def gen_meta(title: str, h1: str, body: str) -&gt; str:
+    resp = client.messages.create(
+        model      = "claude-haiku-4-5-20251001",   # fast + cheap for bulk
+        max_tokens = 80,
+        messages   = [{
+            "role"   : "user",
+            "content": (
+                f"Write an SEO meta description: 140-155 chars, "
+                f"include a CTA, never invent facts.\n"
+                f"Title: {title}\nH1: {h1}\nExcerpt: {body[:400]}"
+            ),
+        }],
+    )
+    out = resp.content[0].text.strip().strip('"')
+    # Hard guardrail — truncate if LLM goes over
+    if len(out) &gt; 160:
+        out = out[:157].rsplit(" ", 1)[0] + "…"
+    return out if len(out) &gt;= 110 else None    # flag too-short for human review
+
+todo["new_meta"] = todo.apply(
+    lambda r: gen_meta(r["title"], r["h1"], r.get("body", "")), axis=1
+)</code></pre>
+
+    <h3>Intent classification at scale</h3>
+<pre><code>LABELS = ["informational", "navigational", "transactional", "commercial"]
+
+def classify_intent(query: str) -&gt; str:
+    resp = client.messages.create(
+        model      = "claude-haiku-4-5-20251001",
+        max_tokens = 5,
+        messages   = [{
+            "role"   : "user",
+            "content": f"Classify search intent into one of {LABELS}. Reply with the label only.\nQuery: {query}",
+        }],
+    )
+    return resp.content[0].text.strip().lower()
+
+# For 10K+ keywords, it's cheaper to embed all queries + 4 label descriptions,
+# then assign each query to its nearest label by cosine similarity.</code></pre>
+
+    <h3>GEO monitoring — tracking brand citations in LLM answers</h3>
+    <p>Generative Engine Optimisation is the new frontier. The pattern: a list of category prompts → query each LLM/API → record whether your brand or domain appears in the answer → track weekly share-of-voice.</p>
+<pre><code>import requests
+
+def query_perplexity(prompt: str, brand: str) -&gt; dict:
+    r = requests.post(
+        "https://api.perplexity.ai/chat/completions",
+        headers = {"Authorization": f"Bearer {PPLX_KEY}"},
+        json    = {
+            "model"            : "sonar",
+            "messages"         : [{"role": "user", "content": prompt}],
+            "return_citations" : True,
+        },
+    )
+    data      = r.json()
+    citations = data.get("citations", [])
+    return {
+        "prompt"    : prompt,
+        "cited"     : any(brand.lower() in c.lower() for c in citations),
+        "citations" : citations,
+    }
+
+prompts = ["best running shoes for marathon training", "top trail running brands", ...]
+results = [query_perplexity(p, "YourBrand") for p in prompts]</code></pre>
+
+    <div class="callout info">
+      <div class="callout-label">GEO data sources</div>
+      <p>Also worth exploring: <strong>DataForSEO LLM Mentions API</strong> (indexes 200M+ AI responses across ChatGPT / Perplexity / Gemini / Claude), <strong>Ahrefs Brand Radar</strong>, <strong>Peec.ai</strong>, and <strong>Otterly</strong> — some offer Python-accessible APIs, some are pure dashboards.</p>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════ 13 8-Week Roadmap -->
+  <section class="section" id="s13">
+    <div class="section-header">
+      <span class="section-num">13</span>
+      <h2>8-Week Learning Roadmap</h2>
+    </div>
+    <p>A realistic plan for the working SEO consultant spending ~5 hours/week. Each week has a concrete deliverable. By week 8 you have a portfolio of real scripts running on real client data.</p>
+
+    <div class="week-item">
+      <div class="week-label">Week 1–2</div>
+      <div class="week-goal">Python absolute basics — read and run a script</div>
+      <p>Cover: variables, str/int/float/bool, lists, dicts, <code>for</code>, <code>if/elif/else</code>, functions, imports, list comprehensions. Environment: Google Colab only.</p>
+      <p><strong>Deliverable:</strong> Take a Screaming Frog <code>internal_html.csv</code>. Read it with <code>pd.read_csv</code>. Print the count of 404s. Write only the 404 rows to <code>404s.csv</code>.</p>
+      <p><strong>Resources:</strong> Hamlet Batista's "Practical Introduction to Python for SEO Pros" (Search Engine Journal) · JC Chouinard's "Learn Python" (jcchouinard.com) · Real Python beginners path · Python.org tutorial.</p>
+    </div>
+
+    <div class="week-item">
+      <div class="week-label">Week 3</div>
+      <div class="week-goal">pandas on real SEO data — filter, group, merge</div>
+      <p>Cover: <code>read_csv/excel/json</code>, <code>head/info/describe</code>, boolean filtering, <code>merge</code> (the VLOOKUP), <code>groupby</code>, <code>sort_values</code>, <code>drop_duplicates</code>, output.</p>
+      <p><strong>Deliverable:</strong> Merge a Screaming Frog crawl with a 90-day GSC export by URL. Output the top 50 pages with impressions but no clicks — your CTR opportunity report.</p>
+      <p><strong>Resources:</strong> Hamlet Batista — "How To Use Python to Analyze SEO Data: A Reference Guide" (SEJ) · Greg Bernhardt — "SEO Data Blending with Python" (importsem.com).</p>
+    </div>
+
+    <div class="week-item">
+      <div class="week-label">Week 4</div>
+      <div class="week-goal">requests + BeautifulSoup — scrape pages at scale</div>
+      <p>Cover: <code>requests.get</code> with headers, <code>BeautifulSoup(html, "lxml")</code>, <code>.find / .find_all / .select</code>, <code>time.sleep</code>, <code>try/except</code> for network errors.</p>
+      <p><strong>Deliverable:</strong> Bulk title / H1 / meta / canonical / JSON-LD checker. Input: a URL list. Output: a DataFrame with one row per URL.</p>
+      <p><strong>Resources:</strong> JC Chouinard — "Web Scraping with BeautifulSoup" · Real Python — "Beautiful Soup: Build a Web Scraper with Python" · advertools.crawl() docs as the higher-level shortcut.</p>
+    </div>
+
+    <div class="week-item">
+      <div class="week-label">Week 5</div>
+      <div class="week-goal">Google Search Console API — beyond 1K rows</div>
+      <p>Set up OAuth credentials in Google Cloud Console. Install <code>google-searchconsole</code> (Josh Carty's wrapper). Pull 16 months of data.</p>
+      <p><strong>Deliverable:</strong> Pull 16 months of query/page data. Build a striking-distance report (positions 11–20, &gt;100 impressions). Detect cannibalisation (queries where <code>nunique("page") &gt; 1</code>).</p>
+      <p><strong>Resources:</strong> JC Chouinard — "Google Search Console API: Complete Guide" (4 chapters) · joshcarty/google-searchconsole on GitHub.</p>
+    </div>
+
+    <div class="week-item">
+      <div class="week-label">Week 6</div>
+      <div class="week-goal">Redirect mapping — auto-map 10K URLs in 5 minutes</div>
+      <p>Cover: <code>polyfuzz</code> TF-IDF and SentenceTransformer modes, similarity thresholds, edge cases (trailing slashes, query params, URL encoding).</p>
+      <p><strong>Deliverable:</strong> Take an old + new Screaming Frog crawl. Output <code>redirects.csv</code> with columns: <code>old_url, new_url, similarity, bucket</code>.</p>
+      <p><strong>Resources:</strong> Lee Foot — <code>migration_mapper.py</code> (github: searchsolved / search-solved-public-seo) · Greg Bernhardt — "Generate a 404 Redirect List with PolyFuzz" (importsem.com).</p>
+    </div>
+
+    <div class="week-item">
+      <div class="week-label">Week 7</div>
+      <div class="week-goal">advertools — crawl, sitemap, logs, robots.txt</div>
+      <p>Cover: <code>adv.crawl()</code>, <code>adv.sitemap_to_df()</code>, <code>adv.robotstxt_to_df()</code>, <code>adv.robotstxt_test()</code>, <code>adv.logs_to_df()</code>, <code>adv.reverse_dns_lookup()</code>.</p>
+      <p><strong>Deliverable:</strong> (1) Full sitemap audit — status, lastmod freshness, URLs blocked in robots.txt. (2) 30-day Googlebot crawl analysis from server logs. (3) Crawl + sitemap + log triangulation.</p>
+      <p><strong>Resources:</strong> Elias Dabbas — advertools README + blog.adver.tools · Koray Tuğberk Gübür — "Using Python and Sitemaps to Audit Content Strategies" (OnCrawl).</p>
+    </div>
+
+    <div class="week-item">
+      <div class="week-label">Week 8</div>
+      <div class="week-goal">Keyword clustering — turn 50K keywords into a content roadmap</div>
+      <p>Cover: <code>sentence-transformers</code> (<code>all-MiniLM-L6-v2</code>), HDBSCAN vs KMeans, UMAP visualisation.</p>
+      <p><strong>Deliverable:</strong> Cluster an Ahrefs / SEMrush keyword export. Identify the 20 highest-volume clusters with no ranking content on your domain → that's your content roadmap for next quarter.</p>
+      <p><strong>Resources:</strong> Lee Foot — "Semantic Keyword Clustering for 10,000+ Keywords" (SEJ + Colab link) · Search Engine Journal — keyword clustering series.</p>
+    </div>
+
+    <h3>Months 3+ — going deeper</h3>
+    <ul>
+      <li><strong>JC Chouinard</strong> — full "Python for SEO" course at jcchouinard.com (beginner to expert, 9 structured chapters — the most comprehensive single free resource online).</li>
+      <li><strong>Greg Bernhardt / importSEM</strong> — 200+ tutorials, especially strong on automation, API integration, and Screaming Frog CLI.</li>
+      <li><strong>Elias Dabbas / advertools blog</strong> — current production patterns from the library's maintainer.</li>
+      <li><strong>Andreas Voniatis — <em>Data-Driven SEO with Python</em></strong> (Apress, 2023) — the most complete book on the topic: ML, NLP, forecasting, migrations.</li>
+      <li><strong>Hamlet Batista SEJ archive</strong> — the foundational texts. Title-tag deep learning, intent classification, crawler-trap detection. Some API references are outdated; the patterns are timeless.</li>
+      <li><strong>Lee Foot / searchsolved on GitHub</strong> — production-ready Colabs for redirect mapping, semantic clustering, log analysis.</li>
+    </ul>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════ 14 Caveats -->
+  <section class="section" id="s14">
+    <div class="section-header">
+      <span class="section-num">14</span>
+      <h2>Caveats</h2>
+    </div>
+
+    <div class="callout warn">
+      <div class="callout-label">⚠ The landscape moves fast</div>
+      <p>Check each library's current docs for the correct install command and minimum Python version before adopting in production. <code>polyfuzz</code> has had <code>sparse_dot_topn</code> install issues on some platforms. <code>sentence-transformers</code> versions affect backward compatibility with downloaded models.</p>
+    </div>
+
+    <ul>
+      <li><strong>API surfaces and quotas change.</strong> GSC API: 1,200 QPM, 25K rows per request, 16 months of data. PSI API: 25K/day, ~240/min. GA4 Data API: stable but dimension/metric names differ from GA3. OpenAI pricing and model snapshots evolve — re-check before scaling a job.</li>
+      <li><strong>Never scrape Google directly.</strong> Violates ToS, gets your IP blocked, produces unreliable data. Use SerpApi, DataForSEO SERP API, ValueSERP, or Bright Data.</li>
+      <li><strong>Validate Googlebot in log analysis.</strong> 20–40% of traffic claiming to be Googlebot typically fails reverse-DNS verification. User-agent strings alone are worthless for log analysis conclusions.</li>
+      <li><strong>GEO monitoring tooling is nascent.</strong> APIs from Perplexity, OpenAI, and DataForSEO change rapidly. Treat any GEO-monitoring implementation as a 3-month rolling rebuild.</li>
+      <li><strong>Hamlet Batista passed away in January 2021.</strong> His SEJ and Search Engine Land columns remain online and fundamental, but specific code references older libraries (older HuggingFace pipelines, deprecated OpenAI completion endpoints). The patterns are timeless; specific imports may need updating. The community at seopythonistas.com (founded by Charly Wargnier) continues his work.</li>
+      <li><strong>Code in this guide is illustrative.</strong> Snippets are minimal patterns to convey the shape of working code, not production-hardened scripts. Add error handling, retries, logging, and credential management (use <code>python-dotenv</code> — never hardcode API keys) before running anything on client data.</li>
+      <li><strong>The Python vs LLM-generated-Python boundary is blurrier than ever in 2026.</strong> A consultant equipped with Claude Code or Cursor can produce and maintain scripts they couldn't write from scratch — as long as they have the mental models to prompt correctly and debug when things fail. That's exactly what this guide builds.</li>
+    </ul>
+  </section>
+
+
   <footer class="site-footer">
     <span>SEO Knowledge Base — Internal use</span>
-    <span>Python SEO — v1.0</span>
+    <span>Python for SEO — v2.0</span>
   </footer>
 
 </div>
