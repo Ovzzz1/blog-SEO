@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="tag" content="technique">
+<meta name="date" content="2026-05-10">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JavaScript for SEO — SEO Knowledge Base</title>
+<link rel="icon" type="image/png" href="../image/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #f9fafb;
+    --ink-2: #d1d5db;
+    --ink-3: #9ca3af;
+    --paper: #17191a;
+    --paper-2: #212426;
+    --paper-3: #2d3134;
+    --accent: #ff6e40;
+    --accent-2: #60a5fa;
+    --success: #34d399;
+    --warn: #fbbf24;
+    --danger: #f87171;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+    --display: 'Syne', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .page-wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+  .site-header { border-bottom: 1px solid var(--paper-3); padding: 2rem 0 1.5rem; }
+  .header-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+  .tag-badge { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border: 1px solid var(--paper-3); border-radius: 2px; color: var(--ink-3); }
+  .tag-badge.accent { border-color: var(--accent); color: var(--accent); }
+
+  .hero-grid { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: end; padding-bottom: 2.5rem; }
+  .hero-title { font-family: var(--display); font-size: clamp(2.4rem, 5.5vw, 4.2rem); font-weight: 800; line-height: 1.0; letter-spacing: -0.03em; color: var(--ink); }
+  .hero-title em { font-style: normal; color: var(--accent); }
+  .hero-subtitle { font-family: var(--sans); font-size: 1rem; font-weight: 300; color: var(--ink-3); margin-top: 0.75rem; line-height: 1.5; }
+  .version-box { font-family: var(--mono); font-size: 10px; color: var(--ink-3); line-height: 1.8; letter-spacing: 0.05em; text-align: right; }
+
+  .toc-bar { background: var(--paper-2); border: 1px solid var(--paper-3); padding: 1.5rem 2rem; margin: 0 -2rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.25rem 2rem; }
+  .toc-item { font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; padding: 0.3rem 0; color: rgba(249,250,251,0.6); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.15s; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .toc-item:hover { color: var(--ink); }
+  .toc-num { color: var(--accent); font-weight: 500; min-width: 20px; }
+
+  .section { padding: 4rem 0 2rem; border-bottom: 1px solid var(--paper-3); }
+  .section:last-child { border-bottom: none; }
+  .section-header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 2rem; }
+  .section-num { font-family: var(--mono); font-size: 11px; font-weight: 500; color: var(--accent); letter-spacing: 0.1em; min-width: 32px; }
+
+  h2 { font-family: var(--display); font-size: 1.6rem; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: var(--ink); margin-top: 15px; }
+  h3 { font-family: var(--display); font-size: 1.05rem; font-weight: 600; color: var(--ink); margin: calc(2rem + 16px) 0 0.75rem; letter-spacing: -0.01em; }
+  h4 { font-family: var(--display); font-size: 1rem; font-weight: 600; color: var(--ink-2); margin: calc(1.5rem + 10px) 0 0.5rem; letter-spacing: -0.01em; }
+
+  p { margin-bottom: 1rem; color: var(--ink-2); }
+  strong { font-weight: 500; color: var(--ink); }
+  em { color: var(--ink-2); font-style: italic; }
+  code { font-family: var(--mono); font-size: 0.82em; background: var(--paper-2); border: 1px solid var(--paper-3); border-radius: 3px; padding: 1px 5px; color: var(--accent-2); }
+
+  ul, ol { margin-bottom: 1rem; padding-left: 1.5rem; color: var(--ink-2); }
+  li { margin-bottom: 0.5rem; }
+  ol { list-style: decimal; }
+
+  pre {
+    background: var(--paper-2);
+    border: 1px solid var(--paper-3);
+    border-left: 3px solid var(--paper-3);
+    border-radius: 0 4px 4px 0;
+    padding: 1.25rem 1.5rem;
+    overflow-x: auto;
+    margin: 1.25rem 0;
+    font-family: var(--mono);
+    font-size: 0.8em;
+    line-height: 1.65;
+    color: var(--ink-2);
+  }
+  pre code { background: none; border: none; padding: 0; font-size: inherit; color: inherit; }
+
+  .code-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); margin-top: 1.5rem; margin-bottom: -0.5rem; display: block; }
+
+  .callout { border-left: 3px solid; padding: 1rem 1.25rem; margin: 1.5rem 0; border-radius: 0 4px 4px 0; }
+  .callout p { margin-bottom: 0; font-size: 0.92rem; }
+  .callout p + p { margin-top: 0.5rem; }
+  .callout-label { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .callout.info { border-color: var(--accent-2); background: rgba(96,165,250,0.1); }
+  .callout.info .callout-label { color: var(--accent-2); }
+  .callout.warn { border-color: var(--warn); background: rgba(251,191,36,0.1); }
+  .callout.warn .callout-label { color: var(--warn); }
+  .callout.success { border-color: var(--success); background: rgba(52,211,153,0.08); }
+  .callout.success .callout-label { color: var(--success); }
+  .callout.danger { border-color: var(--danger); background: rgba(248,113,113,0.08); }
+  .callout.danger .callout-label { color: var(--danger); }
+
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  thead tr { background: var(--paper-2); }
+  thead th { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.75rem 1rem; text-align: left; color: var(--ink); }
+  tbody tr { border-bottom: 1px solid var(--paper-2); }
+  tbody tr:hover { background: var(--paper-2); }
+  tbody td { padding: 0.65rem 1rem; color: var(--ink-2); vertical-align: top; }
+  tbody td:first-child { font-weight: 400; color: var(--ink); }
+
+  /* Case Studies */
+  .case-study {
+    border: 1px solid var(--paper-3);
+    border-radius: 4px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.75rem 0;
+    transition: border-color 0.15s;
+  }
+  .case-study:hover { border-color: var(--accent-2); }
+  .cs-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem; flex-wrap: wrap; }
+  .cs-num { font-family: var(--mono); font-size: 10px; color: var(--accent-2); letter-spacing: 0.1em; text-transform: uppercase; }
+  .cs-fw { font-family: var(--mono); font-size: 10px; color: var(--ink-3); background: var(--paper-2); padding: 2px 7px; border-radius: 2px; border: 1px solid var(--paper-3); }
+  .cs-title { font-family: var(--display); font-size: 0.98rem; font-weight: 600; color: var(--ink); margin-bottom: 0.6rem; }
+  .cs-result { font-family: var(--mono); font-size: 0.78em; color: var(--success); margin-top: 0.75rem; padding: 0.4rem 0.75rem; background: rgba(52,211,153,0.08); border-radius: 3px; display: inline-block; }
+
+  /* Step items (audit / migration) */
+  .step-item { border-left: 2px solid var(--paper-3); padding: 0.5rem 0 0.5rem 1.5rem; margin-bottom: 1.75rem; transition: border-color 0.15s; }
+  .step-item:hover { border-color: var(--accent-2); }
+  .step-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-2); margin-bottom: 0.2rem; }
+  .step-title { font-weight: 500; color: var(--ink); margin-bottom: 0.4rem; font-size: 0.95rem; }
+
+  .pipe-flow {
+    font-family: var(--mono);
+    font-size: 0.82em;
+    color: var(--accent);
+    background: var(--paper-2);
+    border: 1px solid var(--paper-3);
+    padding: 1rem 1.5rem;
+    border-radius: 4px;
+    margin: 1rem 0;
+    letter-spacing: 0.04em;
+  }
+
+  .site-footer { margin-top: 4rem; padding: 2rem 0; border-top: 1px solid var(--paper-3); display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 11px; color: var(--ink-3); letter-spacing: 0.05em; }
+
+  @media (max-width: 600px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-side { display: none; }
+    .toc-bar { grid-template-columns: 1fr 1fr; }
+  }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  .section { animation: fadeUp 0.4s ease both; }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <div style="padding-top: 2rem;">
+    <a href="../index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-3)'">← Back to home</a>
+  </div>
+
+  <header class="site-header">
+    <div class="header-meta">
+      <span class="tag-badge accent">SEO Knowledge Base</span>
+      <span class="tag-badge">Internal use</span>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1 class="hero-title">JavaScript<br><em>for SEO</em></h1>
+        <p class="hero-subtitle">JS frameworks, Next.js, rendering modes &amp; crawling — the complete practitioner's guide</p>
+      </div>
+      <div class="hero-side">
+        <div class="version-box">
+          11 sections<br>
+          Updated 2026
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="toc-bar">
+    <a href="#s1"  class="toc-item"><span class="toc-num">01</span> The Core Problem</a>
+    <a href="#s2"  class="toc-item"><span class="toc-num">02</span> How Googlebot Reads a Page</a>
+    <a href="#s3"  class="toc-item"><span class="toc-num">03</span> Rendering Modes</a>
+    <a href="#s4"  class="toc-item"><span class="toc-num">04</span> Next.js Deep Dive</a>
+    <a href="#s5"  class="toc-item"><span class="toc-num">05</span> Framework Comparison</a>
+    <a href="#s6"  class="toc-item"><span class="toc-num">06</span> JS SEO Failure Modes</a>
+    <a href="#s7"  class="toc-item"><span class="toc-num">07</span> Case Studies</a>
+    <a href="#s8"  class="toc-item"><span class="toc-num">08</span> Audit Playbook</a>
+    <a href="#s9"  class="toc-item"><span class="toc-num">09</span> Migration Playbook</a>
+    <a href="#s10" class="toc-item"><span class="toc-num">10</span> AI Crawler Dimension</a>
+    <a href="#s11" class="toc-item"><span class="toc-num">11</span> Quick Reference</a>
+  </nav>
+
+
+  <!-- ══════════════════════════════════════════ 01 The Core Problem -->
+  <section class="section" id="s1">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2>The Core Problem</h2>
+    </div>
+
+    <p>Traditional websites deliver HTML files verbatim. What the server sends is what the browser — and the crawler — sees. Simple, predictable, immediately readable.</p>
+    <p>JavaScript frameworks broke that contract.</p>
+    <p>When a site is built as a pure <strong>Single Page Application (SPA)</strong>, the server sends this:</p>
+
+<pre><code>&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;&lt;title&gt;App&lt;/title&gt;&lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id="root"&gt;&lt;/div&gt;
+    &lt;script src="/static/js/main.bundle.js"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+    <p>That's it. There is no content. The browser downloads the JavaScript bundle, executes it, fetches data from APIs, builds the DOM in memory, and finally injects visible content into <code>#root</code>. Until that chain completes, the page is a blank shell.</p>
+
+    <p><strong>For SEO, this is a problem at multiple levels:</strong></p>
+    <ul>
+      <li>Crawlers that don't execute JS see nothing</li>
+      <li>Even Googlebot, which does execute JS, puts these pages in a rendering queue — introducing delays</li>
+      <li>Social-media unfurlers (Twitter, LinkedIn, Facebook) don't run JS — so every page shows the same default preview</li>
+      <li>AI crawlers (GPTBot, ClaudeBot, PerplexityBot) fetch JS files but <strong>do not execute them</strong> — your content is invisible to them</li>
+    </ul>
+
+    <div class="callout info">
+      <div class="callout-label">Simplified analogy</div>
+      <p>A static HTML site is like a printed menu on a restaurant table — anyone can read it immediately. A JS-only SPA is a menu that only appears after you scan a QR code, wait for an app to load, log in, and grant location permissions. Most impatient guests (crawlers) give up.</p>
+    </div>
+
+    <p><strong>Why developers still use frameworks:</strong> speed of development, rich interactivity, component reuse, shared logic between web and mobile. The problem isn't the frameworks themselves — it's deploying them in Client-Side Rendering mode for content that needs to be indexed. Meta-frameworks (Next.js, Nuxt, SvelteKit, Astro) exist precisely to solve this.</p>
+  </section>
+
+
+  <!-- ═══════════════════════════════ 02 How the Browser and Googlebot Read a Page -->
+  <section class="section" id="s2">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>How the Browser and Googlebot Actually Read a Page</h2>
+    </div>
+
+    <h3>What HTML, CSS, and JavaScript each do</h3>
+    <ul>
+      <li><strong>HTML:</strong> Declarative structure. Defines what exists on the page — headings, paragraphs, links, images, semantic elements. This is what crawlers fundamentally rely on. Strong semantic HTML (proper <code>&lt;h1&gt;–&lt;h6&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code>) directly improves Google's and LLMs' ability to understand content hierarchy.</li>
+      <li><strong>CSS:</strong> Presentation. Defines how things look. Doesn't affect crawling but does affect Core Web Vitals — specifically CLS if fonts load without size reservations, and LCP if critical styles are blocked.</li>
+      <li><strong>JavaScript:</strong> Behaviour and dynamism. Manipulates the DOM after the fact. This is what introduces complexity for crawlers.</li>
+    </ul>
+
+    <h3>How a browser parses a page</h3>
+    <ol>
+      <li>Receives the raw HTML from the server</li>
+      <li>Parses it top-to-bottom, building the <strong>DOM tree</strong></li>
+      <li>When it encounters a <code>&lt;link rel="stylesheet"&gt;</code>, it fetches CSS and builds the <strong>CSSOM</strong></li>
+      <li>When it encounters a <code>&lt;script&gt;</code> without <code>defer</code> or <code>async</code>, it <strong>stops parsing</strong> until the JS downloads and executes (render-blocking)</li>
+      <li>Combines DOM + CSSOM into the <strong>Render Tree</strong></li>
+      <li><strong>Layout</strong> phase: computes positions and sizes</li>
+      <li><strong>Paint</strong> phase: draws pixels</li>
+    </ol>
+    <p>JavaScript's single-threaded event loop means that heavy JS execution monopolises the only thread that can also paint and respond to user input — which is why JS-heavy pages score poorly on INP and block the rendering pipeline.</p>
+
+    <h3>How Googlebot processes a page</h3>
+    <p>Google's pipeline has three distinct stages:</p>
+
+    <div class="pipe-flow">URL discovered → Crawl (fetch raw HTML) → Render Queue → WRS Render → Index</div>
+
+    <p><strong>Stage 1 — Crawl:</strong> Googlebot fetches the raw HTTP response. It reads whatever HTML is in that response immediately. Any links in the static HTML are discovered now.</p>
+    <p><strong>Stage 2 — Render Queue:</strong> If JS is needed to reveal content, the URL goes into a queue. This queue is resource-constrained — pages can wait from seconds to weeks depending on the site's authority, crawl budget, and server performance.</p>
+    <p><strong>Stage 3 — WRS Render:</strong> Google's Web Rendering Service uses a headless Chromium instance (now evergreen — tracking the latest stable Chrome release since May 2019). It executes JavaScript, fetches API data, builds the full DOM, and extracts content and links.</p>
+
+    <p><strong>Critical constraints of the WRS:</strong></p>
+    <ul>
+      <li>Stateless — no cookies, no localStorage, no session state persists between pages</li>
+      <li>Does not interact with the page (no clicks, no scroll, no form submission, no cookie-banner dismissal)</li>
+      <li>Has a <strong>2 MB resource budget</strong> per page — heavy bundles may not fully execute</li>
+      <li>Has a <strong>~5-second rendering timeout</strong> on average, though queuing can extend total delay significantly</li>
+      <li>Content revealed only through user interaction (click, hover, scroll) is invisible</li>
+    </ul>
+
+    <div class="callout success">
+      <div class="callout-label">2024 Study Finding</div>
+      <p>A 2024 study by Vercel and MERJ (analyzing 100,000+ Googlebot fetches) found that Google now renders virtually all pages returning a 200 status, including complex SPAs. However: server-rendered pages have an advantage because they <strong>skip the render queue entirely</strong> for content discovery.</p>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════ 03 Rendering Modes -->
+  <section class="section" id="s3">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2>Rendering Modes — The Decision That Changes Everything</h2>
+    </div>
+
+    <p>The rendering mode determines what content is in the HTML when a crawler first receives it — which determines everything else.</p>
+
+    <h3>Client-Side Rendering (CSR)</h3>
+    <ul>
+      <li><strong>What it is:</strong> The server sends an empty HTML shell. All content is built by JavaScript in the browser.</li>
+      <li><strong>What Googlebot sees on first fetch:</strong> An empty <code>&lt;div id="root"&gt;</code>. No content, no links.</li>
+      <li><strong>When it gets indexed:</strong> Only after the render queue processes the page — which could be immediate or days later.</li>
+      <li><strong>Use case:</strong> Authenticated dashboards, admin panels, content behind a login wall that doesn't need SEO.</li>
+      <li><strong>Never use for:</strong> Any page that needs to rank organically or be shared on social media.</li>
+    </ul>
+    <div class="callout info">
+      <div class="callout-label">Analogy</div>
+      <p>CSR is a restaurant where they bring you an empty plate and make you go to the kitchen yourself to fill it. Google will eventually visit the kitchen too — but it might take a while, and it won't always find everything.</p>
+    </div>
+
+    <h3>Server-Side Rendering (SSR)</h3>
+    <ul>
+      <li><strong>What it is:</strong> On every request, the server runs the framework code, fetches data, produces a fully-populated HTML document, and sends it.</li>
+      <li><strong>What Googlebot sees:</strong> Complete HTML with all content, metadata, and links. No rendering queue needed.</li>
+      <li><strong>When it gets indexed:</strong> Immediately on first crawl.</li>
+      <li><strong>Performance trade-off:</strong> Higher TTFB (server must do work per request). Requires a running server — not a static CDN.</li>
+      <li><strong>Use case:</strong> Dynamic content that changes frequently — e-commerce with live stock, news articles, search results.</li>
+    </ul>
+    <div class="callout info">
+      <div class="callout-label">Analogy</div>
+      <p>SSR is a restaurant where the chef cooks each dish fresh to order. The food (HTML) arrives ready to eat, but you wait a few minutes.</p>
+    </div>
+
+    <h3>Static Site Generation (SSG)</h3>
+    <ul>
+      <li><strong>What it is:</strong> Pages are pre-rendered at <strong>build time</strong> into HTML files. These files are deployed to a CDN and served instantly.</li>
+      <li><strong>What Googlebot sees:</strong> Perfect, instant HTML. Best possible TTFB.</li>
+      <li><strong>Trade-off:</strong> Content is frozen until the next build. Large sites (thousands of pages) can have build times of hours.</li>
+      <li><strong>Use case:</strong> Marketing pages, blog posts, documentation, anything that doesn't change per-request.</li>
+    </ul>
+    <div class="callout info">
+      <div class="callout-label">Analogy</div>
+      <p>SSG is a printed menu. Fastest for the customer (crawler), but requires reprinting whenever the menu changes.</p>
+    </div>
+
+    <h3>Incremental Static Regeneration (ISR) — Next.js specific</h3>
+    <ul>
+      <li><strong>What it is:</strong> Pages start as SSG, but can be automatically rebuilt in the background at a specified interval (<code>revalidate: 300</code> = rebuild every 5 minutes) or on-demand.</li>
+      <li><strong>The mechanism:</strong> First request gets the cached static page. In the background, Next.js silently rebuilds a fresh version. Next visitor gets the fresh version ("stale-while-revalidate" pattern).</li>
+      <li><strong>Use case:</strong> Large product catalogues where content updates periodically. E-commerce pricing, inventory, category pages.</li>
+      <li><strong>Watch out for:</strong> Brief windows where the ISR page shows stale data (e.g., listing shows "in stock" while the ISR product page hasn't refreshed yet).</li>
+    </ul>
+
+    <h3>Hybrid Rendering</h3>
+    <p>Modern meta-frameworks let you choose rendering mode <strong>per route</strong>. A single Next.js codebase can:</p>
+    <ul>
+      <li>SSG the <code>/blog/*</code> routes (static articles)</li>
+      <li>ISR the <code>/products/*</code> routes (catalogue updated daily)</li>
+      <li>SSR the <code>/search</code> route (real-time results)</li>
+      <li>CSR the <code>/dashboard/*</code> routes (authenticated, no SEO needed)</li>
+    </ul>
+    <p>This is the architecture you want for most professional sites.</p>
+
+    <h3>Streaming SSR (Next.js App Router + React Suspense)</h3>
+    <p>Instead of waiting for the entire page to render before sending HTML, the server streams HTML in chunks as components finish rendering. The browser receives the header and navigation immediately, then the main content streams in, then the comments or reviews.</p>
+    <p><strong>SEO implication:</strong> The critical content (heading, body, metadata) is in the first chunk and arrives immediately. Even on slow data-fetching pages, Googlebot sees the key content fast.</p>
+
+    <h3>Islands Architecture (Astro)</h3>
+    <p>A fundamentally different approach: the server renders the entire page as static HTML. Only specific interactive widgets ("islands") are hydrated with JavaScript. The rest of the page ships zero JS.</p>
+    <p><strong>SEO implication:</strong> Near-perfect Core Web Vitals. Immediate full HTML. Best for content-heavy sites where most pages don't need complex interactivity.</p>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════ 04 Next.js Deep Dive -->
+  <section class="section" id="s4">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2>Next.js Deep Dive</h2>
+    </div>
+
+    <h3>What Next.js is</h3>
+    <p>Next.js is a <strong>React meta-framework</strong> created by Vercel. It takes React (which is just a UI library — no router, no SSR, no data fetching conventions) and adds everything you need for a production website: routing, SSR/SSG/ISR, image optimization, font optimization, metadata management, API routes, middleware.</p>
+    <p>Major Next.js sites: TikTok, Notion, The Washington Post, Target, Nike, OpenAI, Twitch, Hulu, Deliveroo, Audible, Spotify.</p>
+
+    <h3>Pages Router vs. App Router</h3>
+    <p>Next.js has two parallel routing systems currently coexisting:</p>
+    <ul>
+      <li><strong>Pages Router</strong> (original, stable) — files in <code>/pages/</code> become routes. <code>getStaticProps</code> → SSG, <code>getServerSideProps</code> → SSR. Metadata via <code>next/head</code>. Well-documented, mature ecosystem.</li>
+      <li><strong>App Router</strong> (introduced Next.js 13, default since Next.js 14) — files in <code>/app/</code>; route = folder with <code>page.tsx</code>. Server Components by default. New Metadata API. Streaming SSR with React Suspense. Better SEO defaults, steeper learning curve.</li>
+    </ul>
+    <p>For SEO work, you need to know which one the site uses — the audit approach differs significantly.</p>
+
+    <h3>React Server Components (RSC) — Why They Matter for SEO</h3>
+    <p>In the App Router, <strong>every component is a Server Component by default</strong>. Server Components render exclusively on the server, never ship their JavaScript to the browser, and their content is <strong>always in the initial HTML</strong> — no rendering queue issue.</p>
+    <p>Client Components (marked with <code>"use client"</code> at the top) hydrate in the browser like traditional React.</p>
+    <div class="callout warn">
+      <div class="callout-label">Common mistake</div>
+      <p>Wrapping entire page components in <code>"use client"</code> just to use one interactive element. This pushes all content into the client bundle, breaking SSR for that page. Fix: keep the page as a Server Component and isolate the interactive widget into a small Client Component.</p>
+    </div>
+
+    <h3>The Metadata API — Critical for SEO</h3>
+    <p><strong>Pages Router (<code>next/head</code>):</strong></p>
+<pre><code>import Head from 'next/head'
+
+export default function ProductPage({ product }) {
+  return (
+    &lt;&gt;
+      &lt;Head&gt;
+        &lt;title&gt;{product.name} | Your Store&lt;/title&gt;
+        &lt;meta name="description" content={product.description} /&gt;
+        &lt;link rel="canonical" href={`https://example.com/products/${product.slug}`} /&gt;
+      &lt;/Head&gt;
+      {/* page content */}
+    &lt;/&gt;
+  )
+}</code></pre>
+
+    <div class="callout warn">
+      <div class="callout-label">Warning</div>
+      <p>If a page is CSR and uses <code>next/head</code> inside a <code>useEffect</code>, the metadata won't be in the initial HTML — invisible to social-media crawlers.</p>
+    </div>
+
+    <p><strong>App Router (Metadata API)</strong> — the correct, guaranteed approach:</p>
+<pre><code>// Static metadata
+export const metadata = {
+  title: 'About Us | Your Brand',
+  description: 'Learn about our company.',
+  alternates: { canonical: 'https://example.com/about' },
+}
+
+// Dynamic metadata — runs on server before page renders
+export async function generateMetadata({ params }) {
+  const product = await fetchProduct(params.slug)
+  return {
+    title: `${product.name} | Your Store`,
+    description: product.description,
+    openGraph: {
+      title: product.name,
+      images: [product.coverImage],
+    },
+    alternates: {
+      canonical: `https://example.com/products/${product.slug}`,
+    },
+  }
+}</code></pre>
+
+    <p><code>generateMetadata</code> runs on the server before the page renders. The resulting tags are <strong>guaranteed to be in the initial HTML</strong> — even for dynamic, database-driven pages.</p>
+
+    <p><strong>Title templates</strong> — avoid repetitive site-name suffixes:</p>
+<pre><code>// In root layout (app/layout.tsx)
+export const metadata = {
+  title: {
+    template: '%s | Your Brand',
+    default:  'Your Brand',
+  },
+}
+
+// In any child page — only define the specific subject
+export const metadata = {
+  title: 'Product Name', // renders as "Product Name | Your Brand"
+}</code></pre>
+
+    <p><strong><code>metadataBase</code> — critical for canonical URL resolution:</strong></p>
+<pre><code>// In your root layout
+export const metadata = {
+  metadataBase: new URL('https://example.com'),
+}
+// Without this, relative URLs in metadata are left as-is.
+// With it, /products/slug resolves to https://example.com/products/slug
+// Prevents staging domains bleeding into production canonical tags.</code></pre>
+
+    <h3>Structured Data (JSON-LD) in Next.js</h3>
+    <p><strong>The correct pattern</strong> — inline in a Server Component:</p>
+<pre><code>// app/products/[slug]/page.tsx (Server Component)
+export default async function ProductPage({ params }) {
+  const product = await fetchProduct(params.slug)
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: product.name,
+    description: product.description,
+    image: product.images,
+    offers: {
+      '@type': 'Offer',
+      price: product.price,
+      priceCurrency: 'EUR',
+    },
+  }
+
+  return (
+    &lt;&gt;
+      &lt;script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/&lt;/g, '\\u003c'),
+        }}
+      /&gt;
+      {/* page content */}
+    &lt;/&gt;
+  )
+}</code></pre>
+
+    <p>The <code>.replace(/&lt;/g, '\\u003c')</code> is an XSS-prevention measure — never skip it. Because this is a Server Component, the JSON-LD is in the initial HTML. Google doesn't need to render JS to find it.</p>
+
+    <p><strong>The broken pattern</strong> — injecting JSON-LD via <code>useEffect</code>:</p>
+<pre><code>// ❌ BROKEN for SEO — only fires after hydration
+useEffect(() =&gt; {
+  const script = document.createElement('script')
+  script.type = 'application/ld+json'
+  script.text = JSON.stringify(jsonLd)
+  document.head.appendChild(script)
+}, [])</code></pre>
+
+    <h3>Sitemap and robots.ts in Next.js</h3>
+    <p><strong>Dynamic sitemap (App Router):</strong></p>
+<pre><code>// app/sitemap.ts
+import type { MetadataRoute } from 'next'
+
+export default async function sitemap(): Promise&lt;MetadataRoute.Sitemap&gt; {
+  const products = await fetchAllProducts()
+  return [
+    { url: 'https://example.com', lastModified: new Date() },
+    ...products.map(p =&gt; ({
+      url:             `https://example.com/products/${p.slug}`,
+      lastModified:    new Date(p.updatedAt),
+      changeFrequency: 'weekly',
+      priority:        0.8,
+    })),
+  ]
+}</code></pre>
+
+    <p><strong>Dynamic robots.ts:</strong></p>
+<pre><code>// app/robots.ts
+import type { MetadataRoute } from 'next'
+
+export default function robots(): MetadataRoute.Robots {
+  return {
+    rules: [
+      { userAgent: '*', allow: '/', disallow: ['/admin/', '/private/'] },
+      { userAgent: ['GPTBot', 'ClaudeBot'], disallow: '/' }, // optional AI blocking
+    ],
+    sitemap: 'https://example.com/sitemap.xml',
+  }
+}</code></pre>
+
+    <h3>next/image — Why It Matters for SEO</h3>
+    <p>Using a regular <code>&lt;img&gt;</code> tag is a CWV risk. <code>next/image</code> requires <code>width</code> and <code>height</code> (reserves space before the image loads, eliminating image-related CLS), automatically serves WebP/AVIF, and lazy-loads off-screen images by default.</p>
+<pre><code>// LCP image — add priority to preload it
+&lt;Image src={hero} alt="Product hero" width={1200} height={600} priority /&gt;
+
+// All other images — lazy by default
+&lt;Image src={product.thumbnail} alt={product.name} width={400} height={400} /&gt;</code></pre>
+
+    <h3>next/font — Eliminating Text-Based CLS</h3>
+    <p>Font swapping is a major CLS source. <code>next/font</code> self-hosts Google Fonts at build time and uses CSS <code>size-adjust</code> to make the fallback font geometrically match the custom font — no visible shift when it loads.</p>
+<pre><code>import { Inter } from 'next/font/google'
+const inter = Inter({ subsets: ['latin'], display: 'swap' })
+
+// In your root layout:
+&lt;html className={inter.className}&gt;</code></pre>
+
+    <h3>next/link — The SEO-Safe Way to Navigate</h3>
+<pre><code>// ✅ Correct — renders an &lt;a href&gt; in the DOM, crawlable
+&lt;Link href="/products/slug"&gt;View Product&lt;/Link&gt;
+
+// ❌ Wrong — invisible to crawlers
+&lt;button onClick={() =&gt; router.push('/products/slug')}&gt;View Product&lt;/button&gt;
+&lt;div onClick={() =&gt; router.push('/products/slug')}&gt;View Product&lt;/div&gt;</code></pre>
+
+    <div class="callout warn">
+      <div class="callout-label">Prefetch trap</div>
+      <p>On pages with hundreds of links (mega-menus, large catalogues), viewport-based prefetching fires dozens of background requests simultaneously — exhausting server resources and generating gigabytes of bandwidth waste. Fix: <code>&lt;Link href="/..." prefetch={false}&gt;</code> on dense link clusters, or implement hover-based prefetch only.</p>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════ 05 Framework Comparison -->
+  <section class="section" id="s5">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2>Framework Comparison — SEO-First Lens</h2>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Framework</th><th>Default render</th><th>SEO out-of-the-box</th><th>JS bundle</th><th>Best for</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Next.js</strong> (React)</td><td>SSR/SSG/ISR/hybrid</td><td>Excellent — Metadata API, RSC, ISR</td><td>80–90 KB React baseline</td><td>Complex apps, e-commerce, enterprise</td></tr>
+          <tr><td><strong>Nuxt 3</strong> (Vue)</td><td>SSR by default</td><td>Excellent — <code>useSeoMeta</code>, Nitro engine</td><td>Moderate</td><td>Vue teams, international sites</td></tr>
+          <tr><td><strong>Astro</strong></td><td>SSG + Islands</td><td>Best-in-class for content</td><td>Near-zero (zero-JS by default)</td><td>Blogs, docs, marketing, content sites</td></tr>
+          <tr><td><strong>SvelteKit</strong></td><td>SSR/SSG/hybrid</td><td>Excellent if SSR enabled</td><td>15–25 KB (compiler removes runtime)</td><td>Performance-critical sites</td></tr>
+          <tr><td><strong>Remix</strong></td><td>SSR only</td><td>Excellent — web-standards-first</td><td>Smaller than Next.js</td><td>Apps where progressive enhancement matters</td></tr>
+          <tr><td><strong>Gatsby</strong></td><td>SSG</td><td>Good (but aging)</td><td>Moderate</td><td>Effectively maintenance mode — avoid for new projects</td></tr>
+          <tr><td><strong>Qwik</strong></td><td>SSR + Resumability</td><td>Excellent</td><td>Near-zero initial JS</td><td>Maximum performance, no hydration cost</td></tr>
+          <tr><td><strong>Angular Universal</strong></td><td>SSR add-on</td><td>Good — but verbose</td><td>Large</td><td>Enterprise Angular teams only</td></tr>
+          <tr><td><strong>Vue 3 + Vite (no meta-framework)</strong></td><td>CSR</td><td>Poor</td><td>Moderate</td><td>Nothing that needs SEO — use Nuxt instead</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Nuxt 3 specifics</h3>
+    <ul>
+      <li>SSR on by default with the Nitro server engine — portable to Node.js, Cloudflare Workers, Deno, serverless with no code changes</li>
+      <li><code>useSeoMeta</code> provides a typed, flat API for all metadata tags</li>
+      <li><code>routeRules</code> allows per-route rendering strategies: <code>{ '/blog/**': { prerender: true }, '/product/**': { isr: 3600 } }</code></li>
+      <li><code>@nuxtjs/i18n</code> handles hreflang — but has known bugs (see Section 6.8)</li>
+    </ul>
+
+    <h3>SvelteKit specifics</h3>
+    <ul>
+      <li>Svelte is a compiler, not a runtime — components compile to vanilla JS at build time, no Virtual DOM, no framework overhead at runtime</li>
+      <li>Typical SvelteKit page ships 30–50% less JS than an equivalent Next.js page</li>
+      <li>Per-page control via <code>export const prerender = true</code> and <code>export const ssr = false</code></li>
+    </ul>
+    <div class="callout danger">
+      <div class="callout-label">SvelteKit warning</div>
+      <p><code>adapter-static</code> with <code>ssr: false</code> (SPA mode) is explicitly flagged as harmful to SEO in the SvelteKit official docs. This is a common misconfiguration that destroys crawlability.</p>
+    </div>
+
+    <h3>Qwik specifics</h3>
+    <ul>
+      <li>Eliminates hydration entirely via "resumability": the server serialises the full application state into the HTML. The browser simply continues from where the server left off — zero JS re-execution needed</li>
+      <li>JS only downloads on-demand as the user actually interacts with specific elements</li>
+      <li>Near-instant TTI regardless of application complexity</li>
+      <li>Still a smaller ecosystem — less production case study evidence than Next.js</li>
+    </ul>
+  </section>
+
+
+  <!-- ══════════════════════════════════════ 06 JS SEO Failure Modes -->
+  <section class="section" id="s6">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2>The Full Map of JS SEO Failure Modes</h2>
+    </div>
+
+    <h3>6.1 — JS-Only Internal Links: The Invisible Architecture Problem</h3>
+    <p>This is the most common and most devastating JS SEO mistake. Navigation implemented with <code>onClick</code> handlers, <code>router.push()</code>, or <code>&lt;button&gt;</code> elements instead of <code>&lt;a href&gt;</code>.</p>
+    <p><strong>Why it matters:</strong> Googlebot does not click buttons. The crawl graph is built from <code>&lt;a href&gt;</code> discovery. If your main navigation, category links, and product links are all inside JS event handlers, Googlebot sees your site as a flat collection of orphan pages — no hierarchy, no link equity flow, no discovery of deep URLs.</p>
+<pre><code>// ❌ Invisible to crawlers
+&lt;div onClick={() =&gt; navigate('/category/shoes')}&gt;Shoes&lt;/div&gt;
+
+// ✅ Crawlable
+&lt;Link href="/category/shoes"&gt;Shoes&lt;/Link&gt;
+&lt;a href="/category/shoes"&gt;Shoes&lt;/a&gt;</code></pre>
+    <p><strong>Screaming Frog check:</strong> Run a crawl with JS rendering disabled ("Text Only" mode). Any link that disappears compared to a JS-enabled crawl is a JS-only link.</p>
+
+    <h3>6.2 — Content Not in Initial HTML</h3>
+    <p><strong>Symptoms:</strong> View source shows empty <code>&lt;div&gt;</code>. URL Inspection in GSC shows content, but indexing is delayed or unreliable.</p>
+    <p><strong>Common causes:</strong> Pure CSR — the entire page relies on client JS. SSR set up incorrectly — <code>getServerSideProps</code> or <code>getStaticProps</code> not actually fetching data before render. Content inside <code>useEffect</code> — runs only after hydration, never in SSR.</p>
+    <p><strong>Test:</strong> Open the page, then Ctrl+U (View Source). If your content isn't there, it's not in the initial HTML.</p>
+
+    <h3>6.3 — JS-Managed Metadata</h3>
+    <p><strong>What goes wrong:</strong> <code>&lt;title&gt;</code>, <code>&lt;meta name="description"&gt;</code>, canonical tags, Open Graph tags written by JS after page load.</p>
+    <p><strong>Consequences:</strong> Social-media previews use the static HTML — usually a generic default. Google's WRS will eventually see the dynamic metadata, but there's a rendering lag. AI crawlers will not see it.</p>
+    <p><strong>Fix for App Router:</strong> Use the Metadata API (<code>metadata</code> export or <code>generateMetadata</code>). Tags are guaranteed in the initial HTML. <strong>Fix for Pages Router:</strong> Use <code>next/head</code> inside <code>getServerSideProps</code> or <code>getStaticProps</code> — not inside <code>useEffect</code>.</p>
+
+    <h3>6.4 — Soft 404s from Hydration Failures</h3>
+    <p>A Soft 404 occurs when the server returns HTTP 200, but Google decides the page has no content and removes it from the index.</p>
+    <p><strong>How it happens in Next.js:</strong> Server renders correct HTML → JS bundle reaches the browser → an error occurs during hydration → React's error boundary unmounts the DOM → Googlebot's WRS, rendering after the fact, sees the blank/error screen → Google classifies it as Soft 404.</p>
+    <p><strong>Also happens when:</strong> An ISR page revalidates but the data fetch fails, so Next.js falls back to the stale version — which may itself be broken.</p>
+    <p><strong>Detection:</strong> GSC → Coverage → "Soft 404" tab. Cross-reference with your JS error monitoring (Sentry, Datadog) for hydration-phase exceptions.</p>
+    <p><strong>Fix:</strong> Implement proper error handling in data fetching. Use <code>notFound()</code> in Next.js App Router to return a real 404 when data isn't found (rather than rendering an empty component).</p>
+
+    <h3>6.5 — Crawl Budget Drain from Heavy JS</h3>
+    <p>Googlebot allocates finite crawl resources per domain. Rendering JS costs vastly more than parsing static HTML. A site with heavy bundles, slow server responses, or 5xx errors gets throttled.</p>
+    <p><strong>What gets wasted:</strong> rendering 500KB JS bundles on top-level pages, following prefetch requests from <code>next/link</code>, crawling faceted navigation URLs, recrawling JS files every visit.</p>
+    <p><strong>The signal:</strong> In GSC → Settings → Crawl Stats → by file type. If 70–80% of Googlebot's requests are going to <code>.js</code> files, you have a budget problem.</p>
+
+    <h3>6.6 — Faceted Navigation &amp; Index Bloat</h3>
+    <p>E-commerce JS sites frequently generate millions of indexable URLs from filter combinations:</p>
+<pre><code>/shoes?color=black&amp;size=42&amp;brand=nike&amp;material=leather&amp;sort=price_asc</code></pre>
+    <p>With JS routing, creating a new URL for every filter state is trivial — and by default, all of these are indexable. This creates duplicate content, crawl budget waste, and keyword cannibalization.</p>
+    <p><strong>Solution architecture:</strong></p>
+    <ul>
+      <li>Keep low-value filter combinations client-only (update UI state without changing the URL)</li>
+      <li>For combinations that do get URLs, add <code>&lt;link rel="canonical"&gt;</code> pointing to the base category</li>
+      <li>Add <code>robots.txt</code> disallow for complex parameter strings</li>
+    </ul>
+
+    <h3>6.7 — Rendering-Only Content: Interaction Traps</h3>
+    <p><strong>Google does not interact with pages.</strong> Content that requires clicking a tab, hovering to show a dropdown, scrolling to trigger lazy loading, or clicking "Load More" is invisible to Googlebot.</p>
+    <p><strong>Common examples:</strong> product specs inside a tabbed UI where only the first tab's content is in the initial DOM, FAQ sections where answers are hidden behind a JS accordion, infinite scroll without paginated HTML fallback.</p>
+    <p><strong>Fix:</strong> Ensure all critical content is in the DOM on initial render, even if visually hidden. For tabs, render all tab content in HTML and use CSS to hide inactive tabs. For accordions, render all answers in HTML. For infinite scroll, include a standard <code>?page=2</code> pagination link with a real <code>href</code>.</p>
+
+    <h3>6.8 — Hreflang Failures in JS Frameworks</h3>
+    <p><strong>Nuxt i18n bug (#2764):</strong> Canonical and hreflang URLs are URL-encoded — slashes become <code>%2F</code>. Google sees <code>https://example.com/fr%2Fproducts</code> instead of <code>https://example.com/fr/products</code>. This breaks the entire hreflang implementation.</p>
+    <p><strong>Common hreflang mistakes in any JS framework:</strong></p>
+    <ul>
+      <li>Using relative URLs instead of absolute — Google requires absolute URLs with <code>https://domain.com/</code></li>
+      <li>Wrong ISO language codes: <code>uk</code> is Ukrainian, not United Kingdom (use <code>en-GB</code>)</li>
+      <li>Hreflang managed by JS that fires after page load — social crawlers won't see it</li>
+      <li>Missing <code>x-default</code> hreflang</li>
+    </ul>
+    <p><strong>Detection:</strong> Compare raw HTML (View Source) hreflang tags with the rendered hreflang tags (DevTools Elements panel). If they differ, your hreflang is JS-generated and unreliable.</p>
+
+    <h3>6.9 — The Prefetch Bandwidth Trap</h3>
+    <p>By default, <code>&lt;Link&gt;</code> prefetches the destination page's data when the link enters the viewport. On a homepage with 200 links, loading the page triggers 200 background data requests.</p>
+    <p><strong>Real-world impact:</strong> gigabytes of monthly bandwidth consumed by phantom prefetch requests. On high-traffic pages, these simultaneous requests function as a self-inflicted DDoS — backend slowdown → higher TTFB → Googlebot throttles crawl rate → crawl budget depletes.</p>
+<pre><code>// Disable prefetch on dense link clusters
+&lt;Link href="/product/123" prefetch={false}&gt;Product Name&lt;/Link&gt;
+
+// Or hover-based prefetch only
+const router = useRouter()
+&lt;Link
+  href="/product/123"
+  onMouseEnter={() =&gt; router.prefetch('/product/123')}
+  prefetch={false}
+&gt;
+  Product Name
+&lt;/Link&gt;</code></pre>
+
+    <h3>6.10 — Core Web Vitals Regressions</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Metric</th><th>Target</th><th>JS framework failure pattern</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td><strong>LCP</strong></td><td>&lt; 2.5s</td><td>Bundle download delays the render of the largest element. Hero images loaded by JS without preloading.</td><td><code>&lt;Image priority&gt;</code> for the LCP image; server-render hero content</td></tr>
+          <tr><td><strong>CLS</strong></td><td>&lt; 0.1</td><td>Images without width/height shifting layout. Font swap causing text reflow. Content injected by JS pushing existing elements.</td><td>Always use <code>next/image</code> with dimensions; <code>next/font</code>; reserve space for dynamic content</td></tr>
+          <tr><td><strong>INP</strong></td><td>&lt; 200ms</td><td>Heavy main-thread JS blocking user input. Hydration cost on large pages. Excessive re-renders.</td><td>Code-split with <code>dynamic()</code>; minimize <code>"use client"</code> scope; optimize re-render triggers</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════ 07 Case Studies -->
+  <section class="section" id="s7">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2>Case Studies — Real Problems, Real Solutions</h2>
+    </div>
+
+    <div class="case-study">
+      <div class="cs-header">
+        <span class="cs-num">Case 1</span>
+        <span class="cs-fw">CSR React → Next.js SSG</span>
+      </div>
+      <div class="cs-title">Notion: Marketing Site Rebuild</div>
+      <p><strong>Problem:</strong> Notion's marketing site was fully client-side rendered. Lighthouse ~50/100, unreliable Google crawling, 9MB+ of JS per page (mostly app code irrelevant to marketing), loading spinners on every page before content appeared.</p>
+      <p><strong>Root cause:</strong> Marketing pages built the same way as the application — CSR, relying on runtime API calls and the full app JS bundle.</p>
+      <p><strong>Solution:</strong> Complete rebuild of 109 React components in Next.js with SSG. Content fetched from Contentful at build time, not runtime. Separate marketing component library.</p>
+      <div class="cs-result">Lighthouse 50 → 97/100 · JS payload 9.1 MB → 847 KB (−91%) · Total page weight −75% · Loading spinners eliminated</div>
+    </div>
+
+    <div class="case-study">
+      <div class="cs-header">
+        <span class="cs-num">Case 2</span>
+        <span class="cs-fw">React SPA</span>
+      </div>
+      <div class="cs-title">LoveLove.pl — 800 Pages, Zero Indexed at Launch</div>
+      <p><strong>Problem:</strong> Polish marketplace launched with 800 pages. After weeks, fewer than 10 were indexed. Social media previews broken across all pages.</p>
+      <p><strong>Root cause:</strong> Pure client-side rendering. The HTML Google received was <code>&lt;div id="root"&gt;&lt;/div&gt;</code> for every URL.</p>
+      <p><strong>Solution:</strong> Implemented Prerender.io behind AWS CloudFront. Bot user-agents receive pre-rendered static HTML; users continue getting the SPA experience.</p>
+      <p><em>Note: Dynamic rendering (Prerender.io approach) is Google-permitted but described as a workaround. For new sites, SSR/SSG is the durable solution.</em></p>
+      <div class="cs-result">800+ pages indexed within days · Social previews fixed immediately · Zero weeks of SSR refactoring needed</div>
+    </div>
+
+    <div class="case-study">
+      <div class="cs-header">
+        <span class="cs-num">Case 3</span>
+        <span class="cs-fw">Create React App + HashRouter → Next.js</span>
+      </div>
+      <div class="cs-title">B2B SaaS Docs — 12 of 340 Pages Indexed After 6 Months</div>
+      <p><strong>Problem:</strong> After 6 months of operation, only 12 of 340 documentation pages appeared in Google's index. Organic traffic near zero.</p>
+      <p><strong>Root cause (cascade):</strong></p>
+      <ul>
+        <li><code>HashRouter</code> generates URLs like <code>example.com/#/docs/setup</code> — Google ignores the fragment, treats the entire site as one URL</li>
+        <li>Navigation implemented with <code>&lt;div onClick&gt;</code> instead of <code>&lt;a href&gt;</code> — links invisible to crawlers</li>
+        <li>Metadata hardcoded in <code>index.html</code> — every page had identical title and description</li>
+        <li>All content rendered client-side only</li>
+      </ul>
+      <p><strong>Solution (8 weeks):</strong> Migrated to Next.js with file-based routing (real History API URLs). Replaced all div-based navigation with <code>&lt;Link&gt;</code> components. Connected documentation to CMS with <code>getStaticProps</code>. Deployed <code>generateStaticParams</code> for all 340 pages.</p>
+      <div class="cs-result">Indexed pages 12 → 327 (96% of total) · Organic traffic +412% · Documentation ranking for long-tail queries within 6 weeks</div>
+    </div>
+
+    <div class="case-study">
+      <div class="cs-header">
+        <span class="cs-num">Case 4</span>
+        <span class="cs-fw">Next.js Pages Router → App Router</span>
+      </div>
+      <div class="cs-title">Hardcover — 20× Search Traffic in 4 Months</div>
+      <p><strong>Problem:</strong> Book-discovery site with weak organic visibility. Large client-side bundle, poor Lighthouse scores, slow TTI.</p>
+      <p><strong>Root cause:</strong> Initial implementation leaned heavily on CSR; <code>"use client"</code> overused at the page level, pushing book content into client bundles.</p>
+      <p><strong>Solution:</strong> Migrated to App Router. All book content, descriptions, and metadata moved to Server Components. <code>generateMetadata</code> for dynamic SEO tags. Code-splitting for interactive elements.</p>
+      <div class="cs-result">Search traffic ×20 in 4 months</div>
+    </div>
+
+    <div class="case-study">
+      <div class="cs-header">
+        <span class="cs-num">Case 5</span>
+        <span class="cs-fw">Custom SSR React → Next.js</span>
+      </div>
+      <div class="cs-title">AutoZone — 820KB Monolithic Bundle, Rankings Collapsed</div>
+      <p><strong>Problem:</strong> AutoZone (7,000+ stores) launched a custom SSR architecture that generated an 820KB monolithic JavaScript bundle. Mobile PageSpeed scores collapsed. Google rankings dropped from position 3 to position 9 for critical revenue keywords.</p>
+      <p><strong>Root cause:</strong> Custom SSR without code splitting, tree shaking, or route-level optimization. The entire application JS shipped on every page.</p>
+      <p><strong>Solution:</strong> 2-week sprint migrating to Next.js. Native code splitting eliminated 260KB of blocking JS from the initial payload. Hydration optimized per route.</p>
+      <div class="cs-result">Lost rankings fully recovered · AutoZone reclaimed #1 position for target keywords</div>
+    </div>
+
+    <div class="case-study">
+      <div class="cs-header">
+        <span class="cs-num">Case 6</span>
+        <span class="cs-fw">Unknown JS framework</span>
+      </div>
+      <div class="cs-title">IFTTT — JS Routing Destroys Internal Linking</div>
+      <p><strong>Problem:</strong> IFTTT stagnated in search visibility after a frontend framework adoption. Organic traffic plateaued.</p>
+      <p><strong>Root cause:</strong> The redesign replaced all HTML <code>&lt;a href&gt;</code> navigation with JavaScript-rendered links. Screaming Frog and Googlebot could not discover any internal links from the raw HTML. The site appeared as a flat, disconnected collection of pages with no hierarchy.</p>
+      <p><strong>Solution:</strong> Refactored all structural navigation to use standard <code>&lt;a href&gt;</code> attributes. JS routing kept for the interactive app experience, but all SEO-critical navigation paths rendered as static HTML links.</p>
+      <div class="cs-result">Internal linking restored → crawl efficiency recovered → +33% organic traffic growth</div>
+    </div>
+
+    <div class="case-study">
+      <div class="cs-header">
+        <span class="cs-num">Case 7</span>
+        <span class="cs-fw">Legacy CMS → React SPA (CSR)</span>
+      </div>
+      <div class="cs-title">E-commerce — Complete Traffic Collapse After Migration</div>
+      <p><strong>Problem:</strong> Domain migration coincided with a platform shift to pure CSR. Traffic entered a terminal multi-month decline to near zero.</p>
+      <p><strong>Root cause (forensic audit findings):</strong></p>
+      <ul>
+        <li>Pure CSR — Google couldn't index product inventory</li>
+        <li>No canonical tags → index bloat from duplicate URLs</li>
+        <li>Staging environment <code>noindex</code> tags left in production codebase</li>
+        <li>No redirect map from legacy URLs → lost all link equity</li>
+      </ul>
+      <p><strong>Solution:</strong> Complete refactor to Next.js SSR. 301 redirects from all legacy URLs. Programmatic metadata across category pages. Canonical tags on all product URLs.</p>
+      <div class="cs-result">Full organic traffic restoration and revenue stabilisation</div>
+    </div>
+
+    <div class="case-study">
+      <div class="cs-header">
+        <span class="cs-num">Case 8</span>
+        <span class="cs-fw">SvelteKit adapter-static (SPA mode)</span>
+      </div>
+      <div class="cs-title">gloverab.com — Wrong URLs in Google from SPA Mode</div>
+      <p><strong>Problem:</strong> Product pages for manufacturers (e.g., <code>/general-electric-products</code>) were indexed, but with the broken fallback URL (<code>/0-products</code>) appearing in search results.</p>
+      <p><strong>Root cause:</strong> In SPA mode, <code>manufacturerSlug</code> was <code>null</code> during server rendering (no SSR). The fallback rendered <code>/0-products</code>. Google indexed the fallback state, not the real URL.</p>
+      <p><strong>Solution:</strong> Reversed the SPA mode mandate. Reinstated <code>adapter-node</code> with SSR. Database queries now execute on the server, injecting manufacturer data into the initial HTML before transmission.</p>
+      <div class="cs-result">Correct product URLs indexed · Real manufacturer pages appearing in search results</div>
+    </div>
+
+    <div class="case-study">
+      <div class="cs-header">
+        <span class="cs-num">Case 9</span>
+        <span class="cs-fw">Next.js SSR (per-request)</span>
+      </div>
+      <div class="cs-title">Healthcare Marketplace — INP Failures Suppressing Rankings</div>
+      <p><strong>Problem:</strong> Mobile INP consistently &gt;300ms (failing threshold). Despite correct SSR setup, search visibility suppressed.</p>
+      <p><strong>Root cause:</strong> Every page view triggered real-time backend server requests, creating SSR render delays that blocked the client's main thread during hydration, causing interaction lag.</p>
+      <p><strong>Solution:</strong> Shifted from per-request SSR to SSG for 20,000+ pages. All interactive elements refactored to Client Components with pre-fetched data.</p>
+      <div class="cs-result">INP 300ms → 60–100ms (Failing → Good) · Sustained organic ranking uplift within days of deployment</div>
+    </div>
+
+    <div class="case-study">
+      <div class="cs-header">
+        <span class="cs-num">Case 10</span>
+        <span class="cs-fw">Next.js SSR vs traditional server-side HTML</span>
+      </div>
+      <div class="cs-title">Nike vs New Balance — The 9MB Hydration Bundle Problem</div>
+      <p><strong>Problem:</strong> Nike's SSR-rendered pages shipped a <strong>9MB hydration bundle</strong> to the client. Technically SSR, so the initial HTML was correct — but the JS required to make the page interactive was enormous. AI crawlers and non-Google bots that timed out while hydrating saw an effectively broken page. New Balance's lean server-side HTML with minimal JS was parsed instantly.</p>
+      <p><strong>Lesson:</strong> SSR doesn't immunise you from JS bloat. A 9MB hydration bundle creates a Time-to-Interactive delay that affects both users and crawlers that aren't as patient as Googlebot's WRS. Code-split aggressively. Monitor JS payload per route.</p>
+      <div class="cs-result">New Balance's minimal JS approach outperformed Nike's SSR for non-Google crawlers</div>
+    </div>
+
+    <div class="case-study">
+      <div class="cs-header">
+        <span class="cs-num">Case 11</span>
+        <span class="cs-fw">Unspecified JS framework</span>
+      </div>
+      <div class="cs-title">Lifestyle E-commerce — 45% Traffic Decline from Internal Linking Collapse</div>
+      <p><strong>Problem:</strong> 45% organic traffic decline over six months from internal linking collapse and rendering issues. Internal dev team had prioritised feature velocity over SEO.</p>
+      <p><strong>Root cause:</strong> Critical on-page navigation rendered exclusively via client-side JS. CMS migration misconfigured canonical tags. Schema markup inconsistent across templates.</p>
+      <p><strong>Solution:</strong> Enforced HTML-based internal linking throughout. Standardised schema templates. Canonical tags corrected globally.</p>
+      <div class="cs-result">Crawl efficiency restored · Full search visibility recovered</div>
+    </div>
+
+    <div class="case-study">
+      <div class="cs-header">
+        <span class="cs-num">Case 12</span>
+        <span class="cs-fw">Nuxt + @nuxtjs/i18n</span>
+      </div>
+      <div class="cs-title">Nuxt i18n Hreflang Bug in Production (Issues #2764 &amp; #3460)</div>
+      <p><strong>Issue:</strong> Multiple production Nuxt sites discovered that <code>@nuxtjs/i18n</code> was URL-encoding hreflang <code>href</code> attributes — <code>https://example.com/fr/produits</code> becoming <code>https://example.com/fr%2Fproduits</code>. Google couldn't match these to real URLs. A secondary issue (#3460) generated hreflang tags for locales that had <code>seo: false</code> configured.</p>
+      <p><strong>Impact:</strong> Indexing problems, content-duplication concerns, Lighthouse SEO score regression, entire hreflang implementation non-functional.</p>
+      <p><strong>Fixes used in production:</strong></p>
+      <ol>
+        <li>Pin to a known-good version of <code>@nuxtjs/i18n</code> where the bug is fixed</li>
+        <li>Replace the built-in hreflang generation with a custom composable using <code>useHead</code> and explicit absolute URLs</li>
+        <li>Validate all hreflang tags by checking raw HTML (View Source), not the rendered DOM</li>
+      </ol>
+      <div class="cs-result">Detection: View Source → check for %2F in hreflang href attributes</div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════ 08 Audit Playbook -->
+  <section class="section" id="s8">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <h2>Auditing a JS Framework Site — Step-by-Step Playbook</h2>
+    </div>
+
+    <div class="step-item">
+      <div class="step-label">Step 1</div>
+      <div class="step-title">Identify the framework and rendering mode</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Signal in source</th><th>Framework</th></tr></thead>
+          <tbody>
+            <tr><td><code>&lt;div id="__next"&gt;</code> + <code>&lt;script id="__NEXT_DATA__"&gt;</code></td><td>Next.js (Pages Router)</td></tr>
+            <tr><td><code>self.__next_f.push(</code> in source</td><td>Next.js (App Router)</td></tr>
+            <tr><td><code>&lt;div id="__nuxt"&gt;</code> + <code>window.__NUXT__</code></td><td>Nuxt</td></tr>
+            <tr><td><code>&lt;div id="app"&gt;</code> + <code>data-server-rendered="true"</code></td><td>Vue SSR / Nuxt 2</td></tr>
+            <tr><td><code>astro-island</code> elements in DOM</td><td>Astro</td></tr>
+            <tr><td><code>&lt;sveltekit-data&gt;</code></td><td>SvelteKit</td></tr>
+            <tr><td><code>ng-version</code> attribute on root element</td><td>Angular</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>Determine rendering mode:</strong> View Source (Ctrl+U) — is your content in the raw HTML? Yes = SSR/SSG. No = CSR or broken SSR. Check HTTP headers: <code>x-powered-by: Next.js</code>, <code>x-vercel-cache: HIT</code> (ISR/SSG cache hit).</p>
+    </div>
+
+    <div class="step-item">
+      <div class="step-label">Step 2</div>
+      <div class="step-title">Compare raw HTML vs rendered DOM — the core audit step</div>
+      <p><strong>Tool:</strong> Screaming Frog → Configuration → Spider → Rendering → select "JavaScript"</p>
+      <p>Run <strong>two crawls</strong>: (1) Rendering: "Text Only" — disabled JS, what crawlers see in their first pass. (2) Rendering: "JavaScript" — what Googlebot sees after rendering.</p>
+      <ul>
+        <li>Links present in crawl 2 but absent in crawl 1: <strong>JS-only links</strong> — critical problem</li>
+        <li>Metadata present in crawl 2 but absent in crawl 1: JS-managed metadata — at risk</li>
+      </ul>
+      <p><strong>Also use:</strong> GSC → URL Inspection → "Test Live URL" → "View Crawled Page". The HTML tab shows what Google's WRS saw. The Screenshot tab shows what the page looked like visually to Google. If the screenshot shows an error screen or blank content, you have a hydration/rendering problem.</p>
+    </div>
+
+    <div class="step-item">
+      <div class="step-label">Step 3</div>
+      <div class="step-title">Verify metadata in raw HTML</div>
+      <p>For every critical page template (homepage, category, product, blog post), run View Source and search for these — all must be present in raw HTML:</p>
+<pre><code>&lt;title&gt;
+&lt;meta name="description"
+&lt;link rel="canonical"
+&lt;meta property="og:title"
+&lt;script type="application/ld+json"</code></pre>
+      <p>If any are absent or show generic/default values, that template has a metadata problem.</p>
+    </div>
+
+    <div class="step-item">
+      <div class="step-label">Step 4</div>
+      <div class="step-title">Internal link audit</div>
+      <p>In Screaming Frog (JS-rendered crawl), go to the "JavaScript" tab — this shows links discovered only after JS execution. Review each: is this a navigation link that should be in static HTML? Is it in a component used across many pages? If yes, fixing this one component fixes thousands of pages.</p>
+      <p>Also check: does the site use <code>router.push()</code> or <code>onClick</code> for primary navigation? Search the codebase for these patterns.</p>
+    </div>
+
+    <div class="step-item">
+      <div class="step-label">Step 5</div>
+      <div class="step-title">Core Web Vitals audit</div>
+      <ul>
+        <li><strong>PageSpeed Insights</strong> (pagespeed.web.dev) — lab + CrUX field data per URL</li>
+        <li><strong>GSC → Core Web Vitals report</strong> — field data segmented by Good/Needs Improvement/Poor per URL group</li>
+        <li><strong>Lighthouse</strong> (Chrome DevTools) — lab data + specific recommendations</li>
+      </ul>
+      <p>Key checks: LCP — what is the largest element? Is it an image? Is it loaded eagerly with <code>priority</code>? CLS — open DevTools → Performance → record a page load → look for "Layout Shift" events. INP — look for long JS tasks on the main thread blocking interaction.</p>
+    </div>
+
+    <div class="step-item">
+      <div class="step-label">Step 6</div>
+      <div class="step-title">Log file analysis</div>
+      <p>Filter for <code>Googlebot</code> user-agent. Segment by file type: HTML vs JS vs CSS vs images. If JS/CSS files represent &gt;50% of Googlebot's requests, you have a crawl budget issue. Check for 5xx errors — Google throttles heavily after repeated 500s.</p>
+      <p><strong>GSC approximation (no raw logs needed):</strong> GSC → Settings → Crawl Stats → By file type.</p>
+    </div>
+
+    <div class="step-item">
+      <div class="step-label">Step 7</div>
+      <div class="step-title">Structured data validation</div>
+      <ul>
+        <li><strong>Google Rich Results Test</strong> (search.google.com/test/rich-results) — renders the page (executes JS) and validates schema</li>
+        <li><strong>Schema.org Validator</strong> (validator.schema.org) — does NOT render JS — validates only what's in static HTML</li>
+      </ul>
+      <p>Compare both outputs: if the Rich Results Test finds schema but the Schema.org Validator doesn't, your schema is JS-injected and at risk.</p>
+    </div>
+
+    <div class="step-item">
+      <div class="step-label">Step 8</div>
+      <div class="step-title">Hreflang audit (multilingual sites)</div>
+      <ol>
+        <li>View Source → search for <code>hreflang</code></li>
+        <li>Verify all tags are <strong>absolute URLs</strong> (must include <code>https://domain.com/</code>)</li>
+        <li>Verify correct ISO codes (e.g., <code>en-GB</code> not <code>en-gb</code>; <code>uk</code> ≠ United Kingdom)</li>
+        <li>Verify <code>x-default</code> is present</li>
+        <li>Verify reciprocity: if page A links to page B via hreflang, page B must link back to page A</li>
+        <li>For Nuxt <code>@nuxtjs/i18n</code>: View Source specifically for encoded characters (<code>%2F</code>) in href attributes</li>
+      </ol>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════ 09 Migration Playbook -->
+  <section class="section" id="s9">
+    <div class="section-header">
+      <span class="section-num">09</span>
+      <h2>Migration Playbook — Moving to a JS Framework Without Losing Rankings</h2>
+    </div>
+
+    <h3>Before the migration</h3>
+
+    <div class="step-item">
+      <div class="step-label">Step 1</div>
+      <div class="step-title">Full pre-migration crawl</div>
+      <p>Crawl the existing site with Screaming Frog. Export all indexed URLs (or import from GSC → Sitemaps). This is your baseline — every URL that's currently indexed needs to be accounted for after launch.</p>
+    </div>
+
+    <div class="step-item">
+      <div class="step-label">Step 2</div>
+      <div class="step-title">Traffic mapping</div>
+      <p>Identify which URLs drive the most traffic via GSC or analytics. These are your highest-risk pages — they need extra attention and manual QA before launch.</p>
+    </div>
+
+    <div class="step-item">
+      <div class="step-label">Step 3</div>
+      <div class="step-title">Redirect map</div>
+      <p>Map every legacy URL to its new URL. <strong>Every. Single. One.</strong> A 301 redirect that's missing after launch means that URL's link equity and ranking history are lost. No exceptions.</p>
+    </div>
+
+    <div class="step-item">
+      <div class="step-label">Step 4</div>
+      <div class="step-title">Staging environment isolation</div>
+      <p>The most common post-launch disaster is forgetting to remove <code>noindex</code> from the staging environment. Check both:</p>
+      <ul>
+        <li><code>&lt;meta name="robots" content="noindex"&gt;</code> in HTML</li>
+        <li><code>X-Robots-Tag: noindex</code> in HTTP response headers</li>
+        <li>Both CMS settings AND the frontend rendering layer — they can contradict each other</li>
+      </ul>
+    </div>
+
+    <h3>During the migration</h3>
+
+    <div class="step-item">
+      <div class="step-label">Step 5</div>
+      <div class="step-title">Match rendering mode or improve it</div>
+      <p>If the legacy site was server-rendered, the new framework must be at least SSR. <strong>Migrating to a pure CSR SPA is a guaranteed traffic loss.</strong> This is the single most common migration failure mode.</p>
+    </div>
+
+    <div class="step-item">
+      <div class="step-label">Step 6</div>
+      <div class="step-title">Preserve URL structure</div>
+      <p>Identical URL = no redirect needed. If URLs must change, the redirect map from step 3 is non-negotiable. Changing URLs without redirects is equivalent to deleting your pages from Google's perspective.</p>
+    </div>
+
+    <div class="step-item">
+      <div class="step-label">Step 7</div>
+      <div class="step-title">Rebuild metadata templates</div>
+      <p>Don't assume metadata migrates automatically. For every page template, verify that title, description, canonical, OG tags, and schema are correctly generated on the new framework. Test on staging before launch.</p>
+    </div>
+
+    <h3>At launch</h3>
+
+    <div class="step-item">
+      <div class="step-label">Step 8</div>
+      <div class="step-title">Monitor GSC crawl stats immediately</div>
+      <p>A spike in 404s or 5xx errors within hours of launch is an emergency. Have the redirect map ready to deploy hotfixes. Check hourly for the first 24 hours.</p>
+    </div>
+
+    <div class="step-item">
+      <div class="step-label">Step 9</div>
+      <div class="step-title">Submit updated sitemap + fetch critical pages</div>
+      <p>Submit the updated sitemap to GSC immediately after launch. Use GSC → URL Inspection → "Request Indexing" for the homepage, your top product/category pages, and a sample blog post.</p>
+    </div>
+
+    <div class="step-item">
+      <div class="step-label">Step 10</div>
+      <div class="step-title">Monitor Core Web Vitals</div>
+      <p>The new framework may have different performance characteristics. Watch CWV for regressions in the first 2–4 weeks — the CrUX data will reflect the new site after enough traffic accumulates (usually 28 days).</p>
+    </div>
+
+    <h3>Post-launch (90-day monitoring)</h3>
+    <ul>
+      <li><strong>Weekly:</strong> indexed page count (GSC → Coverage), organic traffic (GSC → Performance), 404 rate</li>
+      <li><strong>At 4 weeks:</strong> CWV field data updated in CrUX — check for regressions</li>
+      <li><strong>Log file analysis:</strong> Confirm Googlebot is crawling HTML pages, not spending budget on JS files</li>
+      <li><strong>Rankings:</strong> spot-check top 50 target keywords weekly</li>
+    </ul>
+  </section>
+
+
+  <!-- ════════════════════════════════════ 10 AI Crawler Dimension -->
+  <section class="section" id="s10">
+    <div class="section-header">
+      <span class="section-num">10</span>
+      <h2>The AI Crawler Dimension</h2>
+    </div>
+
+    <p>In 2025–2026, a new class of crawlers matters for SEO: AI agents that build the knowledge bases behind tools like ChatGPT, Perplexity, Claude, Gemini, and Bing Copilot.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Crawler</th><th>Fetches HTML</th><th>Downloads JS files</th><th>Executes JS</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Googlebot / Gemini</strong></td><td>✓</td><td>✓</td><td>✓ Full WRS rendering</td></tr>
+          <tr><td><strong>AppleBot</strong></td><td>✓</td><td>✓</td><td>✓ Full rendering</td></tr>
+          <tr><td><strong>Bingbot</strong></td><td>✓</td><td>✓</td><td>Limited — Microsoft recommends SSR</td></tr>
+          <tr><td><strong>GPTBot (OpenAI)</strong></td><td>✓</td><td>10–25% of requests</td><td>✗ No execution</td></tr>
+          <tr><td><strong>ClaudeBot (Anthropic)</strong></td><td>✓</td><td>10–25% of requests</td><td>✗ No execution</td></tr>
+          <tr><td><strong>PerplexityBot</strong></td><td>✓</td><td>10–25% of requests</td><td>✗ No execution</td></tr>
+          <tr><td><strong>CCBot (Common Crawl)</strong></td><td>✓</td><td>✗</td><td>✗ No execution</td></tr>
+          <tr><td><strong>Social unfurlers (Twitter, LinkedIn, FB)</strong></td><td>✓</td><td>✗</td><td>✗ No execution</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout danger">
+      <div class="callout-label">Key Finding — Vercel/MERJ 2024</div>
+      <p>A CSR SPA is <strong>completely invisible to AI crawlers</strong>. Your content doesn't exist in their knowledge base. In an era where AI search surfaces (Perplexity, ChatGPT Search, Gemini) are increasingly used for discovery, being absent from those indexes is an emerging competitive disadvantage. <strong>SSR is no longer just an SEO best practice — it's the minimum viable architecture for visibility across the entire search ecosystem.</strong></p>
+    </div>
+
+    <h3>Optimising for AI crawlers</h3>
+    <p>If you want visibility: serve clean, well-structured HTML. Use semantic elements (<code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;h1&gt;–&lt;h6&gt;</code>). Implement JSON-LD schema. Eliminate JS dependencies for content. AI crawlers parse HTML the same way SEO-era crawlers did — semantic structure is everything.</p>
+
+    <h3>Blocking AI crawlers (optional)</h3>
+    <p>If you want to prevent AI crawlers from indexing your content (competitive or copyright reasons):</p>
+<pre><code>// app/robots.ts
+export default function robots() {
+  return {
+    rules: [
+      { userAgent: '*', allow: '/' },
+      { userAgent: ['GPTBot', 'ClaudeBot', 'PerplexityBot', 'CCBot'], disallow: '/' },
+    ],
+  }
+}</code></pre>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════ 11 Quick Reference -->
+  <section class="section" id="s11">
+    <div class="section-header">
+      <span class="section-num">11</span>
+      <h2>Quick Reference — Red Flags and Fixes</h2>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Red Flag</th><th>How to Detect</th><th>Fix</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Empty <code>&lt;div id="root"&gt;</code> in View Source</strong></td>
+            <td>View Source (Ctrl+U)</td>
+            <td>Switch to SSR, SSG, or ISR for this route</td>
+          </tr>
+          <tr>
+            <td><strong>JS-only internal links</strong></td>
+            <td>Screaming Frog "Text Only" crawl vs JS crawl — links that disappear</td>
+            <td>Replace <code>&lt;div onClick&gt;</code> and <code>router.push()</code> with <code>&lt;Link href&gt;</code> or <code>&lt;a href&gt;</code></td>
+          </tr>
+          <tr>
+            <td><strong>Metadata not in raw HTML</strong></td>
+            <td>View Source — <code>&lt;title&gt;</code> shows default or is generic</td>
+            <td>Use Next.js Metadata API (<code>generateMetadata</code>); never use <code>useEffect</code> for meta tags</td>
+          </tr>
+          <tr>
+            <td><strong>JSON-LD only in rendered DOM</strong></td>
+            <td>Schema.org Validator (no JS) vs Rich Results Test (JS) — schema found in one but not the other</td>
+            <td>Move JSON-LD to a Server Component; render as <code>&lt;script type="application/ld+json"&gt;</code> in initial HTML</td>
+          </tr>
+          <tr>
+            <td><strong>Soft 404 in GSC</strong></td>
+            <td>GSC → Coverage → Soft 404 tab</td>
+            <td>Fix hydration errors; use <code>notFound()</code> for missing data; add proper error boundaries</td>
+          </tr>
+          <tr>
+            <td><strong>Faceted URLs draining crawl budget</strong></td>
+            <td>GSC → Coverage — thousands of parameterised URLs</td>
+            <td>Canonical faceted URLs to base category; <code>robots.txt</code> disallow parameter patterns</td>
+          </tr>
+          <tr>
+            <td><strong>Hreflang with encoded slashes</strong></td>
+            <td>View Source → check for <code>%2F</code> in hreflang href</td>
+            <td>Update <code>@nuxtjs/i18n</code>; use manual <code>useHead</code> with explicit absolute URLs</td>
+          </tr>
+          <tr>
+            <td><strong>Heavy JS bundle (&gt;300KB initial)</strong></td>
+            <td>Lighthouse → "Reduce unused JavaScript"; <code>@next/bundle-analyzer</code></td>
+            <td>Code-split with <code>dynamic()</code>; restrict <code>"use client"</code> to smallest possible scope</td>
+          </tr>
+          <tr>
+            <td><strong>High CLS</strong></td>
+            <td>Lighthouse CLS score; GSC → Core Web Vitals</td>
+            <td><code>next/image</code> with dimensions; <code>next/font</code>; reserve space for dynamic content</td>
+          </tr>
+          <tr>
+            <td><strong>High INP (&gt;200ms)</strong></td>
+            <td>PageSpeed Insights field data; Lighthouse TBT</td>
+            <td>Minimise <code>"use client"</code> scope; reduce main-thread JS; lazy-load non-critical components</td>
+          </tr>
+          <tr>
+            <td><strong>Tab/accordion content not indexed</strong></td>
+            <td>Compare DOM inspection with View Source — content present in one but not the other</td>
+            <td>Render all content in initial HTML; use CSS to hide visually if needed</td>
+          </tr>
+          <tr>
+            <td><strong>noindex on production</strong></td>
+            <td>Screaming Frog → Directives → noindex</td>
+            <td>Check both CMS settings AND frontend rendering layer; verify <code>X-Robots-Tag</code> HTTP header</td>
+          </tr>
+          <tr>
+            <td><strong>Staging canonical in production</strong></td>
+            <td>View Source — <code>&lt;link rel="canonical"&gt;</code> points to staging domain</td>
+            <td>Set <code>metadataBase: new URL('https://production.com')</code> in Next.js root layout</td>
+          </tr>
+          <tr>
+            <td><strong>Prefetch bandwidth explosion</strong></td>
+            <td>Server logs; unusual bandwidth or backend latency spikes</td>
+            <td><code>prefetch={false}</code> on dense link clusters; hover-triggered prefetch only</td>
+          </tr>
+          <tr>
+            <td><strong>Hash routing (<code>/#/about</code>)</strong></td>
+            <td>URL bar shows <code>#</code> before the path; all URLs treated as one by Google</td>
+            <td>Switch from HashRouter to BrowserRouter + server-side catch-all routing</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Sources &amp; Further Reading</h3>
+    <ul>
+      <li><strong>Vercel/MERJ</strong> — "How Google Handles JavaScript Throughout the Indexing Process" (2024)</li>
+      <li><strong>Vercel</strong> — "The Rise of the AI Crawler" (2024)</li>
+      <li><strong>Google Search Central</strong> — JavaScript SEO Basics: developers.google.com/search/docs/crawling-indexing/javascript</li>
+      <li><strong>Next.js Docs</strong> — Metadata API: nextjs.org/docs/app/api-reference/functions/generate-metadata</li>
+      <li><strong>Next.js Docs</strong> — JSON-LD: nextjs.org/docs/app/guides/json-ld</li>
+      <li><strong>Astro Docs</strong> — Islands Architecture: docs.astro.build/en/concepts/islands</li>
+      <li><strong>SvelteKit Docs</strong> — SEO: svelte.dev/docs/kit/seo</li>
+      <li><strong>Notion Blog</strong> — Migrating Notion Marketing to Next.js</li>
+      <li><strong>Hardcover Blog</strong> — 20× traffic with App Router</li>
+      <li><strong>Callstack</strong> — AutoZone Next.js Migration case study</li>
+      <li><strong>Uproer</strong> — IFTTT Internal Linking Case Study</li>
+      <li><strong>Nuxt i18n Issue #2764</strong> — github.com/nuxt-modules/i18n/issues/2764</li>
+      <li><strong>Onely</strong> — "Google's Rendering Delay: 5 Seconds"</li>
+    </ul>
+  </section>
+
+
+  <footer class="site-footer">
+    <span>SEO Knowledge Base — Internal use</span>
+    <span>JavaScript for SEO — v1.0</span>
+  </footer>
+
+</div>
+</body>
+</html>
