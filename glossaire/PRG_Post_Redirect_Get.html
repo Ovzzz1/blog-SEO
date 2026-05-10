@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="tag" content="glossaire">
+<meta name="date" content="2026">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRG (Post-Redirect-Get) — Glossaire SEO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --ink: #f9fafb;
+    --ink-2: #d1d5db;
+    --ink-3: #9ca3af;
+    --paper: #17191a;
+    --paper-2: #212426;
+    --paper-3: #2d3134;
+    --accent: #ff6e40;
+    --accent-2: #60a5fa;
+    --success: #34d399;
+    --warn: #fbbf24;
+    --danger: #f87171;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+    --display: 'Syne', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .page-wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+  .site-header {
+    border-bottom: 1px solid var(--paper-3);
+    padding: 2rem 0 1.5rem;
+    margin-bottom: 0;
+  }
+  .header-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .tag-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--paper-3);
+    border-radius: 2px;
+    color: var(--ink-3);
+  }
+  .tag-badge.accent { border-color: var(--accent); color: var(--accent); }
+
+  .hero-title {
+    font-family: var(--display);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .hero-title em { font-style: normal; color: var(--accent); }
+
+  .section { padding: 2rem 0; }
+  
+  h2 {
+    font-family: var(--display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 2rem 0 1rem;
+  }
+
+  h3 {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  p { margin-bottom: 1rem; color: var(--ink-2); }
+  strong { font-weight: 500; color: var(--ink); }
+  em { color: var(--ink-2); }
+  
+  ul, ol { margin: 0 0 1rem 1.5rem; color: var(--ink-2); }
+  li { margin-bottom: 0.5rem; }
+
+  code {
+    font-family: var(--mono);
+    font-size: 0.85em;
+    background: var(--paper-2);
+    border: 1px solid var(--paper-3);
+    border-radius: 3px;
+    padding: 2px 5px;
+    color: var(--accent-2);
+  }
+
+  pre {
+    background: #0f1113;
+    border: 1px solid var(--paper-3);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+  pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.82rem;
+    color: #a8d8b8;
+  }
+
+  blockquote {
+    border-left: 3px solid var(--paper-3);
+    padding: 0.5rem 1rem;
+    margin: 1.5rem 0;
+    color: var(--ink-3);
+    background: var(--paper-2);
+    border-radius: 0 4px 4px 0;
+  }
+  blockquote p { margin-bottom: 0; }
+  blockquote p + p { margin-top: 0.5rem; }
+
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  thead tr { background: var(--paper-2); color: var(--ink); }
+  thead th {
+    font-family: var(--mono); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; padding: 0.75rem 1rem; text-align: left;
+  }
+  tbody tr { border-bottom: 1px solid var(--paper-2); }
+  tbody tr:hover { background: var(--paper-2); }
+  tbody td { padding: 0.65rem 1rem; color: var(--ink-2); vertical-align: top; }
+  tbody td:first-child { font-weight: 400; color: var(--ink); }
+
+  .site-footer {
+    margin-top: 4rem; padding: 2rem 0;
+    border-top: 1px solid var(--paper-3);
+    display: flex; justify-content: space-between;
+    font-family: var(--mono); font-size: 11px;
+    color: var(--ink-3); letter-spacing: 0.05em;
+  }
+  
+  a { color: var(--accent-2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+  <div style="padding-top: 2rem;">
+    <a href="index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;">← Retour au glossaire</a>
+    <span style="color: var(--paper-3); margin: 0 0.5rem;">|</span>
+    <a href="../index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;">Retour à l'accueil</a>
+  </div>
+
+  <header class="site-header">
+    <div class="header-meta">
+      <span class="tag-badge accent">Glossaire SEO</span>
+      <span class="tag-badge">Développement Web / Patterns HTTP / UX</span>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1 class="hero-title">PRG (Post-Redirect-Get)</h1>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <hr />
+<h2>Définition</h2>
+<p>Le <strong>PRG (Post-Redirect-Get)</strong> est un design pattern web qui résout le problème de la <strong>double soumission de formulaire</strong>. Il repose sur trois étapes HTTP successives :</p>
+<ol>
+<li><strong>POST</strong> : L'utilisateur soumet un formulaire → Le serveur traite les données</li>
+<li><strong>Redirect</strong> : Le serveur renvoie une réponse de redirection (303 ou 302) vers une nouvelle URL</li>
+<li><strong>GET</strong> : Le navigateur suit la redirection et charge la page de confirmation via GET</li>
+</ol>
+<p>Sans ce pattern, un rafraîchissement (F5) ou un retour arrière sur la page de confirmation provoquerait une re-soumission du formulaire original.</p>
+<hr />
+<h2>Le problème que PRG résout</h2>
+<h3>Scénario sans PRG</h3>
+<pre><code>1. Utilisateur remplit formulaire de commande
+2. Clic &quot;Commander&quot;
+   → POST /checkout → Traitement commande → Réponse 200 &quot;Merci!&quot;
+3. L'URL du navigateur est toujours /checkout
+4. Utilisateur appuie sur F5 (refresh)
+   → Le navigateur propose &quot;Renvoyer les données de formulaire ?&quot;
+   → Si l'utilisateur confirme : DOUBLE COMMANDE 🚨
+</code></pre>
+<h3>Même scénario avec PRG</h3>
+<pre><code>1. Utilisateur remplit formulaire de commande
+2. Clic &quot;Commander&quot;
+   → POST /checkout → Traitement commande → Réponse 303 → /confirmation?id=12345
+3. Navigateur suit la redirection → GET /confirmation?id=12345 → 200 &quot;Merci!&quot;
+4. L'URL du navigateur est maintenant /confirmation?id=12345
+5. Utilisateur appuie sur F5
+   → GET /confirmation?id=12345 → Affiche la confirmation sans re-soumettre ✅
+</code></pre>
+<hr />
+<h2>Flux HTTP détaillé</h2>
+<pre><code class="language-http">POST /checkout HTTP/1.1
+Host: shop.exemple.com
+Content-Type: application/x-www-form-urlencoded
+
+product_id=42&amp;quantity=2&amp;payment_token=tok_abc123
+</code></pre>
+<pre><code class="language-http">HTTP/1.1 303 See Other
+Location: /confirmation?order=ORD-78542
+</code></pre>
+<pre><code class="language-http">GET /confirmation?order=ORD-78542 HTTP/1.1
+Host: shop.exemple.com
+</code></pre>
+<pre><code class="language-http">HTTP/1.1 200 OK
+Content-Type: text/html
+
+&lt;html&gt;...Votre commande ORD-78542 a été confirmée !...&lt;/html&gt;
+</code></pre>
+<hr />
+<h2>Quel code de redirection utiliser ?</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">Code</th>
+<th>Usage recommandé avec PRG</th>
+<th style="text-align: center;">Méthode résultante</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>303</strong></td>
+<td>✅ Standard PRG — la méthode <strong>devient toujours GET</strong></td>
+<td style="text-align: center;">GET</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>302</strong></td>
+<td>✅ Acceptable en pratique (même comportement dans les navigateurs modernes)</td>
+<td style="text-align: center;">GET (dans les faits)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>307</strong></td>
+<td>❌ Préserve la méthode POST → re-soumission du formulaire !</td>
+<td style="text-align: center;">POST (conservé)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>301</strong></td>
+<td>⚠️ Possible mais non recommandé (cache permanent de la redirection)</td>
+<td style="text-align: center;">GET</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Recommandation</strong> : Utiliser <strong>303 See Other</strong> est la pratique la plus sémantiquement correcte selon la RFC 9110 (HTTP Semantics, 2022).</p>
+<hr />
+<h2>Implémentations par langage/framework</h2>
+<h3>PHP</h3>
+<pre><code class="language-php">&lt;?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Traitement du formulaire
+    $orderId = processOrder($_POST);
+
+    // PRG : redirection après traitement
+    header('HTTP/1.1 303 See Other');
+    header('Location: /confirmation.php?order=' . urlencode($orderId));
+    exit();
+}
+?&gt;
+</code></pre>
+<h3>Node.js / Express</h3>
+<pre><code class="language-javascript">const express = require('express');
+const app = express();
+app.use(express.urlencoded({ extended: true }));
+
+app.post('/checkout', async (req, res) =&gt; {
+  try {
+    const order = await processOrder(req.body);
+    // PRG
+    res.redirect(303, `/confirmation?order=${order.id}`);
+  } catch (error) {
+    res.status(400).render('error', { message: error.message });
+  }
+});
+
+app.get('/confirmation', (req, res) =&gt; {
+  const order = getOrder(req.query.order);
+  res.render('confirmation', { order });
+});
+</code></pre>
+<h3>Python / Django</h3>
+<pre><code class="language-python">from django.shortcuts import redirect, render
+from django.views.decorators.http import require_http_methods
+
+@require_http_methods([&quot;POST&quot;])
+def checkout(request):
+    order = process_order(request.POST)
+    # PRG
+    return redirect('confirmation', order_id=order.id)  # HTTP 302 par défaut
+
+def confirmation(request, order_id):
+    order = Order.objects.get(id=order_id)
+    return render(request, 'confirmation.html', {'order': order})
+</code></pre>
+<h3>Ruby on Rails</h3>
+<pre><code class="language-ruby">class OrdersController &lt; ApplicationController
+  def create
+    @order = Order.new(order_params)
+    if @order.save
+      # PRG : redirect_to génère un 302 par défaut
+      redirect_to confirmation_order_path(@order), status: :see_other
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def confirmation
+    @order = Order.find(params[:id])
+  end
+end
+</code></pre>
+<h3>PHP avec sessions Flash (messages post-redirect)</h3>
+<p>Un défi du PRG est que les données POST disparaissent après la redirection. La solution classique est le <strong>flash message</strong> via session :</p>
+<pre><code class="language-php">&lt;?php
+session_start();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $orderId = processOrder($_POST);
+
+    // Stocker le message en session (flash)
+    $_SESSION['flash'] = [
+        'type' =&gt; 'success',
+        'message' =&gt; &quot;Commande #{$orderId} confirmée !&quot;
+    ];
+
+    header('HTTP/1.1 303 See Other');
+    header('Location: /confirmation');
+    exit();
+}
+
+// Page confirmation (GET)
+$flash = $_SESSION['flash'] ?? null;
+unset($_SESSION['flash']); // Consommer le flash
+?&gt;
+</code></pre>
+<hr />
+<h2>PRG et les APIs REST</h2>
+<p>Dans les APIs REST modernes, PRG s'applique différemment. Après un POST créant une ressource, la réponse standard est <code>201 Created</code> avec un header <code>Location</code> pointant vers la nouvelle ressource :</p>
+<pre><code class="language-http">POST /api/articles HTTP/1.1
+Content-Type: application/json
+
+{&quot;title&quot;: &quot;Mon article&quot;, &quot;content&quot;: &quot;...&quot;}
+</code></pre>
+<pre><code class="language-http">HTTP/1.1 201 Created
+Location: /api/articles/123
+Content-Type: application/json
+
+{&quot;id&quot;: 123, &quot;title&quot;: &quot;Mon article&quot;, ...}
+</code></pre>
+<p>Ce n'est pas strictement du PRG (pas de redirection automatique côté client), mais le principe de séparer l'action du résultat est similaire.</p>
+<hr />
+<h2>PRG et les SPAs / JavaScript moderne</h2>
+<p>Dans les <strong>Single Page Applications</strong> (React, Vue, Angular), le PRG traditionnel est souvent remplacé par une gestion côté JavaScript :</p>
+<pre><code class="language-javascript">async function handleSubmit(formData) {
+  try {
+    const order = await fetch('/api/checkout', {
+      method: 'POST',
+      body: JSON.stringify(formData)
+    }).then(r =&gt; r.json());
+
+    // Équivalent PRG via routing côté client
+    router.push(`/confirmation/${order.id}`);
+
+  } catch (error) {
+    setError(error.message);
+  }
+}
+</code></pre>
+<p><strong>Attention</strong> : Dans ce cas, le problème de double soumission est géré par le state management de l'application (désactiver le bouton après clic, gérer l'idempotence côté API).</p>
+<hr />
+<h2>Bonnes pratiques complémentaires</h2>
+<h3>Idempotence côté serveur</h3>
+<p>Même avec PRG, il est prudent de rendre le traitement du POST <strong>idempotent</strong> via des tokens anti-replay :</p>
+<pre><code class="language-php">&lt;?php
+// Générer un token unique dans le formulaire
+$_SESSION['form_token'] = bin2hex(random_bytes(32));
+?&gt;
+&lt;input type=&quot;hidden&quot; name=&quot;form_token&quot; value=&quot;&lt;?= $_SESSION['form_token'] ?&gt;&quot;&gt;
+
+&lt;?php
+// Côté traitement
+if ($_POST['form_token'] !== $_SESSION['form_token']) {
+    http_response_code(409); // Conflict
+    die('Formulaire déjà soumis');
+}
+unset($_SESSION['form_token']);
+// Traiter la commande...
+?&gt;
+</code></pre>
+<hr />
+<h2>Voir aussi</h2>
+<ul>
+<li><a href="./3XX_HTTP_Response_Codes.html">3XX HTTP Response Codes</a></li>
+<li><a href="./4XX_HTTP_Response_Codes.html">4XX HTTP Response Codes</a></li>
+<li><a href="./AJAX.html">AJAX</a></li>
+<li><a href="./Key_Locations_SEO.html">Key Locations SEO</a></li>
+</ul>
+  </section>
+
+  <footer class="site-footer">
+    <span>Base de connaissance SEO</span>
+    <span>Glossaire technique</span>
+  </footer>
+</div>
+
+</body>
+</html>

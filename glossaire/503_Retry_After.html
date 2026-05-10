@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="tag" content="glossaire">
+<meta name="date" content="2026">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>503 Service Unavailable + Header "Retry-After" — Glossaire SEO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --ink: #f9fafb;
+    --ink-2: #d1d5db;
+    --ink-3: #9ca3af;
+    --paper: #17191a;
+    --paper-2: #212426;
+    --paper-3: #2d3134;
+    --accent: #ff6e40;
+    --accent-2: #60a5fa;
+    --success: #34d399;
+    --warn: #fbbf24;
+    --danger: #f87171;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+    --display: 'Syne', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .page-wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+  .site-header {
+    border-bottom: 1px solid var(--paper-3);
+    padding: 2rem 0 1.5rem;
+    margin-bottom: 0;
+  }
+  .header-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .tag-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--paper-3);
+    border-radius: 2px;
+    color: var(--ink-3);
+  }
+  .tag-badge.accent { border-color: var(--accent); color: var(--accent); }
+
+  .hero-title {
+    font-family: var(--display);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .hero-title em { font-style: normal; color: var(--accent); }
+
+  .section { padding: 2rem 0; }
+  
+  h2 {
+    font-family: var(--display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 2rem 0 1rem;
+  }
+
+  h3 {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  p { margin-bottom: 1rem; color: var(--ink-2); }
+  strong { font-weight: 500; color: var(--ink); }
+  em { color: var(--ink-2); }
+  
+  ul, ol { margin: 0 0 1rem 1.5rem; color: var(--ink-2); }
+  li { margin-bottom: 0.5rem; }
+
+  code {
+    font-family: var(--mono);
+    font-size: 0.85em;
+    background: var(--paper-2);
+    border: 1px solid var(--paper-3);
+    border-radius: 3px;
+    padding: 2px 5px;
+    color: var(--accent-2);
+  }
+
+  pre {
+    background: #0f1113;
+    border: 1px solid var(--paper-3);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+  pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.82rem;
+    color: #a8d8b8;
+  }
+
+  blockquote {
+    border-left: 3px solid var(--paper-3);
+    padding: 0.5rem 1rem;
+    margin: 1.5rem 0;
+    color: var(--ink-3);
+    background: var(--paper-2);
+    border-radius: 0 4px 4px 0;
+  }
+  blockquote p { margin-bottom: 0; }
+  blockquote p + p { margin-top: 0.5rem; }
+
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  thead tr { background: var(--paper-2); color: var(--ink); }
+  thead th {
+    font-family: var(--mono); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; padding: 0.75rem 1rem; text-align: left;
+  }
+  tbody tr { border-bottom: 1px solid var(--paper-2); }
+  tbody tr:hover { background: var(--paper-2); }
+  tbody td { padding: 0.65rem 1rem; color: var(--ink-2); vertical-align: top; }
+  tbody td:first-child { font-weight: 400; color: var(--ink); }
+
+  .site-footer {
+    margin-top: 4rem; padding: 2rem 0;
+    border-top: 1px solid var(--paper-3);
+    display: flex; justify-content: space-between;
+    font-family: var(--mono); font-size: 11px;
+    color: var(--ink-3); letter-spacing: 0.05em;
+  }
+  
+  a { color: var(--accent-2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+  <div style="padding-top: 2rem;">
+    <a href="index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;">← Retour au glossaire</a>
+    <span style="color: var(--paper-3); margin: 0 0.5rem;">|</span>
+    <a href="../index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;">Retour à l'accueil</a>
+  </div>
+
+  <header class="site-header">
+    <div class="header-meta">
+      <span class="tag-badge accent">Glossaire SEO</span>
+      <span class="tag-badge">HTTP / SEO Technique / Maintenance</span>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1 class="hero-title">503 Service Unavailable + Header "Retry-After"</h1>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <hr />
+<h2>Définition</h2>
+<p>Le code HTTP <strong>503 Service Unavailable</strong> indique que le serveur est temporairement <strong>incapable de traiter la requête</strong>, généralement en raison d'une surcharge ou d'une maintenance planifiée. Contrairement aux erreurs 4XX (faute du client), le 503 est une erreur côté serveur (5XX) avec une particularité cruciale : il est <strong>temporaire par nature</strong>.</p>
+<p>Pour les moteurs de recherche, le 503 est le signal correct à envoyer pendant une maintenance planifiée. Accompagné du header <code>Retry-After</code>, il indique explicitement quand le service reprendra, évitant ainsi la déindexation des pages.</p>
+<hr />
+<h2>Pourquoi le 503 est crucial pour le SEO en maintenance</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">Code utilisé</th>
+<th>Comportement de Google</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>200</strong> (page de maintenance)</td>
+<td>Indexe la page de maintenance → <strong>catastrophique</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>301/302</strong> vers page de maintenance</td>
+<td>Peut indexer la page de maint., perd le link equity</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>404</strong> pendant maintenance</td>
+<td>Commence à déindexer après quelques recrawls</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>503 + Retry-After</strong></td>
+<td>✅ Revient à la date indiquée, ne déindexe pas</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Le Header <code>Retry-After</code></h2>
+<h3>Syntaxe</h3>
+<p>Le header <code>Retry-After</code> indique au client (navigateur ou bot) quand réessayer. Il accepte deux formats :</p>
+<p><strong>Format délai (secondes)</strong> :</p>
+<pre><code class="language-http">HTTP/1.1 503 Service Unavailable
+Retry-After: 3600
+</code></pre>
+<p>→ Réessayer dans 3600 secondes (1 heure)</p>
+<p><strong>Format date HTTP</strong> :</p>
+<pre><code class="language-http">HTTP/1.1 503 Service Unavailable
+Retry-After: Sat, 10 May 2026 14:00:00 GMT
+</code></pre>
+<p>→ Réessayer après cette date/heure précise</p>
+<h3>Comportement de Googlebot face au 503</h3>
+<ul>
+<li>Googlebot lit le header <code>Retry-After</code> et programme son prochain passage à la date indiquée</li>
+<li>Sans <code>Retry-After</code>, Googlebot réessaie selon son propre algorithme (généralement quelques heures)</li>
+<li>Si le 503 persiste pendant <strong>plusieurs jours sans Retry-After</strong>, Google commence à réduire la fréquence de crawl et éventuellement à signaler des erreurs dans GSC</li>
+<li>Une maintenance de moins de 24h avec <code>Retry-After</code> correct <strong>n'entraîne aucune pénalité SEO</strong></li>
+</ul>
+<hr />
+<h2>Implémentation sur WordPress</h2>
+<h3>Étape 1 : Créer la page de maintenance</h3>
+<p>Dans le tableau de bord WordPress :
+1. Créer une nouvelle page "Maintenance en cours"
+2. Y insérer le message de maintenance et les informations de contact/retour
+3. Publier et noter l'URL (ex : <code>/maintenance/</code>)</p>
+<h3>Étape 2 : Configurer <code>.htaccess</code> (Apache)</h3>
+<pre><code class="language-apache">RewriteEngine On
+RewriteBase /
+
+# Exclure votre IP de la maintenance (remplacer par votre IP)
+RewriteCond %{REMOTE_ADDR} !^123\.456\.789\.000$
+
+# Exclure la page de maintenance elle-même (éviter boucle infinie)
+RewriteCond %{REQUEST_URI} !/maintenance/$
+
+# Exclure les ressources statiques
+RewriteCond %{REQUEST_URI} !\.(css|js|png|jpg|gif|ico|woff|woff2)$
+
+# Rediriger tout vers la page de maintenance avec 503
+RewriteRule .* /maintenance/ [R=503,L]
+
+# Header Retry-After (maintenance de 2 heures)
+Header always set Retry-After &quot;7200&quot;
+</code></pre>
+<h3>Étape 3 : S'assurer que la page de maintenance renvoie bien 503</h3>
+<pre><code class="language-php">// À ajouter dans le template de la page de maintenance (page.php ou template custom)
+&lt;?php
+if (is_page('maintenance')) {
+    header('HTTP/1.1 503 Service Unavailable');
+    header('Retry-After: 7200'); // 2 heures
+    header('Status: 503 Service Unavailable');
+}
+?&gt;
+</code></pre>
+<hr />
+<h2>Implémentation sur Nginx</h2>
+<pre><code class="language-nginx"># nginx.conf ou virtual host
+
+# Variable pour activer/désactiver la maintenance
+# Créer un fichier /var/www/html/maintenance.flag pour activer
+location / {
+    if (-f /var/www/html/maintenance.flag) {
+        return 503;
+    }
+    # Configuration normale...
+}
+
+# Page d'erreur 503 personnalisée
+error_page 503 /503.html;
+
+location = /503.html {
+    root /var/www/html;
+    internal;
+    add_header Retry-After 3600 always;
+}
+</code></pre>
+<hr />
+<h2>Implémentation en PHP pur</h2>
+<pre><code class="language-php">&lt;?php
+// maintenance.php
+
+// Activer la maintenance (peut être conditionné à un fichier flag)
+$maintenanceMode = true;
+$retryAfterSeconds = 3600; // 1 heure
+$maintenanceEndTime = 'Sat, 10 May 2026 18:00:00 GMT'; // optionnel
+
+if ($maintenanceMode) {
+    header('HTTP/1.1 503 Service Unavailable');
+    header('Retry-After: ' . $retryAfterSeconds);
+    header('Content-Type: text/html; charset=UTF-8');
+
+    // Afficher la page de maintenance
+    include 'maintenance-template.html';
+    exit();
+}
+?&gt;
+</code></pre>
+<hr />
+<h2>Implémentation en Node.js / Express</h2>
+<pre><code class="language-javascript">const express = require('express');
+const app = express();
+
+const MAINTENANCE_MODE = process.env.MAINTENANCE_MODE === 'true';
+const RETRY_AFTER = 3600; // secondes
+
+app.use((req, res, next) =&gt; {
+  if (MAINTENANCE_MODE) {
+    return res.status(503)
+      .set('Retry-After', String(RETRY_AFTER))
+      .send(`
+        &lt;!DOCTYPE html&gt;
+        &lt;html&gt;
+          &lt;head&gt;&lt;title&gt;Maintenance en cours&lt;/title&gt;&lt;/head&gt;
+          &lt;body&gt;
+            &lt;h1&gt;Site en maintenance&lt;/h1&gt;
+            &lt;p&gt;Nous serons de retour dans environ ${RETRY_AFTER / 60} minutes.&lt;/p&gt;
+          &lt;/body&gt;
+        &lt;/html&gt;
+      `);
+  }
+  next();
+});
+</code></pre>
+<hr />
+<h2>Vérification du bon fonctionnement</h2>
+<pre><code class="language-bash"># Vérifier le code HTTP et le header Retry-After
+curl -I https://votre-site.com/
+
+# Réponse attendue :
+# HTTP/1.1 503 Service Unavailable
+# Retry-After: 3600
+# Content-Type: text/html; charset=UTF-8
+</code></pre>
+<hr />
+<h2>Checklist maintenance SEO-safe</h2>
+<ul>
+<li>[ ] Le code HTTP retourné est bien <strong>503</strong> (pas 200, 302 ou 404)</li>
+<li>[ ] Le header <strong><code>Retry-After</code></strong> est présent et indique une durée réaliste</li>
+<li>[ ] La page de maintenance elle-même retourne 503 (pas 200)</li>
+<li>[ ] Les <strong>ressources statiques</strong> (CSS, images) sont toujours accessibles pour un rendu correct</li>
+<li>[ ] <strong>Votre IP</strong> est exclue du mode maintenance pour vérifier le site</li>
+<li>[ ] <strong>Googlebot</strong> n'est pas spécifiquement bloqué (le 503 + Retry-After est le bon signal)</li>
+<li>[ ] La maintenance est la <strong>plus courte possible</strong> (idéalement &lt; 1h, max 24h pour le SEO)</li>
+<li>[ ] GSC est surveillé après le retour pour détecter des erreurs résiduelles</li>
+</ul>
+<hr />
+<h2>Différence 503 vs autres codes de maintenance</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Scénario</th>
+<th style="text-align: center;">Code recommandé</th>
+<th>Raison</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Maintenance planifiée courte</td>
+<td style="text-align: center;"><strong>503 + Retry-After</strong></td>
+<td>Temporaire, pas de déindexation</td>
+</tr>
+<tr>
+<td>Site en construction (avant lancement)</td>
+<td style="text-align: center;"><strong>503</strong> ou page Coming Soon avec <code>noindex</code></td>
+<td>Éviter l'indexation du placeholder</td>
+</tr>
+<tr>
+<td>Page supprimée définitivement</td>
+<td style="text-align: center;"><strong>410</strong></td>
+<td>Signal de suppression permanente</td>
+</tr>
+<tr>
+<td>URL déplacée</td>
+<td style="text-align: center;"><strong>301</strong></td>
+<td>Redirection permanente</td>
+</tr>
+<tr>
+<td>Erreur serveur non planifiée</td>
+<td style="text-align: center;"><strong>500</strong> ou <strong>503</strong></td>
+<td>Selon le cas</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Voir aussi</h2>
+<ul>
+<li><a href="./3XX_HTTP_Response_Codes.html">3XX HTTP Response Codes</a></li>
+<li><a href="./4XX_HTTP_Response_Codes.html">4XX HTTP Response Codes</a></li>
+<li><a href="./Crawl_Budget.html">Crawl Budget</a></li>
+<li><a href="./Robots_Meta_Tag.html">Robots Meta Tag</a></li>
+</ul>
+  </section>
+
+  <footer class="site-footer">
+    <span>Base de connaissance SEO</span>
+    <span>Glossaire technique</span>
+  </footer>
+</div>
+
+</body>
+</html>

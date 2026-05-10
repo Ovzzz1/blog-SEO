@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="tag" content="glossaire">
+<meta name="date" content="2026">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4XX HTTP Response Codes — Glossaire SEO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --ink: #f9fafb;
+    --ink-2: #d1d5db;
+    --ink-3: #9ca3af;
+    --paper: #17191a;
+    --paper-2: #212426;
+    --paper-3: #2d3134;
+    --accent: #ff6e40;
+    --accent-2: #60a5fa;
+    --success: #34d399;
+    --warn: #fbbf24;
+    --danger: #f87171;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+    --display: 'Syne', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .page-wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+  .site-header {
+    border-bottom: 1px solid var(--paper-3);
+    padding: 2rem 0 1.5rem;
+    margin-bottom: 0;
+  }
+  .header-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .tag-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--paper-3);
+    border-radius: 2px;
+    color: var(--ink-3);
+  }
+  .tag-badge.accent { border-color: var(--accent); color: var(--accent); }
+
+  .hero-title {
+    font-family: var(--display);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .hero-title em { font-style: normal; color: var(--accent); }
+
+  .section { padding: 2rem 0; }
+  
+  h2 {
+    font-family: var(--display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 2rem 0 1rem;
+  }
+
+  h3 {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  p { margin-bottom: 1rem; color: var(--ink-2); }
+  strong { font-weight: 500; color: var(--ink); }
+  em { color: var(--ink-2); }
+  
+  ul, ol { margin: 0 0 1rem 1.5rem; color: var(--ink-2); }
+  li { margin-bottom: 0.5rem; }
+
+  code {
+    font-family: var(--mono);
+    font-size: 0.85em;
+    background: var(--paper-2);
+    border: 1px solid var(--paper-3);
+    border-radius: 3px;
+    padding: 2px 5px;
+    color: var(--accent-2);
+  }
+
+  pre {
+    background: #0f1113;
+    border: 1px solid var(--paper-3);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+  pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.82rem;
+    color: #a8d8b8;
+  }
+
+  blockquote {
+    border-left: 3px solid var(--paper-3);
+    padding: 0.5rem 1rem;
+    margin: 1.5rem 0;
+    color: var(--ink-3);
+    background: var(--paper-2);
+    border-radius: 0 4px 4px 0;
+  }
+  blockquote p { margin-bottom: 0; }
+  blockquote p + p { margin-top: 0.5rem; }
+
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  thead tr { background: var(--paper-2); color: var(--ink); }
+  thead th {
+    font-family: var(--mono); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; padding: 0.75rem 1rem; text-align: left;
+  }
+  tbody tr { border-bottom: 1px solid var(--paper-2); }
+  tbody tr:hover { background: var(--paper-2); }
+  tbody td { padding: 0.65rem 1rem; color: var(--ink-2); vertical-align: top; }
+  tbody td:first-child { font-weight: 400; color: var(--ink); }
+
+  .site-footer {
+    margin-top: 4rem; padding: 2rem 0;
+    border-top: 1px solid var(--paper-3);
+    display: flex; justify-content: space-between;
+    font-family: var(--mono); font-size: 11px;
+    color: var(--ink-3); letter-spacing: 0.05em;
+  }
+  
+  a { color: var(--accent-2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+  <div style="padding-top: 2rem;">
+    <a href="index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;">← Retour au glossaire</a>
+    <span style="color: var(--paper-3); margin: 0 0.5rem;">|</span>
+    <a href="../index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;">Retour à l'accueil</a>
+  </div>
+
+  <header class="site-header">
+    <div class="header-meta">
+      <span class="tag-badge accent">Glossaire SEO</span>
+      <span class="tag-badge">HTTP / Erreurs Client / SEO Technique</span>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1 class="hero-title">4XX HTTP Response Codes</h1>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <hr />
+<h2>Définition</h2>
+<p>Les codes de réponse HTTP <strong>4XX</strong> indiquent des <strong>erreurs côté client</strong> : la requête envoyée par le navigateur (ou le bot) est invalide, non autorisée, ou pointe vers une ressource inexistante ou inaccessible. Contrairement aux erreurs 5XX (serveur), la responsabilité incombe ici à la requête elle-même.</p>
+<p>En SEO, les erreurs 4XX ont un impact direct sur :
+- <strong>L'indexation</strong> : les pages en 404/410 sont délistées par Google
+- <strong>Le link equity</strong> : les liens pointant vers des pages 4XX ne transmettent plus de PageRank
+- <strong>Le crawl budget</strong> : les bots qui tombent sur des 4XX gaspillent du budget de crawl
+- <strong>L'expérience utilisateur</strong> : pages mortes, accès refusés, formulaires mal construits</p>
+<hr />
+<h2>Les 10 codes 4XX essentiels</h2>
+<h3>400 Bad Request</h3>
+<p><strong>Description</strong> : Le serveur ne peut pas comprendre la requête en raison d'une <strong>syntaxe invalide</strong> (paramètres malformés, headers incorrects, corps de requête corrompu).</p>
+<p><strong>Impact SEO</strong> : Faible si isolé. Peut indiquer des problèmes de paramètres d'URL à surveiller dans GSC.</p>
+<p><strong>Causes fréquentes</strong> :
+- URL avec caractères non encodés
+- Payload JSON malformé dans une API
+- Headers HTTP corrompus</p>
+<pre><code class="language-http">HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{&quot;error&quot;: &quot;Invalid query parameter: 'sort' must be 'asc' or 'desc'&quot;}
+</code></pre>
+<hr />
+<h3>401 Unauthorized</h3>
+<p><strong>Description</strong> : La ressource requiert une <strong>authentification</strong> qui n'a pas été fournie ou est invalide. Ne signifie pas "vous n'avez pas la permission" (c'est le 403), mais "identifiez-vous d'abord".</p>
+<p><strong>Impact SEO</strong> : Les pages en 401 ne sont pas indexées par Google. Utile pour les espaces membres.</p>
+<p><strong>Mécanisme</strong> : Le serveur doit renvoyer un header <code>WWW-Authenticate</code> précisant le schéma d'auth requis (Basic, Bearer, Digest…).</p>
+<pre><code class="language-http">HTTP/1.1 401 Unauthorized
+WWW-Authenticate: Bearer realm=&quot;API&quot;
+</code></pre>
+<hr />
+<h3>403 Forbidden</h3>
+<p><strong>Description</strong> : Le serveur comprend la requête mais <strong>refuse de l'exécuter</strong>, même si le client est authentifié. C'est une décision d'autorisation, pas d'authentification.</p>
+<p><strong>Impact SEO</strong> : Google déindexe les pages en 403 permanentes. À surveiller sur des ressources qui devraient être publiques (CSS, JS, images).</p>
+<p><strong>Cas d'usage légitimes</strong> :
+- Répertoires système (ex : <code>/wp-admin/</code>)
+- Ressources privées (espace client)
+- Protection géographique (geo-blocking)</p>
+<pre><code class="language-http">HTTP/1.1 403 Forbidden
+</code></pre>
+<hr />
+<h3>404 Not Found</h3>
+<p><strong>Description</strong> : La ressource demandée est <strong>introuvable</strong> sur le serveur. C'est le code d'erreur le plus connu du web.</p>
+<p><strong>Impact SEO</strong> :
+- Google déindexe les pages en 404 persistantes (après plusieurs recrawls confirmant le statut)
+- Les backlinks pointant vers une 404 ne transmettent plus de PageRank → à corriger via des 301
+- Les 404 "douces" (soft 404 : page qui renvoie 200 mais affiche un message "page introuvable") sont particulièrement pénalisantes</p>
+<p><strong>Bonnes pratiques</strong> :
+- Créer une page 404 personnalisée avec navigation et moteur de recherche interne
+- Monitorer les 404 via Google Search Console → Couverture
+- Rediriger (301) les URLs qui ont des backlinks vers leur équivalent le plus proche</p>
+<pre><code class="language-http">HTTP/1.1 404 Not Found
+</code></pre>
+<hr />
+<h3>405 Method Not Allowed</h3>
+<p><strong>Description</strong> : La méthode HTTP utilisée (GET, POST, PUT, DELETE…) <strong>n'est pas supportée</strong> pour cette ressource.</p>
+<p><strong>Cas d'usage</strong> : Tentative de POST sur une URL qui n'accepte que GET, ou DELETE sur une ressource en lecture seule.</p>
+<pre><code class="language-http">HTTP/1.1 405 Method Not Allowed
+Allow: GET, HEAD
+</code></pre>
+<hr />
+<h3>406 Not Acceptable</h3>
+<p><strong>Description</strong> : Le serveur ne peut pas générer de réponse correspondant aux critères <strong>Accept</strong> de la requête (type MIME, langue, encodage).</p>
+<p><strong>Exemple</strong> : Le client demande <code>Accept: application/xml</code> mais le serveur ne sert que du JSON.</p>
+<hr />
+<h3>407 Proxy Authentication Required</h3>
+<p><strong>Description</strong> : Similaire au 401 mais pour un <strong>proxy</strong> intermédiaire. L'authentification doit se faire auprès du proxy, pas du serveur final.</p>
+<p><strong>Contexte</strong> : Courant dans les environnements d'entreprise avec proxy réseau.</p>
+<hr />
+<h3>408 Request Timeout</h3>
+<p><strong>Description</strong> : Le serveur a attendu trop longtemps la requête du client et ferme la connexion. Souvent lié à des problèmes réseau côté client.</p>
+<hr />
+<h3>409 Conflict</h3>
+<p><strong>Description</strong> : La requête ne peut pas être complétée en raison d'un <strong>conflit avec l'état actuel</strong> de la ressource. Typique des APIs REST lors de conflits de versions.</p>
+<p><strong>Exemples</strong> :
+- Tentative de créer une ressource qui existe déjà
+- Conflit lors d'une mise à jour concurrente (ETag mismatch)</p>
+<hr />
+<h3>410 Gone</h3>
+<p><strong>Description</strong> : La ressource a été <strong>supprimée définitivement</strong> et ne reviendra plus. Contrairement au 404 (la page pourrait revenir), le 410 est un signal fort de suppression intentionnelle.</p>
+<p><strong>Impact SEO</strong> : Google retire la page de son index plus rapidement qu'un 404. À utiliser pour les pages volontairement supprimées (anciennes promos, produits discontinués, articles retirés).</p>
+<p><strong>Quand préférer 410 à 404</strong> :
+- Page supprimée délibérément et définitivement
+- Page de spam ou de contenu de mauvaise qualité retirée
+- Contenu expiré (offre d'emploi, event passé)</p>
+<pre><code class="language-http">HTTP/1.1 410 Gone
+</code></pre>
+<hr />
+<h2>Tableau comparatif</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Nom</th>
+<th style="text-align: center;">Responsabilité</th>
+<th style="text-align: center;">Impact SEO</th>
+<th>Action recommandée</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>400</td>
+<td>Bad Request</td>
+<td style="text-align: center;">Requête malformée</td>
+<td style="text-align: center;">Faible</td>
+<td>Corriger les paramètres URL</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td style="text-align: center;">Auth manquante</td>
+<td style="text-align: center;">Neutre (zone privée)</td>
+<td>Normal si zone protégée</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td style="text-align: center;">Accès refusé</td>
+<td style="text-align: center;">Neutre/négatif</td>
+<td>Vérifier les ressources publiques</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td style="text-align: center;">Page absente</td>
+<td style="text-align: center;">⚠️ Négatif</td>
+<td>Rediriger (301) ou recréer</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed</td>
+<td style="text-align: center;">Mauvaise méthode</td>
+<td style="text-align: center;">Faible</td>
+<td>Corriger les formulaires/APIs</td>
+</tr>
+<tr>
+<td>408</td>
+<td>Request Timeout</td>
+<td style="text-align: center;">Timeout réseau</td>
+<td style="text-align: center;">Faible</td>
+<td>Optimiser perfs serveur</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Gone</td>
+<td style="text-align: center;">Suppression définitive</td>
+<td style="text-align: center;">Neutre (signal propre)</td>
+<td>Utiliser pour suppressions intentionnelles</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Soft 404 : le piège SEO</h2>
+<p>Un <strong>soft 404</strong> est une page qui retourne un code HTTP 200 (succès) mais qui affiche un contenu de type "page introuvable". Google détecte ce comportement et peut le traiter comme une vraie 404 ou comme du <strong>contenu mince (thin content)</strong>, ce qui est pénalisant.</p>
+<p><strong>Causes fréquentes</strong> :
+- CMS qui redirige les 404 vers la homepage avec un 200
+- Pages produit "rupture de stock" vides
+- Pages de résultats de recherche interne vides</p>
+<p><strong>Détection</strong> : Google Search Console → section "Couverture" → "Exclues" → "Soft 404"</p>
+<p><strong>Solution</strong> : Renvoyer un vrai code 404 ou 410, ou mettre à jour le contenu de la page.</p>
+<hr />
+<h2>Monitoring et outils</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Outil</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Google Search Console</strong></td>
+<td>Rapport Couverture, erreurs 404 découvertes par Googlebot</td>
+</tr>
+<tr>
+<td><strong>Screaming Frog</strong></td>
+<td>Crawl complet pour détecter les 4XX internes et externes</td>
+</tr>
+<tr>
+<td><strong>Ahrefs / Semrush</strong></td>
+<td>Backlinks pointant vers des 4XX</td>
+</tr>
+<tr>
+<td><strong>Logs serveur</strong></td>
+<td>Identifier les 404/403 réels avec volume et source</td>
+</tr>
+<tr>
+<td><strong>Sentry / Datadog</strong></td>
+<td>Monitoring en temps réel des erreurs HTTP</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Voir aussi</h2>
+<ul>
+<li><a href="./3XX_HTTP_Response_Codes.html">3XX HTTP Response Codes</a></li>
+<li><a href="./503_Retry_After.html">503 + Retry-After</a></li>
+<li><a href="./Crawl_Budget.html">Crawl Budget</a></li>
+<li><a href="./Robots_txt.html">Robots.txt</a></li>
+<li><a href="./XML_Sitemap.html">XML Sitemap</a></li>
+</ul>
+  </section>
+
+  <footer class="site-footer">
+    <span>Base de connaissance SEO</span>
+    <span>Glossaire technique</span>
+  </footer>
+</div>
+
+</body>
+</html>

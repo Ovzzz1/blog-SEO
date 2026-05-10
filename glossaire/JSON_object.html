@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="tag" content="glossaire">
+<meta name="date" content="2026">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JSON (JavaScript Object Notation) — Glossaire SEO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --ink: #f9fafb;
+    --ink-2: #d1d5db;
+    --ink-3: #9ca3af;
+    --paper: #17191a;
+    --paper-2: #212426;
+    --paper-3: #2d3134;
+    --accent: #ff6e40;
+    --accent-2: #60a5fa;
+    --success: #34d399;
+    --warn: #fbbf24;
+    --danger: #f87171;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+    --display: 'Syne', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .page-wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+  .site-header {
+    border-bottom: 1px solid var(--paper-3);
+    padding: 2rem 0 1.5rem;
+    margin-bottom: 0;
+  }
+  .header-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .tag-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--paper-3);
+    border-radius: 2px;
+    color: var(--ink-3);
+  }
+  .tag-badge.accent { border-color: var(--accent); color: var(--accent); }
+
+  .hero-title {
+    font-family: var(--display);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .hero-title em { font-style: normal; color: var(--accent); }
+
+  .section { padding: 2rem 0; }
+  
+  h2 {
+    font-family: var(--display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 2rem 0 1rem;
+  }
+
+  h3 {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  p { margin-bottom: 1rem; color: var(--ink-2); }
+  strong { font-weight: 500; color: var(--ink); }
+  em { color: var(--ink-2); }
+  
+  ul, ol { margin: 0 0 1rem 1.5rem; color: var(--ink-2); }
+  li { margin-bottom: 0.5rem; }
+
+  code {
+    font-family: var(--mono);
+    font-size: 0.85em;
+    background: var(--paper-2);
+    border: 1px solid var(--paper-3);
+    border-radius: 3px;
+    padding: 2px 5px;
+    color: var(--accent-2);
+  }
+
+  pre {
+    background: #0f1113;
+    border: 1px solid var(--paper-3);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+  pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.82rem;
+    color: #a8d8b8;
+  }
+
+  blockquote {
+    border-left: 3px solid var(--paper-3);
+    padding: 0.5rem 1rem;
+    margin: 1.5rem 0;
+    color: var(--ink-3);
+    background: var(--paper-2);
+    border-radius: 0 4px 4px 0;
+  }
+  blockquote p { margin-bottom: 0; }
+  blockquote p + p { margin-top: 0.5rem; }
+
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  thead tr { background: var(--paper-2); color: var(--ink); }
+  thead th {
+    font-family: var(--mono); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; padding: 0.75rem 1rem; text-align: left;
+  }
+  tbody tr { border-bottom: 1px solid var(--paper-2); }
+  tbody tr:hover { background: var(--paper-2); }
+  tbody td { padding: 0.65rem 1rem; color: var(--ink-2); vertical-align: top; }
+  tbody td:first-child { font-weight: 400; color: var(--ink); }
+
+  .site-footer {
+    margin-top: 4rem; padding: 2rem 0;
+    border-top: 1px solid var(--paper-3);
+    display: flex; justify-content: space-between;
+    font-family: var(--mono); font-size: 11px;
+    color: var(--ink-3); letter-spacing: 0.05em;
+  }
+  
+  a { color: var(--accent-2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+  <div style="padding-top: 2rem;">
+    <a href="index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;">← Retour au glossaire</a>
+    <span style="color: var(--paper-3); margin: 0 0.5rem;">|</span>
+    <a href="../index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;">Retour à l'accueil</a>
+  </div>
+
+  <header class="site-header">
+    <div class="header-meta">
+      <span class="tag-badge accent">Glossaire SEO</span>
+      <span class="tag-badge">Format de données / APIs / Développement Web / SEO Structured Data</span>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1 class="hero-title">JSON (JavaScript Object Notation)</h1>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <hr />
+<h2>Définition</h2>
+<p><strong>JSON</strong> (JavaScript Object Notation) est un format léger d'échange de données, indépendant du langage de programmation. Basé sur la syntaxe des objets JavaScript, il est conçu pour être <strong>facile à lire par les humains</strong> et <strong>facile à parser par les machines</strong>. Défini par la <a href="https://tools.ietf.org/html/rfc8259">RFC 8259</a> et le standard ECMA-404, JSON est devenu le format d'échange dominant sur le web, remplaçant largement XML dans la plupart des cas d'usage.</p>
+<p>En SEO, JSON est fondamental via le format <strong>JSON-LD</strong>, utilisé pour les données structurées (schema.org) qui alimentent les rich results de Google.</p>
+<hr />
+<h2>Structure et types de données</h2>
+<h3>Les 6 types primitifs JSON</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Exemple</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>String</strong></td>
+<td><code>"Hello, monde"</code></td>
+<td>Chaîne entre guillemets doubles</td>
+</tr>
+<tr>
+<td><strong>Number</strong></td>
+<td><code>42</code>, <code>3.14</code>, <code>-7</code></td>
+<td>Entier ou décimal, pas de distinction</td>
+</tr>
+<tr>
+<td><strong>Boolean</strong></td>
+<td><code>true</code>, <code>false</code></td>
+<td>Littéraux en minuscules</td>
+</tr>
+<tr>
+<td><strong>Null</strong></td>
+<td><code>null</code></td>
+<td>Valeur nulle</td>
+</tr>
+<tr>
+<td><strong>Object</strong></td>
+<td><code>{"clé": valeur}</code></td>
+<td>Collection de paires clé-valeur</td>
+</tr>
+<tr>
+<td><strong>Array</strong></td>
+<td><code>[1, 2, 3]</code></td>
+<td>Liste ordonnée de valeurs</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Objet JSON</h3>
+<pre><code class="language-json">{
+  &quot;nom&quot;: &quot;John Doe&quot;,
+  &quot;age&quot;: 30,
+  &quot;email&quot;: &quot;john@example.com&quot;,
+  &quot;actif&quot;: true,
+  &quot;adresse&quot;: null,
+  &quot;tags&quot;: [&quot;développeur&quot;, &quot;javascript&quot;, &quot;seo&quot;],
+  &quot;coordonnées&quot;: {
+    &quot;latitude&quot;: 48.8566,
+    &quot;longitude&quot;: 2.3522
+  }
+}
+</code></pre>
+<h3>Règles de syntaxe</h3>
+<ul>
+<li>Les clés doivent être des <strong>strings entre guillemets doubles</strong></li>
+<li>Pas de guillemets simples (<code>'clé'</code> → invalide)</li>
+<li>Pas de commentaires (contrairement à JSON5 ou JSONC)</li>
+<li>Pas de virgule finale (trailing comma) : <code>["a", "b",]</code> → invalide</li>
+<li>L'encodage recommandé est <strong>UTF-8</strong></li>
+<li>Les valeurs <code>undefined</code>, <code>NaN</code>, <code>Infinity</code> ne sont <strong>pas valides en JSON</strong> (JavaScript seulement)</li>
+</ul>
+<hr />
+<h2>Exemples pratiques</h2>
+<h3>Profil utilisateur</h3>
+<pre><code class="language-json">{
+  &quot;id&quot;: 1234,
+  &quot;username&quot;: &quot;alice_dev&quot;,
+  &quot;email&quot;: &quot;alice@example.com&quot;,
+  &quot;createdAt&quot;: &quot;2024-03-15T09:30:00Z&quot;,
+  &quot;preferences&quot;: {
+    &quot;language&quot;: &quot;fr&quot;,
+    &quot;theme&quot;: &quot;dark&quot;,
+    &quot;notifications&quot;: true
+  },
+  &quot;roles&quot;: [&quot;user&quot;, &quot;editor&quot;]
+}
+</code></pre>
+<h3>Réponse API paginée</h3>
+<pre><code class="language-json">{
+  &quot;data&quot;: [
+    {&quot;id&quot;: 1, &quot;title&quot;: &quot;Article 1&quot;, &quot;slug&quot;: &quot;article-1&quot;},
+    {&quot;id&quot;: 2, &quot;title&quot;: &quot;Article 2&quot;, &quot;slug&quot;: &quot;article-2&quot;}
+  ],
+  &quot;pagination&quot;: {
+    &quot;page&quot;: 1,
+    &quot;perPage&quot;: 10,
+    &quot;total&quot;: 234,
+    &quot;totalPages&quot;: 24
+  },
+  &quot;status&quot;: &quot;success&quot;
+}
+</code></pre>
+<hr />
+<h2>JSON en JavaScript</h2>
+<h3>Parsing (String → Objet JS)</h3>
+<pre><code class="language-javascript">const jsonString = '{&quot;nom&quot;: &quot;Alice&quot;, &quot;age&quot;: 25}';
+const obj = JSON.parse(jsonString);
+console.log(obj.nom); // &quot;Alice&quot;
+
+// Avec gestion d'erreur
+try {
+  const data = JSON.parse(jsonString);
+} catch (e) {
+  console.error('JSON invalide:', e.message);
+}
+</code></pre>
+<h3>Sérialisation (Objet JS → String)</h3>
+<pre><code class="language-javascript">const user = { nom: &quot;Bob&quot;, age: 30, actif: true };
+const jsonString = JSON.stringify(user);
+// '{&quot;nom&quot;:&quot;Bob&quot;,&quot;age&quot;:30,&quot;actif&quot;:true}'
+
+// Formaté (indentation 2 espaces)
+const jsonFormatted = JSON.stringify(user, null, 2);
+/*
+{
+  &quot;nom&quot;: &quot;Bob&quot;,
+  &quot;age&quot;: 30,
+  &quot;actif&quot;: true
+}
+*/
+</code></pre>
+<h3>Fetch API + JSON (usage moderne)</h3>
+<pre><code class="language-javascript">// GET
+const response = await fetch('https://api.exemple.com/articles');
+const articles = await response.json();
+
+// POST avec JSON
+const newArticle = await fetch('https://api.exemple.com/articles', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ title: 'Mon Article', content: '...' })
+});
+</code></pre>
+<hr />
+<h2>JSON-LD : JSON pour le SEO</h2>
+<h3>Qu'est-ce que JSON-LD ?</h3>
+<p><strong>JSON-LD</strong> (JSON for Linked Data) est un format de données structurées recommandé par Google pour implémenter les <strong>rich results</strong> (résultats enrichis). Il est basé sur JSON mais enrichi avec un contexte (<code>@context</code>) qui lie les données au vocabulaire <strong>schema.org</strong>.</p>
+<blockquote>
+<p>Google préfère JSON-LD aux autres formats (Microdata, RDFa) pour sa facilité d'implémentation et de maintenance.</p>
+</blockquote>
+<h3>Syntaxe JSON-LD</h3>
+<pre><code class="language-html">&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;Article&quot;,
+  &quot;headline&quot;: &quot;Guide complet du JSON pour le SEO&quot;,
+  &quot;author&quot;: {
+    &quot;@type&quot;: &quot;Person&quot;,
+    &quot;name&quot;: &quot;Alice Dupont&quot;
+  },
+  &quot;datePublished&quot;: &quot;2026-01-15&quot;,
+  &quot;dateModified&quot;: &quot;2026-04-20&quot;,
+  &quot;image&quot;: &quot;https://exemple.com/images/article-hero.jpg&quot;,
+  &quot;publisher&quot;: {
+    &quot;@type&quot;: &quot;Organization&quot;,
+    &quot;name&quot;: &quot;Mon Site&quot;,
+    &quot;logo&quot;: {
+      &quot;@type&quot;: &quot;ImageObject&quot;,
+      &quot;url&quot;: &quot;https://exemple.com/logo.png&quot;
+    }
+  }
+}
+&lt;/script&gt;
+</code></pre>
+<h3>Types schema.org les plus utiles pour le SEO</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th style="text-align: center;">Rich Result généré</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Article</code> / <code>NewsArticle</code></td>
+<td style="text-align: center;">Article dans Top Stories</td>
+<td>Blog, presse</td>
+</tr>
+<tr>
+<td><code>Product</code></td>
+<td style="text-align: center;">Prix, stock, avis</td>
+<td>E-commerce</td>
+</tr>
+<tr>
+<td><code>FAQPage</code></td>
+<td style="text-align: center;">Accordion FAQ dans SERP</td>
+<td>Pages FAQ</td>
+</tr>
+<tr>
+<td><code>HowTo</code></td>
+<td style="text-align: center;">Étapes avec images</td>
+<td>Tutoriels</td>
+</tr>
+<tr>
+<td><code>Recipe</code></td>
+<td style="text-align: center;">Carte recette</td>
+<td>Cuisine</td>
+</tr>
+<tr>
+<td><code>Event</code></td>
+<td style="text-align: center;">Événement dans SERP</td>
+<td>Billetterie, événements</td>
+</tr>
+<tr>
+<td><code>JobPosting</code></td>
+<td style="text-align: center;">Offre d'emploi</td>
+<td>RH, recrutement</td>
+</tr>
+<tr>
+<td><code>LocalBusiness</code></td>
+<td style="text-align: center;">Knowledge Panel</td>
+<td>Commerce local</td>
+</tr>
+<tr>
+<td><code>BreadcrumbList</code></td>
+<td style="text-align: center;">Fil d'Ariane dans l'URL SERP</td>
+<td>Tous sites</td>
+</tr>
+<tr>
+<td><code>VideoObject</code></td>
+<td style="text-align: center;">Miniature vidéo</td>
+<td>Contenu vidéo</td>
+</tr>
+<tr>
+<td><code>Review</code> / <code>AggregateRating</code></td>
+<td style="text-align: center;">Étoiles dans les résultats</td>
+<td>Avis produits</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Exemple JSON-LD complet pour un produit e-commerce</h3>
+<pre><code class="language-html">&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;Product&quot;,
+  &quot;name&quot;: &quot;Chaussures Running Pro X500&quot;,
+  &quot;description&quot;: &quot;Chaussures de running légères avec semelle amortissante&quot;,
+  &quot;sku&quot;: &quot;RUN-X500-42&quot;,
+  &quot;brand&quot;: {
+    &quot;@type&quot;: &quot;Brand&quot;,
+    &quot;name&quot;: &quot;SportTech&quot;
+  },
+  &quot;image&quot;: [
+    &quot;https://exemple.com/produits/x500-1.jpg&quot;,
+    &quot;https://exemple.com/produits/x500-2.jpg&quot;
+  ],
+  &quot;offers&quot;: {
+    &quot;@type&quot;: &quot;Offer&quot;,
+    &quot;url&quot;: &quot;https://exemple.com/chaussures/x500&quot;,
+    &quot;priceCurrency&quot;: &quot;EUR&quot;,
+    &quot;price&quot;: &quot;129.99&quot;,
+    &quot;availability&quot;: &quot;https://schema.org/InStock&quot;,
+    &quot;priceValidUntil&quot;: &quot;2026-12-31&quot;
+  },
+  &quot;aggregateRating&quot;: {
+    &quot;@type&quot;: &quot;AggregateRating&quot;,
+    &quot;ratingValue&quot;: &quot;4.7&quot;,
+    &quot;reviewCount&quot;: &quot;248&quot;
+  }
+}
+&lt;/script&gt;
+</code></pre>
+<hr />
+<h2>JSONL (JSON Lines)</h2>
+<p>Format dérivé de JSON où <strong>chaque ligne est un objet JSON valide</strong> et indépendant. Utilisé pour les flux de données et le streaming.</p>
+<pre><code class="language-jsonl">{&quot;id&quot;: 1, &quot;event&quot;: &quot;page_view&quot;, &quot;url&quot;: &quot;/accueil&quot;, &quot;timestamp&quot;: &quot;2026-01-15T10:00:00Z&quot;}
+{&quot;id&quot;: 2, &quot;event&quot;: &quot;click&quot;, &quot;element&quot;: &quot;nav-menu&quot;, &quot;timestamp&quot;: &quot;2026-01-15T10:00:05Z&quot;}
+{&quot;id&quot;: 3, &quot;event&quot;: &quot;page_view&quot;, &quot;url&quot;: &quot;/produits&quot;, &quot;timestamp&quot;: &quot;2026-01-15T10:00:08Z&quot;}
+</code></pre>
+<hr />
+<h2>JSON vs XML vs YAML</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Critère</th>
+<th style="text-align: center;">JSON</th>
+<th style="text-align: center;">XML</th>
+<th style="text-align: center;">YAML</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lisibilité humaine</td>
+<td style="text-align: center;">✅ Bonne</td>
+<td style="text-align: center;">⚠️ Verbeuse</td>
+<td style="text-align: center;">✅ Excellente</td>
+</tr>
+<tr>
+<td>Légèreté</td>
+<td style="text-align: center;">✅ Léger</td>
+<td style="text-align: center;">❌ Verbeux</td>
+<td style="text-align: center;">✅ Léger</td>
+</tr>
+<tr>
+<td>Support schemas</td>
+<td style="text-align: center;">⚠️ JSON Schema</td>
+<td style="text-align: center;">✅ XSD/DTD</td>
+<td style="text-align: center;">⚠️ YAML Schema</td>
+</tr>
+<tr>
+<td>Commentaires</td>
+<td style="text-align: center;">❌ Non</td>
+<td style="text-align: center;">✅ Oui</td>
+<td style="text-align: center;">✅ Oui</td>
+</tr>
+<tr>
+<td>Types de données</td>
+<td style="text-align: center;">⚠️ Limités</td>
+<td style="text-align: center;">❌ Tout texte</td>
+<td style="text-align: center;">✅ Riches</td>
+</tr>
+<tr>
+<td>Usage web dominant</td>
+<td style="text-align: center;">✅ APIs REST</td>
+<td style="text-align: center;">⚠️ Legacy/SOAP</td>
+<td style="text-align: center;">✅ Config files</td>
+</tr>
+<tr>
+<td>SEO (données structurées)</td>
+<td style="text-align: center;">✅ JSON-LD</td>
+<td style="text-align: center;">⚠️ RDFa</td>
+<td style="text-align: center;">❌ Non supporté</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Validation et outils</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Outil</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://jsonlint.com">jsonlint.com</a></td>
+<td>Validation et formatage JSON</td>
+</tr>
+<tr>
+<td><a href="https://json-schema.org">json-schema.org</a></td>
+<td>Définir des schémas JSON</td>
+</tr>
+<tr>
+<td><strong>Google Rich Results Test</strong></td>
+<td>Tester les données JSON-LD</td>
+</tr>
+<tr>
+<td><strong>Schema.org Validator</strong></td>
+<td>Validation schema.org</td>
+</tr>
+<tr>
+<td><code>jq</code> (CLI)</td>
+<td>Manipulation JSON en ligne de commande</td>
+</tr>
+<tr>
+<td><strong>Postman / Insomnia</strong></td>
+<td>Tester les APIs JSON</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Voir aussi</h2>
+<ul>
+<li><a href="./AJAX.html">AJAX</a></li>
+<li><a href="./DOM_et_CSSOM.html">DOM et CSSOM</a></li>
+<li><a href="./Key_Locations_SEO.html">Key Locations SEO</a></li>
+</ul>
+  </section>
+
+  <footer class="site-footer">
+    <span>Base de connaissance SEO</span>
+    <span>Glossaire technique</span>
+  </footer>
+</div>
+
+</body>
+</html>

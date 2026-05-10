@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="tag" content="glossaire">
+<meta name="date" content="2026">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Follow et Nofollow (`rel="nofollow"`, `rel="ugc"`, `rel="sponsored"`) — Glossaire SEO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --ink: #f9fafb;
+    --ink-2: #d1d5db;
+    --ink-3: #9ca3af;
+    --paper: #17191a;
+    --paper-2: #212426;
+    --paper-3: #2d3134;
+    --accent: #ff6e40;
+    --accent-2: #60a5fa;
+    --success: #34d399;
+    --warn: #fbbf24;
+    --danger: #f87171;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+    --display: 'Syne', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .page-wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+  .site-header {
+    border-bottom: 1px solid var(--paper-3);
+    padding: 2rem 0 1.5rem;
+    margin-bottom: 0;
+  }
+  .header-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .tag-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--paper-3);
+    border-radius: 2px;
+    color: var(--ink-3);
+  }
+  .tag-badge.accent { border-color: var(--accent); color: var(--accent); }
+
+  .hero-title {
+    font-family: var(--display);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .hero-title em { font-style: normal; color: var(--accent); }
+
+  .section { padding: 2rem 0; }
+  
+  h2 {
+    font-family: var(--display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 2rem 0 1rem;
+  }
+
+  h3 {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  p { margin-bottom: 1rem; color: var(--ink-2); }
+  strong { font-weight: 500; color: var(--ink); }
+  em { color: var(--ink-2); }
+  
+  ul, ol { margin: 0 0 1rem 1.5rem; color: var(--ink-2); }
+  li { margin-bottom: 0.5rem; }
+
+  code {
+    font-family: var(--mono);
+    font-size: 0.85em;
+    background: var(--paper-2);
+    border: 1px solid var(--paper-3);
+    border-radius: 3px;
+    padding: 2px 5px;
+    color: var(--accent-2);
+  }
+
+  pre {
+    background: #0f1113;
+    border: 1px solid var(--paper-3);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+  pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.82rem;
+    color: #a8d8b8;
+  }
+
+  blockquote {
+    border-left: 3px solid var(--paper-3);
+    padding: 0.5rem 1rem;
+    margin: 1.5rem 0;
+    color: var(--ink-3);
+    background: var(--paper-2);
+    border-radius: 0 4px 4px 0;
+  }
+  blockquote p { margin-bottom: 0; }
+  blockquote p + p { margin-top: 0.5rem; }
+
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  thead tr { background: var(--paper-2); color: var(--ink); }
+  thead th {
+    font-family: var(--mono); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; padding: 0.75rem 1rem; text-align: left;
+  }
+  tbody tr { border-bottom: 1px solid var(--paper-2); }
+  tbody tr:hover { background: var(--paper-2); }
+  tbody td { padding: 0.65rem 1rem; color: var(--ink-2); vertical-align: top; }
+  tbody td:first-child { font-weight: 400; color: var(--ink); }
+
+  .site-footer {
+    margin-top: 4rem; padding: 2rem 0;
+    border-top: 1px solid var(--paper-3);
+    display: flex; justify-content: space-between;
+    font-family: var(--mono); font-size: 11px;
+    color: var(--ink-3); letter-spacing: 0.05em;
+  }
+  
+  a { color: var(--accent-2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+  <div style="padding-top: 2rem;">
+    <a href="index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;">← Retour au glossaire</a>
+    <span style="color: var(--paper-3); margin: 0 0.5rem;">|</span>
+    <a href="../index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;">Retour à l'accueil</a>
+  </div>
+
+  <header class="site-header">
+    <div class="header-meta">
+      <span class="tag-badge accent">Glossaire SEO</span>
+      <span class="tag-badge">SEO Technique / Liens / PageRank</span>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1 class="hero-title">Follow et Nofollow (`rel="nofollow"`, `rel="ugc"`, `rel="sponsored"`)</h1>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <hr />
+<h2>Définition</h2>
+<p>L'attribut <code>rel</code> sur une balise <code>&lt;a&gt;</code> permet de qualifier la <strong>nature de la relation</strong> entre la page source et la page de destination d'un lien. En SEO, sa valeur la plus connue est <code>nofollow</code>, qui indique aux moteurs de recherche de ne pas transmettre de <strong>link equity (PageRank)</strong> via ce lien et de ne pas le prendre en compte pour le classement de la page de destination.</p>
+<p>En <strong>septembre 2019</strong>, Google a introduit deux nouveaux attributs complémentaires : <code>rel="ugc"</code> et <code>rel="sponsored"</code>, transformant <code>nofollow</code> en un ensemble de valeurs permettant de qualifier plus précisément l'origine d'un lien.</p>
+<hr />
+<h2>Les valeurs de l'attribut <code>rel</code> pour les liens</h2>
+<h3><code>rel="follow"</code> (ou absence d'attribut)</h3>
+<p>Il n'existe pas de valeur <code>follow</code> à proprement parler — un lien est <strong>suivi par défaut</strong> si aucun attribut <code>rel</code> restrictif n'est présent.</p>
+<pre><code class="language-html">&lt;!-- Lien suivi (transmet du PageRank) --&gt;
+&lt;a href=&quot;https://exemple.com/page&quot;&gt;Texte du lien&lt;/a&gt;
+
+&lt;!-- Équivalent explicite — rarement nécessaire --&gt;
+&lt;a href=&quot;https://exemple.com/page&quot; rel=&quot;follow&quot;&gt;Texte du lien&lt;/a&gt;
+</code></pre>
+<h3><code>rel="nofollow"</code></h3>
+<p>Introduit par Google en <strong>2005</strong>, <code>nofollow</code> indique aux moteurs de recherche de ne <strong>pas suivre ce lien</strong> ni de lui transférer du PageRank.</p>
+<pre><code class="language-html">&lt;a href=&quot;https://exemple.com&quot; rel=&quot;nofollow&quot;&gt;Lien nofollow&lt;/a&gt;
+</code></pre>
+<p><strong>Depuis septembre 2019</strong> : Google traite <code>nofollow</code> comme un <strong>hint</strong> (indice) et non plus comme une directive absolue. En pratique, Google peut choisir de suivre et d'indexer la page de destination, mais sans lui attribuer de PageRank via ce lien.</p>
+<h3><code>rel="ugc"</code> (User Generated Content)</h3>
+<p>Introduit en 2019 pour les <strong>liens générés par les utilisateurs</strong> : commentaires de blog, forums, reviews, wikis, etc.</p>
+<pre><code class="language-html">&lt;!-- Dans les commentaires d'un blog ou d'un forum --&gt;
+&lt;a href=&quot;https://example.com&quot; rel=&quot;ugc&quot;&gt;Lien posté par un utilisateur&lt;/a&gt;
+
+&lt;!-- Combinable avec nofollow --&gt;
+&lt;a href=&quot;https://example.com&quot; rel=&quot;ugc nofollow&quot;&gt;Lien&lt;/a&gt;
+</code></pre>
+<h3><code>rel="sponsored"</code></h3>
+<p>Pour les <strong>liens payants</strong>, partenariats, publicités, liens d'affiliation. L'utilisation de <code>sponsored</code> est obligatoire selon les guidelines Google pour tout lien rémunéré.</p>
+<pre><code class="language-html">&lt;!-- Lien d'affiliation --&gt;
+&lt;a href=&quot;https://partenaire.com?ref=monsite&quot; rel=&quot;sponsored&quot;&gt;Partenaire&lt;/a&gt;
+
+&lt;!-- Publicité --&gt;
+&lt;a href=&quot;https://pub.com&quot; rel=&quot;sponsored nofollow&quot;&gt;Notre sponsor&lt;/a&gt;
+</code></pre>
+<blockquote>
+<p>⚠️ Ne pas qualifier les liens sponsorisés avec <code>sponsored</code> peut être interprété comme une tentative de manipulation des résultats de recherche (black hat link building) et entraîner une pénalité manuelle.</p>
+</blockquote>
+<hr />
+<h2>Tableau comparatif</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Valeur</th>
+<th style="text-align: center;">Introduit</th>
+<th style="text-align: center;">Transmet PageRank</th>
+<th style="text-align: center;">Suivi par Google</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>(aucun)</em></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✅ Oui</td>
+<td style="text-align: center;">✅ Oui</td>
+<td>Lien éditorial normal</td>
+</tr>
+<tr>
+<td><code>nofollow</code></td>
+<td style="text-align: center;">2005</td>
+<td style="text-align: center;">❌ Non (hint)</td>
+<td style="text-align: center;">⚠️ Possible</td>
+<td>Liens non cautionnés</td>
+</tr>
+<tr>
+<td><code>ugc</code></td>
+<td style="text-align: center;">2019</td>
+<td style="text-align: center;">❌ Non (hint)</td>
+<td style="text-align: center;">⚠️ Possible</td>
+<td>Contenu généré par utilisateurs</td>
+</tr>
+<tr>
+<td><code>sponsored</code></td>
+<td style="text-align: center;">2019</td>
+<td style="text-align: center;">❌ Non</td>
+<td style="text-align: center;">⚠️ Possible</td>
+<td>Liens payants / affiliation</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Utilisations recommandées</h2>
+<h3>Quand utiliser <code>nofollow</code></h3>
+<ul>
+<li>Liens vers des sites non vérifiés ou de confiance inconnue</li>
+<li>Liens dans les commentaires ou les forums (si pas d'UGC disponible)</li>
+<li>Liens vers des pages légales/mentions légales de partenaires sans endorsement éditorial</li>
+<li>Widget links, badges automatiques</li>
+</ul>
+<h3>Quand utiliser <code>ugc</code></h3>
+<ul>
+<li>Commentaires de blog</li>
+<li>Posts dans des forums ou communautés</li>
+<li>Contributions wiki ouvertes</li>
+<li>Reviews et avis utilisateurs</li>
+</ul>
+<h3>Quand utiliser <code>sponsored</code></h3>
+<ul>
+<li>Liens d'affiliation (Amazon Associates, Awin, ShareASale…)</li>
+<li>Articles sponsorisés / publi-rédactionnels</li>
+<li>Bannières et liens publicitaires</li>
+<li>Partenariats rémunérés</li>
+</ul>
+<h3>Combinaisons valides</h3>
+<pre><code class="language-html">rel=&quot;ugc nofollow&quot;          &lt;!-- Contenu user + nofollow --&gt;
+rel=&quot;sponsored nofollow&quot;    &lt;!-- Sponsorisé + nofollow --&gt;
+rel=&quot;noopener noreferrer&quot;   &lt;!-- Sécurité + pas de referrer (links target=_blank) --&gt;
+rel=&quot;nofollow noopener&quot;     &lt;!-- Nofollow + sécurité --&gt;
+</code></pre>
+<hr />
+<h2><code>nofollow</code> sur les liens internes : attention</h2>
+<p>L'utilisation de <code>nofollow</code> sur des liens internes est <strong>généralement déconseillée</strong>.</p>
+<h3>Historique : PageRank Sculpting</h3>
+<p>Entre 2005 et 2009, certains SEOs utilisaient <code>nofollow</code> sur des liens internes pour "sculpter" le flux de PageRank et le concentrer sur les pages importantes. Google a mis fin à cette pratique en 2009 en annonçant que le PageRank est <strong>toujours consommé</strong> même si le lien est nofollow (il disparaît, il n'est pas redistribué).</p>
+<h3>Conséquences du nofollow interne en 2026</h3>
+<ol>
+<li><strong>Crawl Budget</strong> : Les liens internes nofollow peuvent empêcher Googlebot de découvrir certaines pages, réduisant l'efficacité du crawl</li>
+<li><strong>PageRank</strong> : Le PageRank est "perdu" dans le vide plutôt que distribué aux autres pages</li>
+<li><strong>Navigation utilisateur</strong> : Un nofollow interne peut créer des impasses de navigation</li>
+<li><strong>Cas exceptionnel valide</strong> : Lien vers une page de connexion, une page de panier, ou des zones purement transactionnelles</li>
+</ol>
+<h3>Alternatives recommandées au nofollow interne</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Problème</th>
+<th>Solution recommandée</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Page à ne pas indexer</td>
+<td><code>&lt;meta name="robots" content="noindex"&gt;</code></td>
+</tr>
+<tr>
+<td>Page à ne pas crawlér</td>
+<td><code>Disallow</code> dans <code>robots.txt</code></td>
+</tr>
+<tr>
+<td>Concentrer le PageRank</td>
+<td>Améliorer l'architecture et le maillage interne</td>
+</tr>
+<tr>
+<td>Liens de navigation répétitifs</td>
+<td>Laisser en follow — c'est normal</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2><code>nofollow</code> sur les liens externes</h2>
+<p>C'est le cas d'usage principal et légitime.</p>
+<h3>Bonnes pratiques pour les liens externes</h3>
+<pre><code class="language-html">&lt;!-- ✅ Lien éditorial vers un contenu de qualité que vous cautionnez --&gt;
+&lt;a href=&quot;https://source-fiable.com/etude&quot;&gt;Selon cette étude&lt;/a&gt;
+
+&lt;!-- ✅ Lien affilié clairement identifié --&gt;
+&lt;a href=&quot;https://amazon.fr/produit?tag=monsite&quot; rel=&quot;sponsored&quot;&gt;
+  Voir le produit sur Amazon
+&lt;/a&gt;
+
+&lt;!-- ✅ Commentaire utilisateur --&gt;
+&lt;a href=&quot;https://siteutilisateur.com&quot; rel=&quot;ugc nofollow&quot;&gt;
+  Site de Jean Dupont
+&lt;/a&gt;
+
+&lt;!-- ✅ Lien vers site non vérifié / annuaire --&gt;
+&lt;a href=&quot;https://site-inconnu.com&quot; rel=&quot;nofollow&quot;&gt;
+  Voir leur site
+&lt;/a&gt;
+</code></pre>
+<hr />
+<h2>Impact du nofollow sur le référencement : nuances 2026</h2>
+<h3>Ce que <code>nofollow</code> ne fait PAS</h3>
+<ul>
+<li>Il ne rend pas la page de destination invisible pour Google</li>
+<li>Il n'empêche pas l'indexation de la page de destination (si elle a d'autres liens entrants)</li>
+<li>Il ne supprime pas le lien des logs de crawl de Google</li>
+<li>Il n'empêche pas les utilisateurs de cliquer sur le lien</li>
+</ul>
+<h3>Ce que <code>nofollow</code> fait</h3>
+<ul>
+<li>Signale à Google de ne pas attribuer de PageRank via ce lien</li>
+<li>Peut réduire la découverte de nouvelles URLs via ce lien (mais Google reste libre)</li>
+<li>Protège contre une pénalité algorithmique si les liens sortants sont de mauvaise qualité</li>
+</ul>
+<h3>Le cas des liens de presse / RP en 2026</h3>
+<p>Les liens dans les communiqués de presse et articles sponsorisés doivent utiliser <code>sponsored</code> ou <code>nofollow</code>. Google peut pénaliser des sites qui construisent leur profil de liens principalement via des RP avec des liens follow.</p>
+<hr />
+<h2>Audit et détection</h2>
+<h3>Screaming Frog</h3>
+<ul>
+<li>Rapport "All Outlinks" → filtrer par <code>rel</code> attribute</li>
+<li>Détecter les liens internes nofollow involontaires</li>
+<li>Identifier les liens affiliés non qualifiés</li>
+</ul>
+<h3>Google Search Console</h3>
+<ul>
+<li>Rapport "Liens" → vérifier la distribution des liens entrants</li>
+<li>Pas de vue directe sur les nofollow (GSC ne les distingue pas des follow dans le rapport)</li>
+</ul>
+<h3>Ahrefs / Semrush</h3>
+<ul>
+<li>Profil de backlinks avec distinction follow/nofollow</li>
+<li>Ratio follow/nofollow du profil de liens entrants (un ratio très déséquilibré peut sembler artificiel)</li>
+</ul>
+<h3>Vérification manuelle</h3>
+<pre><code class="language-bash"># Vérifier les attributs rel sur une page
+curl -s https://exemple.com/page | grep -oP 'rel=&quot;[^&quot;]*&quot;' | sort | uniq -c
+</code></pre>
+<hr />
+<h2>Voir aussi</h2>
+<ul>
+<li><a href="./Canonical.html">Canonical</a></li>
+<li><a href="./Crawl_Budget.html">Crawl Budget</a></li>
+<li><a href="./Robots_Meta_Tag.html">Robots Meta Tag</a></li>
+<li><a href="./X_Robots_Tag.html">X-Robots-Tag</a></li>
+<li><a href="./Robots_txt.html">Robots.txt</a></li>
+</ul>
+  </section>
+
+  <footer class="site-footer">
+    <span>Base de connaissance SEO</span>
+    <span>Glossaire technique</span>
+  </footer>
+</div>
+
+</body>
+</html>

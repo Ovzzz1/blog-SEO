@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="tag" content="glossaire">
+<meta name="date" content="2026">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AJAX (Asynchronous JavaScript and XML) — Glossaire SEO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --ink: #f9fafb;
+    --ink-2: #d1d5db;
+    --ink-3: #9ca3af;
+    --paper: #17191a;
+    --paper-2: #212426;
+    --paper-3: #2d3134;
+    --accent: #ff6e40;
+    --accent-2: #60a5fa;
+    --success: #34d399;
+    --warn: #fbbf24;
+    --danger: #f87171;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+    --display: 'Syne', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .page-wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+  .site-header {
+    border-bottom: 1px solid var(--paper-3);
+    padding: 2rem 0 1.5rem;
+    margin-bottom: 0;
+  }
+  .header-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .tag-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--paper-3);
+    border-radius: 2px;
+    color: var(--ink-3);
+  }
+  .tag-badge.accent { border-color: var(--accent); color: var(--accent); }
+
+  .hero-title {
+    font-family: var(--display);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .hero-title em { font-style: normal; color: var(--accent); }
+
+  .section { padding: 2rem 0; }
+  
+  h2 {
+    font-family: var(--display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 2rem 0 1rem;
+  }
+
+  h3 {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  p { margin-bottom: 1rem; color: var(--ink-2); }
+  strong { font-weight: 500; color: var(--ink); }
+  em { color: var(--ink-2); }
+  
+  ul, ol { margin: 0 0 1rem 1.5rem; color: var(--ink-2); }
+  li { margin-bottom: 0.5rem; }
+
+  code {
+    font-family: var(--mono);
+    font-size: 0.85em;
+    background: var(--paper-2);
+    border: 1px solid var(--paper-3);
+    border-radius: 3px;
+    padding: 2px 5px;
+    color: var(--accent-2);
+  }
+
+  pre {
+    background: #0f1113;
+    border: 1px solid var(--paper-3);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+  pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.82rem;
+    color: #a8d8b8;
+  }
+
+  blockquote {
+    border-left: 3px solid var(--paper-3);
+    padding: 0.5rem 1rem;
+    margin: 1.5rem 0;
+    color: var(--ink-3);
+    background: var(--paper-2);
+    border-radius: 0 4px 4px 0;
+  }
+  blockquote p { margin-bottom: 0; }
+  blockquote p + p { margin-top: 0.5rem; }
+
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  thead tr { background: var(--paper-2); color: var(--ink); }
+  thead th {
+    font-family: var(--mono); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; padding: 0.75rem 1rem; text-align: left;
+  }
+  tbody tr { border-bottom: 1px solid var(--paper-2); }
+  tbody tr:hover { background: var(--paper-2); }
+  tbody td { padding: 0.65rem 1rem; color: var(--ink-2); vertical-align: top; }
+  tbody td:first-child { font-weight: 400; color: var(--ink); }
+
+  .site-footer {
+    margin-top: 4rem; padding: 2rem 0;
+    border-top: 1px solid var(--paper-3);
+    display: flex; justify-content: space-between;
+    font-family: var(--mono); font-size: 11px;
+    color: var(--ink-3); letter-spacing: 0.05em;
+  }
+  
+  a { color: var(--accent-2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+  <div style="padding-top: 2rem;">
+    <a href="index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;">← Retour au glossaire</a>
+    <span style="color: var(--paper-3); margin: 0 0.5rem;">|</span>
+    <a href="../index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;">Retour à l'accueil</a>
+  </div>
+
+  <header class="site-header">
+    <div class="header-meta">
+      <span class="tag-badge accent">Glossaire SEO</span>
+      <span class="tag-badge">Développement Web / JavaScript / SEO Technique</span>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1 class="hero-title">AJAX (Asynchronous JavaScript and XML)</h1>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <hr />
+<h2>Définition</h2>
+<p><strong>AJAX</strong> (Asynchronous JavaScript and XML) est un ensemble de techniques de développement web permettant à un navigateur d'envoyer et recevoir des données depuis un serveur <strong>sans recharger entièrement la page</strong>. Le terme a été popularisé en 2005 par Jesse James Garrett, bien que les technologies sous-jacentes existaient depuis la fin des années 1990.</p>
+<p>Malgré son nom, AJAX n'utilise plus nécessairement XML : aujourd'hui, <strong>JSON est le format de données dominant</strong> dans les échanges AJAX.</p>
+<hr />
+<h2>Comment fonctionne AJAX</h2>
+<h3>Flux d'une requête AJAX</h3>
+<pre><code>[Utilisateur interagit]
+        ↓
+[JS crée une requête HTTP asynchrone]
+        ↓
+[Requête envoyée au serveur en arrière-plan]
+        ↓
+[Le reste de la page reste interactif]
+        ↓
+[Serveur renvoie les données (JSON, HTML, XML…)]
+        ↓
+[JS met à jour le DOM sans rechargement]
+</code></pre>
+<h3>Mécanismes techniques</h3>
+<p><strong>1. XMLHttpRequest (legacy)</strong></p>
+<pre><code class="language-javascript">const xhr = new XMLHttpRequest();
+xhr.open('GET', '/api/articles');
+xhr.onload = function() {
+  if (xhr.status === 200) {
+    const data = JSON.parse(xhr.responseText);
+    // mettre à jour le DOM
+  }
+};
+xhr.send();
+</code></pre>
+<p><strong>2. Fetch API (standard moderne, ES6+)</strong></p>
+<pre><code class="language-javascript">fetch('/api/articles')
+  .then(res =&gt; res.json())
+  .then(data =&gt; {
+    document.getElementById('content').innerHTML = renderArticles(data);
+  })
+  .catch(err =&gt; console.error('Erreur:', err));
+</code></pre>
+<p><strong>3. Async/Await (syntaxe recommandée en 2026)</strong></p>
+<pre><code class="language-javascript">async function loadArticles() {
+  try {
+    const response = await fetch('/api/articles');
+    const data = await response.json();
+    updateDOM(data);
+  } catch (error) {
+    handleError(error);
+  }
+}
+</code></pre>
+<hr />
+<h2>Cas d'usage courants</h2>
+<ul>
+<li><strong>Autocomplétion</strong> de champs de recherche (ex : Google Suggest)</li>
+<li><strong>Chargement infini</strong> (infinite scroll) sur les réseaux sociaux et blogs</li>
+<li><strong>Mise à jour de paniers</strong> e-commerce sans rechargement</li>
+<li><strong>Formulaires dynamiques</strong> (ex : calcul de prix en temps réel)</li>
+<li><strong>Notifications en temps réel</strong> (polling AJAX ou WebSocket)</li>
+<li><strong>Filtres de recherche</strong> sans rechargement de page</li>
+<li><strong>Lazy loading</strong> de contenu au scroll</li>
+</ul>
+<hr />
+<h2>AJAX et SEO : les défis</h2>
+<h3>Le problème historique</h3>
+<p>Jusqu'en 2015 environ, les moteurs de recherche ne pouvaient pas exécuter JavaScript, ce qui signifiait que le contenu chargé via AJAX était <strong>invisible pour les bots</strong>. Ce problème a largement disparu avec la montée en capacité du moteur de rendu JavaScript de Google.</p>
+<h3>L'état en 2026</h3>
+<p>Google <strong>exécute JavaScript</strong> et peut crawler le contenu AJAX, mais avec des nuances importantes :</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Situation 2026</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rendu JS par Google</td>
+<td>✅ Oui, via Chrome headless (WRS)</td>
+</tr>
+<tr>
+<td>Délai de rendu</td>
+<td>⚠️ 2e vague de crawl (peut prendre des jours/semaines)</td>
+</tr>
+<tr>
+<td>Bing / Yandex</td>
+<td>⚠️ Capacités JS limitées</td>
+</tr>
+<tr>
+<td>Moteurs IA (Perplexity, etc.)</td>
+<td>⚠️ Variable selon implémentation</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Problèmes persistants</h3>
+<p><strong>1. Délai d'indexation (Two-Wave Crawling)</strong>
+Google crawle d'abord le HTML brut, puis revient plus tard pour exécuter le JS. Le contenu AJAX peut donc ne pas être indexé immédiatement.</p>
+<p><strong>2. Gestion des URLs</strong>
+Si AJAX change le contenu sans changer l'URL, les différents états de la page partagent la même URL, rendant impossible l'indexation de ces états individuellement.</p>
+<p><strong>Solution</strong> : Utiliser l'<strong>History API</strong> (<code>pushState</code>) pour mettre à jour l'URL lors des changements de contenu AJAX.</p>
+<pre><code class="language-javascript">// Bonne pratique : mettre à jour l'URL avec le History API
+history.pushState({ page: 'articles' }, 'Articles', '/articles');
+</code></pre>
+<p><strong>3. Contenu critique chargé en AJAX</strong>
+Si le contenu principal de la page (titres H1, texte SEO, balises meta) est chargé via AJAX et non dans le HTML initial, Google peut :
+- Ne pas l'indexer du tout
+- L'indexer avec retard
+- Lui accorder moins de poids</p>
+<h3>Recommandations SEO 2026</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Pratique</th>
+<th>Recommandation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Contenu SEO critique</td>
+<td>Dans le HTML initial (SSR ou SSG)</td>
+</tr>
+<tr>
+<td>Contenu interactif secondaire</td>
+<td>AJAX acceptable</td>
+</tr>
+<tr>
+<td>URLs des états</td>
+<td>Utiliser <code>pushState</code> / URL fragments gérés</td>
+</tr>
+<tr>
+<td>Lazy loading images</td>
+<td><code>loading="lazy"</code> natif préférable</td>
+</tr>
+<tr>
+<td>Infinite scroll</td>
+<td>Implémenter la pagination classique en fallback</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>AJAX vs SSR vs SSG : quel impact SEO ?</h2>
+<h3>Server-Side Rendering (SSR)</h3>
+<p>Le HTML complet est généré côté serveur et envoyé au navigateur. Idéal pour le SEO car Google reçoit directement le contenu.</p>
+<h3>Static Site Generation (SSG)</h3>
+<p>Le HTML est pré-généré au moment du build. Performance maximale, SEO optimal.</p>
+<h3>Client-Side Rendering (CSR/AJAX)</h3>
+<p>Le HTML initial est vide (ou minimal), le contenu est chargé via JS/AJAX. Risqué pour le SEO si le contenu critique n'est pas dans le HTML initial.</p>
+<h3>Hydration / Islands Architecture (2024-2026)</h3>
+<p>Architectures comme <strong>Next.js</strong>, <strong>Astro</strong>, <strong>Nuxt</strong> permettent de combiner SSR/SSG pour le contenu SEO et des îlots AJAX pour les éléments interactifs. C'est l'approche recommandée en 2026.</p>
+<hr />
+<h2>AJAX et le Crawl Budget</h2>
+<p>Les requêtes AJAX supplémentaires consomment du crawl budget. Si chaque page déclenche 10 appels AJAX, le Googlebot doit potentiellement les crawler tous.</p>
+<p><strong>Bonnes pratiques</strong> :
+- Bloquer via <code>robots.txt</code> les endpoints AJAX qui ne contiennent pas de contenu indexable
+- Utiliser <code>noindex</code> sur les réponses partielles si elles sont accessibles par URL directe</p>
+<hr />
+<h2>Outils de débogage AJAX / SEO</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Outil</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Google Search Console</strong> → Inspection d'URL</td>
+<td>Voir le HTML rendu par Google</td>
+</tr>
+<tr>
+<td><strong>Chrome DevTools → Network</strong></td>
+<td>Surveiller les appels XHR/Fetch</td>
+</tr>
+<tr>
+<td><strong>Fetch as Google (GSC)</strong></td>
+<td>Comparer HTML source vs HTML rendu</td>
+</tr>
+<tr>
+<td><strong>Screaming Frog</strong> (mode JS)</td>
+<td>Crawler avec rendu JavaScript</td>
+</tr>
+<tr>
+<td><strong>Sitebulb</strong></td>
+<td>Analyse rendu JS + détection contenu AJAX</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Voir aussi</h2>
+<ul>
+<li><a href="./DOM_et_CSSOM.html">DOM et CSSOM</a></li>
+<li><a href="./JSON_object.html">JSON Object</a></li>
+<li><a href="./Crawl_Budget.html">Crawl Budget</a></li>
+<li><a href="./Key_Locations_SEO.html">Key Locations in SEO</a></li>
+</ul>
+  </section>
+
+  <footer class="site-footer">
+    <span>Base de connaissance SEO</span>
+    <span>Glossaire technique</span>
+  </footer>
+</div>
+
+</body>
+</html>

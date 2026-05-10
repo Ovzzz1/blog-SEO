@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="tag" content="glossaire">
+<meta name="date" content="2026">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CDN (Content Delivery Network) — Glossaire SEO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --ink: #f9fafb;
+    --ink-2: #d1d5db;
+    --ink-3: #9ca3af;
+    --paper: #17191a;
+    --paper-2: #212426;
+    --paper-3: #2d3134;
+    --accent: #ff6e40;
+    --accent-2: #60a5fa;
+    --success: #34d399;
+    --warn: #fbbf24;
+    --danger: #f87171;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+    --display: 'Syne', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .page-wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+  .site-header {
+    border-bottom: 1px solid var(--paper-3);
+    padding: 2rem 0 1.5rem;
+    margin-bottom: 0;
+  }
+  .header-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .tag-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--paper-3);
+    border-radius: 2px;
+    color: var(--ink-3);
+  }
+  .tag-badge.accent { border-color: var(--accent); color: var(--accent); }
+
+  .hero-title {
+    font-family: var(--display);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .hero-title em { font-style: normal; color: var(--accent); }
+
+  .section { padding: 2rem 0; }
+  
+  h2 {
+    font-family: var(--display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 2rem 0 1rem;
+  }
+
+  h3 {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  p { margin-bottom: 1rem; color: var(--ink-2); }
+  strong { font-weight: 500; color: var(--ink); }
+  em { color: var(--ink-2); }
+  
+  ul, ol { margin: 0 0 1rem 1.5rem; color: var(--ink-2); }
+  li { margin-bottom: 0.5rem; }
+
+  code {
+    font-family: var(--mono);
+    font-size: 0.85em;
+    background: var(--paper-2);
+    border: 1px solid var(--paper-3);
+    border-radius: 3px;
+    padding: 2px 5px;
+    color: var(--accent-2);
+  }
+
+  pre {
+    background: #0f1113;
+    border: 1px solid var(--paper-3);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+  pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.82rem;
+    color: #a8d8b8;
+  }
+
+  blockquote {
+    border-left: 3px solid var(--paper-3);
+    padding: 0.5rem 1rem;
+    margin: 1.5rem 0;
+    color: var(--ink-3);
+    background: var(--paper-2);
+    border-radius: 0 4px 4px 0;
+  }
+  blockquote p { margin-bottom: 0; }
+  blockquote p + p { margin-top: 0.5rem; }
+
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  thead tr { background: var(--paper-2); color: var(--ink); }
+  thead th {
+    font-family: var(--mono); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; padding: 0.75rem 1rem; text-align: left;
+  }
+  tbody tr { border-bottom: 1px solid var(--paper-2); }
+  tbody tr:hover { background: var(--paper-2); }
+  tbody td { padding: 0.65rem 1rem; color: var(--ink-2); vertical-align: top; }
+  tbody td:first-child { font-weight: 400; color: var(--ink); }
+
+  .site-footer {
+    margin-top: 4rem; padding: 2rem 0;
+    border-top: 1px solid var(--paper-3);
+    display: flex; justify-content: space-between;
+    font-family: var(--mono); font-size: 11px;
+    color: var(--ink-3); letter-spacing: 0.05em;
+  }
+  
+  a { color: var(--accent-2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+  <div style="padding-top: 2rem;">
+    <a href="index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;">← Retour au glossaire</a>
+    <span style="color: var(--paper-3); margin: 0 0.5rem;">|</span>
+    <a href="../index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;">Retour à l'accueil</a>
+  </div>
+
+  <header class="site-header">
+    <div class="header-meta">
+      <span class="tag-badge accent">Glossaire SEO</span>
+      <span class="tag-badge">Infrastructure Web / Performance / SEO International</span>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1 class="hero-title">CDN (Content Delivery Network)</h1>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <hr />
+<h2>Définition</h2>
+<p>Un <strong>CDN (Content Delivery Network)</strong> est un réseau de serveurs distribués géographiquement à travers le monde, conçu pour servir le contenu web aux utilisateurs depuis le point de présence (PoP) le plus proche de leur localisation. L'objectif principal est de <strong>réduire la latence</strong> et d'<strong>améliorer les temps de chargement</strong> en minimisant la distance physique que les données doivent parcourir.</p>
+<p>Les CDN sont devenus des composants critiques de l'infrastructure web moderne, servant non seulement des fichiers statiques (images, CSS, JS) mais aussi des pages entières, des APIs, et même des fonctions serverless (edge computing).</p>
+<hr />
+<h2>Comment fonctionne un CDN</h2>
+<h3>Sans CDN</h3>
+<pre><code>Utilisateur (Tokyo) ──────────────── Serveur Origine (Paris)
+                     ~150ms latence
+</code></pre>
+<h3>Avec CDN</h3>
+<pre><code>Utilisateur (Tokyo) ──── PoP CDN (Tokyo) ── Serveur Origine (Paris)
+                    ~5ms              (si non en cache)
+</code></pre>
+<h3>Mécanisme de cache</h3>
+<ol>
+<li>L'utilisateur demande <code>https://exemple.com/image.jpg</code></li>
+<li>Le CDN vérifie si la ressource est en cache au PoP le plus proche</li>
+<li><strong>Cache HIT</strong> : La ressource est servie directement depuis le PoP (~millisecondes)</li>
+<li><strong>Cache MISS</strong> : Le CDN interroge le serveur d'origine, met en cache, puis sert la réponse</li>
+<li>Les requêtes suivantes pour cette ressource dans la même région utilisent le cache</li>
+</ol>
+<h3>Headers CDN essentiels</h3>
+<pre><code class="language-http">Cache-Control: public, max-age=31536000, immutable  # Ressources statiques
+Cache-Control: public, max-age=300, s-maxage=3600   # Pages dynamiques
+X-Cache: HIT                                         # Indique un cache hit
+CF-Cache-Status: HIT                                 # Header Cloudflare
+Age: 7234                                            # Âge de la ressource en cache (secondes)
+</code></pre>
+<hr />
+<h2>Impact sur les Core Web Vitals et le SEO</h2>
+<h3>LCP (Largest Contentful Paint)</h3>
+<p>Le CDN accélère directement le LCP en servant les images et ressources heroïques depuis un nœud proche. <strong>C'est l'un des gains les plus rapides pour le LCP.</strong></p>
+<h3>TTFB (Time To First Byte)</h3>
+<p>Un CDN bien configuré réduit le TTFB de plusieurs centaines de millisecondes, voire secondes pour les utilisateurs éloignés du serveur d'origine.</p>
+<h3>Impact sur le classement Google</h3>
+<p>Depuis l'introduction des <strong>Core Web Vitals</strong> comme facteur de ranking (2021), la performance est directement liée au positionnement. Un CDN est l'un des leviers les plus efficaces pour améliorer les scores CWV.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Métrique</th>
+<th style="text-align: center;">Impact CDN</th>
+<th style="text-align: center;">Gain typique</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LCP</td>
+<td style="text-align: center;">✅ Fort</td>
+<td style="text-align: center;">-30% à -60%</td>
+</tr>
+<tr>
+<td>TTFB</td>
+<td style="text-align: center;">✅ Fort</td>
+<td style="text-align: center;">-50% à -80%</td>
+</tr>
+<tr>
+<td>CLS</td>
+<td style="text-align: center;">Neutre</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td>INP</td>
+<td style="text-align: center;">⚠️ Indirect</td>
+<td style="text-align: center;">Marginal</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>CDN et SEO International</h2>
+<h3>Problème sans CDN</h3>
+<p>Pour un site ciblant l'Europe, l'Asie et les Amériques depuis un seul serveur parisien, les utilisateurs asiatiques peuvent subir 300-400ms de latence rien que sur le TTFB, pénalisant directement leur expérience et le score CWV de la région.</p>
+<h3>Solution CDN multi-région</h3>
+<p>Les CDN modernes permettent de configurer des règles géographiques :
+- Servir des versions localisées selon la géolocalisation IP
+- Configurer des headers <code>Vary: Accept-Language</code> pour les versions hreflang
+- Router vers des backends régionaux (edge routing)</p>
+<h3>Cas particulier : La Chine 🇨🇳</h3>
+<p>La Chine représente un cas unique qui nécessite une attention particulière :</p>
+<ul>
+<li>Le <strong>Grand Firewall</strong> bloque ou ralentit fortement de nombreux CDN occidentaux</li>
+<li>Cloudflare, AWS CloudFront, Fastly ont des performances dégradées en Chine sans accord local</li>
+<li><strong>Solution</strong> : ICP License (备案) + CDN local (Alibaba Cloud CDN, Tencent CDN, Baidu CDN)</li>
+<li>Sans infrastructure locale, les temps de chargement peuvent dépasser 5-10 secondes</li>
+</ul>
+<p><strong>Recommandation 2026</strong> : Pour cibler la Chine, un CDN avec PoP mainland China (nécessitant une ICP license) est indispensable.</p>
+<h3>Autres marchés spécifiques</h3>
+<ul>
+<li><strong>Russie</strong> : Yandex Cloud CDN pour les meilleures performances locales</li>
+<li><strong>Inde</strong> : Couverture CDN généralement bonne (Mumbai, Chennai), mais vérifier la présence en Inde du Nord</li>
+<li><strong>Afrique</strong> : CDN coverage encore inégale ; Cloudflare a investi massivement en 2022-2024</li>
+</ul>
+<hr />
+<h2>Types de CDN et acteurs majeurs (2026)</h2>
+<h3>CDN généralistes</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>CDN</th>
+<th>Points forts</th>
+<th>Cas d'usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cloudflare</strong></td>
+<td>300+ PoP, DDoS, Workers (edge)</td>
+<td>Tout type de site, edge computing</td>
+</tr>
+<tr>
+<td><strong>AWS CloudFront</strong></td>
+<td>Intégration AWS, Lambda@Edge</td>
+<td>Projets AWS</td>
+</tr>
+<tr>
+<td><strong>Fastly</strong></td>
+<td>Purge instantanée, Compute@Edge</td>
+<td>Médias, streaming, APIs</td>
+</tr>
+<tr>
+<td><strong>Akamai</strong></td>
+<td>Réseau le plus vaste, SLA enterprise</td>
+<td>Grands groupes, e-commerce</td>
+</tr>
+<tr>
+<td><strong>BunnyCDN</strong></td>
+<td>Excellent rapport qualité/prix</td>
+<td>PME, blogs</td>
+</tr>
+</tbody>
+</table></div>
+<h3>CDN spécialisés</h3>
+<ul>
+<li><strong>Cloudinary</strong> / <strong>imgix</strong> : CDN + optimisation d'images à la volée (WebP, AVIF, resize)</li>
+<li><strong>jsDelivr</strong> / <strong>cdnjs</strong> : CDN open-source pour librairies JS</li>
+<li><strong>Vercel Edge Network</strong> / <strong>Netlify Edge</strong> : CDN intégré pour JAMstack</li>
+</ul>
+<hr />
+<h2>CDN et Edge Computing</h2>
+<p>L'évolution majeure 2022-2026 : les CDN ne servent plus uniquement des fichiers statiques. Ils exécutent désormais du code <strong>à la périphérie du réseau</strong> (edge), permettant :</p>
+<ul>
+<li><strong>Personnalisation</strong> sans latence de serveur central</li>
+<li><strong>A/B testing</strong> au niveau CDN</li>
+<li><strong>Authentification</strong> à l'edge (avant même d'atteindre le serveur d'origine)</li>
+<li><strong>Réécriture d'URLs</strong> en temps réel</li>
+<li><strong>Redirections géographiques</strong> (hreflang dynamique)</li>
+</ul>
+<pre><code class="language-javascript">// Exemple Cloudflare Worker (edge function)
+addEventListener('fetch', event =&gt; {
+  event.respondWith(handleRequest(event.request));
+});
+
+async function handleRequest(request) {
+  const country = request.cf.country;
+  if (country === 'FR') {
+    return Response.redirect('https://exemple.com/fr/', 302);
+  }
+  return fetch(request);
+}
+</code></pre>
+<hr />
+<h2>Configuration SEO d'un CDN</h2>
+<h3>Headers à configurer</h3>
+<pre><code># Ressources statiques (JS, CSS, polices) - cache long
+Cache-Control: public, max-age=31536000, immutable
+
+# Pages HTML - cache court avec revalidation
+Cache-Control: public, max-age=0, s-maxage=3600, must-revalidate
+
+# APIs - pas de cache CDN
+Cache-Control: private, no-cache
+</code></pre>
+<h3>Pièges à éviter</h3>
+<ol>
+<li><strong>Cacher les pages avec personnalisation</strong> → Servir le même contenu à tous les utilisateurs</li>
+<li><strong>Oublier de purger le cache</strong> après une mise à jour de contenu</li>
+<li><strong>Bloquer Googlebot via CDN</strong> → Vérifier les règles WAF/bot management</li>
+<li><strong>URLs CDN exposées dans le sitemap</strong> → Toujours utiliser les URLs canoniques du domaine</li>
+</ol>
+<h3>Vérification que Googlebot n'est pas bloqué</h3>
+<pre><code class="language-bash"># Simuler Googlebot
+curl -A &quot;Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)&quot; \
+  https://exemple.com/page
+</code></pre>
+<hr />
+<h2>Outils de diagnostic</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Outil</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GTmetrix</strong> / <strong>WebPageTest</strong></td>
+<td>Test depuis différentes localisations</td>
+</tr>
+<tr>
+<td><strong>Pingdom</strong></td>
+<td>TTFB par région</td>
+</tr>
+<tr>
+<td><strong>KeyCDN Performance Test</strong></td>
+<td>Test multi-régions</td>
+</tr>
+<tr>
+<td><strong>Google PageSpeed Insights</strong></td>
+<td>Score CWV réel (Field Data)</td>
+</tr>
+<tr>
+<td><code>curl -I</code> + headers</td>
+<td>Vérifier Cache-Control et X-Cache</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Voir aussi</h2>
+<ul>
+<li><a href="./DOM_et_CSSOM.html">DOM et CSSOM</a></li>
+<li><a href="./Key_Locations_SEO.html">Key Locations SEO</a></li>
+<li><a href="./Crawl_Budget.html">Crawl Budget</a></li>
+<li><a href="./Hreflang.html">Hreflang</a></li>
+</ul>
+  </section>
+
+  <footer class="site-footer">
+    <span>Base de connaissance SEO</span>
+    <span>Glossaire technique</span>
+  </footer>
+</div>
+
+</body>
+</html>

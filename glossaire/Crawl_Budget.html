@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="tag" content="glossaire">
+<meta name="date" content="2026">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crawl Budget — Glossaire SEO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --ink: #f9fafb;
+    --ink-2: #d1d5db;
+    --ink-3: #9ca3af;
+    --paper: #17191a;
+    --paper-2: #212426;
+    --paper-3: #2d3134;
+    --accent: #ff6e40;
+    --accent-2: #60a5fa;
+    --success: #34d399;
+    --warn: #fbbf24;
+    --danger: #f87171;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+    --display: 'Syne', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .page-wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+  .site-header {
+    border-bottom: 1px solid var(--paper-3);
+    padding: 2rem 0 1.5rem;
+    margin-bottom: 0;
+  }
+  .header-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .tag-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--paper-3);
+    border-radius: 2px;
+    color: var(--ink-3);
+  }
+  .tag-badge.accent { border-color: var(--accent); color: var(--accent); }
+
+  .hero-title {
+    font-family: var(--display);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .hero-title em { font-style: normal; color: var(--accent); }
+
+  .section { padding: 2rem 0; }
+  
+  h2 {
+    font-family: var(--display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 2rem 0 1rem;
+  }
+
+  h3 {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  p { margin-bottom: 1rem; color: var(--ink-2); }
+  strong { font-weight: 500; color: var(--ink); }
+  em { color: var(--ink-2); }
+  
+  ul, ol { margin: 0 0 1rem 1.5rem; color: var(--ink-2); }
+  li { margin-bottom: 0.5rem; }
+
+  code {
+    font-family: var(--mono);
+    font-size: 0.85em;
+    background: var(--paper-2);
+    border: 1px solid var(--paper-3);
+    border-radius: 3px;
+    padding: 2px 5px;
+    color: var(--accent-2);
+  }
+
+  pre {
+    background: #0f1113;
+    border: 1px solid var(--paper-3);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+  pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.82rem;
+    color: #a8d8b8;
+  }
+
+  blockquote {
+    border-left: 3px solid var(--paper-3);
+    padding: 0.5rem 1rem;
+    margin: 1.5rem 0;
+    color: var(--ink-3);
+    background: var(--paper-2);
+    border-radius: 0 4px 4px 0;
+  }
+  blockquote p { margin-bottom: 0; }
+  blockquote p + p { margin-top: 0.5rem; }
+
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  thead tr { background: var(--paper-2); color: var(--ink); }
+  thead th {
+    font-family: var(--mono); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; padding: 0.75rem 1rem; text-align: left;
+  }
+  tbody tr { border-bottom: 1px solid var(--paper-2); }
+  tbody tr:hover { background: var(--paper-2); }
+  tbody td { padding: 0.65rem 1rem; color: var(--ink-2); vertical-align: top; }
+  tbody td:first-child { font-weight: 400; color: var(--ink); }
+
+  .site-footer {
+    margin-top: 4rem; padding: 2rem 0;
+    border-top: 1px solid var(--paper-3);
+    display: flex; justify-content: space-between;
+    font-family: var(--mono); font-size: 11px;
+    color: var(--ink-3); letter-spacing: 0.05em;
+  }
+  
+  a { color: var(--accent-2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+  <div style="padding-top: 2rem;">
+    <a href="index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;">← Retour au glossaire</a>
+    <span style="color: var(--paper-3); margin: 0 0.5rem;">|</span>
+    <a href="../index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;">Retour à l'accueil</a>
+  </div>
+
+  <header class="site-header">
+    <div class="header-meta">
+      <span class="tag-badge accent">Glossaire SEO</span>
+      <span class="tag-badge">SEO Technique / Indexation / Architecture de site</span>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1 class="hero-title">Crawl Budget</h1>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <hr />
+<h2>Définition</h2>
+<p>Le <strong>Crawl Budget</strong> désigne le nombre de pages qu'un moteur de recherche (principalement Googlebot) est prêt à crawler et à traiter sur un site web dans un laps de temps donné. Ce concept, formalisé officiellement par Google dans un billet de blog de 2017, est particulièrement crucial pour les <strong>grands sites</strong> (e-commerce, médias, sites d'actualités, marketplaces) qui publient des milliers, voire des millions d'URLs.</p>
+<blockquote>
+<p>"Pour la plupart des sites, le crawl budget n'est pas un souci." — Google, 2017<br />
+Mais pour les sites à forte volumétrie (100K+ URLs) ou à architecture complexe, c'est un facteur limitant réel.</p>
+</blockquote>
+<hr />
+<h2>Les deux composantes du Crawl Budget</h2>
+<p>Google définit le crawl budget comme le produit de deux facteurs :</p>
+<h3>1. Crawl Rate Limit (Limite de taux de crawl)</h3>
+<p>La <strong>vitesse maximale</strong> à laquelle Googlebot peut crawler un site sans surcharger le serveur. Google ajuste automatiquement ce taux en fonction de :
+- <strong>La disponibilité et la réactivité du serveur</strong> : Un serveur lent ou instable amène Google à réduire la fréquence
+- <strong>Le signal de limite défini</strong> : Via Google Search Console, on peut demander à Googlebot de ralentir
+- <strong>L'historique de crawl</strong> : Google apprend progressivement le comportement du serveur</p>
+<blockquote>
+<p>Google ne pénalise pas un site dont le serveur signale de la surcharge (503) — il revient plus tard. En revanche, des erreurs répétées peuvent réduire durablement le budget.</p>
+</blockquote>
+<h3>2. Crawl Demand (Demande de crawl)</h3>
+<p>La <strong>priorité</strong> que Google accorde au recrawl d'un site, basée sur :
+- <strong>La popularité</strong> : Les pages avec beaucoup de backlinks et de trafic sont recrawlées plus souvent
+- <strong>La fraîcheur du contenu</strong> : Sites d'actualités, blogs actifs → forte demande
+- <strong>L'historique de changement</strong> : Pages qui changent fréquemment → recrawl plus fréquent
+- <strong>L'autorité du domaine</strong> : Sites à forte autorité bénéficient d'un budget plus élevé</p>
+<p><strong>Crawl Budget = min(Crawl Rate Limit, Crawl Demand)</strong></p>
+<hr />
+<h2>Crawl Waste : l'ennemi du Crawl Budget</h2>
+<p>Le <strong>Crawl Waste</strong> (gaspillage de budget) survient lorsque Googlebot passe du temps à crawler des URLs qui ne méritent pas d'être indexées. C'est la principale cause d'un crawl budget insuffisant.</p>
+<h3>Sources courantes de Crawl Waste</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Description</th>
+<th style="text-align: center;">Ampleur potentielle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Paramètres d'URL</strong></td>
+<td><code>?sort=prix&amp;color=rouge&amp;page=2</code></td>
+<td style="text-align: center;">×100 à ×1000</td>
+</tr>
+<tr>
+<td><strong>Facettes e-commerce</strong></td>
+<td>Filtres générant des URLs uniques</td>
+<td style="text-align: center;">×1000 à ×100000</td>
+</tr>
+<tr>
+<td><strong>Pagination excessive</strong></td>
+<td><code>/page/500</code> sur un site avec 10 articles</td>
+<td style="text-align: center;">Faible à modéré</td>
+</tr>
+<tr>
+<td><strong>Contenu dupliqué</strong></td>
+<td>Mêmes pages avec URLs différentes</td>
+<td style="text-align: center;">×2 à ×10</td>
+</tr>
+<tr>
+<td><strong>URLs de session</strong></td>
+<td><code>/page?sessionid=abc123</code></td>
+<td style="text-align: center;">Très élevé</td>
+</tr>
+<tr>
+<td><strong>Pages vides/thin content</strong></td>
+<td>Catégories sans produits, tags vides</td>
+<td style="text-align: center;">Modéré</td>
+</tr>
+<tr>
+<td><strong>URLs de test/staging</strong></td>
+<td>URLs dev accessibles en prod</td>
+<td style="text-align: center;">Modéré</td>
+</tr>
+<tr>
+<td><strong>Pages bloquées puis débloquées</strong></td>
+<td>Signaux contradictoires</td>
+<td style="text-align: center;">Faible</td>
+</tr>
+<tr>
+<td><strong>Redirections en chaîne</strong></td>
+<td>A → B → C → D</td>
+<td style="text-align: center;">Modéré</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Crawl Prioritization (Priorisation du crawl)</h2>
+<p>Google ne crawle pas toutes les URLs avec la même priorité. L'algorithme de priorisation tient compte de :</p>
+<ol>
+<li><strong>PageRank interne</strong> : Les pages recevant le plus de liens internes sont crawlées en priorité</li>
+<li><strong>Fraîcheur</strong> : Le sitemap avec <code>&lt;lastmod&gt;</code> récent envoie un signal de priorité</li>
+<li><strong>Profondeur</strong> : Les pages proches de la racine (1-2 clics) sont mieux crawlées</li>
+<li><strong>Liens externes</strong> : Les URLs avec des backlinks sont prioritaires</li>
+<li><strong>Soumission GSC</strong> : La demande d'indexation manuelle (Inspect URL → Submit) prioritise une URL</li>
+</ol>
+<hr />
+<h2>Optimiser son Crawl Budget</h2>
+<h3>Réduire le Crawl Waste</h3>
+<p><strong>robots.txt</strong> : Bloquer les URLs inutiles</p>
+<pre><code>User-agent: Googlebot
+Disallow: /search?
+Disallow: /cart
+Disallow: /checkout
+Disallow: /compte/
+Disallow: /tag/
+</code></pre>
+<blockquote>
+<p>⚠️ <code>Disallow</code> empêche le crawl mais pas l'indexation si la page a des liens entrants. Pour l'indexation, utiliser <code>noindex</code>.</p>
+</blockquote>
+<p><strong>Paramètres d'URL dans Google Search Console</strong> :<br />
+GSC → Ancien Search Console → Paramètres d'URL → Indiquer les paramètres qui ne créent pas de contenu unique.</p>
+<p><strong>Noindex sur les pages de faible valeur</strong> :</p>
+<pre><code class="language-html">&lt;meta name=&quot;robots&quot; content=&quot;noindex, follow&quot;&gt;
+</code></pre>
+<p><strong>Canonicals</strong> : Consolider les URLs dupliquées vers une URL de référence.</p>
+<h3>Améliorer l'efficacité du crawl</h3>
+<p><strong>Vitesse du serveur</strong> : Un TTFB &lt; 200ms encourage Google à crawler plus rapidement.</p>
+<p><strong>Architecture en silo / maillage interne</strong> : Un bon maillage interne aide Googlebot à découvrir et prioriser les pages importantes.</p>
+<p><strong>Sitemap XML à jour</strong> : Ne soumettre que les URLs indexables, avec <code>&lt;lastmod&gt;</code> précis.</p>
+<p><strong>Supprimer les pages mortes</strong> : 
+- 404 persistants → 410 (suppression définitive) ou recréer la page
+- Ne pas laisser des 404 s'accumuler dans l'index</p>
+<h3>Monitoring du Crawl Budget</h3>
+<p><strong>Google Search Console → Statistiques de crawl</strong> :
+- Volume de crawl quotidien
+- Temps de réponse moyen
+- Codes de réponse (ratio 200/301/404/500)
+- Pages crawlées par type (HTML, CSS, JS, images)</p>
+<p><strong>Logs serveur</strong> (source la plus fiable) :</p>
+<pre><code class="language-bash"># Extraire les requêtes Googlebot des logs Apache/Nginx
+grep &quot;Googlebot&quot; /var/log/nginx/access.log | awk '{print $7}' | sort | uniq -c | sort -rn | head -50
+</code></pre>
+<hr />
+<h2>Crawl Budget et sites spécifiques</h2>
+<h3>E-commerce (Shopify, Magento, WooCommerce)</h3>
+<p>Problème majeur : les facettes de filtrage (taille, couleur, prix) génèrent exponentiellement des URLs.</p>
+<p><strong>Solution</strong> :
+- Facettes via JavaScript sans changement d'URL (mais perte de deep linking)
+- <code>noindex</code> + <code>follow</code> sur les URLs de facettes
+- Robots.txt sur les paramètres non-sémantiques</p>
+<h3>Sites multilingues (Hreflang)</h3>
+<p>Chaque version linguistique duplique le budget. S'assurer que toutes les URLs hreflang sont bien indexables et de qualité.</p>
+<h3>JavaScript-heavy (SPA)</h3>
+<p>Le rendu JS est plus lent pour Googlebot → consomme plus de budget. Préférer SSR/SSG pour le contenu SEO critique.</p>
+<hr />
+<h2>Évolutions 2024-2026</h2>
+<ul>
+<li><strong>Google a confirmé en 2024</strong> que le crawl budget reste une contrainte réelle pour les grands sites, même avec des serveurs puissants</li>
+<li><strong>L'IA de Google (Gemini)</strong> influence de plus en plus les décisions de recrawl, en priorisant les pages à fort "potentiel de réponse" aux requêtes utilisateurs</li>
+<li><strong>INP (Interaction to Next Paint)</strong>, devenu Core Web Vital en 2024, n'impacte pas directement le crawl budget mais l'expérience de rendu côté Googlebot</li>
+</ul>
+<hr />
+<h2>Voir aussi</h2>
+<ul>
+<li><a href="./Robots_txt.html">Robots.txt</a></li>
+<li><a href="./Robots_Meta_Tag.html">Robots Meta Tag</a></li>
+<li><a href="./XML_Sitemap.html">XML Sitemap</a></li>
+<li><a href="./Canonical.html">Canonical</a></li>
+<li><a href="./3XX_HTTP_Response_Codes.html">3XX HTTP Response Codes</a></li>
+<li><a href="./AJAX.html">AJAX</a></li>
+</ul>
+  </section>
+
+  <footer class="site-footer">
+    <span>Base de connaissance SEO</span>
+    <span>Glossaire technique</span>
+  </footer>
+</div>
+
+</body>
+</html>

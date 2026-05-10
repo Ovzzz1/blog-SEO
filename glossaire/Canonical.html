@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="tag" content="glossaire">
+<meta name="date" content="2026">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canonical URL (Balise Canonique) — Glossaire SEO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --ink: #f9fafb;
+    --ink-2: #d1d5db;
+    --ink-3: #9ca3af;
+    --paper: #17191a;
+    --paper-2: #212426;
+    --paper-3: #2d3134;
+    --accent: #ff6e40;
+    --accent-2: #60a5fa;
+    --success: #34d399;
+    --warn: #fbbf24;
+    --danger: #f87171;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+    --display: 'Syne', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .page-wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+  .site-header {
+    border-bottom: 1px solid var(--paper-3);
+    padding: 2rem 0 1.5rem;
+    margin-bottom: 0;
+  }
+  .header-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .tag-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--paper-3);
+    border-radius: 2px;
+    color: var(--ink-3);
+  }
+  .tag-badge.accent { border-color: var(--accent); color: var(--accent); }
+
+  .hero-title {
+    font-family: var(--display);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .hero-title em { font-style: normal; color: var(--accent); }
+
+  .section { padding: 2rem 0; }
+  
+  h2 {
+    font-family: var(--display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 2rem 0 1rem;
+  }
+
+  h3 {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  p { margin-bottom: 1rem; color: var(--ink-2); }
+  strong { font-weight: 500; color: var(--ink); }
+  em { color: var(--ink-2); }
+  
+  ul, ol { margin: 0 0 1rem 1.5rem; color: var(--ink-2); }
+  li { margin-bottom: 0.5rem; }
+
+  code {
+    font-family: var(--mono);
+    font-size: 0.85em;
+    background: var(--paper-2);
+    border: 1px solid var(--paper-3);
+    border-radius: 3px;
+    padding: 2px 5px;
+    color: var(--accent-2);
+  }
+
+  pre {
+    background: #0f1113;
+    border: 1px solid var(--paper-3);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+  pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.82rem;
+    color: #a8d8b8;
+  }
+
+  blockquote {
+    border-left: 3px solid var(--paper-3);
+    padding: 0.5rem 1rem;
+    margin: 1.5rem 0;
+    color: var(--ink-3);
+    background: var(--paper-2);
+    border-radius: 0 4px 4px 0;
+  }
+  blockquote p { margin-bottom: 0; }
+  blockquote p + p { margin-top: 0.5rem; }
+
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  thead tr { background: var(--paper-2); color: var(--ink); }
+  thead th {
+    font-family: var(--mono); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; padding: 0.75rem 1rem; text-align: left;
+  }
+  tbody tr { border-bottom: 1px solid var(--paper-2); }
+  tbody tr:hover { background: var(--paper-2); }
+  tbody td { padding: 0.65rem 1rem; color: var(--ink-2); vertical-align: top; }
+  tbody td:first-child { font-weight: 400; color: var(--ink); }
+
+  .site-footer {
+    margin-top: 4rem; padding: 2rem 0;
+    border-top: 1px solid var(--paper-3);
+    display: flex; justify-content: space-between;
+    font-family: var(--mono); font-size: 11px;
+    color: var(--ink-3); letter-spacing: 0.05em;
+  }
+  
+  a { color: var(--accent-2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+  <div style="padding-top: 2rem;">
+    <a href="index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;">← Retour au glossaire</a>
+    <span style="color: var(--paper-3); margin: 0 0.5rem;">|</span>
+    <a href="../index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;">Retour à l'accueil</a>
+  </div>
+
+  <header class="site-header">
+    <div class="header-meta">
+      <span class="tag-badge accent">Glossaire SEO</span>
+      <span class="tag-badge">SEO Technique / Duplication de contenu / Indexation</span>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1 class="hero-title">Canonical URL (Balise Canonique)</h1>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <hr />
+<h2>Définition</h2>
+<p>Une <strong>URL canonique</strong> est l'URL de référence désignée comme la version "officielle" d'une page lorsque plusieurs URLs pointent vers un contenu identique ou très similaire. La balise canonique (<code>&lt;link rel="canonical"&gt;</code>) est le signal envoyé aux moteurs de recherche pour indiquer quelle version doit être indexée et à laquelle attribuer le link equity.</p>
+<p>Introduite en <strong>2009</strong> par Google, Bing et Yahoo! conjointement, la canonicalisation est l'un des piliers de la gestion du contenu dupliqué en SEO.</p>
+<hr />
+<h2>Pourquoi le contenu dupliqué existe</h2>
+<p>Le contenu dupliqué survient naturellement dans de nombreux contextes :</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Cause</th>
+<th>Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Paramètres d'URL</td>
+<td><code>/produit?color=rouge</code> vs <code>/produit?color=bleu</code></td>
+</tr>
+<tr>
+<td>HTTP vs HTTPS</td>
+<td><code>http://exemple.com</code> vs <code>https://exemple.com</code></td>
+</tr>
+<tr>
+<td>WWW vs non-WWW</td>
+<td><code>www.exemple.com</code> vs <code>exemple.com</code></td>
+</tr>
+<tr>
+<td>Slash final</td>
+<td><code>/page/</code> vs <code>/page</code></td>
+</tr>
+<tr>
+<td>Pagination</td>
+<td><code>/blog/</code> vs <code>/blog/page/2</code></td>
+</tr>
+<tr>
+<td>Tri / filtres e-commerce</td>
+<td><code>/chaussures?tri=prix-asc</code></td>
+</tr>
+<tr>
+<td>Syndication de contenu</td>
+<td>Article republié sur plusieurs domaines</td>
+</tr>
+<tr>
+<td>Versions mobiles</td>
+<td><code>m.exemple.com</code> vs <code>www.exemple.com</code></td>
+</tr>
+<tr>
+<td>Versions d'impression</td>
+<td><code>/article?print=1</code></td>
+</tr>
+<tr>
+<td>Sessions tracking</td>
+<td><code>/page?sessionid=abc123</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>Sans signal canonique, les moteurs peuvent diviser le link equity entre plusieurs versions, diluer l'autorité de la page, et indexer la mauvaise version.</p>
+<hr />
+<h2>Syntaxe et implémentation</h2>
+<h3>Dans le <code>&lt;head&gt;</code> HTML (méthode principale)</h3>
+<pre><code class="language-html">&lt;link rel=&quot;canonical&quot; href=&quot;https://www.exemple.com/page-canonique&quot;&gt;
+</code></pre>
+<p><strong>Règles</strong> :
+- Toujours utiliser l'URL <strong>absolue</strong> (pas relative)
+- Inclure le protocole (https://) et le domaine
+- Une seule balise canonique par page
+- Placer dans le <code>&lt;head&gt;</code>, pas dans le <code>&lt;body&gt;</code></p>
+<h3>Auto-référencement (self-canonical)</h3>
+<p>Même sur la page canonique elle-même, il est recommandé d'ajouter une balise canonique pointant vers elle-même. Cela protège contre les paramètres d'URL ajoutés par des outils tiers.</p>
+<pre><code class="language-html">&lt;!-- Sur https://www.exemple.com/article --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://www.exemple.com/article&quot;&gt;
+</code></pre>
+<h3>Via header HTTP (pour les PDFs et ressources non-HTML)</h3>
+<pre><code class="language-http">HTTP/1.1 200 OK
+Link: &lt;https://www.exemple.com/document.pdf&gt;; rel=&quot;canonical&quot;
+</code></pre>
+<h3>Via le Sitemap XML</h3>
+<p>Les URLs incluses dans le sitemap sont implicitement considérées comme canoniques par Google, même si ce signal est moins fort que la balise <code>&lt;link&gt;</code>.</p>
+<hr />
+<h2>Canonical cross-domain</h2>
+<p>La balise canonique peut pointer vers un <strong>autre domaine</strong>. C'est utilisé dans les cas de syndication de contenu : si votre article est republié sur un autre site, ce site peut pointer sa version vers votre URL originale.</p>
+<pre><code class="language-html">&lt;!-- Sur site-partenaire.com/article-syndiqué --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://votre-site.com/article-original&quot;&gt;
+</code></pre>
+<blockquote>
+<p>⚠️ Google accepte le canonical cross-domain mais peut choisir de l'ignorer si le signal semble manipulateur.</p>
+</blockquote>
+<hr />
+<h2>Canonical vs Autres signaux de déduplication</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Signal</th>
+<th>Force</th>
+<th>Usage recommandé</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;link rel="canonical"&gt;</code></td>
+<td>Fort</td>
+<td>Contenu dupliqué sur le même site</td>
+</tr>
+<tr>
+<td>Redirect 301</td>
+<td>Très fort</td>
+<td>URLs obsolètes à supprimer définitivement</td>
+</tr>
+<tr>
+<td><code>noindex</code></td>
+<td>Très fort</td>
+<td>Pages à exclure totalement de l'index</td>
+</tr>
+<tr>
+<td>Paramètres GSC</td>
+<td>Faible</td>
+<td>Paramètres d'URL courants</td>
+</tr>
+<tr>
+<td>Sitemap</td>
+<td>Faible</td>
+<td>Signal d'intention, pas une directive</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Règle générale</strong> : Si vous voulez qu'une URL disparaisse pour toujours → 301. Si vous voulez qu'une URL existe mais ne soit pas l'URL indexée → canonical.</p>
+<hr />
+<h2>Erreurs canoniques fréquentes</h2>
+<h3>1. Canonical vers une page 404 ou redirigée</h3>
+<pre><code class="language-html">&lt;!-- ❌ ERREUR : pointe vers une page inexistante --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://exemple.com/page-supprimee&quot;&gt;
+</code></pre>
+<p>→ Google ignore le signal et choisit lui-même l'URL canonique.</p>
+<h3>2. Canonical vers une page noindex</h3>
+<p>Un canonical vers une page noindex crée une contradiction : "Indexe cette version, mais n'indexe pas cette version." Google peut ignorer les deux.</p>
+<h3>3. Conflits canonical / hreflang</h3>
+<p>Les pages hreflang doivent avoir leur propre canonical. Une page FR-FR ne doit pas pointer en canonical vers la page EN-US.</p>
+<h3>4. Canonicals en chaîne</h3>
+<pre><code>Page A → canonical → Page B → canonical → Page C
+</code></pre>
+<p>Pointer directement vers la destination finale.</p>
+<h3>5. Ignorer le canonical sur les pages paginées</h3>
+<p>Chaque page de pagination doit avoir son propre canonical (self-canonical), pas un canonical vers la page 1.</p>
+<pre><code class="language-html">&lt;!-- ✅ Page 3 de pagination --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://exemple.com/blog/page/3&quot;&gt;
+</code></pre>
+<hr />
+<h2>Canonical et JavaScript</h2>
+<p>Si la balise canonical est injectée via JavaScript, Google peut la voir lors du rendu JS (deuxième vague de crawl), mais avec un délai. Pour les signaux SEO critiques, <strong>inclure la balise canonical dans le HTML initial</strong> (SSR ou statique).</p>
+<hr />
+<h2>Vérification et audit</h2>
+<h3>Google Search Console</h3>
+<ul>
+<li><strong>Rapport Couverture</strong> → "URLs exclues - Dupliquée sans canonical sélectionné par l'utilisateur"</li>
+<li><strong>Inspection d'URL</strong> → Affiche l'URL canonique sélectionnée par Google (peut différer de votre signal !)</li>
+</ul>
+<blockquote>
+<p>💡 Si Google choisit une URL canonique différente de celle que vous spécifiez, c'est un signal fort que votre implémentation est incorrecte ou que vos signaux sont contradictoires.</p>
+</blockquote>
+<h3>Screaming Frog</h3>
+<ul>
+<li>Filtre "Canonical" → voir toutes les pages avec canonical</li>
+<li>Filtre "Non-Indexable Canonical" → détecter les canonicals problématiques</li>
+</ul>
+<h3>Commande rapide (si accès logs)</h3>
+<pre><code class="language-bash">curl -I https://exemple.com/page | grep -i link
+</code></pre>
+<hr />
+<h2>Voir aussi</h2>
+<ul>
+<li><a href="./3XX_HTTP_Response_Codes.html">3XX HTTP Response Codes</a></li>
+<li><a href="./Hreflang.html">Hreflang</a></li>
+<li><a href="./Robots_Meta_Tag.html">Robots Meta Tag</a></li>
+<li><a href="./XML_Sitemap.html">XML Sitemap</a></li>
+<li><a href="./AMP_et_rel_amphtml.html">AMP et rel=amphtml</a></li>
+</ul>
+  </section>
+
+  <footer class="site-footer">
+    <span>Base de connaissance SEO</span>
+    <span>Glossaire technique</span>
+  </footer>
+</div>
+
+</body>
+</html>

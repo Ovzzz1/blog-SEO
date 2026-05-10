@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glossaire SEO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --ink: #f9fafb;
+    --ink-2: #d1d5db;
+    --ink-3: #9ca3af;
+    --paper: #17191a;
+    --paper-2: #212426;
+    --paper-3: #2d3134;
+    --accent: #ff6e40;
+    --accent-2: #60a5fa;
+    --success: #34d399;
+    --warn: #fbbf24;
+    --danger: #f87171;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+    --display: 'Syne', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .page-wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+  .site-header {
+    border-bottom: 1px solid var(--paper-3);
+    padding: 2rem 0 1.5rem;
+    margin-bottom: 0;
+  }
+  .header-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .tag-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--paper-3);
+    border-radius: 2px;
+    color: var(--ink-3);
+  }
+  .tag-badge.accent { border-color: var(--accent); color: var(--accent); }
+
+  .hero-title {
+    font-family: var(--display);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .hero-title em { font-style: normal; color: var(--accent); }
+
+  .section { padding: 2rem 0; }
+  
+  h2 {
+    font-family: var(--display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 2rem 0 1rem;
+  }
+
+  h3 {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  p { margin-bottom: 1rem; color: var(--ink-2); }
+  strong { font-weight: 500; color: var(--ink); }
+  em { color: var(--ink-2); }
+  
+  ul, ol { margin: 0 0 1rem 1.5rem; color: var(--ink-2); }
+  li { margin-bottom: 0.5rem; }
+
+  code {
+    font-family: var(--mono);
+    font-size: 0.85em;
+    background: var(--paper-2);
+    border: 1px solid var(--paper-3);
+    border-radius: 3px;
+    padding: 2px 5px;
+    color: var(--accent-2);
+  }
+
+  pre {
+    background: #0f1113;
+    border: 1px solid var(--paper-3);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+  pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.82rem;
+    color: #a8d8b8;
+  }
+
+  blockquote {
+    border-left: 3px solid var(--paper-3);
+    padding: 0.5rem 1rem;
+    margin: 1.5rem 0;
+    color: var(--ink-3);
+    background: var(--paper-2);
+    border-radius: 0 4px 4px 0;
+  }
+  blockquote p { margin-bottom: 0; }
+  blockquote p + p { margin-top: 0.5rem; }
+
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  thead tr { background: var(--paper-2); color: var(--ink); }
+  thead th {
+    font-family: var(--mono); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; padding: 0.75rem 1rem; text-align: left;
+  }
+  tbody tr { border-bottom: 1px solid var(--paper-2); }
+  tbody tr:hover { background: var(--paper-2); }
+  tbody td { padding: 0.65rem 1rem; color: var(--ink-2); vertical-align: top; }
+  tbody td:first-child { font-weight: 400; color: var(--ink); }
+
+  .site-footer {
+    margin-top: 4rem; padding: 2rem 0;
+    border-top: 1px solid var(--paper-3);
+    display: flex; justify-content: space-between;
+    font-family: var(--mono); font-size: 11px;
+    color: var(--ink-3); letter-spacing: 0.05em;
+  }
+  
+  a { color: var(--accent-2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+    .term-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+    .term-card {
+        background: var(--paper-2);
+        border: 1px solid var(--paper-3);
+        padding: 1.5rem;
+        border-radius: 4px;
+        text-decoration: none;
+        transition: border-color 0.2s, transform 0.2s;
+    }
+    .term-card:hover {
+        border-color: var(--accent);
+        transform: translateY(-2px);
+    }
+    .term-title {
+        font-family: var(--display);
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--ink);
+        margin-bottom: 0.5rem;
+    }
+    .term-cat {
+        font-family: var(--mono);
+        font-size: 10px;
+        color: var(--ink-3);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+    
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+  <div style="padding-top: 2rem;">
+    <a href="../index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;">← Retour à l'accueil</a>
+  </div>
+
+  <header class="site-header">
+    <div class="hero-grid">
+      <div>
+        <h1 class="hero-title">Glossaire <em>SEO</em></h1>
+        <p style="color: var(--ink-3); font-family: var(--mono); font-size: 0.9rem; letter-spacing: 0.03em;">18 concepts techniques</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="term-list">
+        
+        <a href="3XX_HTTP_Response_Codes.html" class="term-card">
+            <div class="term-title">3XX HTTP Response Codes</div>
+            <div class="term-cat">HTTP / Redirections / SEO Technique</div>
+        </a>
+        <a href="4XX_HTTP_Response_Codes.html" class="term-card">
+            <div class="term-title">4XX HTTP Response Codes</div>
+            <div class="term-cat">HTTP / Erreurs Client / SEO Technique</div>
+        </a>
+        <a href="503_Retry_After.html" class="term-card">
+            <div class="term-title">503 Service Unavailable + Header "Retry-After"</div>
+            <div class="term-cat">HTTP / SEO Technique / Maintenance</div>
+        </a>
+        <a href="AJAX.html" class="term-card">
+            <div class="term-title">AJAX (Asynchronous JavaScript and XML)</div>
+            <div class="term-cat">Développement Web / JavaScript / SEO Technique</div>
+        </a>
+        <a href="AMP_et_rel_amphtml.html" class="term-card">
+            <div class="term-title">AMP (Accelerated Mobile Pages) & `rel="amphtml"`</div>
+            <div class="term-cat">Performance Web / Mobile / SEO Technique</div>
+        </a>
+        <a href="Canonical.html" class="term-card">
+            <div class="term-title">Canonical URL (Balise Canonique)</div>
+            <div class="term-cat">SEO Technique / Duplication de contenu / Indexation</div>
+        </a>
+        <a href="CDN.html" class="term-card">
+            <div class="term-title">CDN (Content Delivery Network)</div>
+            <div class="term-cat">Infrastructure Web / Performance / SEO International</div>
+        </a>
+        <a href="Crawl_Budget.html" class="term-card">
+            <div class="term-title">Crawl Budget</div>
+            <div class="term-cat">SEO Technique / Indexation / Architecture de site</div>
+        </a>
+        <a href="DOM_et_CSSOM.html" class="term-card">
+            <div class="term-title">DOM et CSSOM</div>
+            <div class="term-cat">Navigateur / Rendu Web / Performance / SEO Technique</div>
+        </a>
+        <a href="Rel_Follow_Nofollow.html" class="term-card">
+            <div class="term-title">Follow et Nofollow (`rel="nofollow"`, `rel="ugc"`, `rel="sponsored"`)</div>
+            <div class="term-cat">SEO Technique / Liens / PageRank</div>
+        </a>
+        <a href="Hreflang.html" class="term-card">
+            <div class="term-title">Hreflang</div>
+            <div class="term-cat">SEO International / Multilinguisme / Indexation</div>
+        </a>
+        <a href="JSON_object.html" class="term-card">
+            <div class="term-title">JSON (JavaScript Object Notation)</div>
+            <div class="term-cat">Format de données / APIs / Développement Web / SEO Structured Data</div>
+        </a>
+        <a href="Key_Locations_SEO.html" class="term-card">
+            <div class="term-title">Key Locations in SEO and Web Development</div>
+            <div class="term-cat">Architecture Web / SEO Fondamentaux / Infrastructure</div>
+        </a>
+        <a href="PRG_Post_Redirect_Get.html" class="term-card">
+            <div class="term-title">PRG (Post-Redirect-Get)</div>
+            <div class="term-cat">Développement Web / Patterns HTTP / UX</div>
+        </a>
+        <a href="Robots_Meta_Tag.html" class="term-card">
+            <div class="term-title">Robots Meta Tag</div>
+            <div class="term-cat">SEO Technique / Indexation / Directives aux bots</div>
+        </a>
+        <a href="Robots_txt.html" class="term-card">
+            <div class="term-title">Robots.txt</div>
+            <div class="term-cat">SEO Technique / Crawl / Indexation</div>
+        </a>
+        <a href="X_Robots_Tag.html" class="term-card">
+            <div class="term-title">X-Robots-Tag</div>
+            <div class="term-cat">SEO Technique / HTTP Headers / Indexation</div>
+        </a>
+        <a href="XML_Sitemap.html" class="term-card">
+            <div class="term-title">XML Sitemap</div>
+            <div class="term-cat">SEO Technique / Crawl / Indexation</div>
+        </a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <span>Base de connaissance SEO</span>
+    <span>Glossaire technique</span>
+  </footer>
+</div>
+
+</body>
+</html>

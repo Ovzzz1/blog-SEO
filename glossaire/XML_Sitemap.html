@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="tag" content="glossaire">
+<meta name="date" content="2026">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XML Sitemap — Glossaire SEO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --ink: #f9fafb;
+    --ink-2: #d1d5db;
+    --ink-3: #9ca3af;
+    --paper: #17191a;
+    --paper-2: #212426;
+    --paper-3: #2d3134;
+    --accent: #ff6e40;
+    --accent-2: #60a5fa;
+    --success: #34d399;
+    --warn: #fbbf24;
+    --danger: #f87171;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+    --display: 'Syne', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .page-wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+  .site-header {
+    border-bottom: 1px solid var(--paper-3);
+    padding: 2rem 0 1.5rem;
+    margin-bottom: 0;
+  }
+  .header-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .tag-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--paper-3);
+    border-radius: 2px;
+    color: var(--ink-3);
+  }
+  .tag-badge.accent { border-color: var(--accent); color: var(--accent); }
+
+  .hero-title {
+    font-family: var(--display);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .hero-title em { font-style: normal; color: var(--accent); }
+
+  .section { padding: 2rem 0; }
+  
+  h2 {
+    font-family: var(--display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 2rem 0 1rem;
+  }
+
+  h3 {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  p { margin-bottom: 1rem; color: var(--ink-2); }
+  strong { font-weight: 500; color: var(--ink); }
+  em { color: var(--ink-2); }
+  
+  ul, ol { margin: 0 0 1rem 1.5rem; color: var(--ink-2); }
+  li { margin-bottom: 0.5rem; }
+
+  code {
+    font-family: var(--mono);
+    font-size: 0.85em;
+    background: var(--paper-2);
+    border: 1px solid var(--paper-3);
+    border-radius: 3px;
+    padding: 2px 5px;
+    color: var(--accent-2);
+  }
+
+  pre {
+    background: #0f1113;
+    border: 1px solid var(--paper-3);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+  pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.82rem;
+    color: #a8d8b8;
+  }
+
+  blockquote {
+    border-left: 3px solid var(--paper-3);
+    padding: 0.5rem 1rem;
+    margin: 1.5rem 0;
+    color: var(--ink-3);
+    background: var(--paper-2);
+    border-radius: 0 4px 4px 0;
+  }
+  blockquote p { margin-bottom: 0; }
+  blockquote p + p { margin-top: 0.5rem; }
+
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  thead tr { background: var(--paper-2); color: var(--ink); }
+  thead th {
+    font-family: var(--mono); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; padding: 0.75rem 1rem; text-align: left;
+  }
+  tbody tr { border-bottom: 1px solid var(--paper-2); }
+  tbody tr:hover { background: var(--paper-2); }
+  tbody td { padding: 0.65rem 1rem; color: var(--ink-2); vertical-align: top; }
+  tbody td:first-child { font-weight: 400; color: var(--ink); }
+
+  .site-footer {
+    margin-top: 4rem; padding: 2rem 0;
+    border-top: 1px solid var(--paper-3);
+    display: flex; justify-content: space-between;
+    font-family: var(--mono); font-size: 11px;
+    color: var(--ink-3); letter-spacing: 0.05em;
+  }
+  
+  a { color: var(--accent-2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+  <div style="padding-top: 2rem;">
+    <a href="index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;">← Retour au glossaire</a>
+    <span style="color: var(--paper-3); margin: 0 0.5rem;">|</span>
+    <a href="../index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;">Retour à l'accueil</a>
+  </div>
+
+  <header class="site-header">
+    <div class="header-meta">
+      <span class="tag-badge accent">Glossaire SEO</span>
+      <span class="tag-badge">SEO Technique / Crawl / Indexation</span>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1 class="hero-title">XML Sitemap</h1>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <hr />
+<h2>Définition</h2>
+<p>Un <strong>Sitemap XML</strong> est un fichier structuré au format XML qui liste les URLs d'un site web, accompagnées de métadonnées optionnelles (date de dernière modification, fréquence de changement, priorité). Il sert de <strong>carte routière</strong> fournie aux moteurs de recherche pour les aider à découvrir et crawler efficacement les pages du site.</p>
+<p>Introduit en 2005 par Google, le format sitemap.xml est devenu un standard supporté par tous les moteurs majeurs (Google, Bing, Yahoo, Yandex) via le protocole <strong>Sitemaps.org</strong>.</p>
+<blockquote>
+<p><strong>Important</strong> : Un sitemap XML ne garantit pas l'indexation des URLs listées. C'est un signal de découverte, pas une directive. Google reste libre d'ignorer des URLs ou de crawler des pages non listées.</p>
+</blockquote>
+<hr />
+<h2>Structure d'un Sitemap XML</h2>
+<h3>Exemple minimal</h3>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;urlset xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://www.exemple.com/&lt;/loc&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://www.exemple.com/a-propos&lt;/loc&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://www.exemple.com/contact&lt;/loc&gt;
+  &lt;/url&gt;
+&lt;/urlset&gt;
+</code></pre>
+<h3>Exemple complet avec toutes les métadonnées</h3>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;urlset xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://www.exemple.com/article-important&lt;/loc&gt;
+    &lt;lastmod&gt;2026-04-15&lt;/lastmod&gt;
+    &lt;changefreq&gt;weekly&lt;/changefreq&gt;
+    &lt;priority&gt;0.9&lt;/priority&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://www.exemple.com/page-standard&lt;/loc&gt;
+    &lt;lastmod&gt;2026-01-10&lt;/lastmod&gt;
+    &lt;changefreq&gt;monthly&lt;/changefreq&gt;
+    &lt;priority&gt;0.5&lt;/priority&gt;
+  &lt;/url&gt;
+&lt;/urlset&gt;
+</code></pre>
+<hr />
+<h2>Les balises XML détaillées</h2>
+<h3><code>&lt;loc&gt;</code> <em>(obligatoire)</em></h3>
+<p>L'URL complète et absolue de la page.</p>
+<pre><code class="language-xml">&lt;loc&gt;https://www.exemple.com/categorie/article-slug&lt;/loc&gt;
+</code></pre>
+<p><strong>Règles</strong> :
+- URL absolue avec protocole (https://)
+- Caractères spéciaux encodés en entités XML : <code>&amp;</code> → <code>&amp;amp;</code>, <code>&lt;</code> → <code>&amp;lt;</code>, <code>&gt;</code> → <code>&amp;gt;</code>, <code>"</code> → <code>&amp;quot;</code>
+- Max 2048 caractères par URL</p>
+<h3><code>&lt;lastmod&gt;</code> <em>(recommandé)</em></h3>
+<p>Date de dernière modification au format <strong>W3C Datetime</strong> (ISO 8601).</p>
+<pre><code class="language-xml">&lt;lastmod&gt;2026-04-15&lt;/lastmod&gt;              &lt;!-- Date seule --&gt;
+&lt;lastmod&gt;2026-04-15T14:30:00+02:00&lt;/lastmod&gt;  &lt;!-- Avec heure et timezone --&gt;
+&lt;lastmod&gt;2026-04-15T12:30:00Z&lt;/lastmod&gt;       &lt;!-- UTC --&gt;
+</code></pre>
+<blockquote>
+<p><strong>Note 2026</strong> : Google utilise <code>&lt;lastmod&gt;</code> pour prioriser le recrawl. Si vous renseignez cette valeur, elle <strong>doit être précise</strong>. Une <code>&lt;lastmod&gt;</code> incorrecte ou toujours mise à la date du jour est contre-productive et peut amener Google à l'ignorer.</p>
+</blockquote>
+<h3><code>&lt;changefreq&gt;</code> <em>(optionnel, peu utilisé)</em></h3>
+<p>Indication de la fréquence théorique de changement. Google indique officiellement <strong>ne pas en tenir compte</strong> pour programmer les crawls.</p>
+<pre><code class="language-xml">&lt;changefreq&gt;always&lt;/changefreq&gt;   &lt;!-- Contenu temps réel --&gt;
+&lt;changefreq&gt;hourly&lt;/changefreq&gt;
+&lt;changefreq&gt;daily&lt;/changefreq&gt;
+&lt;changefreq&gt;weekly&lt;/changefreq&gt;
+&lt;changefreq&gt;monthly&lt;/changefreq&gt;
+&lt;changefreq&gt;yearly&lt;/changefreq&gt;
+&lt;changefreq&gt;never&lt;/changefreq&gt;    &lt;!-- Pages d'archives --&gt;
+</code></pre>
+<h3><code>&lt;priority&gt;</code> <em>(optionnel, peu utilisé)</em></h3>
+<p>Valeur de 0.0 à 1.0 indiquant l'importance relative de la page au sein du site. Google indique <strong>ne pas l'utiliser</strong> pour le classement.</p>
+<pre><code class="language-xml">&lt;priority&gt;1.0&lt;/priority&gt;   &lt;!-- Page principale (homepage) --&gt;
+&lt;priority&gt;0.8&lt;/priority&gt;   &lt;!-- Pages importantes --&gt;
+&lt;priority&gt;0.5&lt;/priority&gt;   &lt;!-- Pages standard (défaut) --&gt;
+&lt;priority&gt;0.3&lt;/priority&gt;   &lt;!-- Pages secondaires --&gt;
+</code></pre>
+<blockquote>
+<p><strong>Recommandation</strong> : Se concentrer sur <code>&lt;loc&gt;</code> et <code>&lt;lastmod&gt;</code>. <code>&lt;changefreq&gt;</code> et <code>&lt;priority&gt;</code> ont un impact négligeable sur le comportement réel de Googlebot.</p>
+</blockquote>
+<hr />
+<h2>Sitemap Index</h2>
+<p>Pour les sites avec plus de <strong>50 000 URLs</strong> (limite par fichier sitemap), utiliser un <strong>sitemap index</strong> qui référence plusieurs sitemaps.</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;sitemapindex xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;&gt;
+  &lt;sitemap&gt;
+    &lt;loc&gt;https://www.exemple.com/sitemap-pages.xml&lt;/loc&gt;
+    &lt;lastmod&gt;2026-04-15&lt;/lastmod&gt;
+  &lt;/sitemap&gt;
+  &lt;sitemap&gt;
+    &lt;loc&gt;https://www.exemple.com/sitemap-articles.xml&lt;/loc&gt;
+    &lt;lastmod&gt;2026-04-15&lt;/lastmod&gt;
+  &lt;/sitemap&gt;
+  &lt;sitemap&gt;
+    &lt;loc&gt;https://www.exemple.com/sitemap-produits.xml&lt;/loc&gt;
+    &lt;lastmod&gt;2026-04-15&lt;/lastmod&gt;
+  &lt;/sitemap&gt;
+&lt;/sitemapindex&gt;
+</code></pre>
+<p><strong>Limites</strong> :
+- Max <strong>50 000 URLs</strong> par fichier sitemap
+- Max <strong>50 000 sitemaps</strong> dans un sitemap index
+- Max <strong>50 Mo</strong> non compressé par fichier (ou 10 Mo compressé en .gz)</p>
+<hr />
+<h2>Types de Sitemaps spécialisés</h2>
+<h3>Sitemap Images</h3>
+<p>Pour aider Google à découvrir et indexer les images d'un site.</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;urlset xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;
+        xmlns:image=&quot;http://www.google.com/schemas/sitemap-image/1.1&quot;&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://exemple.com/galerie/plage&lt;/loc&gt;
+    &lt;image:image&gt;
+      &lt;image:loc&gt;https://exemple.com/images/plage-coucher-soleil.jpg&lt;/image:loc&gt;
+      &lt;image:title&gt;Coucher de soleil sur la plage&lt;/image:title&gt;
+      &lt;image:caption&gt;Photo prise à Biarritz en juillet 2025&lt;/image:caption&gt;
+    &lt;/image:image&gt;
+    &lt;image:image&gt;
+      &lt;image:loc&gt;https://exemple.com/images/plage-matin.jpg&lt;/image:loc&gt;
+      &lt;image:title&gt;Plage au lever du soleil&lt;/image:title&gt;
+    &lt;/image:image&gt;
+  &lt;/url&gt;
+&lt;/urlset&gt;
+</code></pre>
+<h3>Sitemap Vidéo</h3>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;urlset xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;
+        xmlns:video=&quot;http://www.google.com/schemas/sitemap-video/1.1&quot;&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://exemple.com/tutoriels/montage-video&lt;/loc&gt;
+    &lt;video:video&gt;
+      &lt;video:thumbnail_loc&gt;https://exemple.com/thumb/tuto-montage.jpg&lt;/video:thumbnail_loc&gt;
+      &lt;video:title&gt;Comment monter une vidéo avec Premiere Pro&lt;/video:title&gt;
+      &lt;video:description&gt;Tutoriel complet pour débutants&lt;/video:description&gt;
+      &lt;video:content_loc&gt;https://exemple.com/videos/tuto-montage.mp4&lt;/video:content_loc&gt;
+      &lt;video:duration&gt;1842&lt;/video:duration&gt;
+      &lt;video:publication_date&gt;2026-03-01T09:00:00+01:00&lt;/video:publication_date&gt;
+    &lt;/video:video&gt;
+  &lt;/url&gt;
+&lt;/urlset&gt;
+</code></pre>
+<h3>Sitemap News (Google News)</h3>
+<p>Spécifique aux publications d'actualité inscrites à Google News.</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;urlset xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;
+        xmlns:news=&quot;http://www.google.com/schemas/sitemap-news/0.9&quot;&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://journal.exemple.com/article/evenement-important-2026&lt;/loc&gt;
+    &lt;news:news&gt;
+      &lt;news:publication&gt;
+        &lt;news:name&gt;Journal Exemple&lt;/news:name&gt;
+        &lt;news:language&gt;fr&lt;/news:language&gt;
+      &lt;/news:publication&gt;
+      &lt;news:publication_date&gt;2026-04-15T10:30:00+02:00&lt;/news:publication_date&gt;
+      &lt;news:title&gt;Événement important du 15 avril 2026&lt;/news:title&gt;
+    &lt;/news:news&gt;
+  &lt;/url&gt;
+&lt;/urlset&gt;
+</code></pre>
+<h3>Sitemap Hreflang</h3>
+<p>Pour les sites multilingues, certains outils génèrent des sitemaps intégrant les annotations hreflang (voir <a href="./Hreflang.html">Hreflang</a>).</p>
+<hr />
+<h2>Ce qu'il faut inclure (et exclure) dans un sitemap</h2>
+<h3>✅ À inclure</h3>
+<ul>
+<li>Pages canoniques indexables (200 + <code>index</code>)</li>
+<li>Pages à fort enjeu SEO</li>
+<li>Nouvelles pages publiées récemment</li>
+<li>Pages mises à jour récemment (avec <code>&lt;lastmod&gt;</code> exact)</li>
+</ul>
+<h3>❌ À exclure</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Type de page</th>
+<th>Raison</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pages en <code>noindex</code></td>
+<td>Contradictoire : signaler une page tout en disant de ne pas l'indexer</td>
+</tr>
+<tr>
+<td>Pages redirigées (301/302)</td>
+<td>Lister l'URL finale, pas la source</td>
+</tr>
+<tr>
+<td>Pages en erreur (404, 410, 5XX)</td>
+<td>Inutile voire contre-productif</td>
+</tr>
+<tr>
+<td>Pages dupliquées non-canoniques</td>
+<td>Lister uniquement l'URL canonique</td>
+</tr>
+<tr>
+<td>Pages bloquées dans robots.txt</td>
+<td>Google ne peut pas les crawler</td>
+</tr>
+<tr>
+<td>Paramètres d'URL (filtres, sessions)</td>
+<td>Éviter la dilution du sitemap</td>
+</tr>
+<tr>
+<td>Pages d'admin / backoffice</td>
+<td>Pas de valeur SEO</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Génération du sitemap</h2>
+<h3>CMS et plugins</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Plateforme</th>
+<th>Solution recommandée</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WordPress</td>
+<td>Yoast SEO, RankMath, Google XML Sitemaps</td>
+</tr>
+<tr>
+<td>Shopify</td>
+<td>Natif (auto-généré à <code>/sitemap.xml</code>)</td>
+</tr>
+<tr>
+<td>Magento</td>
+<td>Extension Sitemap (natif limité)</td>
+</tr>
+<tr>
+<td>Drupal</td>
+<td>Module XML Sitemap</td>
+</tr>
+<tr>
+<td>Wix</td>
+<td>Natif automatique</td>
+</tr>
+<tr>
+<td>Next.js</td>
+<td><code>next-sitemap</code> package</td>
+</tr>
+<tr>
+<td>Nuxt.js</td>
+<td><code>@nuxtjs/sitemap</code> module</td>
+</tr>
+<tr>
+<td>Astro</td>
+<td><code>@astrojs/sitemap</code> integration</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Génération programmatique (Node.js)</h3>
+<pre><code class="language-javascript">const { SitemapStream, streamToPromise } = require('sitemap');
+const { createWriteStream } = require('fs');
+
+async function generateSitemap() {
+  const sitemap = new SitemapStream({ hostname: 'https://exemple.com' });
+  const writeStream = createWriteStream('./public/sitemap.xml');
+
+  sitemap.pipe(writeStream);
+
+  // Ajouter les URLs depuis la DB
+  const pages = await db.getPublishedPages();
+  pages.forEach(page =&gt; {
+    sitemap.write({
+      url: page.slug,
+      lastmod: page.updatedAt,
+      changefreq: 'weekly',
+      priority: page.isHomepage ? 1.0 : 0.7
+    });
+  });
+
+  sitemap.end();
+  await streamToPromise(sitemap);
+  console.log('Sitemap généré');
+}
+</code></pre>
+<h3>Génération Python (Django)</h3>
+<pre><code class="language-python">from django.contrib.sitemaps import Sitemap
+from .models import Article
+
+class ArticleSitemap(Sitemap):
+    changefreq = &quot;weekly&quot;
+    priority = 0.8
+
+    def items(self):
+        return Article.objects.filter(published=True)
+
+    def lastmod(self, obj):
+        return obj.updated_at
+
+    def location(self, obj):
+        return f'/articles/{obj.slug}'
+</code></pre>
+<hr />
+<h2>Compression GZIP</h2>
+<p>Les sitemaps peuvent être compressés en <code>.gz</code> pour réduire la taille (jusqu'à 90% de gain) :</p>
+<pre><code class="language-bash">gzip -k sitemap.xml
+# Produit : sitemap.xml.gz (à uploader à côté de sitemap.xml)
+</code></pre>
+<p>Déclarer le sitemap compressé dans robots.txt :</p>
+<pre><code>Sitemap: https://exemple.com/sitemap.xml.gz
+</code></pre>
+<hr />
+<h2>Soumettre et monitorer le sitemap</h2>
+<h3>Déclaration dans robots.txt (recommandé)</h3>
+<pre><code>Sitemap: https://exemple.com/sitemap.xml
+Sitemap: https://exemple.com/sitemap-images.xml
+</code></pre>
+<h3>Soumission dans Google Search Console</h3>
+<ol>
+<li>GSC → <strong>Index</strong> → <strong>Sitemaps</strong></li>
+<li>Entrer l'URL du sitemap → <strong>Envoyer</strong></li>
+<li>Surveiller le rapport : URLs soumises vs URLs indexées</li>
+</ol>
+<h3>Soumission dans Bing Webmaster Tools</h3>
+<p>Bing dispose de son propre outil de soumission de sitemaps, accessible depuis Bing Webmaster Tools.</p>
+<h3>Ping direct (méthode legacy, encore fonctionnelle)</h3>
+<pre><code class="language-bash"># Ping Google
+curl &quot;https://www.google.com/ping?sitemap=https://exemple.com/sitemap.xml&quot;
+
+# Ping Bing
+curl &quot;https://www.bing.com/ping?sitemap=https://exemple.com/sitemap.xml&quot;
+</code></pre>
+<hr />
+<h2>Monitoring : interpréter les métriques GSC</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Métrique GSC</th>
+<th>Signification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>URLs soumises</strong></td>
+<td>Nombre d'URLs dans le sitemap</td>
+</tr>
+<tr>
+<td><strong>URLs indexées</strong></td>
+<td>URLs effectivement dans l'index Google</td>
+</tr>
+<tr>
+<td>Écart important soumises &gt; indexées</td>
+<td>Pages de faible qualité, dupliquées, ou bloquées</td>
+</tr>
+<tr>
+<td>Statut "Succès"</td>
+<td>Sitemap lu et traité correctement</td>
+</tr>
+<tr>
+<td>Statut "En attente"</td>
+<td>En cours de traitement</td>
+</tr>
+<tr>
+<td>Statut "Erreur"</td>
+<td>Problème de format XML ou d'accès</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>Un ratio indexées/soumises &lt; 50% est un signal d'audit à creuser : thin content, duplication, pages <code>noindex</code> dans le sitemap, etc.</p>
+</blockquote>
+<hr />
+<h2>Voir aussi</h2>
+<ul>
+<li><a href="./Robots_txt.html">Robots.txt</a></li>
+<li><a href="./Robots_Meta_Tag.html">Robots Meta Tag</a></li>
+<li><a href="./Crawl_Budget.html">Crawl Budget</a></li>
+<li><a href="./Canonical.html">Canonical</a></li>
+<li><a href="./Hreflang.html">Hreflang</a></li>
+<li><a href="./3XX_HTTP_Response_Codes.html">3XX HTTP Response Codes</a></li>
+</ul>
+  </section>
+
+  <footer class="site-footer">
+    <span>Base de connaissance SEO</span>
+    <span>Glossaire technique</span>
+  </footer>
+</div>
+
+</body>
+</html>

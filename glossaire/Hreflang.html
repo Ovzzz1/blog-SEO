@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="tag" content="glossaire">
+<meta name="date" content="2026">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hreflang — Glossaire SEO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --ink: #f9fafb;
+    --ink-2: #d1d5db;
+    --ink-3: #9ca3af;
+    --paper: #17191a;
+    --paper-2: #212426;
+    --paper-3: #2d3134;
+    --accent: #ff6e40;
+    --accent-2: #60a5fa;
+    --success: #34d399;
+    --warn: #fbbf24;
+    --danger: #f87171;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+    --display: 'Syne', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .page-wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+  .site-header {
+    border-bottom: 1px solid var(--paper-3);
+    padding: 2rem 0 1.5rem;
+    margin-bottom: 0;
+  }
+  .header-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .tag-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--paper-3);
+    border-radius: 2px;
+    color: var(--ink-3);
+  }
+  .tag-badge.accent { border-color: var(--accent); color: var(--accent); }
+
+  .hero-title {
+    font-family: var(--display);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .hero-title em { font-style: normal; color: var(--accent); }
+
+  .section { padding: 2rem 0; }
+  
+  h2 {
+    font-family: var(--display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 2rem 0 1rem;
+  }
+
+  h3 {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  p { margin-bottom: 1rem; color: var(--ink-2); }
+  strong { font-weight: 500; color: var(--ink); }
+  em { color: var(--ink-2); }
+  
+  ul, ol { margin: 0 0 1rem 1.5rem; color: var(--ink-2); }
+  li { margin-bottom: 0.5rem; }
+
+  code {
+    font-family: var(--mono);
+    font-size: 0.85em;
+    background: var(--paper-2);
+    border: 1px solid var(--paper-3);
+    border-radius: 3px;
+    padding: 2px 5px;
+    color: var(--accent-2);
+  }
+
+  pre {
+    background: #0f1113;
+    border: 1px solid var(--paper-3);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+  pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.82rem;
+    color: #a8d8b8;
+  }
+
+  blockquote {
+    border-left: 3px solid var(--paper-3);
+    padding: 0.5rem 1rem;
+    margin: 1.5rem 0;
+    color: var(--ink-3);
+    background: var(--paper-2);
+    border-radius: 0 4px 4px 0;
+  }
+  blockquote p { margin-bottom: 0; }
+  blockquote p + p { margin-top: 0.5rem; }
+
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  thead tr { background: var(--paper-2); color: var(--ink); }
+  thead th {
+    font-family: var(--mono); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; padding: 0.75rem 1rem; text-align: left;
+  }
+  tbody tr { border-bottom: 1px solid var(--paper-2); }
+  tbody tr:hover { background: var(--paper-2); }
+  tbody td { padding: 0.65rem 1rem; color: var(--ink-2); vertical-align: top; }
+  tbody td:first-child { font-weight: 400; color: var(--ink); }
+
+  .site-footer {
+    margin-top: 4rem; padding: 2rem 0;
+    border-top: 1px solid var(--paper-3);
+    display: flex; justify-content: space-between;
+    font-family: var(--mono); font-size: 11px;
+    color: var(--ink-3); letter-spacing: 0.05em;
+  }
+  
+  a { color: var(--accent-2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+  <div style="padding-top: 2rem;">
+    <a href="index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;">← Retour au glossaire</a>
+    <span style="color: var(--paper-3); margin: 0 0.5rem;">|</span>
+    <a href="../index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;">Retour à l'accueil</a>
+  </div>
+
+  <header class="site-header">
+    <div class="header-meta">
+      <span class="tag-badge accent">Glossaire SEO</span>
+      <span class="tag-badge">SEO International / Multilinguisme / Indexation</span>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1 class="hero-title">Hreflang</h1>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <hr />
+<h2>Définition</h2>
+<p><strong>Hreflang</strong> est un attribut HTML introduit par Google en 2011 pour signaler aux moteurs de recherche la langue et, optionnellement, la zone géographique ciblée par une page web. Il permet de servir la bonne version linguistique d'une page à l'utilisateur selon sa langue et sa localisation, évitant ainsi des problèmes de contenu dupliqué international et améliorant la pertinence des résultats de recherche.</p>
+<blockquote>
+<p>Hreflang est utilisé par <strong>Google</strong> et <strong>Yandex</strong>. Bing utilise une approche différente basée sur le header <code>Content-Language</code> et les balises meta.</p>
+</blockquote>
+<hr />
+<h2>Syntaxe de base</h2>
+<pre><code class="language-html">&lt;link rel=&quot;alternate&quot; hreflang=&quot;[code-langue]&quot; href=&quot;[URL]&quot;&gt;
+&lt;!-- ou avec région --&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;[code-langue]-[code-pays]&quot; href=&quot;[URL]&quot;&gt;
+</code></pre>
+<h3>Codes de langue (ISO 639-1)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Langue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fr</code></td>
+<td>Français (toutes régions)</td>
+</tr>
+<tr>
+<td><code>en</code></td>
+<td>Anglais (toutes régions)</td>
+</tr>
+<tr>
+<td><code>es</code></td>
+<td>Espagnol</td>
+</tr>
+<tr>
+<td><code>de</code></td>
+<td>Allemand</td>
+</tr>
+<tr>
+<td><code>zh</code></td>
+<td>Chinois</td>
+</tr>
+<tr>
+<td><code>ar</code></td>
+<td>Arabe</td>
+</tr>
+<tr>
+<td><code>pt</code></td>
+<td>Portugais</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Codes de pays (ISO 3166-1 alpha-2)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Pays</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>FR</code></td>
+<td>France</td>
+</tr>
+<tr>
+<td><code>BE</code></td>
+<td>Belgique</td>
+</tr>
+<tr>
+<td><code>CA</code></td>
+<td>Canada</td>
+</tr>
+<tr>
+<td><code>US</code></td>
+<td>États-Unis</td>
+</tr>
+<tr>
+<td><code>GB</code></td>
+<td>Royaume-Uni</td>
+</tr>
+<tr>
+<td><code>CH</code></td>
+<td>Suisse</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Combinaisons langue-pays courantes</h3>
+<pre><code>fr-FR  → Français pour la France
+fr-BE  → Français pour la Belgique
+fr-CA  → Français pour le Canada
+fr-CH  → Français pour la Suisse
+en-US  → Anglais américain
+en-GB  → Anglais britannique
+pt-BR  → Portugais brésilien
+pt-PT  → Portugais européen
+zh-Hans → Chinois simplifié
+zh-Hant → Chinois traditionnel
+</code></pre>
+<hr />
+<h2>Implémentation</h2>
+<h3>Méthode 1 : Balises <code>&lt;link&gt;</code> dans le <code>&lt;head&gt;</code> (recommandée)</h3>
+<pre><code class="language-html">&lt;!-- Page française (france) --&gt;
+&lt;head&gt;
+  &lt;link rel=&quot;alternate&quot; hreflang=&quot;fr-FR&quot; href=&quot;https://exemple.com/fr-fr/article&quot;&gt;
+  &lt;link rel=&quot;alternate&quot; hreflang=&quot;fr-BE&quot; href=&quot;https://exemple.com/fr-be/article&quot;&gt;
+  &lt;link rel=&quot;alternate&quot; hreflang=&quot;en-US&quot; href=&quot;https://exemple.com/en-us/article&quot;&gt;
+  &lt;link rel=&quot;alternate&quot; hreflang=&quot;en-GB&quot; href=&quot;https://exemple.com/en-gb/article&quot;&gt;
+  &lt;link rel=&quot;alternate&quot; hreflang=&quot;x-default&quot; href=&quot;https://exemple.com/article&quot;&gt;
+  &lt;!-- Auto-référencement obligatoire --&gt;
+  &lt;link rel=&quot;canonical&quot; href=&quot;https://exemple.com/fr-fr/article&quot;&gt;
+&lt;/head&gt;
+</code></pre>
+<blockquote>
+<p>⚠️ <strong>Chaque page doit se référencer elle-même</strong> dans le groupe hreflang.</p>
+</blockquote>
+<h3>Méthode 2 : Sitemap XML (recommandée pour les grands sites)</h3>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;urlset xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;
+        xmlns:xhtml=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://exemple.com/fr-fr/article&lt;/loc&gt;
+    &lt;xhtml:link rel=&quot;alternate&quot; hreflang=&quot;fr-FR&quot; href=&quot;https://exemple.com/fr-fr/article&quot;/&gt;
+    &lt;xhtml:link rel=&quot;alternate&quot; hreflang=&quot;fr-BE&quot; href=&quot;https://exemple.com/fr-be/article&quot;/&gt;
+    &lt;xhtml:link rel=&quot;alternate&quot; hreflang=&quot;en-US&quot; href=&quot;https://exemple.com/en-us/article&quot;/&gt;
+    &lt;xhtml:link rel=&quot;alternate&quot; hreflang=&quot;x-default&quot; href=&quot;https://exemple.com/article&quot;/&gt;
+  &lt;/url&gt;
+  &lt;!-- Répéter pour chaque URL du groupe --&gt;
+&lt;/urlset&gt;
+</code></pre>
+<h3>Méthode 3 : Header HTTP (pour ressources non-HTML)</h3>
+<pre><code class="language-http">Link: &lt;https://exemple.com/fr-fr/document.pdf&gt;; rel=&quot;alternate&quot;; hreflang=&quot;fr-FR&quot;,
+      &lt;https://exemple.com/en-us/document.pdf&gt;; rel=&quot;alternate&quot;; hreflang=&quot;en-US&quot;
+</code></pre>
+<hr />
+<h2>Le tag <code>x-default</code></h2>
+<p>Le tag <strong><code>x-default</code></strong> est l'URL de fallback présentée aux utilisateurs dont la langue ne correspond à aucune version disponible. Il est fortement recommandé.</p>
+<pre><code class="language-html">&lt;link rel=&quot;alternate&quot; hreflang=&quot;x-default&quot; href=&quot;https://exemple.com/en/article&quot;&gt;
+</code></pre>
+<p><strong>Usage courants de <code>x-default</code></strong> :
+- Page de sélection de pays/langue
+- Version anglaise internationale par défaut
+- Page d'accueil internationale</p>
+<hr />
+<h2>Structures d'URL pour l'international</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Structure</th>
+<th>Exemple</th>
+<th>Avantages</th>
+<th>Inconvénients</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ccTLD</strong></td>
+<td><code>.fr</code>, <code>.de</code>, <code>.es</code></td>
+<td>Signal géo fort</td>
+<td>Coût, maintenance multiple</td>
+</tr>
+<tr>
+<td><strong>Sous-domaine</strong></td>
+<td><code>fr.exemple.com</code></td>
+<td>Séparation technique</td>
+<td>Dilution de l'autorité</td>
+</tr>
+<tr>
+<td><strong>Sous-répertoire</strong></td>
+<td><code>exemple.com/fr/</code></td>
+<td>Autorité centralisée</td>
+<td>Moins fort en signal géo</td>
+</tr>
+<tr>
+<td><strong>Paramètre</strong></td>
+<td><code>exemple.com?lang=fr</code></td>
+<td>Simple à implémenter</td>
+<td>❌ Mauvaise pratique SEO</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Recommandation 2026</strong> : Les <strong>sous-répertoires</strong> (<code>/fr/</code>, <code>/en/</code>, <code>/de/</code>) offrent le meilleur équilibre entre signal géographique, autorité centralisée et facilité de maintenance pour la plupart des sites.</p>
+<hr />
+<h2>Règles et contraintes obligatoires</h2>
+<h3>1. Réciprocité (règle critique)</h3>
+<p>Chaque version doit référencer <strong>toutes les autres versions</strong>, y compris elle-même. Si la page FR pointe vers EN mais que EN ne pointe pas vers FR, Google peut ignorer le signal.</p>
+<pre><code>FR → EN ✅
+EN → FR ✅ (obligatoire)
+</code></pre>
+<h3>2. URLs absolues uniquement</h3>
+<pre><code class="language-html">&lt;!-- ❌ INCORRECT --&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;fr&quot; href=&quot;/fr/article&quot;&gt;
+
+&lt;!-- ✅ CORRECT --&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;fr&quot; href=&quot;https://exemple.com/fr/article&quot;&gt;
+</code></pre>
+<h3>3. Les URLs doivent être indexables</h3>
+<p>Une URL hreflang en <code>noindex</code> ou bloquée par <code>robots.txt</code> provoque des erreurs dans GSC.</p>
+<h3>4. Cohérence avec le canonical</h3>
+<p>Chaque URL hreflang doit avoir son propre <code>rel="canonical"</code> pointant vers elle-même (ou la version canonique de sa langue).</p>
+<h3>5. Contenu réellement différent</h3>
+<p>Hreflang ne résout pas le contenu dupliqué entre deux versions quasi-identiques (ex : EN-US et EN-GB avec seulement quelques mots différents). Google peut détecter et ignorer des variations trop légères.</p>
+<hr />
+<h2>Erreurs courantes et leurs conséquences</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Erreur</th>
+<th>Conséquence</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pas de réciprocité</td>
+<td>Google ignore le signal</td>
+<td>Vérifier les deux sens</td>
+</tr>
+<tr>
+<td>URL relative au lieu d'absolue</td>
+<td>Signal invalide</td>
+<td>Toujours utiliser des URLs absolues</td>
+</tr>
+<tr>
+<td>Codes de langue incorrects</td>
+<td>Non reconnu par Google</td>
+<td>Utiliser ISO 639-1 strictement</td>
+</tr>
+<tr>
+<td>Hreflang vers une page 404</td>
+<td>Erreur GSC</td>
+<td>Corriger ou retirer l'URL</td>
+</tr>
+<tr>
+<td>Pas de x-default</td>
+<td>Comportement imprévisible pour autres régions</td>
+<td>Ajouter x-default</td>
+</tr>
+<tr>
+<td>Hreflang et canonical contradictoires</td>
+<td>Signaux confus</td>
+<td>Aligner canonical et hreflang</td>
+</tr>
+<tr>
+<td>Pages trop similaires</td>
+<td>Ignoré par Google</td>
+<td>S'assurer d'une vraie localisation</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Hreflang et les moteurs IA (2025-2026)</h2>
+<p>L'émergence des <strong>AI Overviews</strong> (Google SGE) et des moteurs de recherche IA (Perplexity, Bing Copilot) pose de nouvelles questions sur la gestion de l'international :</p>
+<ul>
+<li>Les réponses IA peuvent agréger du contenu multilingue sans respect strict des hreflang</li>
+<li>La géolocalisation des réponses IA reste moins précise que les SERPs classiques</li>
+<li><strong>Recommandation</strong> : Maintenir les hreflang pour les SERPs classiques + s'assurer que la langue est clairement signalée dans le contenu (<code>lang</code> attribute sur <code>&lt;html&gt;</code>)</li>
+</ul>
+<hr />
+<h2>Monitoring et audit</h2>
+<h3>Google Search Console</h3>
+<ul>
+<li><strong>Rapport International</strong> : Affiche les erreurs hreflang détectées (réciprocité manquante, URLs invalides, etc.)</li>
+<li>Navigation : GSC → Index → Règles d'internationalisation</li>
+</ul>
+<h3>Screaming Frog</h3>
+<ul>
+<li>Export de tous les tags hreflang</li>
+<li>Vérification des URLs de destination (200 vs 404)</li>
+<li>Détection des manques de réciprocité</li>
+</ul>
+<h3>Hreftang.com / Merkle Hreflang Testing Tool</h3>
+<p>Outils en ligne pour valider les annotations hreflang d'une page.</p>
+<h3>Commande manuelle</h3>
+<pre><code class="language-bash"># Vérifier les hreflang d'une page
+curl -s https://exemple.com/fr/page | grep -i 'hreflang'
+</code></pre>
+<hr />
+<h2>Voir aussi</h2>
+<ul>
+<li><a href="./Canonical.html">Canonical</a></li>
+<li><a href="./XML_Sitemap.html">XML Sitemap</a></li>
+<li><a href="./CDN.html">CDN</a></li>
+<li><a href="./Robots_Meta_Tag.html">Robots Meta Tag</a></li>
+</ul>
+  </section>
+
+  <footer class="site-footer">
+    <span>Base de connaissance SEO</span>
+    <span>Glossaire technique</span>
+  </footer>
+</div>
+
+</body>
+</html>

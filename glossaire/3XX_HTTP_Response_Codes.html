@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="tag" content="glossaire">
+<meta name="date" content="2026">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3XX HTTP Response Codes — Glossaire SEO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --ink: #f9fafb;
+    --ink-2: #d1d5db;
+    --ink-3: #9ca3af;
+    --paper: #17191a;
+    --paper-2: #212426;
+    --paper-3: #2d3134;
+    --accent: #ff6e40;
+    --accent-2: #60a5fa;
+    --success: #34d399;
+    --warn: #fbbf24;
+    --danger: #f87171;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+    --display: 'Syne', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .page-wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+  .site-header {
+    border-bottom: 1px solid var(--paper-3);
+    padding: 2rem 0 1.5rem;
+    margin-bottom: 0;
+  }
+  .header-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .tag-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--paper-3);
+    border-radius: 2px;
+    color: var(--ink-3);
+  }
+  .tag-badge.accent { border-color: var(--accent); color: var(--accent); }
+
+  .hero-title {
+    font-family: var(--display);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .hero-title em { font-style: normal; color: var(--accent); }
+
+  .section { padding: 2rem 0; }
+  
+  h2 {
+    font-family: var(--display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 2rem 0 1rem;
+  }
+
+  h3 {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  p { margin-bottom: 1rem; color: var(--ink-2); }
+  strong { font-weight: 500; color: var(--ink); }
+  em { color: var(--ink-2); }
+  
+  ul, ol { margin: 0 0 1rem 1.5rem; color: var(--ink-2); }
+  li { margin-bottom: 0.5rem; }
+
+  code {
+    font-family: var(--mono);
+    font-size: 0.85em;
+    background: var(--paper-2);
+    border: 1px solid var(--paper-3);
+    border-radius: 3px;
+    padding: 2px 5px;
+    color: var(--accent-2);
+  }
+
+  pre {
+    background: #0f1113;
+    border: 1px solid var(--paper-3);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+  pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.82rem;
+    color: #a8d8b8;
+  }
+
+  blockquote {
+    border-left: 3px solid var(--paper-3);
+    padding: 0.5rem 1rem;
+    margin: 1.5rem 0;
+    color: var(--ink-3);
+    background: var(--paper-2);
+    border-radius: 0 4px 4px 0;
+  }
+  blockquote p { margin-bottom: 0; }
+  blockquote p + p { margin-top: 0.5rem; }
+
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  thead tr { background: var(--paper-2); color: var(--ink); }
+  thead th {
+    font-family: var(--mono); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; padding: 0.75rem 1rem; text-align: left;
+  }
+  tbody tr { border-bottom: 1px solid var(--paper-2); }
+  tbody tr:hover { background: var(--paper-2); }
+  tbody td { padding: 0.65rem 1rem; color: var(--ink-2); vertical-align: top; }
+  tbody td:first-child { font-weight: 400; color: var(--ink); }
+
+  .site-footer {
+    margin-top: 4rem; padding: 2rem 0;
+    border-top: 1px solid var(--paper-3);
+    display: flex; justify-content: space-between;
+    font-family: var(--mono); font-size: 11px;
+    color: var(--ink-3); letter-spacing: 0.05em;
+  }
+  
+  a { color: var(--accent-2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+  <div style="padding-top: 2rem;">
+    <a href="index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;">← Retour au glossaire</a>
+    <span style="color: var(--paper-3); margin: 0 0.5rem;">|</span>
+    <a href="../index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;">Retour à l'accueil</a>
+  </div>
+
+  <header class="site-header">
+    <div class="header-meta">
+      <span class="tag-badge accent">Glossaire SEO</span>
+      <span class="tag-badge">HTTP / Redirections / SEO Technique</span>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1 class="hero-title">3XX HTTP Response Codes</h1>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <hr />
+<h2>Définition</h2>
+<p>Les codes de réponse HTTP <strong>3XX</strong> forment une classe de statuts indiquant que le client doit effectuer une action supplémentaire pour compléter la requête. Ils sont principalement utilisés pour les <strong>redirections d'URL</strong> et jouent un rôle fondamental en SEO : gestion du flux de trafic, préservation du link equity (PageRank), expérience utilisateur et signaux d'indexation envoyés aux moteurs de recherche.</p>
+<p>Le serveur renvoie un code 3XX accompagné d'un header <code>Location</code> indiquant la nouvelle destination.</p>
+<hr />
+<h2>Table des matières</h2>
+<ol>
+<li><a href="#301-moved-permanently">301 Moved Permanently</a></li>
+<li><a href="#302-found-temporary-redirect">302 Found (Temporary Redirect)</a></li>
+<li><a href="#303-see-other">303 See Other</a></li>
+<li><a href="#304-not-modified">304 Not Modified</a></li>
+<li><a href="#307-temporary-redirect">307 Temporary Redirect</a></li>
+<li><a href="#308-permanent-redirect">308 Permanent Redirect</a></li>
+<li><a href="#comparatif-seo">Comparatif SEO des redirections</a></li>
+<li><a href="#chaines-de-redirections">Chaînes de redirections : risques et bonnes pratiques</a></li>
+<li><a href="#erreurs-courantes">Erreurs courantes</a></li>
+</ol>
+<hr />
+<h2>301 Moved Permanently</h2>
+<h3>Description</h3>
+<p>Un <strong>301</strong> indique qu'une ressource a été déplacée <strong>définitivement</strong> vers une nouvelle URL. C'est la redirection SEO la plus courante et la plus puissante.</p>
+<p>Les moteurs de recherche mettent à jour leur index pour pointer vers la nouvelle URL et transfèrent la quasi-totalité du link equity (estimé à ~99% par Google depuis 2016).</p>
+<h3>Cas d'usage</h3>
+<ul>
+<li>Migration de domaine (ex : <code>http://</code> → <code>https://</code>)</li>
+<li>Changement permanent de structure d'URL</li>
+<li>Consolidation de contenu dupliqué</li>
+<li>Fusion de plusieurs pages en une seule</li>
+</ul>
+<h3>Comportement des bots</h3>
+<ul>
+<li>Google met généralement à jour son index en quelques jours à quelques semaines</li>
+<li>L'ancienne URL disparaît progressivement des SERPs</li>
+<li>Le Googlebot mémorise la redirection et réduit la fréquence de recrawl de l'ancienne URL</li>
+</ul>
+<h3>Exemple</h3>
+<pre><code class="language-http">HTTP/1.1 301 Moved Permanently
+Location: https://www.example.com/nouvelle-page
+</code></pre>
+<hr />
+<h2>302 Found (Temporary Redirect)</h2>
+<h3>Description</h3>
+<p>Un <strong>302</strong> indique que la ressource est <strong>temporairement</strong> disponible à une autre URL. Contrairement au 301, le moteur de recherche conserve l'URL d'origine dans son index.</p>
+<blockquote>
+<p>⚠️ <strong>Attention</strong> : Le 302 ne transfère pas le link equity de façon fiable. Si une redirection doit être permanente, utilisez toujours un 301 (ou 308 pour les méthodes POST).</p>
+</blockquote>
+<h3>Cas d'usage</h3>
+<ul>
+<li>Redirection pendant une maintenance courte</li>
+<li>Test A/B (associé à des outils de split testing)</li>
+<li>Localisation temporaire (ex : redirection vers version locale pendant un event)</li>
+</ul>
+<h3>Comportement des bots</h3>
+<ul>
+<li>Google conserve l'URL source comme URL canonique</li>
+<li>En pratique, si un 302 reste en place trop longtemps, Google peut le traiter comme un 301 (comportement observé, non documenté officiellement)</li>
+</ul>
+<h3>Exemple</h3>
+<pre><code class="language-http">HTTP/1.1 302 Found
+Location: https://www.example.com/maintenance
+</code></pre>
+<hr />
+<h2>303 See Other</h2>
+<h3>Description</h3>
+<p>Le <strong>303</strong> est utilisé après un traitement de formulaire (méthode POST) pour rediriger le navigateur vers une page de confirmation via un GET. Il est au cœur du pattern <strong>PRG (Post-Redirect-Get)</strong>.</p>
+<h3>Cas d'usage</h3>
+<ul>
+<li>Soumission de formulaire → page de confirmation</li>
+<li>Prévention de la double soumission</li>
+<li>APIs REST : réponse après création de ressource</li>
+</ul>
+<h3>Exemple</h3>
+<pre><code class="language-http">HTTP/1.1 303 See Other
+Location: /confirmation-commande
+</code></pre>
+<p>→ Voir aussi : <a href="./PRG.html">PRG (Post-Redirect-Get)</a></p>
+<hr />
+<h2>304 Not Modified</h2>
+<h3>Description</h3>
+<p>Le <strong>304</strong> n'est pas une redirection au sens strict : il indique au client que la ressource n'a <strong>pas changé depuis la dernière requête</strong> et que la version en cache est toujours valide. Aucune donnée n'est renvoyée dans le body.</p>
+<h3>Mécanisme</h3>
+<p>Le client envoie un header conditionnel (<code>If-Modified-Since</code> ou <code>If-None-Match</code>) et le serveur répond 304 si la ressource est identique.</p>
+<h3>Impact SEO / Performance</h3>
+<ul>
+<li>Réduit la consommation de bande passante</li>
+<li>Améliore les temps de chargement</li>
+<li>Participe à l'optimisation du <a href="./Crawl_Budget.html">Crawl Budget</a></li>
+</ul>
+<h3>Exemple</h3>
+<pre><code class="language-http">GET /style.css HTTP/1.1
+If-None-Match: &quot;abc123&quot;
+
+HTTP/1.1 304 Not Modified
+</code></pre>
+<hr />
+<h2>307 Temporary Redirect</h2>
+<h3>Description</h3>
+<p>Le <strong>307</strong> est la version stricte du 302 : il garantit que la <strong>méthode HTTP</strong> (GET, POST, PUT…) est <strong>préservée</strong> lors de la redirection. Là où un 302 peut transformer un POST en GET, le 307 maintient la méthode d'origine.</p>
+<h3>Cas d'usage</h3>
+<ul>
+<li>Redirection temporaire d'une requête POST sans changer la méthode</li>
+<li>APIs RESTful nécessitant la préservation du verbe HTTP</li>
+<li>Redirections HTTPS temporaires</li>
+</ul>
+<h3>Exemple</h3>
+<pre><code class="language-http">HTTP/1.1 307 Temporary Redirect
+Location: https://api.example.com/v2/resource
+</code></pre>
+<hr />
+<h2>308 Permanent Redirect</h2>
+<h3>Description</h3>
+<p>Le <strong>308</strong> est l'équivalent permanent du 307. Il redirige <strong>définitivement</strong> tout en <strong>préservant la méthode HTTP</strong>. C'est l'équivalent strict du 301 pour les requêtes POST/PUT.</p>
+<h3>Cas d'usage</h3>
+<ul>
+<li>Migration permanente d'endpoints API</li>
+<li>Changement de domaine pour des formulaires ou flux POST</li>
+<li>Environnements où la méthode HTTP doit être préservée à tout prix</li>
+</ul>
+<h3>Support</h3>
+<p>Supporté par tous les navigateurs modernes et par Google (depuis 2016).</p>
+<h3>Exemple</h3>
+<pre><code class="language-http">HTTP/1.1 308 Permanent Redirect
+Location: https://api.newdomain.com/endpoint
+</code></pre>
+<hr />
+<h2>Comparatif SEO des redirections {#comparatif-seo}</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Type</th>
+<th style="text-align: center;">Méthode préservée</th>
+<th style="text-align: center;">Link Equity</th>
+<th style="text-align: center;">Index mis à jour</th>
+<th>Usage recommandé</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>301</td>
+<td>Permanent</td>
+<td style="text-align: center;">Non (POST → GET)</td>
+<td style="text-align: center;">✅ Oui (~99%)</td>
+<td style="text-align: center;">✅ Oui</td>
+<td>Migration URL permanente</td>
+</tr>
+<tr>
+<td>302</td>
+<td>Temporaire</td>
+<td style="text-align: center;">Non (POST → GET)</td>
+<td style="text-align: center;">⚠️ Partiel</td>
+<td style="text-align: center;">❌ Non</td>
+<td>Redirection courte durée</td>
+</tr>
+<tr>
+<td>303</td>
+<td>Temporaire</td>
+<td style="text-align: center;">Non (toujours GET)</td>
+<td style="text-align: center;">❌ Non</td>
+<td style="text-align: center;">❌ Non</td>
+<td>Post-Redirect-Get</td>
+</tr>
+<tr>
+<td>307</td>
+<td>Temporaire</td>
+<td style="text-align: center;">✅ Oui</td>
+<td style="text-align: center;">⚠️ Partiel</td>
+<td style="text-align: center;">❌ Non</td>
+<td>Redirection temporaire API</td>
+</tr>
+<tr>
+<td>308</td>
+<td>Permanent</td>
+<td style="text-align: center;">✅ Oui</td>
+<td style="text-align: center;">✅ Oui</td>
+<td style="text-align: center;">✅ Oui</td>
+<td>Migration API/POST permanente</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Chaînes de redirections : risques et bonnes pratiques {#chaines-de-redirections}</h2>
+<p>Une <strong>chaîne de redirections</strong> (redirect chain) se produit lorsque plusieurs redirections se suivent avant d'atteindre la destination finale :</p>
+<pre><code>URL A → 301 → URL B → 301 → URL C → 200
+</code></pre>
+<h3>Risques</h3>
+<ul>
+<li><strong>Dilution du link equity</strong> : chaque saut supplémentaire peut réduire marginalement le PageRank transmis</li>
+<li><strong>Ralentissement</strong> : chaque redirection ajoute un aller-retour réseau (latence HTTP)</li>
+<li><strong>Gaspillage de crawl budget</strong> : les bots doivent suivre chaque saut</li>
+<li>Google recommande de limiter les chaînes à 3 redirections maximum</li>
+</ul>
+<h3>Bonne pratique</h3>
+<p>Pointer directement vers l'URL finale :</p>
+<pre><code>URL A → 301 → URL C  ✅
+</code></pre>
+<h3>Boucles de redirections</h3>
+<p>Une boucle (<code>URL A → URL B → URL A</code>) provoque une erreur côté navigateur et empêche tout crawl. À surveiller systématiquement lors des audits techniques.</p>
+<hr />
+<h2>Erreurs courantes {#erreurs-courantes}</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Erreur</th>
+<th>Impact</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Utiliser un 302 à la place d'un 301</td>
+<td>Pas de transfert de link equity</td>
+<td>Passer en 301</td>
+</tr>
+<tr>
+<td>Chaîne de redirections longue</td>
+<td>Lenteur + dilution SEO</td>
+<td>Aplatir en redirect direct</td>
+</tr>
+<tr>
+<td>Rediriger vers une page 404</td>
+<td>Perte totale du link equity</td>
+<td>Vérifier la destination</td>
+</tr>
+<tr>
+<td>Boucle de redirection</td>
+<td>Page inaccessible</td>
+<td>Auditer avec Screaming Frog / Ahrefs</td>
+</tr>
+<tr>
+<td>Rediriger toutes les 404 vers la home</td>
+<td>Soft 404, pénalité Google</td>
+<td>Résoudre les 404 ou utiliser un 410</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Outils de vérification</h2>
+<ul>
+<li><strong>Screaming Frog</strong> : audit des redirections en masse</li>
+<li><strong>Google Search Console</strong> → Couverture : identifier les URLs redirigées mal gérées</li>
+<li><strong>Redirect Checker</strong> (httpstatus.io) : vérification URL par URL</li>
+<li><strong>Ahrefs / Semrush</strong> : détection des chaînes et boucles</li>
+</ul>
+<hr />
+<h2>Voir aussi</h2>
+<ul>
+<li><a href="./4XX_HTTP_Response_Codes.html">4XX HTTP Response Codes</a></li>
+<li><a href="./Crawl_Budget.html">Crawl Budget</a></li>
+<li><a href="./PRG.html">PRG (Post-Redirect-Get)</a></li>
+<li><a href="./Canonical.html">Canonical</a></li>
+<li><a href="./503_Retry_After.html">503 + Retry-After</a></li>
+</ul>
+  </section>
+
+  <footer class="site-footer">
+    <span>Base de connaissance SEO</span>
+    <span>Glossaire technique</span>
+  </footer>
+</div>
+
+</body>
+</html>

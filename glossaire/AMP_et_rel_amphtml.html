@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="tag" content="glossaire">
+<meta name="date" content="2026">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AMP (Accelerated Mobile Pages) & `rel="amphtml"` — Glossaire SEO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --ink: #f9fafb;
+    --ink-2: #d1d5db;
+    --ink-3: #9ca3af;
+    --paper: #17191a;
+    --paper-2: #212426;
+    --paper-3: #2d3134;
+    --accent: #ff6e40;
+    --accent-2: #60a5fa;
+    --success: #34d399;
+    --warn: #fbbf24;
+    --danger: #f87171;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+    --display: 'Syne', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .page-wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+  .site-header {
+    border-bottom: 1px solid var(--paper-3);
+    padding: 2rem 0 1.5rem;
+    margin-bottom: 0;
+  }
+  .header-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .tag-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--paper-3);
+    border-radius: 2px;
+    color: var(--ink-3);
+  }
+  .tag-badge.accent { border-color: var(--accent); color: var(--accent); }
+
+  .hero-title {
+    font-family: var(--display);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .hero-title em { font-style: normal; color: var(--accent); }
+
+  .section { padding: 2rem 0; }
+  
+  h2 {
+    font-family: var(--display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 2rem 0 1rem;
+  }
+
+  h3 {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  p { margin-bottom: 1rem; color: var(--ink-2); }
+  strong { font-weight: 500; color: var(--ink); }
+  em { color: var(--ink-2); }
+  
+  ul, ol { margin: 0 0 1rem 1.5rem; color: var(--ink-2); }
+  li { margin-bottom: 0.5rem; }
+
+  code {
+    font-family: var(--mono);
+    font-size: 0.85em;
+    background: var(--paper-2);
+    border: 1px solid var(--paper-3);
+    border-radius: 3px;
+    padding: 2px 5px;
+    color: var(--accent-2);
+  }
+
+  pre {
+    background: #0f1113;
+    border: 1px solid var(--paper-3);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+  pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.82rem;
+    color: #a8d8b8;
+  }
+
+  blockquote {
+    border-left: 3px solid var(--paper-3);
+    padding: 0.5rem 1rem;
+    margin: 1.5rem 0;
+    color: var(--ink-3);
+    background: var(--paper-2);
+    border-radius: 0 4px 4px 0;
+  }
+  blockquote p { margin-bottom: 0; }
+  blockquote p + p { margin-top: 0.5rem; }
+
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  thead tr { background: var(--paper-2); color: var(--ink); }
+  thead th {
+    font-family: var(--mono); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; padding: 0.75rem 1rem; text-align: left;
+  }
+  tbody tr { border-bottom: 1px solid var(--paper-2); }
+  tbody tr:hover { background: var(--paper-2); }
+  tbody td { padding: 0.65rem 1rem; color: var(--ink-2); vertical-align: top; }
+  tbody td:first-child { font-weight: 400; color: var(--ink); }
+
+  .site-footer {
+    margin-top: 4rem; padding: 2rem 0;
+    border-top: 1px solid var(--paper-3);
+    display: flex; justify-content: space-between;
+    font-family: var(--mono); font-size: 11px;
+    color: var(--ink-3); letter-spacing: 0.05em;
+  }
+  
+  a { color: var(--accent-2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+  <div style="padding-top: 2rem;">
+    <a href="index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;">← Retour au glossaire</a>
+    <span style="color: var(--paper-3); margin: 0 0.5rem;">|</span>
+    <a href="../index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;">Retour à l'accueil</a>
+  </div>
+
+  <header class="site-header">
+    <div class="header-meta">
+      <span class="tag-badge accent">Glossaire SEO</span>
+      <span class="tag-badge">Performance Web / Mobile / SEO Technique</span>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1 class="hero-title">AMP (Accelerated Mobile Pages) & `rel="amphtml"`</h1>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <blockquote>
+<p><strong>Statut</strong> : Technologie en déclin progressif — voir section <a href="#amp-en-2026">AMP en 2026</a></p>
+</blockquote>
+<hr />
+<h2>Définition</h2>
+<p><strong>AMP</strong> (Accelerated Mobile Pages) est un framework open-source initié par Google en 2015, conçu pour créer des pages web ultra-rapides sur mobile. Les pages AMP utilisent un sous-ensemble restreint de HTML, une version optimisée de CSS, et un runtime JavaScript spécifique (<code>amp.js</code>) pour garantir des temps de chargement quasi-instantanés.</p>
+<p>À son apogée (2016-2021), AMP offrait un avantage de positionnement dans les résultats mobiles de Google via le <strong>Top Stories carousel</strong>, réservé aux pages AMP. Cet avantage a été supprimé en <strong>juin 2021</strong>.</p>
+<hr />
+<h2>Architecture technique d'une page AMP</h2>
+<h3>Composants fondamentaux</h3>
+<p><strong>1. AMP HTML</strong> : HTML standard avec restrictions et extensions
+- Interdiction de <code>&lt;script&gt;</code> personnalisés
+- Tous les éléments visuels via composants AMP (<code>&lt;amp-img&gt;</code>, <code>&lt;amp-video&gt;</code>, etc.)
+- CSS inline uniquement, limité à 75 KB</p>
+<p><strong>2. AMP JS</strong> : Bibliothèque de runtime gérant :
+- Le chargement asynchrone des ressources
+- La priorisation des éléments visibles
+- L'isolation des iframes tiers</p>
+<p><strong>3. AMP Cache</strong> : CDN de Google (et Cloudflare/Bing) qui sert les pages AMP
+- Pré-rendu des pages pour un chargement instantané
+- URL formatée : <code>https://www.exemple-com.cdn.ampproject.org/c/s/www.exemple.com/article</code></p>
+<h3>Structure minimale</h3>
+<pre><code class="language-html">&lt;!doctype html&gt;
+&lt;html ⚡ lang=&quot;fr&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,minimum-scale=1&quot;&gt;
+  &lt;link rel=&quot;canonical&quot; href=&quot;https://www.exemple.com/article&quot;&gt;
+  &lt;style amp-boilerplate&gt;body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;}&lt;/style&gt;
+  &lt;noscript&gt;&lt;style amp-boilerplate&gt;body{-webkit-animation:none}&lt;/style&gt;&lt;/noscript&gt;
+  &lt;script async src=&quot;https://cdn.ampproject.org/v0.js&quot;&gt;&lt;/script&gt;
+  &lt;title&gt;Mon Article&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;amp-img src=&quot;hero.jpg&quot; width=&quot;800&quot; height=&quot;400&quot; layout=&quot;responsive&quot; alt=&quot;Hero&quot;&gt;&lt;/amp-img&gt;
+  &lt;p&gt;Contenu de l'article...&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<hr />
+<h2>Le tag <code>rel="amphtml"</code></h2>
+<h3>Rôle</h3>
+<p>Le tag <code>rel="amphtml"</code> est placé dans la page HTML canonique pour indiquer aux moteurs de recherche qu'il existe une version AMP de cette page.</p>
+<pre><code class="language-html">&lt;!-- Dans le &lt;head&gt; de la page canonique (HTML standard) --&gt;
+&lt;link rel=&quot;amphtml&quot; href=&quot;https://www.exemple.com/article?amp=1&quot;&gt;
+</code></pre>
+<h3>Le tag <code>rel="canonical"</code> côté AMP</h3>
+<p>Réciproquement, la page AMP doit pointer vers la page canonique :</p>
+<pre><code class="language-html">&lt;!-- Dans le &lt;head&gt; de la page AMP --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://www.exemple.com/article&quot;&gt;
+</code></pre>
+<h3>Relation canonique bidirectionnelle</h3>
+<pre><code>Page standard                    Page AMP
+     |                                |
+     |── rel=&quot;amphtml&quot; ─────────────→ |
+     |                                |
+     |← ── rel=&quot;canonical&quot; ──────────|
+</code></pre>
+<blockquote>
+<p><strong>Important</strong> : Si une page n'existe qu'en version AMP (sans version standard), la page AMP doit être auto-canonique (<code>&lt;link rel="canonical" href="[URL AMP elle-même]"&gt;</code>).</p>
+</blockquote>
+<hr />
+<h2>Implémentation selon la stratégie</h2>
+<h3>Option 1 : URLs séparées (approche classique)</h3>
+<ul>
+<li>Page standard : <code>https://exemple.com/article</code></li>
+<li>Page AMP : <code>https://exemple.com/article/amp/</code> ou <code>?amp=1</code></li>
+</ul>
+<h3>Option 2 : Page unique AMP (AMP-first)</h3>
+<ul>
+<li>Une seule URL, la page est nativement AMP</li>
+<li>Auto-référencement canonique</li>
+</ul>
+<h3>Option 3 : Paired AMP avec CMS</h3>
+<p>La plupart des CMS majeurs proposent des plugins officiels :
+- <strong>WordPress</strong> : Plugin officiel AMP (automatique)
+- <strong>Drupal</strong> : Module AMP
+- <strong>Shopify</strong> : Support natif partiel</p>
+<hr />
+<h2>AMP en 2026 {#amp-en-2026}</h2>
+<h3>Évolution du contexte</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Événement</th>
+<th>Date</th>
+<th>Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lancement AMP</td>
+<td>Oct 2015</td>
+<td>Début de l'adoption massive</td>
+</tr>
+<tr>
+<td>AMP requis pour Top Stories</td>
+<td>2016</td>
+<td>Pic d'adoption</td>
+</tr>
+<tr>
+<td>Annonce suppression privilège AMP</td>
+<td>Nov 2020</td>
+<td>Début du déclin</td>
+</tr>
+<tr>
+<td>Core Web Vitals remplace AMP pour Top Stories</td>
+<td>Juin 2021</td>
+<td>Perte de l'avantage SEO</td>
+</tr>
+<tr>
+<td>Google réduit ses investissements AMP</td>
+<td>2022-2023</td>
+<td>Signal de dépriorisation</td>
+</tr>
+<tr>
+<td>Part de pages AMP en déclin mesurable</td>
+<td>2024-2026</td>
+<td>Abandon progressif</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Pourquoi AMP est en déclin</h3>
+<ol>
+<li><strong>Suppression du privilège SEO</strong> : Google n'exige plus AMP pour le Top Stories mobile. Seule la performance (Core Web Vitals) compte.</li>
+<li><strong>Alternatives matures</strong> : Next.js, Astro, Nuxt offrent des performances équivalentes sans les contraintes AMP.</li>
+<li><strong>URLs AMP invasives</strong> : Les URLs <code>cdn.ampproject.org</code> empêchaient le partage de l'URL réelle.</li>
+<li><strong>Restrictions trop fortes</strong> : Pas de JS custom, fonctionnalités marketing limitées.</li>
+<li><strong>Complexité de maintenance</strong> : Deux versions à maintenir en parallèle.</li>
+</ol>
+<h3>Que faire en 2026 ?</h3>
+<p><strong>Si vous avez déjà AMP</strong> :
+- Évaluer le trafic AMP dans GA4 (segment <code>amp=1</code> ou source AMP cache)
+- Si trafic marginal (&lt;5%) : planifier la migration vers page unique responsive
+- Si trafic significatif : maintenir mais ne plus investir dans AMP</p>
+<p><strong>Si vous n'avez pas AMP</strong> :
+- Ne pas l'implémenter pour un nouveau projet
+- Investir à la place dans les <strong>Core Web Vitals</strong> (LCP, INP, CLS)</p>
+<p><strong>Alternative recommandée</strong> : Framework moderne avec SSG/SSR (Next.js, Astro) + optimisation CWV.</p>
+<hr />
+<h2>AMP vs Core Web Vitals</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Critère</th>
+<th>AMP</th>
+<th>Core Web Vitals</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Garantie de performance</td>
+<td>✅ Haute (si respecté)</td>
+<td>Dépend de l'implémentation</td>
+</tr>
+<tr>
+<td>Liberté de design</td>
+<td>❌ Très limitée</td>
+<td>✅ Totale</td>
+</tr>
+<tr>
+<td>JS custom</td>
+<td>❌ Interdit</td>
+<td>✅ Libre</td>
+</tr>
+<tr>
+<td>Avantage SEO</td>
+<td>❌ Supprimé</td>
+<td>✅ Facteur de ranking</td>
+</tr>
+<tr>
+<td>Maintenance</td>
+<td>❌ Double version</td>
+<td>✅ Version unique</td>
+</tr>
+<tr>
+<td>Adoption 2026</td>
+<td>📉 En baisse</td>
+<td>📈 Standard</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Validation et outils</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Outil</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://validator.ampproject.org/">AMP Validator</a></td>
+<td>Valider la conformité AMP</td>
+</tr>
+<tr>
+<td><strong>Google Search Console</strong> → AMP</td>
+<td>Erreurs et avertissements AMP</td>
+</tr>
+<tr>
+<td><strong>Chrome DevTools</strong></td>
+<td>Onglet AMP dans le panneau réseau</td>
+</tr>
+<tr>
+<td><strong>Lighthouse</strong></td>
+<td>Audit performance (remplace AMP pour les métriques)</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Voir aussi</h2>
+<ul>
+<li><a href="./Canonical.html">Canonical</a></li>
+<li><a href="./DOM_et_CSSOM.html">DOM et CSSOM</a></li>
+<li><a href="./CDN.html">CDN</a></li>
+<li><a href="./Key_Locations_SEO.html">Key Locations SEO</a></li>
+</ul>
+  </section>
+
+  <footer class="site-footer">
+    <span>Base de connaissance SEO</span>
+    <span>Glossaire technique</span>
+  </footer>
+</div>
+
+</body>
+</html>

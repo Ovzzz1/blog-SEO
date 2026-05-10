@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="tag" content="glossaire">
+<meta name="date" content="2026">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>X-Robots-Tag — Glossaire SEO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --ink: #f9fafb;
+    --ink-2: #d1d5db;
+    --ink-3: #9ca3af;
+    --paper: #17191a;
+    --paper-2: #212426;
+    --paper-3: #2d3134;
+    --accent: #ff6e40;
+    --accent-2: #60a5fa;
+    --success: #34d399;
+    --warn: #fbbf24;
+    --danger: #f87171;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+    --display: 'Syne', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .page-wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+  .site-header {
+    border-bottom: 1px solid var(--paper-3);
+    padding: 2rem 0 1.5rem;
+    margin-bottom: 0;
+  }
+  .header-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .tag-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--paper-3);
+    border-radius: 2px;
+    color: var(--ink-3);
+  }
+  .tag-badge.accent { border-color: var(--accent); color: var(--accent); }
+
+  .hero-title {
+    font-family: var(--display);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .hero-title em { font-style: normal; color: var(--accent); }
+
+  .section { padding: 2rem 0; }
+  
+  h2 {
+    font-family: var(--display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 2rem 0 1rem;
+  }
+
+  h3 {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  p { margin-bottom: 1rem; color: var(--ink-2); }
+  strong { font-weight: 500; color: var(--ink); }
+  em { color: var(--ink-2); }
+  
+  ul, ol { margin: 0 0 1rem 1.5rem; color: var(--ink-2); }
+  li { margin-bottom: 0.5rem; }
+
+  code {
+    font-family: var(--mono);
+    font-size: 0.85em;
+    background: var(--paper-2);
+    border: 1px solid var(--paper-3);
+    border-radius: 3px;
+    padding: 2px 5px;
+    color: var(--accent-2);
+  }
+
+  pre {
+    background: #0f1113;
+    border: 1px solid var(--paper-3);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+  pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.82rem;
+    color: #a8d8b8;
+  }
+
+  blockquote {
+    border-left: 3px solid var(--paper-3);
+    padding: 0.5rem 1rem;
+    margin: 1.5rem 0;
+    color: var(--ink-3);
+    background: var(--paper-2);
+    border-radius: 0 4px 4px 0;
+  }
+  blockquote p { margin-bottom: 0; }
+  blockquote p + p { margin-top: 0.5rem; }
+
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  thead tr { background: var(--paper-2); color: var(--ink); }
+  thead th {
+    font-family: var(--mono); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; padding: 0.75rem 1rem; text-align: left;
+  }
+  tbody tr { border-bottom: 1px solid var(--paper-2); }
+  tbody tr:hover { background: var(--paper-2); }
+  tbody td { padding: 0.65rem 1rem; color: var(--ink-2); vertical-align: top; }
+  tbody td:first-child { font-weight: 400; color: var(--ink); }
+
+  .site-footer {
+    margin-top: 4rem; padding: 2rem 0;
+    border-top: 1px solid var(--paper-3);
+    display: flex; justify-content: space-between;
+    font-family: var(--mono); font-size: 11px;
+    color: var(--ink-3); letter-spacing: 0.05em;
+  }
+  
+  a { color: var(--accent-2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+  <div style="padding-top: 2rem;">
+    <a href="index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;">← Retour au glossaire</a>
+    <span style="color: var(--paper-3); margin: 0 0.5rem;">|</span>
+    <a href="../index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;">Retour à l'accueil</a>
+  </div>
+
+  <header class="site-header">
+    <div class="header-meta">
+      <span class="tag-badge accent">Glossaire SEO</span>
+      <span class="tag-badge">SEO Technique / HTTP Headers / Indexation</span>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1 class="hero-title">X-Robots-Tag</h1>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <hr />
+<h2>Définition</h2>
+<p>Le <strong>X-Robots-Tag</strong> est un <strong>header HTTP</strong> permettant de contrôler l'indexation d'une ressource par les moteurs de recherche, exactement comme la balise <code>&lt;meta name="robots"&gt;</code> — mais avec un avantage majeur : il peut s'appliquer à <strong>n'importe quel type de fichier</strong> servi par un serveur web, qu'il s'agisse d'un PDF, d'une image, d'un fichier vidéo, d'un document Word, ou même d'une page HTML.</p>
+<p>Là où la meta robots est limitée au <code>&lt;head&gt;</code> d'un document HTML, le X-Robots-Tag opère au niveau du protocole HTTP, avant même que le contenu du fichier soit analysé.</p>
+<hr />
+<h2>Pourquoi X-Robots-Tag existe</h2>
+<h3>Le problème de la meta robots</h3>
+<p>La balise <code>&lt;meta name="robots"&gt;</code> ne peut être placée que dans le <code>&lt;head&gt;</code> d'un fichier HTML. Pour les ressources non-HTML, il est impossible d'incorporer des directives d'indexation directement dans le fichier :</p>
+<ul>
+<li>Un PDF n'a pas de <code>&lt;head&gt;</code> HTML</li>
+<li>Une image JPG ne peut pas contenir de balise meta</li>
+<li>Un fichier CSV ou XLS n'a pas de structure HTML</li>
+</ul>
+<p>Le X-Robots-Tag résout ce problème en permettant de délivrer les directives via le <strong>header HTTP de réponse</strong>, qui précède n'importe quel contenu.</p>
+<hr />
+<h2>Syntaxe</h2>
+<h3>Header HTTP standard</h3>
+<pre><code class="language-http">HTTP/1.1 200 OK
+X-Robots-Tag: noindex
+X-Robots-Tag: noindex, nofollow
+X-Robots-Tag: max-snippet:150, max-image-preview:standard
+</code></pre>
+<h3>Cibler un bot spécifique</h3>
+<pre><code class="language-http">X-Robots-Tag: googlebot: noindex
+X-Robots-Tag: bingbot: noarchive
+X-Robots-Tag: googlebot: noindex, nofollow
+</code></pre>
+<hr />
+<h2>Directives disponibles</h2>
+<p>Les mêmes directives que la meta robots sont supportées :</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Directive</th>
+<th>Effet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>noindex</code></td>
+<td>Exclut la ressource de l'index</td>
+</tr>
+<tr>
+<td><code>nofollow</code></td>
+<td>Ne pas suivre les liens dans la ressource</td>
+</tr>
+<tr>
+<td><code>noarchive</code></td>
+<td>Pas de version en cache</td>
+</tr>
+<tr>
+<td><code>nosnippet</code></td>
+<td>Pas d'extrait dans les SERPs</td>
+</tr>
+<tr>
+<td><code>noimageindex</code></td>
+<td>Pas d'indexation des images de la page</td>
+</tr>
+<tr>
+<td><code>max-snippet:[n]</code></td>
+<td>Limite l'extrait à n caractères</td>
+</tr>
+<tr>
+<td><code>max-image-preview:[none\|standard\|large]</code></td>
+<td>Taille de l'aperçu image</td>
+</tr>
+<tr>
+<td><code>max-video-preview:[n]</code></td>
+<td>Durée de l'aperçu vidéo en secondes</td>
+</tr>
+<tr>
+<td><code>unavailable_after:[date]</code></td>
+<td>Date d'expiration de l'indexation</td>
+</tr>
+<tr>
+<td><code>none</code></td>
+<td>Équivalent à <code>noindex, nofollow</code></td>
+</tr>
+<tr>
+<td><code>all</code></td>
+<td>Comportement par défaut (index + follow)</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Implémentation</h2>
+<h3>Apache (<code>.htaccess</code>)</h3>
+<p><strong>Pour tous les PDFs du site :</strong></p>
+<pre><code class="language-apache">&lt;FilesMatch &quot;\.pdf$&quot;&gt;
+  Header set X-Robots-Tag &quot;noindex, noarchive&quot;
+&lt;/FilesMatch&gt;
+</code></pre>
+<p><strong>Pour un répertoire entier :</strong></p>
+<pre><code class="language-apache">&lt;Directory &quot;/var/www/html/documents-prives/&quot;&gt;
+  Header set X-Robots-Tag &quot;noindex, nofollow&quot;
+&lt;/Directory&gt;
+</code></pre>
+<p><strong>Pour les images (pas d'indexation Google Images) :</strong></p>
+<pre><code class="language-apache">&lt;FilesMatch &quot;\.(jpg|jpeg|png|gif|webp|avif)$&quot;&gt;
+  Header set X-Robots-Tag &quot;noimageindex&quot;
+&lt;/FilesMatch&gt;
+</code></pre>
+<p><strong>Pour toutes les pages HTML d'un sous-répertoire staging :</strong></p>
+<pre><code class="language-apache">&lt;Directory &quot;/var/www/html/staging/&quot;&gt;
+  Header set X-Robots-Tag &quot;noindex, nofollow&quot;
+&lt;/Directory&gt;
+</code></pre>
+<h3>Nginx</h3>
+<pre><code class="language-nginx"># Pour tous les PDFs
+location ~* \.pdf$ {
+  add_header X-Robots-Tag &quot;noindex, noarchive&quot; always;
+}
+
+# Pour les images
+location ~* \.(jpg|jpeg|png|gif|webp|avif|svg)$ {
+  add_header X-Robots-Tag &quot;noimageindex&quot; always;
+}
+
+# Pour un répertoire entier
+location /documents-internes/ {
+  add_header X-Robots-Tag &quot;noindex, nofollow&quot; always;
+}
+
+# Pour les fichiers de données
+location ~* \.(csv|xls|xlsx|json)$ {
+  add_header X-Robots-Tag &quot;noindex&quot; always;
+}
+</code></pre>
+<h3>PHP</h3>
+<pre><code class="language-php">&lt;?php
+// Appliquer noindex à une page PHP dynamiquement
+if ($conditionNoIndex) {
+    header('X-Robots-Tag: noindex, nofollow');
+}
+
+// Pour un fichier PDF servi dynamiquement
+function servePDF($filename) {
+    header('Content-Type: application/pdf');
+    header('X-Robots-Tag: noindex, noarchive');
+    header('Content-Disposition: inline; filename=&quot;' . $filename . '&quot;');
+    readfile($filename);
+}
+?&gt;
+</code></pre>
+<h3>Node.js / Express</h3>
+<pre><code class="language-javascript">const express = require('express');
+const path = require('path');
+const app = express();
+
+// Middleware pour les fichiers PDF
+app.use('/documents', (req, res, next) =&gt; {
+  if (req.path.endsWith('.pdf')) {
+    res.set('X-Robots-Tag', 'noindex, noarchive');
+  }
+  next();
+});
+
+// Middleware global pour l'environnement staging
+if (process.env.NODE_ENV === 'staging') {
+  app.use((req, res, next) =&gt; {
+    res.set('X-Robots-Tag', 'noindex, nofollow');
+    next();
+  });
+}
+
+// Servir les fichiers statiques
+app.use('/documents', express.static(path.join(__dirname, 'private-docs')));
+</code></pre>
+<h3>Python / Django</h3>
+<pre><code class="language-python"># middleware.py
+class XRobotsTagMiddleware:
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        response = self.get_response(request)
+
+        # Appliquer noindex en staging
+        if settings.ENVIRONMENT == 'staging':
+            response['X-Robots-Tag'] = 'noindex, nofollow'
+
+        # Noindex pour les PDFs servis dynamiquement
+        if request.path.endswith('.pdf'):
+            response['X-Robots-Tag'] = 'noindex, noarchive'
+
+        return response
+
+# settings.py
+MIDDLEWARE = [
+    'myapp.middleware.XRobotsTagMiddleware',
+    # ...
+]
+</code></pre>
+<hr />
+<h2>Cas d'usage spécifiques</h2>
+<h3>Empêcher l'indexation des PDFs internes</h3>
+<p>Les PDFs techniques (bons de commande, fiches internes, contrats) ne doivent pas apparaître dans les résultats de recherche :</p>
+<pre><code class="language-apache">&lt;FilesMatch &quot;\.pdf$&quot;&gt;
+  Header set X-Robots-Tag &quot;noindex, noarchive&quot;
+&lt;/FilesMatch&gt;
+</code></pre>
+<h3>Contrôler Google Images</h3>
+<p>Pour éviter que les images d'un site e-commerce soient indexées dans Google Images indépendamment des pages produit :</p>
+<pre><code class="language-nginx">location ~* \.(jpg|jpeg|png|webp)$ {
+  add_header X-Robots-Tag &quot;noimageindex&quot; always;
+}
+</code></pre>
+<h3>Environnement de staging</h3>
+<p>Bloquer systématiquement l'indexation d'un environnement de recette/staging, même si Googlebot y accède :</p>
+<pre><code class="language-nginx"># Virtual host staging
+server {
+    server_name staging.exemple.com;
+
+    location / {
+        add_header X-Robots-Tag &quot;noindex, nofollow&quot; always;
+        # reste de la config...
+    }
+}
+</code></pre>
+<h3>Contenu à durée limitée</h3>
+<pre><code class="language-php">// Conférence en ligne disponible jusqu'au 31 décembre 2026
+header('X-Robots-Tag: unavailable_after: Thu, 31 Dec 2026 23:59:59 GMT');
+</code></pre>
+<hr />
+<h2>X-Robots-Tag vs Meta Robots : quand utiliser quoi ?</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Critère</th>
+<th style="text-align: center;">Meta Robots</th>
+<th style="text-align: center;">X-Robots-Tag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pages HTML</td>
+<td style="text-align: center;">✅ Idéal</td>
+<td style="text-align: center;">✅ Possible</td>
+</tr>
+<tr>
+<td>PDFs</td>
+<td style="text-align: center;">❌ Impossible</td>
+<td style="text-align: center;">✅ Idéal</td>
+</tr>
+<tr>
+<td>Images (JPG, PNG, WebP…)</td>
+<td style="text-align: center;">❌ Impossible</td>
+<td style="text-align: center;">✅ Idéal</td>
+</tr>
+<tr>
+<td>Vidéos</td>
+<td style="text-align: center;">❌ Impossible</td>
+<td style="text-align: center;">✅ Idéal</td>
+</tr>
+<tr>
+<td>Fichiers Office (XLS, DOCX)</td>
+<td style="text-align: center;">❌ Impossible</td>
+<td style="text-align: center;">✅ Idéal</td>
+</tr>
+<tr>
+<td>Règles en masse par type de fichier</td>
+<td style="text-align: center;">❌ Page par page</td>
+<td style="text-align: center;">✅ Regex serveur</td>
+</tr>
+<tr>
+<td>Environnement staging global</td>
+<td style="text-align: center;">❌ Laborieux</td>
+<td style="text-align: center;">✅ 1 règle serveur</td>
+</tr>
+<tr>
+<td>CMS sans accès serveur</td>
+<td style="text-align: center;">✅ Accessible</td>
+<td style="text-align: center;">❌ Peut être bloqué</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Règle pratique</strong> :
+- Fichiers non-HTML → <strong>X-Robots-Tag</strong>
+- Pages HTML avec contrôle CMS → <strong>meta robots</strong>
+- Les deux peuvent coexister sur une page HTML (la directive la plus restrictive s'applique)</p>
+<hr />
+<h2>Vérification</h2>
+<h3>Via curl</h3>
+<pre><code class="language-bash"># Vérifier les headers d'un PDF
+curl -I https://exemple.com/document.pdf | grep -i &quot;x-robots&quot;
+
+# Vérifier une image
+curl -I https://exemple.com/image.jpg | grep -i &quot;x-robots&quot;
+
+# Sortie attendue :
+# x-robots-tag: noindex, noarchive
+</code></pre>
+<h3>Via Chrome DevTools</h3>
+<ol>
+<li>Ouvrir DevTools → Onglet <strong>Network</strong></li>
+<li>Cliquer sur la ressource concernée</li>
+<li>Vérifier les <strong>Response Headers</strong> → <code>x-robots-tag</code></li>
+</ol>
+<h3>Google Search Console</h3>
+<ul>
+<li><strong>Inspection d'URL</strong> → Affiche les directives lues par Google (pour les pages HTML)</li>
+<li>Pour les PDFs : utiliser l'outil d'inspection sur l'URL du PDF</li>
+</ul>
+<hr />
+<h2>Voir aussi</h2>
+<ul>
+<li><a href="./Robots_Meta_Tag.html">Robots Meta Tag</a></li>
+<li><a href="./Robots_txt.html">Robots.txt</a></li>
+<li><a href="./Crawl_Budget.html">Crawl Budget</a></li>
+<li><a href="./4XX_HTTP_Response_Codes.html">4XX HTTP Response Codes</a></li>
+<li><a href="./Key_Locations_SEO.html">Key Locations SEO</a></li>
+</ul>
+  </section>
+
+  <footer class="site-footer">
+    <span>Base de connaissance SEO</span>
+    <span>Glossaire technique</span>
+  </footer>
+</div>
+
+</body>
+</html>

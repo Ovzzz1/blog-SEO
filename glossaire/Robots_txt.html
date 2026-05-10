@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="tag" content="glossaire">
+<meta name="date" content="2026">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Robots.txt — Glossaire SEO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --ink: #f9fafb;
+    --ink-2: #d1d5db;
+    --ink-3: #9ca3af;
+    --paper: #17191a;
+    --paper-2: #212426;
+    --paper-3: #2d3134;
+    --accent: #ff6e40;
+    --accent-2: #60a5fa;
+    --success: #34d399;
+    --warn: #fbbf24;
+    --danger: #f87171;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+    --display: 'Syne', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .page-wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+  .site-header {
+    border-bottom: 1px solid var(--paper-3);
+    padding: 2rem 0 1.5rem;
+    margin-bottom: 0;
+  }
+  .header-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .tag-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--paper-3);
+    border-radius: 2px;
+    color: var(--ink-3);
+  }
+  .tag-badge.accent { border-color: var(--accent); color: var(--accent); }
+
+  .hero-title {
+    font-family: var(--display);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .hero-title em { font-style: normal; color: var(--accent); }
+
+  .section { padding: 2rem 0; }
+  
+  h2 {
+    font-family: var(--display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 2rem 0 1rem;
+  }
+
+  h3 {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  p { margin-bottom: 1rem; color: var(--ink-2); }
+  strong { font-weight: 500; color: var(--ink); }
+  em { color: var(--ink-2); }
+  
+  ul, ol { margin: 0 0 1rem 1.5rem; color: var(--ink-2); }
+  li { margin-bottom: 0.5rem; }
+
+  code {
+    font-family: var(--mono);
+    font-size: 0.85em;
+    background: var(--paper-2);
+    border: 1px solid var(--paper-3);
+    border-radius: 3px;
+    padding: 2px 5px;
+    color: var(--accent-2);
+  }
+
+  pre {
+    background: #0f1113;
+    border: 1px solid var(--paper-3);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+  pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.82rem;
+    color: #a8d8b8;
+  }
+
+  blockquote {
+    border-left: 3px solid var(--paper-3);
+    padding: 0.5rem 1rem;
+    margin: 1.5rem 0;
+    color: var(--ink-3);
+    background: var(--paper-2);
+    border-radius: 0 4px 4px 0;
+  }
+  blockquote p { margin-bottom: 0; }
+  blockquote p + p { margin-top: 0.5rem; }
+
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  thead tr { background: var(--paper-2); color: var(--ink); }
+  thead th {
+    font-family: var(--mono); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; padding: 0.75rem 1rem; text-align: left;
+  }
+  tbody tr { border-bottom: 1px solid var(--paper-2); }
+  tbody tr:hover { background: var(--paper-2); }
+  tbody td { padding: 0.65rem 1rem; color: var(--ink-2); vertical-align: top; }
+  tbody td:first-child { font-weight: 400; color: var(--ink); }
+
+  .site-footer {
+    margin-top: 4rem; padding: 2rem 0;
+    border-top: 1px solid var(--paper-3);
+    display: flex; justify-content: space-between;
+    font-family: var(--mono); font-size: 11px;
+    color: var(--ink-3); letter-spacing: 0.05em;
+  }
+  
+  a { color: var(--accent-2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+  <div style="padding-top: 2rem;">
+    <a href="index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;">← Retour au glossaire</a>
+    <span style="color: var(--paper-3); margin: 0 0.5rem;">|</span>
+    <a href="../index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;">Retour à l'accueil</a>
+  </div>
+
+  <header class="site-header">
+    <div class="header-meta">
+      <span class="tag-badge accent">Glossaire SEO</span>
+      <span class="tag-badge">SEO Technique / Crawl / Indexation</span>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1 class="hero-title">Robots.txt</h1>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <hr />
+<h2>Définition</h2>
+<p>Le fichier <strong>robots.txt</strong> est un fichier texte placé à la <strong>racine d'un site web</strong> qui sert à communiquer avec les robots d'exploration (crawlers) via le protocole <strong>REP (Robots Exclusion Protocol)</strong>. Il indique aux bots quelles parties du site ils sont autorisés ou non à crawler.</p>
+<blockquote>
+<p><strong>Distinction fondamentale</strong> : <code>robots.txt</code> contrôle le <strong>crawl</strong>, pas l'<strong>indexation</strong>. Une page bloquée dans robots.txt peut toujours apparaître dans les résultats de recherche si elle reçoit des liens externes — Google peut l'indexer sans la crawler.</p>
+</blockquote>
+<p><strong>URL standard</strong> : Toujours accessible à <code>https://votre-domaine.com/robots.txt</code></p>
+<hr />
+<h2>Syntaxe et composants</h2>
+<h3>Structure de base</h3>
+<pre><code>User-agent: [nom du bot ou *]
+Disallow: [chemin à bloquer]
+Allow: [chemin à autoriser]
+Sitemap: [URL du sitemap XML]
+Crawl-delay: [secondes entre les requêtes]
+</code></pre>
+<h3>Règles de syntaxe</h3>
+<ul>
+<li>Une ligne = une directive</li>
+<li>Les commentaires commencent par <code>#</code></li>
+<li>Une ligne vide <strong>sépare les groupes</strong> de règles</li>
+<li>Les chemins sont <strong>sensibles à la casse</strong> (Linux)</li>
+<li>Le fichier doit être en <strong>UTF-8</strong> (ou ASCII)</li>
+<li>Taille maximale supportée par Google : <strong>500 Ko</strong> (les règles au-delà sont ignorées)</li>
+</ul>
+<hr />
+<h2>Les directives principales</h2>
+<h3><code>User-agent</code></h3>
+<p>Spécifie le bot auquel s'appliquent les règles suivantes.</p>
+<pre><code>User-agent: *               # Tous les bots
+User-agent: Googlebot       # Seulement Google
+User-agent: Bingbot         # Seulement Bing
+User-agent: GPTBot          # Bot OpenAI (depuis 2023)
+User-agent: ClaudeBot       # Bot Anthropic
+User-agent: PerplexityBot   # Bot Perplexity
+User-agent: AhrefsBot       # Bot Ahrefs
+User-agent: SemrushBot      # Bot Semrush
+</code></pre>
+<h3><code>Disallow</code></h3>
+<p>Bloque l'accès à un chemin ou une ressource.</p>
+<pre><code>Disallow: /          # Bloque tout le site
+Disallow: /admin/    # Bloque le répertoire /admin/ et tout son contenu
+Disallow: /private   # Bloque /private et /private-stuff (correspondance par préfixe)
+Disallow: /*.pdf$    # Bloque tous les PDFs (syntaxe Google uniquement)
+Disallow:            # Ligne vide = autorise tout (équivaut à Allow: /)
+</code></pre>
+<h3><code>Allow</code></h3>
+<p>Autorise l'accès à un chemin, même si un <code>Disallow</code> parent le bloquerait. <strong>Priorité à la règle la plus spécifique</strong>.</p>
+<pre><code>User-agent: Googlebot
+Disallow: /css/
+Allow: /css/style.css    # Autorise ce fichier spécifique malgré le Disallow du dossier
+
+User-agent: *
+Disallow: /private/
+Allow: /private/public-report.pdf    # Exception pour ce document
+</code></pre>
+<h3><code>Sitemap</code></h3>
+<p>Indique l'URL du ou des sitemaps XML. Peut apparaître n'importe où dans le fichier.</p>
+<pre><code>Sitemap: https://exemple.com/sitemap.xml
+Sitemap: https://exemple.com/sitemap-news.xml
+Sitemap: https://exemple.com/sitemap-images.xml
+</code></pre>
+<h3><code>Crawl-delay</code></h3>
+<p>Demande au bot d'attendre un délai (en secondes) entre chaque requête. <strong>Non supporté par Googlebot</strong> (à gérer via Google Search Console).</p>
+<pre><code>User-agent: *
+Crawl-delay: 2    # 2 secondes entre chaque requête
+</code></pre>
+<hr />
+<h2>Wildcards (caractères génériques)</h2>
+<p>Google supporte deux wildcards dans robots.txt :</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Caractère</th>
+<th>Signification</th>
+<th>Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*</code></td>
+<td>N'importe quelle séquence de caractères</td>
+<td><code>Disallow: /search?*</code></td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td>Fin d'URL</td>
+<td><code>Disallow: /*.pdf$</code></td>
+</tr>
+</tbody>
+</table></div>
+<pre><code># Bloquer toutes les URLs contenant &quot;?s=&quot; (paramètres de recherche WP)
+Disallow: /*?s=
+
+# Bloquer uniquement les fichiers .xls (pas les dossiers contenant &quot;xls&quot;)
+Disallow: /*.xls$
+
+# Bloquer les URLs avec des paramètres de session
+Disallow: /*?sessionid=
+</code></pre>
+<hr />
+<h2>Exemples complets</h2>
+<h3>Site standard avec zones privées</h3>
+<pre><code>User-agent: *
+Disallow: /admin/
+Disallow: /compte/
+Disallow: /panier/
+Disallow: /checkout/
+Disallow: /search?
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
+
+Sitemap: https://exemple.com/sitemap.xml
+</code></pre>
+<h3>E-commerce avec gestion des facettes</h3>
+<pre><code>User-agent: *
+Disallow: /compte/
+Disallow: /checkout/
+Disallow: /panier/
+Disallow: /wishlist/
+# Bloquer les paramètres de tri/filtres qui ne créent pas de contenu unique
+Disallow: /*?tri=
+Disallow: /*?sort=
+Disallow: /*?color=
+Disallow: /*?taille=
+Disallow: /*?page=
+
+# Autoriser la pagination sémantique (catégories)
+Allow: /categorie/*/page/
+
+Sitemap: https://exemple.com/sitemap.xml
+Sitemap: https://exemple.com/sitemap-products.xml
+</code></pre>
+<h3>Bloquer les bots IA tout en autorisant les bots SEO</h3>
+<pre><code># Bloquer les scrapers IA
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Omgilibot
+Disallow: /
+
+# Autoriser Google et Bing normalement
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Règle par défaut pour les autres
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+
+Sitemap: https://exemple.com/sitemap.xml
+</code></pre>
+<h3>Bloquer tout le site (site en construction)</h3>
+<pre><code>User-agent: *
+Disallow: /
+
+Sitemap: https://exemple.com/sitemap.xml
+</code></pre>
+<hr />
+<h2>Robots.txt vs autres mécanismes de contrôle</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Mécanisme</th>
+<th style="text-align: center;">Contrôle</th>
+<th style="text-align: center;">Empêche indexation</th>
+<th style="text-align: center;">Empêche crawl</th>
+<th style="text-align: center;">Granularité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>robots.txt</strong></td>
+<td style="text-align: center;">Crawl</td>
+<td style="text-align: center;">❌ Non</td>
+<td style="text-align: center;">✅ Oui</td>
+<td style="text-align: center;">Par chemin</td>
+</tr>
+<tr>
+<td><strong>Robots Meta Tag</strong></td>
+<td style="text-align: center;">Indexation</td>
+<td style="text-align: center;">✅ Oui</td>
+<td style="text-align: center;">❌ Non</td>
+<td style="text-align: center;">Par page</td>
+</tr>
+<tr>
+<td><strong>X-Robots-Tag</strong></td>
+<td style="text-align: center;">Indexation</td>
+<td style="text-align: center;">✅ Oui</td>
+<td style="text-align: center;">❌ Non</td>
+<td style="text-align: center;">Par fichier</td>
+</tr>
+<tr>
+<td><strong>Canonical</strong></td>
+<td style="text-align: center;">Indexation</td>
+<td style="text-align: center;">Indirect</td>
+<td style="text-align: center;">❌ Non</td>
+<td style="text-align: center;">Par page</td>
+</tr>
+<tr>
+<td><strong>noindex</strong> dans CSS/JS</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">❌ (invisible)</td>
+<td style="text-align: center;">❌ Non</td>
+<td style="text-align: center;">—</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>💡 <strong>Règle d'or</strong> : Pour <strong>empêcher l'indexation</strong> d'une page → <code>noindex</code>. Pour <strong>réduire le crawl</strong> d'URLs inutiles → <code>Disallow</code> dans robots.txt.</p>
+</blockquote>
+<hr />
+<h2>Pièges et erreurs fréquentes</h2>
+<h3>1. Bloquer les ressources CSS/JS</h3>
+<pre><code># ❌ ERREUR : empêche Google de rendre la page correctement
+User-agent: Googlebot
+Disallow: /wp-content/themes/
+Disallow: /wp-content/plugins/
+</code></pre>
+<p>Google a besoin d'accéder aux CSS et JS pour comprendre le rendu de la page. Les bloquer peut entraîner une mauvaise compréhension du contenu et une baisse de positionnement.</p>
+<h3>2. Bloquer et mettre en canonical simultanément</h3>
+<p>Une page bloquée dans robots.txt ET ayant un canonical ne peut pas voir son canonical respecté — Google ne peut pas lire le canonical s'il ne peut pas crawler la page.</p>
+<h3>3. Utiliser robots.txt comme seule protection des données sensibles</h3>
+<p><code>robots.txt</code> est un fichier public. N'importe qui peut le lire et accéder aux URLs listées dedans. Pour sécuriser de vraies données sensibles : authentification + 401/403.</p>
+<h3>4. Slash final absent</h3>
+<pre><code>Disallow: /admin     # Bloque aussi /administrator, /admintools...
+Disallow: /admin/    # Bloque uniquement le dossier /admin/ ← plus précis
+</code></pre>
+<hr />
+<h2>Robots.txt et les bots IA (2024-2026)</h2>
+<p>L'essor des LLMs (ChatGPT, Claude, Perplexity, Gemini) a introduit une nouvelle catégorie de bots qui crawlent le web pour entraîner leurs modèles ou répondre à des requêtes. En 2026, de nombreux sites choisissent de contrôler cet accès.</p>
+<h3>Principaux bots IA à connaître</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Bot</th>
+<th>Organisation</th>
+<th>User-Agent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPTBot</td>
+<td>OpenAI</td>
+<td><code>GPTBot/1.0</code></td>
+</tr>
+<tr>
+<td>ChatGPT-User</td>
+<td>OpenAI</td>
+<td><code>ChatGPT-User</code></td>
+</tr>
+<tr>
+<td>ClaudeBot</td>
+<td>Anthropic</td>
+<td><code>ClaudeBot</code></td>
+</tr>
+<tr>
+<td>Claude-User</td>
+<td>Anthropic</td>
+<td><code>Claude-User</code></td>
+</tr>
+<tr>
+<td>PerplexityBot</td>
+<td>Perplexity AI</td>
+<td><code>PerplexityBot</code></td>
+</tr>
+<tr>
+<td>Gemini</td>
+<td>Google</td>
+<td>(via Googlebot)</td>
+</tr>
+<tr>
+<td>Amazonbot</td>
+<td>Amazon (Alexa)</td>
+<td><code>Amazonbot</code></td>
+</tr>
+<tr>
+<td>Bytespider</td>
+<td>ByteDance</td>
+<td><code>Bytespider</code></td>
+</tr>
+<tr>
+<td>CCBot</td>
+<td>Common Crawl</td>
+<td><code>CCBot</code></td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>Note : Certains de ces bots (notamment ceux d'OpenAI) respectent robots.txt depuis mi-2023 suite à des pressions légales. Le respect n'est cependant pas garanti pour tous les acteurs.</p>
+</blockquote>
+<hr />
+<h2>Monitoring et validation</h2>
+<h3>Google Search Console</h3>
+<ul>
+<li><strong>Rapport d'exploration</strong> → Statistiques de crawl : observer le comportement de Googlebot</li>
+<li><strong>Outil de test robots.txt</strong> : Tester si une URL spécifique est bloquée (dans l'ancien Search Console)</li>
+</ul>
+<h3>Validation en ligne</h3>
+<ul>
+<li><a href="https://search.google.com/search-console/robots-testing-tool">robots.txt Tester de Google</a></li>
+<li><a href="https://technicalseo.com/tools/robots-txt/">Merkle robots.txt validator</a></li>
+</ul>
+<h3>Test manuel</h3>
+<pre><code class="language-bash"># Afficher le robots.txt
+curl https://exemple.com/robots.txt
+
+# Vérifier qu'une URL est accessible (simuler Googlebot)
+curl -A &quot;Googlebot/2.1&quot; -I https://exemple.com/page-test
+</code></pre>
+<hr />
+<h2>Voir aussi</h2>
+<ul>
+<li><a href="./Robots_Meta_Tag.html">Robots Meta Tag</a></li>
+<li><a href="./X_Robots_Tag.html">X-Robots-Tag</a></li>
+<li><a href="./Crawl_Budget.html">Crawl Budget</a></li>
+<li><a href="./XML_Sitemap.html">XML Sitemap</a></li>
+<li><a href="./Rel_Follow_Nofollow.html">Rel Follow/Nofollow</a></li>
+</ul>
+  </section>
+
+  <footer class="site-footer">
+    <span>Base de connaissance SEO</span>
+    <span>Glossaire technique</span>
+  </footer>
+</div>
+
+</body>
+</html>

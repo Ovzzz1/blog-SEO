@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="tag" content="glossaire">
+<meta name="date" content="2026">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Robots Meta Tag — Glossaire SEO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --ink: #f9fafb;
+    --ink-2: #d1d5db;
+    --ink-3: #9ca3af;
+    --paper: #17191a;
+    --paper-2: #212426;
+    --paper-3: #2d3134;
+    --accent: #ff6e40;
+    --accent-2: #60a5fa;
+    --success: #34d399;
+    --warn: #fbbf24;
+    --danger: #f87171;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+    --display: 'Syne', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .page-wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+  .site-header {
+    border-bottom: 1px solid var(--paper-3);
+    padding: 2rem 0 1.5rem;
+    margin-bottom: 0;
+  }
+  .header-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .tag-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--paper-3);
+    border-radius: 2px;
+    color: var(--ink-3);
+  }
+  .tag-badge.accent { border-color: var(--accent); color: var(--accent); }
+
+  .hero-title {
+    font-family: var(--display);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .hero-title em { font-style: normal; color: var(--accent); }
+
+  .section { padding: 2rem 0; }
+  
+  h2 {
+    font-family: var(--display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 2rem 0 1rem;
+  }
+
+  h3 {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  p { margin-bottom: 1rem; color: var(--ink-2); }
+  strong { font-weight: 500; color: var(--ink); }
+  em { color: var(--ink-2); }
+  
+  ul, ol { margin: 0 0 1rem 1.5rem; color: var(--ink-2); }
+  li { margin-bottom: 0.5rem; }
+
+  code {
+    font-family: var(--mono);
+    font-size: 0.85em;
+    background: var(--paper-2);
+    border: 1px solid var(--paper-3);
+    border-radius: 3px;
+    padding: 2px 5px;
+    color: var(--accent-2);
+  }
+
+  pre {
+    background: #0f1113;
+    border: 1px solid var(--paper-3);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+  pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.82rem;
+    color: #a8d8b8;
+  }
+
+  blockquote {
+    border-left: 3px solid var(--paper-3);
+    padding: 0.5rem 1rem;
+    margin: 1.5rem 0;
+    color: var(--ink-3);
+    background: var(--paper-2);
+    border-radius: 0 4px 4px 0;
+  }
+  blockquote p { margin-bottom: 0; }
+  blockquote p + p { margin-top: 0.5rem; }
+
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  thead tr { background: var(--paper-2); color: var(--ink); }
+  thead th {
+    font-family: var(--mono); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; padding: 0.75rem 1rem; text-align: left;
+  }
+  tbody tr { border-bottom: 1px solid var(--paper-2); }
+  tbody tr:hover { background: var(--paper-2); }
+  tbody td { padding: 0.65rem 1rem; color: var(--ink-2); vertical-align: top; }
+  tbody td:first-child { font-weight: 400; color: var(--ink); }
+
+  .site-footer {
+    margin-top: 4rem; padding: 2rem 0;
+    border-top: 1px solid var(--paper-3);
+    display: flex; justify-content: space-between;
+    font-family: var(--mono); font-size: 11px;
+    color: var(--ink-3); letter-spacing: 0.05em;
+  }
+  
+  a { color: var(--accent-2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+  <div style="padding-top: 2rem;">
+    <a href="index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;">← Retour au glossaire</a>
+    <span style="color: var(--paper-3); margin: 0 0.5rem;">|</span>
+    <a href="../index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;">Retour à l'accueil</a>
+  </div>
+
+  <header class="site-header">
+    <div class="header-meta">
+      <span class="tag-badge accent">Glossaire SEO</span>
+      <span class="tag-badge">SEO Technique / Indexation / Directives aux bots</span>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1 class="hero-title">Robots Meta Tag</h1>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <hr />
+<h2>Définition</h2>
+<p>La <strong>balise meta robots</strong> est une directive HTML placée dans la section <code>&lt;head&gt;</code> d'une page web qui indique aux robots des moteurs de recherche comment <strong>indexer</strong> cette page et <strong>suivre</strong> ses liens. Contrairement au fichier <code>robots.txt</code> qui contrôle l'accès au crawl, la balise meta robots est lue <strong>après que le bot a crawlé la page</strong> et agit au niveau de l'indexation.</p>
+<p>C'est l'un des outils les plus précis pour contrôler la visibilité individuelle d'une page dans les moteurs de recherche.</p>
+<hr />
+<h2>Syntaxe</h2>
+<h3>Syntaxe de base</h3>
+<pre><code class="language-html">&lt;meta name=&quot;robots&quot; content=&quot;directive1, directive2&quot;&gt;
+</code></pre>
+<h3>Cibler un bot spécifique</h3>
+<pre><code class="language-html">&lt;!-- Directive pour tous les bots --&gt;
+&lt;meta name=&quot;robots&quot; content=&quot;noindex, nofollow&quot;&gt;
+
+&lt;!-- Directive spécifique à Googlebot --&gt;
+&lt;meta name=&quot;googlebot&quot; content=&quot;noindex, nofollow&quot;&gt;
+
+&lt;!-- Directive spécifique à Bingbot --&gt;
+&lt;meta name=&quot;bingbot&quot; content=&quot;noindex&quot;&gt;
+
+&lt;!-- Les deux coexistent — Googlebot suit la règle la plus spécifique --&gt;
+&lt;meta name=&quot;robots&quot; content=&quot;noindex&quot;&gt;
+&lt;meta name=&quot;googlebot&quot; content=&quot;noindex, nosnippet&quot;&gt;
+</code></pre>
+<hr />
+<h2>Les directives disponibles</h2>
+<h3>Contrôle de l'indexation</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Directive</th>
+<th>Effet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>index</code></td>
+<td>✅ Autorise l'indexation (comportement par défaut)</td>
+</tr>
+<tr>
+<td><code>noindex</code></td>
+<td>❌ Exclut la page de l'index</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Contrôle du suivi des liens</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Directive</th>
+<th>Effet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>follow</code></td>
+<td>✅ Autorise le suivi des liens (comportement par défaut)</td>
+</tr>
+<tr>
+<td><code>nofollow</code></td>
+<td>❌ Empêche le suivi de tous les liens de la page</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Contrôle des snippets et aperçus</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Directive</th>
+<th>Effet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>snippet</code></td>
+<td>✅ Autorise les extraits dans les SERPs (défaut)</td>
+</tr>
+<tr>
+<td><code>nosnippet</code></td>
+<td>❌ Aucun extrait de texte ni aperçu vidéo dans les SERPs</td>
+</tr>
+<tr>
+<td><code>max-snippet:[n]</code></td>
+<td>Limite l'extrait à <strong>n</strong> caractères (ex : <code>max-snippet:160</code>)</td>
+</tr>
+<tr>
+<td><code>max-image-preview:[valeur]</code></td>
+<td>Taille max des aperçus d'image : <code>none</code>, <code>standard</code>, <code>large</code></td>
+</tr>
+<tr>
+<td><code>max-video-preview:[n]</code></td>
+<td>Durée max de l'aperçu vidéo en secondes (<code>-1</code> = illimité)</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Contrôle du cache et archivage</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Directive</th>
+<th>Effet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>noarchive</code></td>
+<td>❌ Ne pas mettre en cache la page (supprime le lien "En cache")</td>
+</tr>
+<tr>
+<td><code>nocache</code></td>
+<td>Alias de <code>noarchive</code> pour certains bots (non standard)</td>
+</tr>
+<tr>
+<td><code>noimageindex</code></td>
+<td>❌ Ne pas indexer les images de cette page</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Directives temporelles</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Directive</th>
+<th>Effet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>unavailable_after: [date]</code></td>
+<td>Ne plus indexer après la date spécifiée (format RFC 850)</td>
+</tr>
+</tbody>
+</table></div>
+<pre><code class="language-html">&lt;!-- Contenu d'un événement, à désindexer après la date --&gt;
+&lt;meta name=&quot;robots&quot; content=&quot;index, unavailable_after: 2026-12-31T23:59:59Z&quot;&gt;
+</code></pre>
+<hr />
+<h2>Exemples pratiques</h2>
+<h3>Page standard (comportement par défaut)</h3>
+<pre><code class="language-html">&lt;!-- Équivalent à ne rien mettre — tout est autorisé par défaut --&gt;
+&lt;meta name=&quot;robots&quot; content=&quot;index, follow&quot;&gt;
+</code></pre>
+<h3>Exclure complètement une page de l'index</h3>
+<pre><code class="language-html">&lt;meta name=&quot;robots&quot; content=&quot;noindex, nofollow&quot;&gt;
+</code></pre>
+<h3>Exclure de l'index mais suivre les liens (pour conserver le flux de PageRank)</h3>
+<pre><code class="language-html">&lt;meta name=&quot;robots&quot; content=&quot;noindex, follow&quot;&gt;
+</code></pre>
+<h3>Page indexée mais sans extrait dans les SERPs (ex : page produit premium)</h3>
+<pre><code class="language-html">&lt;meta name=&quot;robots&quot; content=&quot;index, nosnippet&quot;&gt;
+</code></pre>
+<h3>Contrôle fin des snippets (recommandé pour les médias)</h3>
+<pre><code class="language-html">&lt;meta name=&quot;robots&quot; content=&quot;max-snippet:300, max-image-preview:large, max-video-preview:10&quot;&gt;
+</code></pre>
+<h3>Page de confirmation de commande</h3>
+<pre><code class="language-html">&lt;!-- Ne pas indexer les pages de confirmation transactionnelles --&gt;
+&lt;meta name=&quot;robots&quot; content=&quot;noindex, nofollow&quot;&gt;
+</code></pre>
+<h3>Page de résultats de recherche interne</h3>
+<pre><code class="language-html">&lt;meta name=&quot;robots&quot; content=&quot;noindex, follow&quot;&gt;
+</code></pre>
+<hr />
+<h2>Règles de priorité et conflits</h2>
+<h3>Conflit robots.txt vs meta robots</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Scénario</th>
+<th>Résultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>robots.txt</code> Disallow + <code>&lt;meta noindex&gt;</code></td>
+<td>Page non crawlée → Google <strong>ne peut pas lire le noindex</strong> → page peut rester dans l'index si elle a des liens entrants</td>
+</tr>
+<tr>
+<td><code>robots.txt</code> Allow + <code>&lt;meta noindex&gt;</code></td>
+<td>✅ Google crawle la page, lit le noindex, la déindexe</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p><strong>Piège classique</strong> : Bloquer une page dans <code>robots.txt</code> ET mettre un <code>noindex</code> dessus. Le noindex n'est jamais lu car Google ne peut pas crawler la page. Si vous voulez déindexer une page, <strong>ne la bloquez pas dans robots.txt</strong>.</p>
+</blockquote>
+<h3>Conflit entre directives multiples</h3>
+<p>En présence de plusieurs balises meta robots ou directives contradictoires, Google applique la directive la <strong>plus restrictive</strong> :</p>
+<pre><code class="language-html">&lt;!-- Google appliquera noindex (plus restrictif) --&gt;
+&lt;meta name=&quot;robots&quot; content=&quot;index&quot;&gt;
+&lt;meta name=&quot;robots&quot; content=&quot;noindex&quot;&gt;
+</code></pre>
+<hr />
+<h2>Meta robots vs X-Robots-Tag vs robots.txt</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Mécanisme</th>
+<th>Où ?</th>
+<th>Contrôle</th>
+<th>Portée</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>robots.txt</strong></td>
+<td>Fichier racine</td>
+<td>Crawl</td>
+<td>Par chemin URL</td>
+</tr>
+<tr>
+<td><strong>Meta Robots</strong></td>
+<td><code>&lt;head&gt;</code> HTML</td>
+<td>Indexation</td>
+<td>Par page HTML</td>
+</tr>
+<tr>
+<td><strong>X-Robots-Tag</strong></td>
+<td>Header HTTP</td>
+<td>Indexation</td>
+<td>Par ressource (HTML, PDF, images…)</td>
+</tr>
+</tbody>
+</table></div>
+<p>La meta robots est la méthode privilégiée pour les pages HTML. Pour les fichiers non-HTML (PDF, images), utiliser le <a href="./X_Robots_Tag.html">X-Robots-Tag</a>.</p>
+<hr />
+<h2>Cas d'usage courants</h2>
+<h3>Pages à toujours exclure de l'index</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Type de page</th>
+<th>Directive recommandée</th>
+<th>Raison</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Page de connexion</td>
+<td><code>noindex, nofollow</code></td>
+<td>Sans valeur SEO</td>
+</tr>
+<tr>
+<td>Page de panier</td>
+<td><code>noindex, nofollow</code></td>
+<td>Transactionnel, pas de contenu</td>
+</tr>
+<tr>
+<td>Confirmation de commande</td>
+<td><code>noindex, nofollow</code></td>
+<td>Unique par utilisateur</td>
+</tr>
+<tr>
+<td>Résultats de recherche interne</td>
+<td><code>noindex, follow</code></td>
+<td>Contenu dupliqué/thin</td>
+</tr>
+<tr>
+<td>Pages de tags vides</td>
+<td><code>noindex, follow</code></td>
+<td>Thin content</td>
+</tr>
+<tr>
+<td>Paramètres d'URL (facettes)</td>
+<td><code>noindex, follow</code></td>
+<td>Duplication</td>
+</tr>
+<tr>
+<td>Pages de pagination</td>
+<td><code>index, follow</code> (avec canonical)</td>
+<td>Indexable mais canonical vers page 1</td>
+</tr>
+<tr>
+<td>Pages d'erreur 404</td>
+<td>404 HTTP suffit</td>
+<td>Ne pas forcer noindex</td>
+</tr>
+<tr>
+<td>Pages de staging</td>
+<td><code>noindex, nofollow</code></td>
+<td>Environnement de test</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Gestion des pages de pagination</h3>
+<pre><code class="language-html">&lt;!-- Page 1 : index + self-canonical --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://exemple.com/blog/&quot;&gt;
+&lt;meta name=&quot;robots&quot; content=&quot;index, follow&quot;&gt;
+
+&lt;!-- Pages 2, 3, etc. : index avec self-canonical (chaque page a son propre canonical) --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://exemple.com/blog/page/2/&quot;&gt;
+&lt;meta name=&quot;robots&quot; content=&quot;index, follow&quot;&gt;
+</code></pre>
+<hr />
+<h2>Implémentation dans les CMS</h2>
+<h3>WordPress (avec Yoast SEO / RankMath)</h3>
+<pre><code class="language-php">// Dans functions.php — forcer noindex sur une taxonomie custom
+add_action('wp_head', function() {
+  if (is_tax('color')) {
+    echo '&lt;meta name=&quot;robots&quot; content=&quot;noindex, follow&quot;&gt;';
+  }
+});
+</code></pre>
+<h3>Next.js (App Router)</h3>
+<pre><code class="language-javascript">// app/page.js
+export const metadata = {
+  robots: {
+    index: false,
+    follow: true,
+    googleBot: {
+      index: false,
+      follow: true,
+      'max-snippet': -1,
+      'max-image-preview': 'large',
+    },
+  },
+}
+</code></pre>
+<h3>Nuxt.js</h3>
+<pre><code class="language-javascript">// nuxt.config.js ou useHead()
+useHead({
+  meta: [
+    { name: 'robots', content: 'noindex, follow' }
+  ]
+})
+</code></pre>
+<hr />
+<h2>Vérification et monitoring</h2>
+<h3>Google Search Console</h3>
+<ul>
+<li><strong>Rapport Couverture</strong> → "Exclues" → "Exclue par balise 'noindex'" : liste des pages exclues</li>
+<li><strong>Inspection d'URL</strong> → Section "Indexation de l'URL" : affiche les directives lues par Google</li>
+</ul>
+<h3>Screaming Frog</h3>
+<ul>
+<li><strong>Crawl → Meta robots</strong> : liste toutes les pages avec leur directive</li>
+<li>Filtrer par "noindex" pour auditer les exclusions</li>
+<li>Identifier les pages avec <code>noindex</code> qui reçoivent des liens internes (PageRank gaspillé)</li>
+</ul>
+<h3>Test manuel</h3>
+<pre><code class="language-bash">curl -s https://exemple.com/page | grep -i 'name=&quot;robots&quot;'
+</code></pre>
+<hr />
+<h2>Voir aussi</h2>
+<ul>
+<li><a href="./Robots_txt.html">Robots.txt</a></li>
+<li><a href="./X_Robots_Tag.html">X-Robots-Tag</a></li>
+<li><a href="./Crawl_Budget.html">Crawl Budget</a></li>
+<li><a href="./Canonical.html">Canonical</a></li>
+<li><a href="./Rel_Follow_Nofollow.html">Rel Follow/Nofollow</a></li>
+</ul>
+  </section>
+
+  <footer class="site-footer">
+    <span>Base de connaissance SEO</span>
+    <span>Glossaire technique</span>
+  </footer>
+</div>
+
+</body>
+</html>

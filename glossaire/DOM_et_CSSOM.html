@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="tag" content="glossaire">
+<meta name="date" content="2026">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DOM et CSSOM — Glossaire SEO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --ink: #f9fafb;
+    --ink-2: #d1d5db;
+    --ink-3: #9ca3af;
+    --paper: #17191a;
+    --paper-2: #212426;
+    --paper-3: #2d3134;
+    --accent: #ff6e40;
+    --accent-2: #60a5fa;
+    --success: #34d399;
+    --warn: #fbbf24;
+    --danger: #f87171;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+    --display: 'Syne', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .page-wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+  .site-header {
+    border-bottom: 1px solid var(--paper-3);
+    padding: 2rem 0 1.5rem;
+    margin-bottom: 0;
+  }
+  .header-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .tag-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--paper-3);
+    border-radius: 2px;
+    color: var(--ink-3);
+  }
+  .tag-badge.accent { border-color: var(--accent); color: var(--accent); }
+
+  .hero-title {
+    font-family: var(--display);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .hero-title em { font-style: normal; color: var(--accent); }
+
+  .section { padding: 2rem 0; }
+  
+  h2 {
+    font-family: var(--display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 2rem 0 1rem;
+  }
+
+  h3 {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  p { margin-bottom: 1rem; color: var(--ink-2); }
+  strong { font-weight: 500; color: var(--ink); }
+  em { color: var(--ink-2); }
+  
+  ul, ol { margin: 0 0 1rem 1.5rem; color: var(--ink-2); }
+  li { margin-bottom: 0.5rem; }
+
+  code {
+    font-family: var(--mono);
+    font-size: 0.85em;
+    background: var(--paper-2);
+    border: 1px solid var(--paper-3);
+    border-radius: 3px;
+    padding: 2px 5px;
+    color: var(--accent-2);
+  }
+
+  pre {
+    background: #0f1113;
+    border: 1px solid var(--paper-3);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+  pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.82rem;
+    color: #a8d8b8;
+  }
+
+  blockquote {
+    border-left: 3px solid var(--paper-3);
+    padding: 0.5rem 1rem;
+    margin: 1.5rem 0;
+    color: var(--ink-3);
+    background: var(--paper-2);
+    border-radius: 0 4px 4px 0;
+  }
+  blockquote p { margin-bottom: 0; }
+  blockquote p + p { margin-top: 0.5rem; }
+
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  thead tr { background: var(--paper-2); color: var(--ink); }
+  thead th {
+    font-family: var(--mono); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; padding: 0.75rem 1rem; text-align: left;
+  }
+  tbody tr { border-bottom: 1px solid var(--paper-2); }
+  tbody tr:hover { background: var(--paper-2); }
+  tbody td { padding: 0.65rem 1rem; color: var(--ink-2); vertical-align: top; }
+  tbody td:first-child { font-weight: 400; color: var(--ink); }
+
+  .site-footer {
+    margin-top: 4rem; padding: 2rem 0;
+    border-top: 1px solid var(--paper-3);
+    display: flex; justify-content: space-between;
+    font-family: var(--mono); font-size: 11px;
+    color: var(--ink-3); letter-spacing: 0.05em;
+  }
+  
+  a { color: var(--accent-2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+  <div style="padding-top: 2rem;">
+    <a href="index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;">← Retour au glossaire</a>
+    <span style="color: var(--paper-3); margin: 0 0.5rem;">|</span>
+    <a href="../index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;">Retour à l'accueil</a>
+  </div>
+
+  <header class="site-header">
+    <div class="header-meta">
+      <span class="tag-badge accent">Glossaire SEO</span>
+      <span class="tag-badge">Navigateur / Rendu Web / Performance / SEO Technique</span>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1 class="hero-title">DOM et CSSOM</h1>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <hr />
+<h2>Définition</h2>
+<p>Le <strong>DOM</strong> (Document Object Model) et le <strong>CSSOM</strong> (CSS Object Model) sont les deux représentations en mémoire construites par le navigateur lors du chargement d'une page web. Ensemble, ils forment le <strong>Render Tree</strong>, qui sert de base au calcul du layout et au dessin de la page à l'écran.</p>
+<p>Comprendre DOM et CSSOM est essentiel pour optimiser les <strong>Core Web Vitals</strong>, détecter les problèmes de rendu JavaScript, et comprendre pourquoi Googlebot peut voir un contenu différent de celui visible dans le navigateur.</p>
+<hr />
+<h2>Le pipeline de rendu du navigateur (Critical Rendering Path)</h2>
+<pre><code>HTML  →  DOM
+                 →  Render Tree  →  Layout  →  Paint  →  Composite
+CSS   →  CSSOM
+</code></pre>
+<h3>Vue détaillée</h3>
+<pre><code>1. Réseau       : Téléchargement HTML, CSS, JS, polices, images
+2. Parsing HTML : Construction du DOM (token → nœuds → arbre)
+3. Parsing CSS  : Construction du CSSOM
+4. JS Execution : Modification potentielle du DOM/CSSOM
+5. Render Tree  : Fusion DOM + CSSOM (éléments visibles seulement)
+6. Layout       : Calcul des positions et dimensions (Reflow)
+7. Paint        : Remplissage des pixels par couches (Repaint)
+8. Composite    : Assemblage des couches sur le GPU
+</code></pre>
+<hr />
+<h2>Le DOM (Document Object Model)</h2>
+<h3>Construction</h3>
+<p>Quand le navigateur reçoit le HTML, il le <strong>tokenise</strong> puis construit un arbre de nœuds :</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Ma Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Bonjour&lt;/h1&gt;
+    &lt;p&gt;Paragraphe &lt;strong&gt;important&lt;/strong&gt;&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Donne l'arbre DOM :</p>
+<pre><code>Document
+└── html
+    ├── head
+    │   └── title
+    │       └── &quot;Ma Page&quot;
+    └── body
+        ├── h1
+        │   └── &quot;Bonjour&quot;
+        └── p
+            ├── &quot;Paragraphe &quot;
+            └── strong
+                └── &quot;important&quot;
+</code></pre>
+<h3>Propriétés du DOM</h3>
+<ul>
+<li><strong>Dynamique</strong> : Le DOM peut être modifié par JavaScript à tout moment</li>
+<li><strong>Interface de programmation</strong> : <code>document.getElementById()</code>, <code>querySelector()</code>, etc.</li>
+<li><strong>Vivant</strong> : Reflète l'état actuel de la page, pas juste le HTML initial</li>
+<li><strong>Lié aux performances</strong> : Un DOM très large (&gt;1500 nœuds) ralentit le rendu</li>
+</ul>
+<h3>DOM et SEO</h3>
+<p>Google crawle et indexe le <strong>DOM rendu</strong> (après exécution JS), pas le HTML source. C'est pourquoi :
+- Le contenu injecté par JavaScript est (généralement) indexable
+- Mais avec un délai (second wave indexing)
+- Les modifications du DOM par JS sont visibles dans l'outil "Inspection d'URL" de GSC</p>
+<hr />
+<h2>Le CSSOM (CSS Object Model)</h2>
+<h3>Construction</h3>
+<p>Parallèlement au DOM, le navigateur parse les feuilles de style CSS et construit le CSSOM, un arbre représentant les styles appliqués à chaque élément.</p>
+<pre><code class="language-css">body { font-size: 16px; color: #333; }
+h1   { font-size: 2em; margin-bottom: 0.5em; }
+p    { line-height: 1.6; }
+p strong { font-weight: bold; color: #000; }
+</code></pre>
+<p>Donne un CSSOM où chaque nœud hérite et cumule les styles applicables.</p>
+<h3>Caractéristique critique : le CSSOM bloque le rendu</h3>
+<p>Le CSSOM est un <strong>render-blocking resource</strong> : le navigateur ne peut pas construire le Render Tree (et donc afficher quoi que ce soit) tant que le CSSOM n'est pas complet. C'est pourquoi :</p>
+<ul>
+<li>Le CSS doit être chargé aussi tôt que possible (<code>&lt;link&gt;</code> dans le <code>&lt;head&gt;</code>)</li>
+<li>Le CSS inline critique (above-the-fold) doit être inliné dans le HTML</li>
+<li>Les feuilles de style volumineuses retardent le rendu initial</li>
+</ul>
+<hr />
+<h2>Le Render Tree</h2>
+<h3>Formation</h3>
+<p>Le Render Tree est construit en combinant DOM et CSSOM :</p>
+<pre><code>DOM                     CSSOM                   Render Tree
+html                    html { display:block }   html
+└── body                body { display:block }   └── body
+    ├── h1              h1 { display:block }         ├── h1
+    └── p               p { display:block }          └── p
+        └── span[hidden] span { display:none }           (exclu)
+</code></pre>
+<p><strong>Règles</strong> :
+- Les éléments <code>display:none</code> sont <strong>exclus</strong> du Render Tree
+- Les éléments <code>visibility:hidden</code> sont <strong>inclus</strong> (espace réservé mais invisible)
+- Les pseudo-éléments CSS (<code>::before</code>, <code>::after</code>) sont <strong>inclus</strong>
+- Les nœuds texte sont inclus comme nœuds feuilles</p>
+<h3>Impact SEO du Render Tree</h3>
+<p>Google utilise le Render Tree pour déterminer ce qui est "visible" sur la page. Du contenu dans le DOM mais masqué via CSS (<code>display:none</code> ou <code>visibility:hidden</code>) peut recevoir <strong>moins de poids SEO</strong> dans certains contextes.</p>
+<hr />
+<h2>Layout, Paint et Composite</h2>
+<h3>Layout (Reflow)</h3>
+<p>Calcul des dimensions et positions de chaque élément dans le Render Tree. Déclenché par :
+- Ajout/suppression de nœuds DOM
+- Modification de propriétés CSS géométriques (width, height, margin, padding…)
+- Redimensionnement de la fenêtre</p>
+<p>Le Reflow est <strong>coûteux</strong> : il recalcule les positions de tous les éléments descendants.</p>
+<h3>Paint (Repaint)</h3>
+<p>Remplissage des pixels : couleurs, ombres, textes, images. Déclenché par les changements visuels (couleur, opacité, background).</p>
+<h3>Composite</h3>
+<p>Assemblage des couches de rendu sur le GPU. Les propriétés <code>transform</code> et <code>opacity</code> sont gérées au niveau Composite (sans Layout ni Paint), d'où leur utilisation recommandée pour les animations fluides.</p>
+<hr />
+<h2>Optimisations basées sur DOM/CSSOM</h2>
+<h3>Critical CSS</h3>
+<p>Inliner le CSS nécessaire pour le rendu above-the-fold directement dans le <code>&lt;head&gt;</code> :</p>
+<pre><code class="language-html">&lt;head&gt;
+  &lt;style&gt;
+    /* CSS critique — hero, navigation, typographie principale */
+    body { font-family: sans-serif; margin: 0; }
+    .hero { background: #f0f0f0; padding: 4rem 2rem; }
+    h1 { font-size: 2.5rem; line-height: 1.2; }
+  &lt;/style&gt;
+  &lt;!-- CSS non-critique chargé de manière asynchrone --&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;/styles.css&quot; media=&quot;print&quot; onload=&quot;this.media='all'&quot;&gt;
+&lt;/head&gt;
+</code></pre>
+<h3>Réduire la taille du DOM</h3>
+<p>Google recommande un DOM &lt; 1500 nœuds pour de bonnes performances. Techniques :
+- Lazy rendering des composants hors viewport
+- Virtualisation des longues listes (React Virtual, Vue Virtual Scroller)
+- Suppression des nœuds inutiles générés par le CMS</p>
+<h3>Éviter les Reflows forcés en JS</h3>
+<pre><code class="language-javascript">// ❌ Mauvais : force un Reflow à chaque itération
+elements.forEach(el =&gt; {
+  el.style.width = (el.offsetWidth + 10) + 'px'; // lecture + écriture = Reflow forcé
+});
+
+// ✅ Bon : batch lecture puis écriture
+const widths = elements.map(el =&gt; el.offsetWidth); // lecture en batch
+elements.forEach((el, i) =&gt; {
+  el.style.width = (widths[i] + 10) + 'px'; // écriture en batch
+});
+</code></pre>
+<h3><code>content-visibility: auto</code></h3>
+<p>Propriété CSS moderne permettant au navigateur de <strong>sauter le rendu</strong> des éléments hors viewport :</p>
+<pre><code class="language-css">.article-card {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 200px; /* Placeholder height pendant le skip */
+}
+</code></pre>
+<p>Gain de performance typique : <strong>50-70% de réduction du temps de rendu initial</strong> sur les longues pages.</p>
+<hr />
+<h2>DOM/CSSOM et les Core Web Vitals</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Métrique</th>
+<th style="text-align: center;">Lien DOM/CSSOM</th>
+<th style="text-align: center;">Optimisation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LCP</strong></td>
+<td style="text-align: center;">Render-blocking CSS retarde le LCP</td>
+<td style="text-align: center;">Critical CSS inline, preload</td>
+</tr>
+<tr>
+<td><strong>CLS</strong></td>
+<td style="text-align: center;">Reflows inattendus causent des décalages</td>
+<td style="text-align: center;"><code>min-height</code> sur conteneurs, éviter insertions DOM tardives</td>
+</tr>
+<tr>
+<td><strong>INP</strong></td>
+<td style="text-align: center;">Long Tasks JS sur le DOM bloquent l'interaction</td>
+<td style="text-align: center;">Réduire la taille du DOM, éviter Reflows en JS</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Outils de debug</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Outil</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Chrome DevTools → Performance</strong></td>
+<td>Visualiser Layout, Paint, Composite dans la timeline</td>
+</tr>
+<tr>
+<td><strong>Chrome DevTools → Rendering</strong></td>
+<td>Activer "Paint flashing", "Layout Shift Regions"</td>
+</tr>
+<tr>
+<td><strong>Lighthouse</strong></td>
+<td>Score performance + recommandations DOM</td>
+</tr>
+<tr>
+<td><strong>WebPageTest</strong></td>
+<td>Filmstrip du rendu, waterfall chart</td>
+</tr>
+<tr>
+<td><strong>GSC → Inspection d'URL</strong></td>
+<td>Voir le DOM rendu par Googlebot</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>Voir aussi</h2>
+<ul>
+<li><a href="./AJAX.html">AJAX</a></li>
+<li><a href="./CDN.html">CDN</a></li>
+<li><a href="./Key_Locations_SEO.html">Key Locations SEO</a></li>
+<li><a href="./AMP_et_rel_amphtml.html">AMP et rel=amphtml</a></li>
+</ul>
+  </section>
+
+  <footer class="site-footer">
+    <span>Base de connaissance SEO</span>
+    <span>Glossaire technique</span>
+  </footer>
+</div>
+
+</body>
+</html>
