@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="tag" content="technique">
+<meta name="date" content="2026-05-10">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GSC & Crawl Stats — SEO Knowledge Base</title>
+<link rel="icon" type="image/png" href="../image/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #f9fafb;
+    --ink-2: #d1d5db;
+    --ink-3: #9ca3af;
+    --paper: #17191a;
+    --paper-2: #212426;
+    --paper-3: #2d3134;
+    --accent: #ff6e40;
+    --accent-2: #60a5fa;
+    --success: #34d399;
+    --warn: #fbbf24;
+    --danger: #f87171;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+    --display: 'Syne', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .page-wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+  /* HEADER */
+  .site-header { border-bottom: 1px solid var(--paper-3); padding: 2rem 0 1.5rem; margin-bottom: 0; }
+  .header-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+  .tag-badge { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border: 1px solid var(--paper-3); border-radius: 2px; color: var(--ink-3); }
+  .tag-badge.accent { border-color: var(--accent); color: var(--accent); }
+
+  .hero-grid { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: end; padding-bottom: 2.5rem; }
+  .hero-title { font-family: var(--display); font-size: clamp(2.8rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.0; letter-spacing: -0.03em; color: var(--ink); }
+  .hero-title em { font-style: normal; color: var(--accent); }
+  .hero-subtitle { font-family: var(--sans); font-size: 1rem; font-weight: 300; color: var(--ink-3); margin-top: 0.75rem; line-height: 1.5; }
+  .version-box { font-family: var(--mono); font-size: 10px; color: var(--ink-3); line-height: 1.8; letter-spacing: 0.05em; text-align: right; }
+
+  /* TOC */
+  .toc-bar { background: var(--paper-2); border: 1px solid var(--paper-3); padding: 1.5rem 2rem; margin: 0 -2rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.25rem 2rem; }
+  .toc-item { font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; padding: 0.3rem 0; color: rgba(249,250,251,0.6); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.15s; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .toc-item:hover { color: var(--ink); }
+  .toc-num { color: var(--accent); font-weight: 500; min-width: 20px; }
+
+  /* SECTIONS */
+  .section { padding: 4rem 0 2rem; border-bottom: 1px solid var(--paper-3); }
+  .section:last-child { border-bottom: none; }
+  .section-header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 2rem; }
+  .section-num { font-family: var(--mono); font-size: 11px; font-weight: 500; color: var(--accent); letter-spacing: 0.1em; min-width: 32px; }
+
+  h2 { font-family: var(--display); font-size: 1.6rem; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: var(--ink); margin-top: 15px; }
+  h3 { font-family: var(--display); font-size: 1.05rem; font-weight: 600; color: var(--ink); margin: calc(2rem + 16px) 0 0.75rem; letter-spacing: -0.01em; }
+
+  p { margin-bottom: 1rem; color: var(--ink-2); }
+  strong { font-weight: 500; color: var(--ink); }
+  code { font-family: var(--mono); font-size: 0.82em; background: var(--paper-2); border: 1px solid var(--paper-3); border-radius: 3px; padding: 1px 5px; color: var(--accent-2); }
+
+  /* CALLOUTS */
+  .callout { border-left: 3px solid; padding: 1rem 1.25rem; margin: 1.5rem 0; border-radius: 0 4px 4px 0; }
+  .callout p { margin-bottom: 0; font-size: 0.92rem; }
+  .callout p + p { margin-top: 0.5rem; }
+  .callout-label { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .callout.info { border-color: var(--accent-2); background: rgba(96,165,250,0.1); }
+  .callout.info .callout-label { color: var(--accent-2); }
+  .callout.warn { border-color: var(--warn); background: rgba(251,191,36,0.1); }
+  .callout.warn .callout-label { color: var(--warn); }
+  .callout.danger { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .callout.danger .callout-label { color: var(--danger); }
+  .callout.success { border-color: var(--success); background: rgba(52,211,153,0.1); }
+  .callout.success .callout-label { color: var(--success); }
+  .callout.edge { border-color: #a78bfa; background: rgba(167,139,250,0.1); }
+  .callout.edge .callout-label { color: #a78bfa; }
+
+  /* TABLES */
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  thead tr { background: var(--paper-2); color: var(--ink); }
+  thead th { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.75rem 1rem; text-align: left; }
+  tbody tr { border-bottom: 1px solid var(--paper-2); }
+  tbody tr:hover { background: var(--paper-2); }
+  tbody td { padding: 0.65rem 1rem; color: var(--ink-2); vertical-align: top; }
+  tbody td:first-child { font-weight: 400; color: var(--ink); }
+
+  /* KPI GRID */
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1px; background: var(--paper-3); border: 1px solid var(--paper-3); border-radius: 6px; overflow: hidden; margin: 1.5rem 0; }
+  .kpi-item { background: var(--paper); padding: 1.25rem; }
+  .kpi-label { font-family: var(--mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 0.4rem; }
+  .kpi-value { font-family: var(--display); font-size: 1.4rem; font-weight: 700; color: var(--ink); line-height: 1; margin-bottom: 0.3rem; }
+  .kpi-sub { font-size: 0.78rem; color: var(--ink-3); line-height: 1.4; }
+
+  /* RULES GRID */
+  .rules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--paper-3); border: 1px solid var(--paper-3); border-radius: 6px; overflow: hidden; margin: 1.5rem 0; }
+  .rule-item { background: var(--paper); padding: 1.25rem 1.5rem; }
+  .rule-title { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 0.5rem; }
+  .rule-content { font-size: 0.88rem; color: var(--ink-2); line-height: 1.6; }
+
+  /* CATEGORY CARDS */
+  .cat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1px; background: var(--paper-3); border: 1px solid var(--paper-3); border-radius: 6px; overflow: hidden; margin: 1.5rem 0; }
+  .cat-card { background: var(--paper); padding: 1.25rem 1.5rem; }
+  .cat-title { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem; }
+  .cat-list { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; }
+  .cat-list li { font-size: 0.85rem; color: var(--ink-2); display: flex; align-items: baseline; gap: 0.5rem; }
+  .cat-list li::before { content: '—'; font-family: var(--mono); font-size: 10px; color: var(--accent); flex-shrink: 0; }
+
+  /* MONITORING STEPS */
+  .steps-list { list-style: none; display: flex; flex-direction: column; gap: 1px; background: var(--paper-3); border: 1px solid var(--paper-3); border-radius: 6px; overflow: hidden; margin: 1.5rem 0; }
+  .step-item { background: var(--paper); padding: 1rem 1.5rem; display: flex; gap: 1.25rem; align-items: baseline; }
+  .step-freq { font-family: var(--mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); min-width: 80px; flex-shrink: 0; padding-top: 2px; }
+  .step-content { font-size: 0.88rem; color: var(--ink-2); line-height: 1.6; }
+  .step-content strong { color: var(--ink); }
+
+  /* REFS GRID */
+  .ref-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--paper-3); border: 1px solid var(--paper-3); border-radius: 6px; overflow: hidden; margin: 1.5rem 0; }
+  .ref-item { background: var(--paper); padding: 1.25rem 1.5rem; }
+  .ref-source { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 0.5rem; }
+  .ref-list { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
+  .ref-list li { font-size: 0.83rem; color: var(--ink-2); display: flex; align-items: baseline; gap: 0.5rem; line-height: 1.5; }
+  .ref-list li::before { content: '→'; font-family: var(--mono); font-size: 10px; color: var(--accent-2); flex-shrink: 0; }
+
+  /* FOOTER */
+  .site-footer { margin-top: 4rem; padding: 2rem 0; border-top: 1px solid var(--paper-3); display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 11px; color: var(--ink-3); letter-spacing: 0.05em; }
+
+  @media (max-width: 600px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-side { display: none; }
+    .rules-grid { grid-template-columns: 1fr; }
+    .cat-grid { grid-template-columns: 1fr; }
+    .ref-grid { grid-template-columns: 1fr; }
+    .toc-bar { grid-template-columns: 1fr 1fr; }
+  }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  .section { animation: fadeUp 0.4s ease both; }
+  .section:nth-child(1) { animation-delay: 0.05s; }
+  .section:nth-child(2) { animation-delay: 0.1s; }
+  .section:nth-child(3) { animation-delay: 0.15s; }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <div style="padding-top: 2rem;">
+    <a href="../index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-3)'">← Back to home</a>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-meta">
+      <span class="tag-badge accent">SEO Knowledge Base</span>
+      <span class="tag-badge">Internal use</span>
+      <span class="tag-badge">v1.0 — Mai 2026</span>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1 class="hero-title">Google<br><em>Search Console</em></h1>
+        <p class="hero-subtitle">Maîtriser le rapport Crawl Stats et les outils avancés<br>pour analyser, diagnostiquer et optimiser le crawl de votre site.</p>
+      </div>
+      <div class="hero-side">
+        <div class="version-box">
+          7 sections<br>
+          3 KPIs Crawl Stats<br>
+          4 segmentations<br>
+          Mis à jour 2026
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- TOC -->
+  <nav class="toc-bar">
+    <a href="#s1" class="toc-item"><span class="toc-num">01</span> TL;DR & Seuils clés</a>
+    <a href="#s2" class="toc-item"><span class="toc-num">02</span> Anatomie du Crawl Stats</a>
+    <a href="#s3" class="toc-item"><span class="toc-num">03</span> Les 3 KPIs principaux</a>
+    <a href="#s4" class="toc-item"><span class="toc-num">04</span> Les 4 segmentations</a>
+    <a href="#s5" class="toc-item"><span class="toc-num">05</span> Outils avancés GSC</a>
+    <a href="#s6" class="toc-item"><span class="toc-num">06</span> Use cases par type de site</a>
+    <a href="#s7" class="toc-item"><span class="toc-num">07</span> Monitoring mensuel & Caveats</a>
+  </nav>
+
+  <!-- ─── SECTION 1 ─── -->
+  <section class="section" id="s1">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2>TL;DR & Seuils clés</h2>
+    </div>
+
+    <p>Le rapport <strong>Crawl Stats</strong> (Paramètres → Statistiques d'exploration) est l'outil le plus proche d'une analyse de logs serveurs accessible gratuitement à tous les propriétaires de propriétés "domaine". Il révèle ce que Googlebot fait réellement sur votre site sur 90 jours via 3 KPIs principaux et 4 répartitions. Il est jugé "advanced users" par Google et indispensable au-delà de ~1 000 URLs.</p>
+
+    <div class="kpi-grid">
+      <div class="kpi-item">
+        <div class="kpi-label">Response time idéal</div>
+        <div class="kpi-value" style="color: var(--success);">≤ 100ms</div>
+        <div class="kpi-sub">Alarme à 500 ms. Throttling Googlebot probable à 1 000 ms (John Mueller).</div>
+      </div>
+      <div class="kpi-item">
+        <div class="kpi-label">Ratio Refresh / Discovery</div>
+        <div class="kpi-value" style="color: var(--accent-2);">80 / 20</div>
+        <div class="kpi-sub">Régime stationnaire attendu. Toute déviation forte raconte une histoire.</div>
+      </div>
+      <div class="kpi-item">
+        <div class="kpi-label">Réponses 200 OK</div>
+        <div class="kpi-value" style="color: var(--warn);">≥ 80%</div>
+        <div class="kpi-sub">Les 3xx, 4xx, 5xx doivent rester marginaux et stables.</div>
+      </div>
+      <div class="kpi-item">
+        <div class="kpi-label">Signaux 5xx critiques</div>
+        <div class="kpi-value" style="color: var(--danger);">&lt; 1%</div>
+        <div class="kpi-sub">2-3 jours consécutifs de 5xx = réduction long-terme du crawl (Mueller).</div>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-label">📌 Pattern à connaître</div>
+      <p>Hausse soudaine simultanée de "Total requests" + chute du response time + hausse du download size = nouvelles pages massivement publiées. Hausse des requests <em>avec</em> hausse du response time + 5xx = surcharge serveur.</p>
+    </div>
+
+    <div class="callout warn">
+      <div class="callout-label">⚠ Idée reçue</div>
+      <p><strong>Bloquer des URLs en robots.txt n'augmente pas automatiquement le crawl budget des autres pages</strong> — sauf si votre serveur était précédemment en saturation. Les deux seuls leviers réels : (1) ajouter des ressources serveur, (2) améliorer la qualité du contenu (popularité, valeur utilisateur, unicité). Clarification officielle Google, déc. 2025.</p>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 2 ─── -->
+  <section class="section" id="s2">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>Anatomie du rapport Crawl Stats</h2>
+    </div>
+
+    <p>Le rapport est accessible uniquement aux propriétés <em>root-level</em> (Domain property ou URL-prefix à la racine), via <strong>Paramètres → Exploration → Statistiques d'exploration → Ouvrir le rapport</strong>. Il agrège 90 jours de données échantillonnées sur l'activité de Googlebot.</p>
+
+    <div class="callout danger">
+      <div class="callout-label">❌ Différences vs logs serveur</div>
+      <p>Les données Crawl Stats diffèrent des logs sur deux points : (1) les requêtes <em>envisagées mais non exécutées</em> (ex. robots.txt indisponible) sont comptées dans le total — d'où les écarts possibles avec vos logs. (2) Chaque maillon d'une chaîne de redirection est compté séparément : page1 → 301 → page2 → 301 → page3 = 3 requêtes.</p>
+    </div>
+
+    <div class="rules-grid">
+      <div class="rule-item">
+        <div class="rule-title">Quand utiliser Crawl Stats</div>
+        <div class="rule-content">Dès ~1 000 URLs indexables. Essentiel post-migration, après un lancement de section, lors d'une stagnation d'indexation ou d'un drop de trafic inexpliqué.</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-title">Quand aller plus loin</div>
+        <div class="rule-content">Au-delà de ~100 k URLs ou face à une anomalie inexpliquée : compléter avec une vraie analyse de logs (Screaming Frog Log Analyser, JetOctopus, Botify).</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-title">Host Status — section méconnue</div>
+        <div class="rule-content">Trois sous-statuts sur 90 jours : robots.txt fetch (doit être 0 % d'échec), DNS resolution (proche de 0 %), server connectivity. Pour Domain properties : top 20 des hosts enfants avec statut par host.</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-title">Bots usurpés (spoofed)</div>
+        <div class="rule-content">Crawl Stats peut compter des bots malveillants usurpant Googlebot. Cas Glenn Gabe : 90 % des "Googlebot" étaient des bots spoofés. Toujours croiser logs + reverse DNS.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 3 ─── -->
+  <section class="section" id="s3">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2>Les 3 KPIs principaux</h2>
+    </div>
+
+    <h3>KPI 1 — Total crawl requests</h3>
+    <p><strong>Définition Google :</strong> le nombre total de requêtes d'exploration émises pour des URLs de votre site, qu'elles aient abouti ou non. Analogie : c'est le "trafic Googlebot" — plus un site est jugé important, plus le postier passe souvent.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Pattern observé</th><th>Interprétation probable</th><th>Action</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Hausse régulière sur plusieurs semaines</td><td>Google augmente sa Crawl capacity : votre site est plus rapide / plus de contenus frais / plus de signaux de qualité</td><td>Vérifier que la hausse profite aux pages stratégiques, pas aux paramètres</td></tr>
+          <tr><td>Pic isolé puis retour à la normale</td><td>Migration, redesign, lancement massif, ouverture d'une section bloquée, ou AdsBot (Dynamic Search Ads)</td><td>Vérifier l'onglet "Par type de Googlebot" pour identifier la source</td></tr>
+          <tr><td>Plateau / stagnation en publiant</td><td>Crawl budget plafonné — perceived value insuffisante</td><td>Améliorer le maillage interne, soumettre un sitemap propre, retirer les pages thin</td></tr>
+          <tr><td>Chute brutale</td><td>Hostload exceeded, robots.txt qui 5xx, baisse de qualité perçue, core update</td><td>Vérifier Host status, server logs, recent core update</td></tr>
+          <tr><td>Ratio crawls/jour vs pages > 10x</td><td>Crawl waste typique : Googlebot tourne sur des paramètres / facets</td><td>Audit faceted navigation, robots.txt, canonicals</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout success">
+      <div class="callout-label">✓ Cas concret — CDN sous-domaine</div>
+      <p>En déplaçant images, JS, CSS sur un sous-domaine <code>cdn.example.com</code>, Search Engine Journal a augmenté le crawl rate des pages HTML principales — l'écosystème "main domain" récupère le budget précédemment consommé par les ressources statiques.</p>
+    </div>
+
+    <div class="callout edge">
+      <div class="callout-label">💡 Cas e-commerce — LinkGraph 2026</div>
+      <p>Site 85 000 produits : indexation des nouveaux produits qui prenait 3-4 semaines, perte estimée à ~50 k$/mois. Diagnostic : <strong>45 % du crawl budget gaspillé sur des facets</strong> (<code>?color=</code>, <code>?sort=</code>). Solution : robots.txt + canonicals self-referencing → ratio de gaspillage tombé à 12 %, +125 k$/mois en revenu organique sous 90 jours.</p>
+    </div>
+
+    <h3>KPI 2 — Total download size (bytes)</h3>
+    <p><strong>Définition Google :</strong> nombre total d'octets téléchargés depuis votre site pendant l'exploration. Si Total requests est le nombre de visites du postier, le download size est le poids cumulé du courrier qu'il emporte. À nombre de visites égal, plus c'est lourd, moins Googlebot peut crawler dans le temps imparti.</p>
+
+    <div class="cat-grid">
+      <div class="cat-card">
+        <div class="cat-title" style="color: var(--danger);">Ce qui fait monter le download size</div>
+        <ul class="cat-list">
+          <li>Templates plus lourds post-refonte</li>
+          <li>Sites JS : dual fetch HTML + WRS</li>
+          <li>XHR/POST supplémentaires (cas JetOctopus : 62 % du crawl sur AJAX non rentable)</li>
+          <li>PDF, vidéos non bloqués</li>
+          <li>Scripts tiers en cascade</li>
+          <li>DOM massif généré dynamiquement</li>
+        </ul>
+      </div>
+      <div class="cat-card">
+        <div class="cat-title" style="color: var(--success);">Comment réduire le download size</div>
+        <ul class="cat-list">
+          <li>Ressources statiques sur CDN/sous-domaine séparé</li>
+          <li>Compression images (WebP, AVIF), minification CSS/JS</li>
+          <li>Bloquer ressources non critiques au rendu (avec précaution)</li>
+          <li>Prerendering / SSR pour sites JS lourds</li>
+          <li><code>lastmod</code> W3C correct : jusqu'à -22 % de recrawl inutile (JetOctopus)</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>KPI 3 — Average response time (ms)</h3>
+    <p>Proxy du <strong>TTFB (Time To First Byte)</strong> vu par Googlebot. Ce n'est pas le temps de chargement utilisateur, ni un signal Core Web Vitals. C'est ce que Googlebot mesure entre sa requête et le premier octet renvoyé.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Valeur</th><th>Statut</th><th>Source</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>≤ 100 ms</td><td style="color: var(--success);">Excellent</td><td>John Mueller (Lumar Office Hours) — cible recommandée</td></tr>
+          <tr><td>100–200 ms</td><td style="color: var(--success);">Bon</td><td>Seuil utilisé par Google dans PageSpeed Server Response Time</td></tr>
+          <tr><td>200–500 ms</td><td style="color: var(--warn);">À surveiller</td><td>Pas critique mais piste d'optimisation</td></tr>
+          <tr><td>500–1 000 ms</td><td style="color: var(--danger);">Problématique</td><td>Googlebot peut commencer à throttler</td></tr>
+          <tr><td>≥ 1 000 ms</td><td style="color: var(--danger);">Critique</td><td>Mueller : "Googlebot won't be able to crawl as much as it ideally would"</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout warn">
+      <div class="callout-label">⚠ Impact sur le crawl — à retenir</div>
+      <p>Si un sous-dossier de votre site (ex. <code>/blog/</code>) ralentit, Google peut réduire le crawl rate de <strong>tout le host</strong>, y compris vos pages produit performantes. Couplé à des 5xx, Mueller rappelle que 2-3 jours consécutifs suffisent pour déclencher une réduction long terme du crawl.</p>
+    </div>
+
+    <h3>Diagnostiquer et corriger le response time</h3>
+    <div class="rules-grid">
+      <div class="rule-item">
+        <div class="rule-title">Étape 1 — "By file type"</div>
+        <div class="rule-content">Seuls les HTML lents → problème backend / DB. Images lentes → problème CDN. JS/CSS lents → bundling ou serveur statique.</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-title">Étape 2 — Host status</div>
+        <div class="rule-content">DNS / robots.txt / server connectivity. Coche verte = ok. Point d'exclamation = à investiguer immédiatement.</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-title">Étape 3 — TTFB utilisateur</div>
+        <div class="rule-content">Croiser avec PageSpeed Insights, WebPageTest, Chrome DevTools Network pour confirmer côté utilisateur.</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-title">Étape 4 — Fixes serveur</div>
+        <div class="rule-content">Cache page (Varnish, Cloudflare Cache Reserve), cache objet (Redis), optimisation DB. CDN avec edge caching. HTTP/2 ou HTTP/3, Brotli.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 4 ─── -->
+  <section class="section" id="s4">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2>Les 4 segmentations</h2>
+    </div>
+
+    <h3>1. By Response (codes HTTP)</h3>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Code</th><th>Lecture saine</th><th>Signal d'alerte</th><th>Action</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>200 OK</td><td>≥ 80 % idéalement</td><td>&lt; 60 %</td><td>Trop de redirects/erreurs gaspillent le budget — auditer</td></tr>
+          <tr><td>301 Moved Permanently</td><td>5–15 % normal</td><td>&gt; 25 %</td><td>Crawler avec Screaming Frog, raccourcir les chaînes (max 1 hop)</td></tr>
+          <tr><td>302 Found</td><td>&lt; 5 %</td><td>Présence persistante</td><td>Convertir en 301 si la redirection est définitive</td></tr>
+          <tr><td>304 Not Modified</td><td>Variable</td><td>—</td><td>Bon signe : Googlebot revient mais n'a pas besoin de re-télécharger</td></tr>
+          <tr><td>404 Not Found</td><td>&lt; 5 %</td><td>&gt; 10–15 %</td><td>Redirect 301 si le contenu existe ailleurs ; sinon laisser 404 (Mueller : 404 ne nuit pas à la qualité)</td></tr>
+          <tr><td>410 Gone</td><td>&lt; 5 %</td><td>—</td><td>Plus rapide que 404 pour signaler une suppression définitive</td></tr>
+          <tr><td>5xx Server Error</td><td>&lt; 1 %</td><td>Tout pic &gt; 2 %</td><td>URGENT : analyser logs, scaler serveur, vérifier les déploiements récents</td></tr>
+          <tr><td>DNS error / unreachable</td><td>0 %</td><td>Toute valeur</td><td>Vérifier configuration DNS, propagation, registrar</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>2. By File type</h3>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Type</th><th>Site éditorial</th><th>E-commerce</th><th>Signal d'alerte</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>HTML</td><td>50–70 %</td><td>30–50 %</td><td>Très bas = Google passe trop de temps sur des ressources</td></tr>
+          <tr><td>Image</td><td>10–20 %</td><td>20–35 %</td><td>Très haut = images mal optimisées ou non bloquées</td></tr>
+          <tr><td>JS</td><td>5–15 %</td><td>10–20 %</td><td>Très haut = SPA non SSR, dual-fetch agressif</td></tr>
+          <tr><td>CSS</td><td>5–10 %</td><td>5–10 %</td><td>—</td></tr>
+          <tr><td>PDF</td><td>&lt; 5 %</td><td>Variable</td><td>Si non souhaité : <code>X-Robots-Tag: noindex</code></td></tr>
+          <tr><td>Other (redirects)</td><td>&lt; 10 %</td><td>&lt; 10 %</td><td>Très haut = trop de chaînes de redirection</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>3. By Purpose — Discovery vs. Refresh</h3>
+    <p>La répartition la plus stratégique. John Mueller (Search Central live, nov. 2020) : <em>"Refresh crawling is when we update information we already have. Discovery crawling is when we find new URLs we've heard about — through new internal links or backlinks."</em></p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Ratio Refresh / Discovery</th><th>Interprétation</th><th>Quand c'est anormal</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>80 / 20</strong></td><td>Régime stationnaire sain (Edward Bate, Servebolt, JC Chouinard)</td><td>—</td></tr>
+          <tr><td>95 / 5</td><td>Site stable, peu de nouveau contenu, ou maillage interne faible</td><td>Si vous publiez régulièrement : sitemap obsolète, pages orphelines</td></tr>
+          <tr><td>50 / 50 ou Discovery &gt; Refresh</td><td>Migration en cours, lancement, gros import, ou crawl trap (facets)</td><td>Vérifier d'urgence si le pic Discovery porte sur des URLs voulues ou parasites</td></tr>
+          <tr><td>70 / 30 stable</td><td>Site en croissance régulière</td><td>Sain pour un éditeur publiant souvent</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-label">📌 Symbiose avec Index Coverage</div>
+      <p>Si beaucoup d'URLs en "Discovered – currently not indexed" mais peu de Discovery dans Crawl Stats → Google a <em>vu le lien</em> mais décidé de ne pas crawler (signal qualité ou serveur). Si Discovery est élevé mais l'indexation n'avance pas → problème de qualité de contenu, pas de crawl.</p>
+    </div>
+
+    <h3>4. By Googlebot type</h3>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>User-agent</th><th>Ce que ça signifie</th><th>Quand être inquiet</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Smartphone (Googlebot Smartphone)</td><td>Mobile-first indexing — devrait être dominant (60–85 %)</td><td>&lt; 50 % en 2025–2026 = anomalie</td></tr>
+          <tr><td>Desktop (Googlebot Desktop)</td><td>Crawl ponctuel, ~10–20 %</td><td>—</td></tr>
+          <tr><td>AdsBot</td><td>Si vous faites Google Ads (Dynamic Search Ads)</td><td>Pic = vous avez ajouté des feeds ou URL rules. Crawls ~tous les 14 j</td></tr>
+          <tr><td>StoreBot</td><td>Crawler shopping pour les marchands</td><td>Son absence sur un e-commerce = problème structuration produit / Merchant Center</td></tr>
+          <tr><td>Page resource load</td><td>Récupération de ressources (CSS/JS rendus)</td><td>Très haut = WRS travaille beaucoup (sites JS)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 5 ─── -->
+  <section class="section" id="s5">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2>Outils avancés GSC</h2>
+    </div>
+
+    <p>Au-delà du Crawl Stats, les vraies puissances avancées de GSC permettent de démultiplier la granularité d'analyse et d'automatiser les audits à grande échelle.</p>
+
+    <div class="cat-grid">
+      <div class="cat-card">
+        <div class="cat-title" style="color: var(--accent-2);">Performance & Search Analytics</div>
+        <ul class="cat-list">
+          <li>Filtres RegEx RE2 (max 4 096 chars)</li>
+          <li>Comparaison de périodes + segmentation device / pays</li>
+          <li>Connecteur Looker Studio (modèles Aleyda Solis)</li>
+          <li>API Search Analytics (~25 k lignes/requête)</li>
+          <li>Bulk Data Export → BigQuery (sans limite 1 000 lignes)</li>
+        </ul>
+      </div>
+      <div class="cat-card">
+        <div class="cat-title" style="color: var(--success);">URL Inspection API</div>
+        <ul class="cat-list">
+          <li>2 000 URL/jour/propriété, 600/min</li>
+          <li>Données : <code>lastCrawlTime</code>, <code>googleCanonical</code>, robots.txt state</li>
+          <li>Hack pro : vérifier plusieurs propriétés (sous-dossiers) → quota multiplié</li>
+          <li>Natif dans Screaming Frog (Config → API Access)</li>
+          <li>Détection canonicals ignorés par Google</li>
+        </ul>
+      </div>
+      <div class="cat-card">
+        <div class="cat-title" style="color: var(--warn);">Index Coverage — nuances</div>
+        <ul class="cat-list">
+          <li>Limite UI : 1 000 lignes par catégorie</li>
+          <li>Hack Glenn Gabe : sous-dossiers comme propriétés séparées</li>
+          <li>"Crawled – not indexed" → signal qualité (thin, duplication)</li>
+          <li>"Discovered – not indexed" → boost via maillage interne + sitemap</li>
+          <li>"Soft 404" → fréquent e-commerce (produits épuisés)</li>
+        </ul>
+      </div>
+      <div class="cat-card">
+        <div class="cat-title" style="color: #a78bfa;">Core Web Vitals</div>
+        <ul class="cat-list">
+          <li>Source CrUX (field data, 28 jours roulants, 75e percentile)</li>
+          <li>LCP ≤ 2,5 s — INP ≤ 200 ms — CLS ≤ 0,1</li>
+          <li>Statut groupe = pire des 3 métriques</li>
+          <li>Compléments : PageSpeed Insights, web.dev, Chrome DevTools</li>
+          <li>Distinct du response time Googlebot (TTFB crawl ≠ ranking)</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>RegEx avancés dans Performance</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Cas d'usage</th><th>Pattern RE2</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Brand vs. non-brand</td><td><code>(?i)mybrand|misspellings</code> → filter "Doesn't match"</td></tr>
+          <tr><td>Questions (informational)</td><td><code>^(who|what|when|where|why|how|does|can|is|are|did|should|could)\b</code></td></tr>
+          <tr><td>Long-tail (6+ mots)</td><td><code>\b(\w+\s+){5,}\w+\b</code></td></tr>
+          <tr><td>Striking distance</td><td>Position &gt; 10.9 + filtre URL <code>/blog/</code> + RegEx questions</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout warn">
+      <div class="callout-label">⚠ Syntaxe RE2</div>
+      <p>RE2 ne supporte pas les lookbehind / lookahead / backreferences. Tester vos patterns sur <strong>regex101.com</strong> en flavor "Golang" avant de les utiliser dans GSC.</p>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-label">📌 Bulk Data Export → BigQuery</div>
+      <p>Toutes les performances, pas de limite à 1 000 lignes, pas d'échantillonnage majeur, conservation au-delà de 16 mois. Indispensable pour les analyses long-terme, les jointures avec GA4 sur l'URL, et les requêtes SQL custom (ex. impressions par cluster sémantique). Coût BigQuery très bas : free tier suffisant pour la plupart des sites &lt; 100 k pages indexées. Partition expiration recommandée à 12–16 mois.</p>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 6 ─── -->
+  <section class="section" id="s6">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2>Use cases par type de site</h2>
+    </div>
+
+    <div class="cat-grid">
+      <div class="cat-card">
+        <div class="cat-title" style="color: var(--accent);">E-commerce (10 k–1 M URLs)</div>
+        <ul class="cat-list">
+          <li>Risque #1 : faceted navigation → URLs explosives</li>
+          <li>Surveiller : ratio HTML vs. paramètre, % d'URLs avec 3+ facets crawlées</li>
+          <li>robots.txt strict sur les combinaisons inutiles (price+sort)</li>
+          <li>Canonicals self-referencing, rel="nofollow" sur liens facet non rentables</li>
+          <li>KPI cible : &gt; 70 % du crawl HTML sur pages indexables + StoreBot présent</li>
+        </ul>
+      </div>
+      <div class="cat-card">
+        <div class="cat-title" style="color: var(--accent-2);">Éditorial / Média (publication quotidienne)</div>
+        <ul class="cat-list">
+          <li>Risque #1 : Discovery faible si maillage interne pauvre</li>
+          <li>Surveiller : Discovery &gt; 15 %, Smartphone bot dominant</li>
+          <li>Sitemap "news" séparé, hubs sujets bien maillés, <code>lastmod</code> W3C exact</li>
+          <li>Pings via IndexNow (Bing) + "Request Indexing" pour les articles phares</li>
+          <li>KPI cible : Refresh ~80 %, response time &lt; 200 ms même pendant pics</li>
+        </ul>
+      </div>
+      <div class="cat-card">
+        <div class="cat-title" style="color: var(--warn);">PBN / Niche site (&lt; 1 000 pages)</div>
+        <ul class="cat-list">
+          <li>Crawl Stats non obligatoire sous 1 000 pages — mais utile</li>
+          <li>Détecter un host qui ne réveille pas Googlebot (spam / pénalité)</li>
+          <li>Vérifier après publication si Discovery a eu lieu sous 24 h</li>
+          <li>KPI cible : 100 % réponses 200, response time &lt; 300 ms</li>
+        </ul>
+      </div>
+      <div class="cat-card">
+        <div class="cat-title" style="color: var(--success);">SaaS / B2B</div>
+        <ul class="cat-list">
+          <li>Risque : sections authentifiées qui consomment du crawl</li>
+          <li>Cas Stackmatix : 12 % du crawl gaspillé sur <code>app/</code> non indexable</li>
+          <li>robots.txt strict sur <code>app/</code>, <code>dashboard/</code>, <code>account/</code>, etc.</li>
+          <li>Surveiller le dual-fetch WRS sur les pages JS-heavy</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 7 ─── -->
+  <section class="section" id="s7">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2>Monitoring mensuel & Caveats</h2>
+    </div>
+
+    <h3>Méthodologie de monitoring</h3>
+    <ul class="steps-list">
+      <li class="step-item">
+        <span class="step-freq">Hebdo</span>
+        <span class="step-content"><strong>Crawl Stats overview</strong> — pic de requests, response time, host status. Tout pic anormal → investigation immédiate.</span>
+      </li>
+      <li class="step-item">
+        <span class="step-freq">Hebdo</span>
+        <span class="step-content"><strong>Pages report</strong> — nouveau "Crawled – not indexed", nouveau "Discovered – not indexed" ; valider les fixes en cours.</span>
+      </li>
+      <li class="step-item">
+        <span class="step-freq">Mensuel</span>
+        <span class="step-content"><strong>Performance</strong> — RegEx brand/non-brand, striking distance, comparaison MoM/YoY. Identifier les opportunités page 1.</span>
+      </li>
+      <li class="step-item">
+        <span class="step-freq">Mensuel</span>
+        <span class="step-content"><strong>Core Web Vitals</strong> — % URLs Good vs. Poor, suivi des templates en alerte. Prioriser les templates à fort trafic.</span>
+      </li>
+      <li class="step-item">
+        <span class="step-freq">Trimestriel</span>
+        <span class="step-content"><strong>Analyse de logs serveur</strong> si &gt; 100 k URLs — cross-check avec Crawl Stats pour valider les anomalies.</span>
+      </li>
+      <li class="step-item">
+        <span class="step-freq">Annuel / Post-migration</span>
+        <span class="step-content"><strong>Setup BigQuery</strong>, URL Inspection bulk, full crawl Screaming Frog/Sitebulb. Audit complet de l'architecture de crawl.</span>
+      </li>
+    </ul>
+
+    <h3>10 caveats à connaître</h3>
+
+    <div class="callout warn">
+      <div class="callout-label">⚠ Caveat 1 — Crawl Stats est échantillonné</div>
+      <p>Le rapport montre la majorité des requêtes mais pas toutes. Sur des incidents critiques (perte massive de trafic, migration), ne jamais se fier uniquement à GSC — corroborer avec logs et un crawl tiers.</p>
+    </div>
+
+    <div class="callout warn">
+      <div class="callout-label">⚠ Caveat 2 — Limite de 1 000 lignes</div>
+      <p>La plupart des UI exports (Index Coverage, Crawl Stats par catégorie) sont limités à 1 000 lignes. Workarounds : vérifier sous-dossiers comme propriétés séparées (Glenn Gabe), URL Inspection API, Bulk Data Export, ou logs.</p>
+    </div>
+
+    <div class="callout warn">
+      <div class="callout-label">⚠ Caveat 3 — Lag de données</div>
+      <p>Les données Crawl Stats peuvent traîner de plusieurs jours (jusqu'à une semaine). Pour les changements en temps réel, utiliser logs ou outils tiers (Cloudflare analytics, monitoring uptime).</p>
+    </div>
+
+    <div class="callout danger">
+      <div class="callout-label">❌ Caveat 4 — Bugs Index Coverage</div>
+      <p>Le report Index Coverage a connu des bugs (déc. 2025 : freeze depuis mi-novembre, signalé par Glenn Gabe et Jan Caerels). Toujours vérifier la cohérence des dates affichées avant toute analyse.</p>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-label">📌 Caveat 5 — Response time ≠ signal ranking direct</div>
+      <p>L'Average response time mesuré par Googlebot ne pèse <em>pas</em> directement dans le ranking. Mais il pèse sur le crawl → l'indexation → le ranking. Mueller : <em>"unlikely to be used in rankings, unless consistently problematic 5-10+ seconds."</em></p>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-label">📌 Caveat 6 — Discovery vs. Refresh sont approximatifs</div>
+      <p>Mueller lui-même : <em>"I'm not 100% sure what exactly we would put into each of those buckets."</em> Ne pas en faire une science exacte ; les grandes tendances suffisent.</p>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-label">📌 Caveat 7 — AI Overviews / AI Mode (avril 2026)</div>
+      <p>Le tracking des clics AIO dans GSC est anonymisé selon les expériences récentes de JC Chouinard — les clics sont attribués à la position de l'AI Overview, sans détail de la position interne. Limite à connaître pour le reporting.</p>
+    </div>
+
+    <h3>Ressources clés</h3>
+    <div class="ref-grid">
+      <div class="ref-item">
+        <div class="ref-source">Sources Google officielles</div>
+        <ul class="ref-list">
+          <li>Crawl Stats documentation officielle — support.google.com/webmasters/answer/9679690</li>
+          <li>Crawl Budget Management (MAJ déc. 2025) — developers.google.com/crawling/docs/crawl-budget</li>
+          <li>URL Inspection API (jan. 2022) — developers.google.com/search/blog/2022/01</li>
+          <li>Bulk Data Export BigQuery (fév. 2023) — developers.google.com/search/blog/2023/02</li>
+        </ul>
+      </div>
+      <div class="ref-item">
+        <div class="ref-source">Experts anglophones</div>
+        <ul class="ref-list">
+          <li>Glenn Gabe (GSQI) — Crawl Stats, migrations, Index Coverage sous-dossiers</li>
+          <li>Patrick Stox (Ahrefs) — Crawl budget, "Crawled – currently not indexed"</li>
+          <li>JC Chouinard — guide complet GSC, RegEx, URL Inspection API</li>
+          <li>Olga Zarr (SEOSLY) — Crawl Stats, Bulk URL Inspection, audit GSC only</li>
+          <li>Aleyda Solis — templates Looker Studio, roadmap LearningSEO.io</li>
+        </ul>
+      </div>
+      <div class="ref-item">
+        <div class="ref-source">Ressources francophones</div>
+        <ul class="ref-list">
+          <li>Abondance (Olivier Andrieu) — définition GSC, outils, formation crawl</li>
+          <li>SeoMix (Daniel Roch) — guide complet GSC en français</li>
+          <li>Agence Slashr — "Explorée actuellement non indexée" (très pratique)</li>
+          <li>Aide officielle Google FR — support.google.com/webmasters?hl=fr</li>
+        </ul>
+      </div>
+      <div class="ref-item">
+        <div class="ref-source">Outils tiers</div>
+        <ul class="ref-list">
+          <li>Screaming Frog Log File Analyser + URL Inspection API integration</li>
+          <li>Sitebulb — crawl optimization guide</li>
+          <li>JetOctopus / Botify / Oncrawl — enterprise log analysis</li>
+          <li>valentin.app Bulk Inspect / searchVIU — bulk URL inspection gratuit</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <span>SEO Knowledge Base — Internal use</span>
+    <span>GSC & Crawl Stats — v1.0 — Mai 2026</span>
+  </footer>
+
+</div>
+</body>
+</html>
