@@ -287,6 +287,11 @@
       <div class="callout-label">2024 Study Finding</div>
       <p>A 2024 study by Vercel and MERJ (analyzing 100,000+ Googlebot fetches) found that Google now renders virtually all pages returning a 200 status, including complex SPAs. However: server-rendered pages have an advantage because they <strong>skip the render queue entirely</strong> for content discovery.</p>
     </div>
+
+    <div class="callout info">
+      <div class="callout-label">→ Related</div>
+      <p>For a deeper dive into the WRS pipeline internals, the 2 MB truncation limit (March 2026), DOM vs HTML source discrepancies, and hydration mismatch diagnostics — see <a href="seo-dom.html" style="color: var(--accent-2); text-decoration: underline; text-underline-offset: 3px;">Le DOM &amp; le rendu JS</a> (15 sections, covers soft navigations, edge cases, and signal conflicts).</p>
+    </div>
   </section>
 
 
@@ -658,6 +663,11 @@ const inter = Inter({ subsets: ['latin'], display: 'swap' })
     <p><strong>Also happens when:</strong> An ISR page revalidates but the data fetch fails, so Next.js falls back to the stale version — which may itself be broken.</p>
     <p><strong>Detection:</strong> GSC → Coverage → "Soft 404" tab. Cross-reference with your JS error monitoring (Sentry, Datadog) for hydration-phase exceptions.</p>
     <p><strong>Fix:</strong> Implement proper error handling in data fetching. Use <code>notFound()</code> in Next.js App Router to return a real 404 when data isn't found (rather than rendering an empty component).</p>
+
+    <div class="callout info">
+      <div class="callout-label">→ Related</div>
+      <p>The mechanics behind hydration mismatches — root causes (date APIs, browser-only APIs, invalid HTML structure), how React's error boundary destroys the DOM, and console-based diagnostics — are documented in <a href="seo-dom.html#s6" style="color: var(--accent-2); text-decoration: underline; text-underline-offset: 3px;">Le DOM &amp; le rendu JS — Section 06 : Hydration mismatches</a>.</p>
+    </div>
 
     <h3>6.5 — Crawl Budget Drain from Heavy JS</h3>
     <p>Googlebot allocates finite crawl resources per domain. Rendering JS costs vastly more than parsing static HTML. A site with heavy bundles, slow server responses, or 5xx errors gets throttled.</p>
