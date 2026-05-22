@@ -118,6 +118,7 @@
     .item-tag.outils { border-color: rgba(251, 191, 36, 0.3); color: #fcd34d; background: rgba(251, 191, 36, 0.1); }
     .item-tag.contenu { border-color: rgba(192, 132, 252, 0.3); color: #d8b4fe; background: rgba(192, 132, 252, 0.1); }
     .item-tag.linkbuilding { border-color: rgba(239, 68, 68, 0.3); color: #f87171; background: rgba(239, 68, 68, 0.1); }
+    .item-tag.blackhat { border-color: rgba(100, 100, 110, 0.5); color: #d1d5db; background: rgba(30, 30, 35, 0.8); }
     .arrow {
       font-size: 0.85rem;
       color: var(--paper-3);
@@ -162,6 +163,7 @@
     <button class="filter-btn active" onclick="filter('tous')">Tous</button>
     <button class="filter-btn" onclick="filter('linkbuilding')">Linkbuilding</button>
     <button class="filter-btn" onclick="filter('technique')">Technique</button>
+    <button class="filter-btn" onclick="filter('blackhat')">Black Hat</button>
 
   </div>
 
@@ -177,6 +179,7 @@
 
 <script>
   const articles = [
+    { date: "2026-05-22", title: "Google Images SEO — Playbook Complet (White / Grey / Black Hat)", tag: "blackhat", file: "articles/google-images-seo.html" },
     { date: "2026-05-10", title: "GSC & Crawl Stats — SEO Knowledge Base", tag: "technique", file: "articles/GSC Guide.html" },
     { date: "2026-05-10", title: "JavaScript for SEO — SEO Knowledge Base", tag: "technique", file: "articles/javascript-seo.html" },
     { date: "2026-05-09", title: "Python for SEO — SEO Knowledge Base", tag: "technique", file: "articles/python-seo.html" },

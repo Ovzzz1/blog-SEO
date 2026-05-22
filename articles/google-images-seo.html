@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="tag" content="blackhat">
+<meta name="date" content="2026-05-22">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Images SEO — Playbook Complet — SEO Knowledge Base</title>
+<link rel="icon" type="image/png" href="../image/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #f9fafb;
+    --ink-2: #d1d5db;
+    --ink-3: #9ca3af;
+    --paper: #17191a;
+    --paper-2: #212426;
+    --paper-3: #2d3134;
+    --accent: #ff6e40;
+    --accent-2: #60a5fa;
+    --success: #34d399;
+    --warn: #fbbf24;
+    --danger: #f87171;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+    --display: 'Syne', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .page-wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+  /* HEADER */
+  .site-header { border-bottom: 1px solid var(--paper-3); padding: 2rem 0 1.5rem; margin-bottom: 0; }
+  .header-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+  .tag-badge { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border: 1px solid var(--paper-3); border-radius: 2px; color: var(--ink-3); }
+  .tag-badge.accent { border-color: var(--accent); color: var(--accent); }
+
+  .hero-grid { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: end; padding-bottom: 2.5rem; }
+  .hero-title { font-family: var(--display); font-size: clamp(2.8rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.0; letter-spacing: -0.03em; color: var(--ink); }
+  .hero-title em { font-style: normal; color: var(--accent); }
+  .hero-subtitle { font-family: var(--sans); font-size: 1rem; font-weight: 300; color: var(--ink-3); margin-top: 0.75rem; line-height: 1.5; }
+  .version-box { font-family: var(--mono); font-size: 10px; color: var(--ink-3); line-height: 1.8; letter-spacing: 0.05em; text-align: right; }
+
+  /* RISK LEGEND */
+  .risk-legend { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; margin: 1.5rem 0; padding: 1rem 1.25rem; background: var(--paper-2); border: 1px solid var(--paper-3); border-radius: 4px; }
+  .risk-legend-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
+  .risk-item { display: flex; align-items: center; gap: 0.4rem; font-family: var(--mono); font-size: 11px; color: var(--ink-3); }
+  .risk-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .risk-dot.green  { background: #34d399; }
+  .risk-dot.yellow { background: #fbbf24; }
+  .risk-dot.orange { background: #fb923c; }
+  .risk-dot.red    { background: #f87171; }
+
+  /* TOC */
+  .toc-bar { background: var(--paper-2); border: 1px solid var(--paper-3); padding: 1.5rem 2rem; margin: 0 -2rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.25rem 2rem; }
+  .toc-item { font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; padding: 0.3rem 0; color: rgba(249,250,251,0.6); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.15s; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .toc-item:hover { color: var(--ink); }
+  .toc-num { color: var(--accent); font-weight: 500; min-width: 20px; }
+
+  /* SECTIONS */
+  .section { padding: 4rem 0 2rem; border-bottom: 1px solid var(--paper-3); }
+  .section:last-child { border-bottom: none; }
+  .section-header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 2rem; }
+  .section-num { font-family: var(--mono); font-size: 11px; font-weight: 500; color: var(--accent); letter-spacing: 0.1em; min-width: 32px; }
+
+  h2 { font-family: var(--display); font-size: 1.6rem; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: var(--ink); margin-top: 15px; }
+  h3 { font-family: var(--display); font-size: 1.05rem; font-weight: 600; color: var(--ink); margin: calc(2rem + 16px) 0 0.75rem; letter-spacing: -0.01em; }
+
+  p { margin-bottom: 1rem; color: var(--ink-2); }
+  strong { font-weight: 500; color: var(--ink); }
+  code { font-family: var(--mono); font-size: 0.82em; background: var(--paper-2); border: 1px solid var(--paper-3); border-radius: 3px; padding: 1px 5px; color: var(--accent-2); }
+
+  /* CODE BLOCKS */
+  .code-block { background: var(--paper-2); border: 1px solid var(--paper-3); border-radius: 4px; margin: 1.5rem 0; overflow: hidden; }
+  .code-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); padding: 0.5rem 1rem; background: var(--paper-3); border-bottom: 1px solid var(--paper-3); }
+  .code-block pre { padding: 1.25rem; overflow-x: auto; }
+  .code-block code { background: none; border: none; padding: 0; font-size: 0.83rem; color: var(--ink-2); line-height: 1.7; white-space: pre; display: block; }
+
+  /* CALLOUTS */
+  .callout { border-left: 3px solid; padding: 1rem 1.25rem; margin: 1.5rem 0; border-radius: 0 4px 4px 0; }
+  .callout p { margin-bottom: 0; font-size: 0.92rem; }
+  .callout p + p { margin-top: 0.5rem; }
+  .callout-label { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .callout.info { border-color: var(--accent-2); background: rgba(96,165,250,0.1); }
+  .callout.info .callout-label { color: var(--accent-2); }
+  .callout.warn { border-color: var(--warn); background: rgba(251,191,36,0.1); }
+  .callout.warn .callout-label { color: var(--warn); }
+  .callout.danger { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .callout.danger .callout-label { color: var(--danger); }
+  .callout.success { border-color: var(--success); background: rgba(52,211,153,0.1); }
+  .callout.success .callout-label { color: var(--success); }
+  .callout.edge { border-color: #a78bfa; background: rgba(167,139,250,0.1); }
+  .callout.edge .callout-label { color: #a78bfa; }
+
+  /* TABLES */
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  thead tr { background: var(--paper-2); color: var(--ink); }
+  thead th { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.75rem 1rem; text-align: left; }
+  tbody tr { border-bottom: 1px solid var(--paper-2); }
+  tbody tr:hover { background: var(--paper-2); }
+  tbody td { padding: 0.65rem 1rem; color: var(--ink-2); vertical-align: top; }
+  tbody td:first-child { font-weight: 400; color: var(--ink); }
+
+  /* RISK DOTS IN TABLE */
+  .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; vertical-align: middle; }
+  .dot.green  { background: #34d399; }
+  .dot.yellow { background: #fbbf24; }
+  .dot.orange { background: #fb923c; }
+  .dot.red    { background: #f87171; }
+
+  /* KPI GRID */
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1px; background: var(--paper-3); border: 1px solid var(--paper-3); border-radius: 6px; overflow: hidden; margin: 1.5rem 0; }
+  .kpi-item { background: var(--paper); padding: 1.25rem; }
+  .kpi-label { font-family: var(--mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 0.4rem; }
+  .kpi-value { font-family: var(--display); font-size: 1.4rem; font-weight: 700; color: var(--ink); line-height: 1; margin-bottom: 0.3rem; }
+  .kpi-sub { font-size: 0.78rem; color: var(--ink-3); line-height: 1.4; }
+
+  /* CHECKLIST */
+  .checklist { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin: 1.5rem 0; }
+  .checklist li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.9rem; color: var(--ink-2); }
+  .checklist li::before { content: ''; display: inline-block; width: 14px; height: 14px; border: 1px solid var(--paper-3); border-radius: 2px; flex-shrink: 0; margin-top: 4px; }
+
+  /* CHECKLIST GROUPS */
+  .checklist-group { background: var(--paper-2); border: 1px solid var(--paper-3); border-radius: 6px; margin: 1.5rem 0; overflow: hidden; }
+  .checklist-group-title { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.75rem 1.25rem; border-bottom: 1px solid var(--paper-3); }
+  .checklist-group-body { padding: 1rem 1.25rem; }
+
+  /* RULES GRID */
+  .rules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--paper-3); border: 1px solid var(--paper-3); border-radius: 6px; overflow: hidden; margin: 1.5rem 0; }
+  .rule-item { background: var(--paper); padding: 1.25rem 1.5rem; }
+  .rule-title { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 0.5rem; }
+  .rule-content { font-size: 0.88rem; color: var(--ink-2); line-height: 1.6; }
+
+  /* FOOTER */
+  .site-footer { margin-top: 4rem; padding: 2rem 0; border-top: 1px solid var(--paper-3); display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 11px; color: var(--ink-3); letter-spacing: 0.05em; }
+
+  @media (max-width: 600px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-side { display: none; }
+    .rules-grid { grid-template-columns: 1fr; }
+    .toc-bar { grid-template-columns: 1fr 1fr; }
+  }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  .section { animation: fadeUp 0.4s ease both; }
+  .section:nth-child(1) { animation-delay: 0.05s; }
+  .section:nth-child(2) { animation-delay: 0.1s; }
+  .section:nth-child(3) { animation-delay: 0.15s; }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <div style="padding-top: 2rem;">
+    <a href="../index.html" style="font-family: var(--mono); font-size: 11px; text-decoration: none; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-3)'">← Retour à l'accueil</a>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-meta">
+      <span class="tag-badge accent">SEO Knowledge Base</span>
+      <span class="tag-badge">Usage interne</span>
+      <span class="tag-badge">v1.0 — Mai 2026</span>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1 class="hero-title">Google<br><em>Images SEO</em></h1>
+        <p class="hero-subtitle">Playbook complet White / Grey / Black Hat —<br>du fichier image aux signaux comportementaux.</p>
+      </div>
+      <div class="hero-side">
+        <div class="version-box">
+          10 sections<br>
+          4 niveaux de risque<br>
+          17 techniques<br>
+          Mis à jour 2026
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- RISK LEGEND -->
+  <div class="risk-legend">
+    <span class="risk-legend-label">Légende risque</span>
+    <span class="risk-item"><span class="risk-dot green"></span> Nul</span>
+    <span class="risk-item"><span class="risk-dot yellow"></span> Faible</span>
+    <span class="risk-item"><span class="risk-dot orange"></span> Moyen</span>
+    <span class="risk-item"><span class="risk-dot red"></span> Élevé</span>
+  </div>
+
+  <!-- TOC -->
+  <nav class="toc-bar">
+    <a href="#s1" class="toc-item"><span class="toc-num">01</span> Fondations techniques</a>
+    <a href="#s2" class="toc-item"><span class="toc-num">02</span> Métadonnées EXIF/IPTC/XMP</a>
+    <a href="#s3" class="toc-item"><span class="toc-num">03</span> Indexation — Stack complet</a>
+    <a href="#s4" class="toc-item"><span class="toc-num">04</span> Maillage interne</a>
+    <a href="#s5" class="toc-item"><span class="toc-num">05</span> Link building image</a>
+    <a href="#s6" class="toc-item"><span class="toc-num">06</span> Trafic comportemental</a>
+    <a href="#s7" class="toc-item"><span class="toc-num">07</span> Techniques avancées</a>
+    <a href="#s8" class="toc-item"><span class="toc-num">08</span> Signaux locaux</a>
+    <a href="#s9" class="toc-item"><span class="toc-num">09</span> Récap implémentation</a>
+    <a href="#s10" class="toc-item"><span class="toc-num">10</span> Tableau risque/impact</a>
+  </nav>
+
+  <!-- ─── SECTION 1 ─── -->
+  <section class="section" id="s1">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2>Fondations Techniques (White Hat)</h2>
+    </div>
+
+    <p>Ces bases sont non-négociables — sans elles, aucune technique avancée ne fonctionne.</p>
+
+    <h3>Fichier image</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Action</th><th>Détail</th><th>Risque</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Nom de fichier</td><td><code>veste-ecko-vintage-y2k-oversize.webp</code> — jamais <code>IMG_4829.jpg</code></td><td><span class="dot green"></span></td></tr>
+          <tr><td>Format</td><td>WebP ou AVIF en priorité, fallback JPEG</td><td><span class="dot green"></span></td></tr>
+          <tr><td>Dimensions natives</td><td>Ne pas upscaler via CSS — servir la vraie résolution</td><td><span class="dot green"></span></td></tr>
+          <tr><td>Poids</td><td>&lt; 200 Ko pour le web, version HD séparée pour Googlebot</td><td><span class="dot green"></span></td></tr>
+          <tr><td>Placement dans la page</td><td>Google confirme : images en début ou milieu d'article ont la priorité dans les résultats</td><td><span class="dot green"></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Balisage HTML</h3>
+    <div class="code-block">
+      <div class="code-label">HTML</div>
+      <pre><code>&lt;figure&gt;
+  &lt;img
+    src="/images/veste-ecko-vintage-y2k.webp"
+    alt="Veste Ecko Unltd vintage zip Y2K streetwear graffiti oversize taille L"
+    title="Veste Ecko Unltd Vintage Zip — Y2K Urban Streetwear"
+    width="1200"
+    height="900"
+    loading="lazy"
+  /&gt;
+  &lt;figcaption&gt;Veste Ecko Unltd vintage zip Y2K — coupe oversize taille L&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-label">Note</div>
+      <p>Le <code>&lt;figcaption&gt;</code> est un signal textuel direct souvent ignoré. Le <code>title</code> sur <code>&lt;img&gt;</code> est lu par Google.</p>
+    </div>
+
+    <h3>Schema.org ImageObject</h3>
+    <div class="code-block">
+      <div class="code-label">JSON-LD</div>
+      <pre><code>{
+  "@context": "https://schema.org",
+  "@type": "ImageObject",
+  "contentUrl": "https://monsite.com/images/veste-ecko-vintage-y2k.webp",
+  "name": "Veste Ecko Unltd Vintage Zip Y2K Streetwear",
+  "description": "Veste zippée Ecko Unltd vintage style Y2K, coupe oversize graffiti, taille L",
+  "author": { "@type": "Organization", "name": "MonSite" },
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "acquireLicensePage": "https://monsite.com/licence-images"
+}</code></pre>
+    </div>
+
+    <div class="callout success">
+      <div class="callout-label">Tip licence CC</div>
+      <p>Déclarer une licence Creative Commons → Google affiche un badge "Réutilisable" → CTR augmenté massivement sur certaines niches.</p>
+    </div>
+
+    <h3>Open Graph</h3>
+    <div class="code-block">
+      <div class="code-label">HTML — Meta OG</div>
+      <pre><code>&lt;meta property="og:image" content="https://monsite.com/images/veste-ecko-vintage-y2k.webp" /&gt;
+&lt;meta property="og:image:width" content="1200" /&gt;
+&lt;meta property="og:image:height" content="900" /&gt;</code></pre>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 2 ─── -->
+  <section class="section" id="s2">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>Métadonnées EXIF / IPTC / XMP — Le vrai levier ignoré</h2>
+    </div>
+
+    <p>Google utilise son API Cloud Vision pour lire le contenu des images, y compris les métadonnées embarquées. <strong>Les champs IPTC comptent plus que les champs EXIF</strong> (qui sont des données d'appareil photo).</p>
+
+    <h3>Champs prioritaires via ExifTool</h3>
+    <div class="code-block">
+      <div class="code-label">Bash — ExifTool</div>
+      <pre><code>exiftool \
+  -IPTC:ObjectName="Veste Ecko Unltd Vintage Zip Y2K Streetwear" \
+  -IPTC:Caption-Abstract="Veste zippée Ecko Unltd vintage style Y2K, coupe oversize graffiti taille L." \
+  -IPTC:Keywords="ecko unltd, veste vintage, y2k, streetwear, graffiti, oversize, zip jacket" \
+  -IPTC:By-line="MonSite.com" \
+  -IPTC:CopyrightNotice="© MonSite.com" \
+  -XMP:Title="Veste Ecko Unltd Vintage Y2K" \
+  -XMP:Description="Veste Ecko Unltd vintage zip Y2K streetwear graffiti oversize taille L" \
+  veste-ecko-vintage-y2k.webp</code></pre>
+    </div>
+
+    <p>Script batch pour un dossier entier :</p>
+    <div class="code-block">
+      <div class="code-label">Bash — Batch</div>
+      <pre><code>exiftool -r \
+  -IPTC:Keywords+="streetwear, vintage, y2k" \
+  -IPTC:By-line="MonSite.com" \
+  /dossier/images/</code></pre>
+    </div>
+
+    <h3>OCR intégré dans l'image — Signal visuel direct</h3>
+    <p>Google utilise Cloud Vision OCR pour extraire le texte <strong>brûlé dans le visuel</strong> de l'image.</p>
+
+    <div class="rules-grid">
+      <div class="rule-item">
+        <div class="rule-title">Principe</div>
+        <div class="rule-content">Ajouter discrètement le mot-clé cible dans le design de l'image (watermark, tag produit, étiquette stylisée). Google le lit comme du texte, sans dépendre des métadonnées.</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-title">Exemple concret</div>
+        <div class="rule-content">Une étiquette "Ecko Unltd Vintage — Y2K Collection" visible dans l'image. Googlebot la lit via OCR et traite ce texte comme un signal sémantique direct.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 3 ─── -->
+  <section class="section" id="s3">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2>Indexation — Stack complet par niveau</h2>
+    </div>
+
+    <h3>Niveau 1 — Sitemap image dédié</h3>
+    <div class="code-block">
+      <div class="code-label">XML — Sitemap</div>
+      <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://monsite.com/veste-ecko-vintage/&lt;/loc&gt;
+    &lt;image:image&gt;
+      &lt;image:loc&gt;https://monsite.com/images/veste-ecko-vintage-y2k.webp&lt;/image:loc&gt;
+      &lt;image:title&gt;Veste Ecko Unltd Vintage Zip Y2K Streetwear&lt;/image:title&gt;
+      &lt;image:caption&gt;Veste zippée Ecko Unltd vintage Y2K, coupe oversize graffiti, taille L&lt;/image:caption&gt;
+    &lt;/image:image&gt;
+  &lt;/url&gt;
+&lt;/urlset&gt;</code></pre>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-label">GSC</div>
+      <p>Soumettre ce sitemap séparément dans Google Search Console → force la découverte des images chargées en lazy load ou JS.</p>
+    </div>
+
+    <h3>Niveau 2 — Inspection URL manuelle dans GSC</h3>
+    <ul class="checklist">
+      <li>Inspecter l'URL directe du fichier (<code>monsite.com/images/veste.webp</code>) dans GSC</li>
+      <li>Demander l'indexation → Googlebot le crawle en priorité dans les 24-48h</li>
+      <li>Faire ça pour chaque image stratégique</li>
+    </ul>
+
+    <h3>Niveau 3 — API Google Indexing (détournée)</h3>
+    <p>Officiellement réservée aux job postings et live streams, mais fonctionne sur d'autres URLs :</p>
+    <div class="code-block">
+      <div class="code-label">Python — Google Indexing API</div>
+      <pre><code>import requests
+from oauth2client.service_account import ServiceAccountCredentials
+
+SCOPES = ["https://www.googleapis.com/auth/indexing"]
+credentials = ServiceAccountCredentials.from_json_keyfile_name("service_account.json", SCOPES)
+http = credentials.authorize(requests.Session())
+
+urls_images = [
+    "https://monsite.com/images/veste-ecko-1.webp",
+    "https://monsite.com/images/veste-ecko-2.webp",
+]
+
+for url in urls_images:
+    payload = {"url": url, "type": "URL_UPDATED"}
+    http.post(
+        "https://indexing.googleapis.com/v3/urlNotifications:publish",
+        json=payload
+    )</code></pre>
+    </div>
+
+    <h3>Niveau 4 — Indexeurs tiers (Black Hat)</h3>
+    <p>Outils qui pingent massivement tes URLs depuis des milliers d'IPs pour forcer le crawl Googlebot :</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Outil</th><th>Type</th><th>Usage</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Omega Indexer</td><td>Payant</td><td>Batch d'URLs, résultats en 24-48h</td></tr>
+          <tr><td>Giga Indexer</td><td>Payant</td><td>Spécialisé liens et médias</td></tr>
+          <tr><td>Linklicious</td><td>Freemium</td><td>Ping RSS + backlinks tier 2</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout warn">
+      <div class="callout-label">Astuce</div>
+      <p>Envoyer les indexeurs tiers sur les <strong>URLs fichiers images directement</strong>, pas sur les pages. Accélère le crawl sans risquer de pénalité sur la page principale.</p>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 4 ─── -->
+  <section class="section" id="s4">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2>Maillage Interne — Technique sous-exploitée</h2>
+    </div>
+
+    <p>L'URL d'une image hébergée sur ton serveur (<code>/images/veste.webp</code>) est une <strong>URL indexable</strong> à part entière. Elle peut recevoir du PageRank comme n'importe quelle URL.</p>
+
+    <h3>Lien interne direct vers le fichier</h3>
+    <div class="code-block">
+      <div class="code-label">HTML — Lien direct</div>
+      <pre><code>&lt;!-- Dans tes articles les plus forts --&gt;
+&lt;a href="/images/veste-ecko-vintage-y2k.webp"&gt;Voir la veste en HD&lt;/a&gt;
+
+&lt;!-- Via ancre descriptive --&gt;
+&lt;a href="/images/veste-ecko-vintage-y2k.webp"
+   title="Veste Ecko Unltd Vintage Y2K Streetwear"&gt;
+  photo HD de la veste
+&lt;/a&gt;</code></pre>
+    </div>
+
+    <h3>Règles de mise en place</h3>
+    <div class="rules-grid">
+      <div class="rule-item">
+        <div class="rule-title">HTTP 200 obligatoire</div>
+        <div class="rule-content">L'URL image doit retourner un HTTP 200. Vérifier que <code>robots.txt</code> ne bloque pas <code>/images/</code>.</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-title">Ancres descriptives</div>
+        <div class="rule-content">Utiliser des ancres contenant le mot-clé cible. Ne pas utiliser "cliquez ici" ou des ancres génériques.</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-title">Pages sources fortes</div>
+        <div class="rule-content">Pointer depuis tes pages à plus forte autorité — homepage, piliers de contenu. Pas depuis des pages orphelines.</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-title">Volume minimum</div>
+        <div class="rule-content">Minimum 3-5 liens internes vers chaque image stratégique pour que le signal PageRank soit significatif.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 5 ─── -->
+  <section class="section" id="s5">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2>Link Building sur Fichier Image (Grey/Black Hat)</h2>
+    </div>
+
+    <div class="callout edge">
+      <div class="callout-label">Donnée clé</div>
+      <p>Les liens via balise image obtiennent une corrélation de ranking plus élevée (<strong>0,538 Spearman</strong>) que les liens texte (0,472). L'écart s'accentue sur les domaines à forte autorité.</p>
+    </div>
+
+    <h3>Badges / Widgets à embedder</h3>
+    <div class="code-block">
+      <div class="code-label">HTML — Badge embeddable</div>
+      <pre><code>&lt;!-- Proposer ce code à d'autres sites --&gt;
+&lt;a href="https://monsite.com/certif-streetwear"&gt;
+  &lt;img src="https://monsite.com/images/badge-certifie-vintage.webp"
+       alt="Certifié Vintage Streetwear par MonSite" /&gt;
+&lt;/a&gt;</code></pre>
+    </div>
+    <p>Chaque site qui l'embed = backlink image vers toi.</p>
+
+    <h3>Hotlinking volontaire</h3>
+    <div class="rules-grid">
+      <div class="rule-item">
+        <div class="rule-title">Méthode</div>
+        <div class="rule-content">Poster l'image sur forums niche, Reddit, Quora avec <code>src</code> pointant vers ton serveur. Chaque affichage = signal de popularité + Googlebot suit le <code>src</code>.</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-title">Cibles prioritaires</div>
+        <div class="rule-content">Forums vintage/streetwear, subreddits thématiques. Cibler les communautés actives avec fort engagement pour maximiser les signaux comportementaux.</div>
+      </div>
+    </div>
+
+    <h3>PBN / Liens directs vers le fichier image</h3>
+    <p>Articles satellites ou PBN avec liens <code>&lt;a href="monsite.com/image.webp"&gt;</code> ou <code>&lt;img src="..."&gt;</code>. Envoyer du jus directement sur l'asset, pas sur la page intermédiaire.</p>
+
+    <h3>Récupérer les liens des images 404 concurrentes</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Étape</th><th>Action</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Chercher des images mortes sur des domaines concurrents via Ahrefs/Majestic</td></tr>
+          <tr><td>2</td><td>Identifier qui lie vers ces images cassées</td></tr>
+          <tr><td>3</td><td>Proposer ta propre image en remplacement (outreach) ou créer la même URL si tu rachètes le domaine</td></tr>
+          <tr><td>4</td><td>301 redirect de l'ancienne URL vers la tienne → récupération du jus</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 6 ─── -->
+  <section class="section" id="s6">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2>Trafic vers l'URL Image — Signaux comportementaux</h2>
+    </div>
+
+    <p>Google mesure le CTR et l'engagement sur les URLs d'images dans Google Images.</p>
+
+    <h3>Sources de trafic à driver sur l'URL directe</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Source</th><th>Méthode</th><th>Risque</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Pinterest</td><td>Épingles pointant vers l'URL fichier (pas la page)</td><td><span class="dot green"></span></td></tr>
+          <tr><td>Réseaux sociaux</td><td>Posts qui linkent directement vers <code>monsite.com/image.webp</code></td><td><span class="dot green"></span></td></tr>
+          <tr><td>Google Ads Display</td><td>Campagne qui drive vers l'URL directe du fichier image</td><td><span class="dot yellow"></span></td></tr>
+          <tr><td>Iframe sur site satellite</td><td>Blog secondaire qui charge l'image dans un iframe</td><td><span class="dot yellow"></span></td></tr>
+          <tr><td>Micro-tâches (MTurk, Microworkers)</td><td>Humains qui cherchent la requête → cliquent l'image → visitent la page</td><td><span class="dot orange"></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Stack Pinterest</h3>
+    <ul class="checklist">
+      <li>Créer 3-5 comptes Pinterest thématiques</li>
+      <li>Créer des boards niche (Streetwear Vintage, Y2K Fashion...)</li>
+      <li>Épingler chaque image avec lien vers l'URL du fichier <strong>et</strong> vers la page produit</li>
+      <li>Réépingler entre les comptes</li>
+      <li>Utiliser des descriptions riches en mots-clés dans chaque épingle</li>
+    </ul>
+
+    <h3>Simulation de comportement (Black Hat)</h3>
+    <div class="callout danger">
+      <div class="callout-label">Risque élevé</div>
+      <p>Recherche ciblée sur la requête → scroll → clic sur l'image → visite de la page source → 30+ secondes sur la page. À diluer avec du vrai trafic pour rester sous le radar. <strong>Ne pas dépasser 15-20% de trafic artificiel dans le mix.</strong></p>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 7 ─── -->
+  <section class="section" id="s7">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2>Techniques Avancées / Grey Hat Technique</h2>
+    </div>
+
+    <h3>Adaptive Images (Cloaking léger)</h3>
+    <p>L'utilisateur reçoit une image légère, Googlebot voit une image HD avec plus de signaux :</p>
+    <div class="code-block">
+      <div class="code-label">HTML — Picture tag</div>
+      <pre><code>&lt;picture&gt;
+  &lt;!-- Source haute résolution pour les crawlers --&gt;
+  &lt;source
+    srcset="/images/veste-ecko-hd-4000px.webp"
+    media="(min-width: 1px)"
+    type="image/webp"
+  /&gt;
+  &lt;!-- Version légère pour l'utilisateur réel --&gt;
+  &lt;img
+    src="/images/veste-ecko-800px.webp"
+    alt="Veste Ecko Unltd Vintage Zip Y2K Streetwear Graffiti Oversize L"
+  /&gt;
+&lt;/picture&gt;</code></pre>
+    </div>
+
+    <h3>Détection de GoogleOther-Image (Black Hat)</h3>
+    <p>Depuis 2024, Google utilise des crawlers dédiés aux images avec leur propre user-agent. Il est possible de leur servir une image enrichie :</p>
+    <div class="code-block">
+      <div class="code-label">PHP — Détection crawler</div>
+      <pre><code>$ua = $_SERVER['HTTP_USER_AGENT'];
+if (strpos($ua, 'GoogleOther-Image') !== false || strpos($ua, 'Googlebot-Image') !== false) {
+    // Servir la version HD avec métadonnées IPTC complètes
+    header('X-Robots-Tag: index');
+    readfile('/images/veste-hd-avec-metadata.webp');
+} else {
+    readfile('/images/veste-optimisee-web.webp');
+}</code></pre>
+    </div>
+
+    <div class="callout danger">
+      <div class="callout-label">Risque élevé</div>
+      <p>Si Google détecte un contenu différent entre bot et user — à réserver aux projets jetables ou à tester sur domaine secondaire.</p>
+    </div>
+
+    <h3>Mirrored Images (Technique émergente)</h3>
+    <div class="rules-grid">
+      <div class="rule-item">
+        <div class="rule-title">Principe</div>
+        <div class="rule-content">Prendre une image qui ranke déjà chez un concurrent et la modifier pour la traiter comme unique : retournement horizontal (flip), modification 3-5% des pixels (filtre léger, variation de luminosité).</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-title">Résultat</div>
+        <div class="rule-content">Google Lens la traite comme une image distincte mais les signaux sémantiques restent identiques. Même ciblage alt, filename, contexte.</div>
+      </div>
+    </div>
+
+    <h3>Duplicate Image Strategy</h3>
+    <p>Créer des variantes légitimes d'une même image, chacune avec sa propre URL indexable :</p>
+    <div class="code-block">
+      <div class="code-label">Structure URL — Variantes</div>
+      <pre><code>/veste-ecko-vintage-mobile.webp       → 480px, ciblage requêtes mobile
+/veste-ecko-vintage-desktop.webp      → 1200px, ciblage requêtes desktop
+/veste-ecko-vintage-hd.webp           → 4000px, ciblage requêtes "photo HD"
+/veste-ecko-vintage-fond-blanc.webp   → version e-commerce</code></pre>
+    </div>
+    <p>Chaque URL peut ranker indépendamment sur des variantes de requêtes.</p>
+  </section>
+
+  <!-- ─── SECTION 8 ─── -->
+  <section class="section" id="s8">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <h2>Signaux Locaux</h2>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Action</th><th>Détail</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>EXIF GPS</td><td>Intégrer les coordonnées du lieu dans les métadonnées EXIF</td></tr>
+          <tr><td>Nom de fichier géolocalisé</td><td><code>restaurant-japonais-lyon-terrasse.webp</code></td></tr>
+          <tr><td>Google Business Profile</td><td>Les images GBP apparaissent dans Google Images et Maps</td></tr>
+          <tr><td>Schema LocalBusiness + image</td><td>Déclarer les images dans le schema de l'établissement</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 9 ─── -->
+  <section class="section" id="s9">
+    <div class="section-header">
+      <span class="section-num">09</span>
+      <h2>Récap Implémentation — Par priorité</h2>
+    </div>
+
+    <div class="checklist-group">
+      <div class="checklist-group-title" style="color: var(--success);">Quick wins — moins d'1h de travail</div>
+      <div class="checklist-group-body">
+        <ul class="checklist">
+          <li>Renommer tous les fichiers images avec mots-clés</li>
+          <li>Remplir alt + title + figcaption sur chaque image stratégique</li>
+          <li>Ajouter Schema.org ImageObject sur les pages clés</li>
+          <li>Créer et soumettre un sitemap image dédié dans GSC</li>
+          <li>Injecter les métadonnées IPTC via ExifTool (script batch)</li>
+          <li>Ajouter 3-5 liens internes vers les URLs fichiers images depuis les pages fortes</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="checklist-group">
+      <div class="checklist-group-title" style="color: var(--warn);">Moyen terme — 1 à 2 semaines</div>
+      <div class="checklist-group-body">
+        <ul class="checklist">
+          <li>Mettre en place les épingles Pinterest (hotlink + page source)</li>
+          <li>Configurer l'API Google Indexing pour soumission batch des URLs images</li>
+          <li>Créer les variantes de dimensions pour chaque image prioritaire</li>
+          <li>Déployer le Schema ImageObject + licence CC sur toutes les images</li>
+          <li>Lancer les indexeurs tiers sur les URLs fichiers images</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="checklist-group">
+      <div class="checklist-group-title" style="color: var(--danger);">Long terme / Agressif</div>
+      <div class="checklist-group-body">
+        <ul class="checklist">
+          <li>Créer des badges/widgets embeddables pour link building image</li>
+          <li>Mettre en place le stack PBN avec liens directs vers fichiers images</li>
+          <li>Tester adaptive images / détection GoogleOther-Image sur domaine secondaire</li>
+          <li>Campagne de récupération d'images 404 concurrentes (Ahrefs + outreach)</li>
+          <li>Programme de micro-tâches pour signaux comportementaux</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 10 ─── -->
+  <section class="section" id="s10">
+    <div class="section-header">
+      <span class="section-num">10</span>
+      <h2>Tableau de Bord Risque / Impact Global</h2>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Technique</th><th>Effort</th><th>Impact</th><th>Risque</th><th>Priorité</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Liens internes vers URL fichier</td><td>Très faible</td><td>Élevé</td><td><span class="dot green"></span></td><td><strong>P1</strong></td></tr>
+          <tr><td>Métadonnées IPTC/XMP (ExifTool)</td><td>Très faible</td><td>Élevé</td><td><span class="dot green"></span></td><td><strong>P1</strong></td></tr>
+          <tr><td>Schema ImageObject + licence CC</td><td>Faible</td><td>Moyen</td><td><span class="dot green"></span></td><td><strong>P1</strong></td></tr>
+          <tr><td>Sitemap image dédié GSC</td><td>Faible</td><td>Moyen</td><td><span class="dot green"></span></td><td><strong>P1</strong></td></tr>
+          <tr><td>API Google Indexing batch</td><td>Faible</td><td>Moyen</td><td><span class="dot yellow"></span></td><td><strong>P1</strong></td></tr>
+          <tr><td>Pinterest stack (hotlink)</td><td>Faible</td><td>Élevé</td><td><span class="dot green"></span></td><td><strong>P1</strong></td></tr>
+          <tr><td>OCR texte brûlé dans l'image</td><td>Moyen</td><td>Moyen</td><td><span class="dot green"></span></td><td><strong>P2</strong></td></tr>
+          <tr><td>Image-based backlinks (badges)</td><td>Moyen</td><td>Élevé</td><td><span class="dot green"></span></td><td><strong>P2</strong></td></tr>
+          <tr><td>Hotlinking volontaire (forums)</td><td>Moyen</td><td>Élevé</td><td><span class="dot yellow"></span></td><td><strong>P2</strong></td></tr>
+          <tr><td>Indexeurs tiers (Omega, Giga)</td><td>Très faible</td><td>Moyen</td><td><span class="dot yellow"></span></td><td><strong>P2</strong></td></tr>
+          <tr><td>Duplicate image strategy</td><td>Moyen</td><td>Moyen</td><td><span class="dot green"></span></td><td><strong>P2</strong></td></tr>
+          <tr><td>Adaptive images (cloaking léger)</td><td>Moyen</td><td>Moyen</td><td><span class="dot yellow"></span></td><td><strong>P3</strong></td></tr>
+          <tr><td>Trafic comportemental (MTurk)</td><td>Moyen</td><td>Élevé</td><td><span class="dot orange"></span></td><td><strong>P3</strong></td></tr>
+          <tr><td>PBN liens directs vers fichier</td><td>Élevé</td><td>Élevé</td><td><span class="dot orange"></span></td><td><strong>P3</strong></td></tr>
+          <tr><td>Mirrored images</td><td>Faible</td><td>Moyen</td><td><span class="dot yellow"></span></td><td><strong>P3</strong></td></tr>
+          <tr><td>Détection GoogleOther-Image</td><td>Élevé</td><td>Élevé</td><td><span class="dot red"></span></td><td><strong>P4</strong></td></tr>
+          <tr><td>Redirect hijack images 404</td><td>Élevé</td><td>Élevé</td><td><span class="dot orange"></span></td><td><strong>P4</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Outils référencés</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Outil</th><th>Usage</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>ExifTool</td><td>Injection IPTC/XMP/EXIF en batch</td></tr>
+          <tr><td>TinyPNG / Squoosh</td><td>Compression sans perte qualité</td></tr>
+          <tr><td>Google Search Console</td><td>Inspection URL image, sitemap</td></tr>
+          <tr><td>Omega Indexer / Giga Indexer</td><td>Forçage d'indexation black hat</td></tr>
+          <tr><td>Ahrefs / Majestic</td><td>Trouver images 404 avec backlinks</td></tr>
+          <tr><td>Pinterest</td><td>Stack de trafic + backlinks image</td></tr>
+          <tr><td>SE Ranking Image Checker</td><td>Audit des images non optimisées</td></tr>
+          <tr><td>Cloudflare Image Resizing</td><td>Génération de variantes d'URL</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <span>SEO Knowledge Base — Usage interne</span>
+    <span>Google Images SEO — v1.0 — Mai 2026</span>
+  </footer>
+
+</div>
+</body>
+</html>
