@@ -134,6 +134,38 @@
       letter-spacing: 0.05em;
     }
 
+    .section-nav {
+      display: flex;
+      gap: 0.75rem;
+      margin: 2rem 0 0;
+      flex-wrap: wrap;
+    }
+    .section-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.6rem 1.2rem;
+      border: 1px solid var(--paper-3);
+      border-radius: 2px;
+      background: var(--paper-2);
+      color: var(--ink-2);
+      text-decoration: none;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: all 0.15s;
+    }
+    .section-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .section-btn .btn-icon { font-size: 13px; }
+    .section-btn .btn-count {
+      font-size: 10px;
+      color: var(--ink-3);
+      background: var(--paper-3);
+      padding: 1px 6px;
+      border-radius: 2px;
+    }
+
     footer {
       margin: 4rem 0 2rem;
       padding-top: 1.5rem;
@@ -153,6 +185,14 @@
   <div class="wrap">
     <h1>Base de<br>connaissance <em>SEO</em></h1>
     <p>Notes &amp; ressources — Usage interne</p>
+    <nav class="section-nav">
+      <a class="section-btn" href="glossaire/index.html">
+        <span class="btn-icon">📖</span> Glossaire
+      </a>
+      <a class="section-btn" href="tools/index.html">
+        <span class="btn-icon">🛠</span> Tools
+      </a>
+    </nav>
   </div>
 </header>
 
