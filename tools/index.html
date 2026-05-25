@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tools — SEO Knowledge Base</title>
+  <link rel="icon" type="image/png" href="../image/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #f9fafb;
+      --ink-2: #d1d5db;
+      --ink-3: #9ca3af;
+      --paper: #17191a;
+      --paper-2: #212426;
+      --paper-3: #2d3134;
+      --accent: #ff6e40;
+      --mono: 'DM Mono', monospace;
+      --sans: 'DM Sans', sans-serif;
+      --display: 'Syne', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--sans); background: var(--paper); color: var(--ink); font-size: 15px; line-height: 1.6; font-weight: 300; }
+    .wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+    header {
+      border-bottom: 1px solid var(--paper-3);
+      padding: 2.5rem 0 2rem;
+      margin-bottom: 0;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      text-decoration: none;
+      margin-bottom: 1.5rem;
+      transition: color 0.15s;
+    }
+    .back-link:hover { color: var(--accent); }
+    header h1 {
+      font-family: var(--display);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    header h1 em { font-style: normal; color: var(--accent); }
+    header p {
+      font-size: 0.9rem;
+      color: var(--ink-3);
+      margin-top: 0.4rem;
+      font-family: var(--mono);
+      letter-spacing: 0.03em;
+    }
+
+    .meta-line {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--ink-3);
+      letter-spacing: 0.04em;
+      margin: 2rem 0 1rem;
+    }
+
+    /* TOOLS GRID */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1px;
+      background: var(--paper-3);
+      border: 1px solid var(--paper-3);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 4rem;
+    }
+
+    .tool-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      padding: 1.5rem;
+      background: var(--paper);
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.12s;
+    }
+    .tool-card:hover { background: var(--paper-2); }
+    .tool-card:hover .tool-title { color: var(--accent); }
+    .tool-card:hover .tool-arrow { color: var(--accent); }
+
+    .tool-card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+    .tool-arrow {
+      font-size: 1rem;
+      color: var(--paper-3);
+      transition: color 0.12s;
+    }
+    .tool-title {
+      font-family: var(--display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      transition: color 0.12s;
+    }
+    .tool-desc {
+      font-size: 0.85rem;
+      color: var(--ink-3);
+      line-height: 1.5;
+    }
+    .tool-card-footer {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: auto;
+      padding-top: 0.5rem;
+    }
+    .tool-tag {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border: 1px solid var(--paper-3);
+      border-radius: 2px;
+      color: var(--ink-3);
+    }
+    .tool-tag.gsc { border-color: rgba(251,191,36,0.3); color: #fcd34d; background: rgba(251,191,36,0.07); }
+    .tool-tag.regex { border-color: rgba(96,165,250,0.3); color: #93c5fd; background: rgba(96,165,250,0.07); }
+
+    /* SOON CARD */
+
+    footer {
+      margin: 0 0 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--paper-3);
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--ink-3);
+      letter-spacing: 0.05em;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="back-link" href="../index.html">← Accueil</a>
+    <h1>SEO<br><em>Tools</em></h1>
+    <p>Outils internes — Usage SEO quotidien</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <p class="meta-line" id="count"></p>
+
+  <div class="tools-grid" id="grid"></div>
+
+  <footer>
+    <span>Base de connaissance SEO</span>
+    <span>Tools Hub</span>
+  </footer>
+</div>
+
+<script>
+  const tools = [
+    {
+      title: "Regex Generator",
+      desc: "Colle tes URLs, génère instantanément un regex GSC prêt à coller dans Google Search Console.",
+      tags: ["gsc", "regex"],
+      file: "regex-generator.html"
+    }
+  ];
+
+  const grid = document.getElementById('grid');
+  document.getElementById('count').textContent = tools.length + ' outil' + (tools.length > 1 ? 's' : '');
+
+  grid.innerHTML = tools.map(t => `
+    <a class="tool-card" href="${t.file}">
+      <div class="tool-card-top">
+        <span class="tool-arrow">→</span>
+      </div>
+      <div class="tool-title">${t.title}</div>
+      <div class="tool-desc">${t.desc}</div>
+      <div class="tool-card-footer">
+        ${t.tags.map(tag => `<span class="tool-tag ${tag}">${tag}</span>`).join('')}
+      </div>
+    </a>
+  `).join('');
+</script>
+
+</body>
+</html>
