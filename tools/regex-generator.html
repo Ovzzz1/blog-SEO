@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regex Generator — SEO Knowledge Base</title>
+  <link rel="icon" type="image/png" href="../image/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #f9fafb;
+      --ink-2: #d1d5db;
+      --ink-3: #9ca3af;
+      --paper: #17191a;
+      --paper-2: #212426;
+      --paper-3: #2d3134;
+      --accent: #ff6e40;
+      --accent-2: #60a5fa;
+      --success: #34d399;
+      --warn: #fbbf24;
+      --mono: 'DM Mono', monospace;
+      --sans: 'DM Sans', sans-serif;
+      --display: 'Syne', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    .page-wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+    /* HEADER */
+    .site-header {
+      border-bottom: 1px solid var(--paper-3);
+      padding: 2rem 0 2.5rem;
+      margin-bottom: 3rem;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: var(--ink-3);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+      transition: color 0.15s;
+    }
+    .back-link:hover { color: var(--accent); }
+    .header-badges {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .tag-badge {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border: 1px solid var(--paper-3);
+      border-radius: 2px;
+      color: var(--ink-3);
+    }
+    .tag-badge.accent { border-color: var(--accent); color: var(--accent); }
+    .tag-badge.blue { border-color: rgba(96,165,250,0.4); color: var(--accent-2); }
+    .hero-title {
+      font-family: var(--display);
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+    .hero-title em { font-style: normal; color: var(--accent); }
+    .hero-sub {
+      font-size: 0.9rem;
+      color: var(--ink-3);
+      font-family: var(--mono);
+      letter-spacing: 0.02em;
+    }
+
+    /* TOOL LAYOUT */
+    .tool-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    @media (max-width: 640px) { .tool-grid { grid-template-columns: 1fr; } }
+
+    .panel {
+      background: var(--paper-2);
+      border: 1px solid var(--paper-3);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.6rem 1rem;
+      border-bottom: 1px solid var(--paper-3);
+      background: var(--paper-3);
+    }
+    .panel-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+    .panel-count {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--ink-3);
+      background: var(--paper-2);
+      padding: 2px 8px;
+      border-radius: 2px;
+    }
+
+    textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      color: var(--ink);
+      font-family: var(--mono);
+      font-size: 12px;
+      line-height: 1.7;
+      padding: 1rem;
+      resize: none;
+      outline: none;
+      height: 260px;
+      display: block;
+    }
+    textarea::placeholder { color: var(--paper-3); }
+    textarea:focus { background: rgba(255,110,64,0.03); }
+
+    .patterns-list {
+      height: 260px;
+      overflow-y: auto;
+      padding: 0.75rem 1rem;
+      font-family: var(--mono);
+      font-size: 11px;
+      line-height: 1.8;
+      color: var(--ink-3);
+    }
+    .patterns-list .pattern-line { display: flex; gap: 0.5rem; align-items: center; }
+    .patterns-list .caret { color: var(--accent); opacity: 0.7; }
+    .patterns-list .pattern-url { color: var(--ink-2); }
+    .patterns-list .pattern-dollar { color: var(--success); opacity: 0.8; }
+    .patterns-list .empty-hint {
+      color: var(--paper-3);
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+
+    /* OPTIONS BAR */
+    .options-bar {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.75rem 0;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    .opt-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      color: var(--ink-3);
+      text-transform: uppercase;
+    }
+    .toggle-group { display: flex; gap: 0.4rem; }
+    .toggle-btn {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border: 1px solid var(--paper-3);
+      border-radius: 2px;
+      background: transparent;
+      color: var(--ink-3);
+      cursor: pointer;
+      transition: all 0.12s;
+    }
+    .toggle-btn:hover { border-color: var(--ink-3); color: var(--ink); }
+    .toggle-btn.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+    .divider { width: 1px; height: 18px; background: var(--paper-3); }
+
+    /* OUTPUT */
+    .output-panel {
+      background: var(--paper-2);
+      border: 1px solid var(--paper-3);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+    .output-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.6rem 1rem;
+      border-bottom: 1px solid var(--paper-3);
+      background: var(--paper-3);
+    }
+    .output-header-left { display: flex; align-items: center; gap: 0.75rem; }
+    .output-label-gsc {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .output-body {
+      padding: 1rem;
+      font-family: var(--mono);
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--ink-2);
+      word-break: break-all;
+      min-height: 80px;
+      cursor: pointer;
+      transition: background 0.12s;
+      position: relative;
+    }
+    .output-body:hover { background: rgba(255,255,255,0.02); }
+    .output-body .placeholder { color: var(--paper-3); font-style: italic; }
+
+    /* COPY BUTTON */
+    .copy-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 2px;
+      border: 1px solid var(--paper-3);
+      background: transparent;
+      color: var(--ink-3);
+      cursor: pointer;
+      transition: all 0.12s;
+    }
+    .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .copy-btn.copied { border-color: var(--success); color: var(--success); }
+
+    /* STATS BAR */
+    .stats-bar {
+      display: flex;
+      gap: 2rem;
+      padding: 0.6rem 1rem;
+      background: var(--paper-2);
+      border: 1px solid var(--paper-3);
+      border-radius: 4px;
+      margin-bottom: 3rem;
+    }
+    .stat { display: flex; flex-direction: column; gap: 2px; }
+    .stat-val {
+      font-family: var(--display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .stat-key {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+
+    /* FOOTER */
+    footer {
+      margin-bottom: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--paper-3);
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--ink-3);
+      letter-spacing: 0.05em;
+    }
+
+    /* SCROLLBAR */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--paper-2); }
+    ::-webkit-scrollbar-thumb { background: var(--paper-3); border-radius: 3px; }
+
+    /* TOAST */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--success);
+      color: var(--paper);
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.6rem 1.2rem;
+      border-radius: 2px;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: all 0.2s;
+      pointer-events: none;
+    }
+    .toast.show { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="page-wrap">
+    <a class="back-link" href="../index.html">← Index</a>
+    <div class="header-badges">
+      <span class="tag-badge accent">SEO Tools</span>
+      <span class="tag-badge blue">GSC</span>
+      <span class="tag-badge">Google Search Console</span>
+    </div>
+    <h1 class="hero-title">Regex<br><em>Generator</em></h1>
+    <p class="hero-sub">Colle tes URLs → génère un regex GSC prêt à l'emploi</p>
+  </div>
+</header>
+
+<div class="page-wrap">
+
+  <!-- OPTIONS -->
+  <div class="options-bar">
+    <span class="opt-label">Mode</span>
+    <div class="toggle-group">
+      <button class="toggle-btn active" id="btn-exact" onclick="setMode('exact')">Exact  ^url$</button>
+      <button class="toggle-btn" id="btn-prefix" onclick="setMode('prefix')">Prefix  ^url</button>
+      <button class="toggle-btn" id="btn-raw" onclick="setMode('raw')">Raw  url</button>
+    </div>
+    <div class="divider"></div>
+    <span class="opt-label">Séparateur</span>
+    <div class="toggle-group">
+      <button class="toggle-btn active" id="sep-pipe" onclick="setSep('|')">|</button>
+      <button class="toggle-btn" id="sep-newline" onclick="setSep('\n')">↵ newline</button>
+    </div>
+  </div>
+
+  <!-- INPUT / PATTERNS GRID -->
+  <div class="tool-grid">
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-label">URLs — une par ligne</span>
+        <span class="panel-count" id="url-count">0 url</span>
+      </div>
+      <textarea id="url-input" placeholder="https://example.fr/categorie/page-1/&#10;https://example.fr/categorie/page-2/&#10;https://example.fr/autre-section/page/" spellcheck="false" oninput="update()"></textarea>
+    </div>
+
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-label">Patterns générés</span>
+        <span class="panel-count" id="pat-count">0 pattern</span>
+      </div>
+      <div class="patterns-list" id="patterns-list">
+        <span class="empty-hint">Les patterns apparaîtront ici…</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- OUTPUT -->
+  <div class="output-panel">
+    <div class="output-header">
+      <div class="output-header-left">
+        <span class="output-label-gsc">▸ Regex GSC final</span>
+        <span style="font-family:var(--mono);font-size:10px;color:var(--ink-3);">Prêt pour Google Search Console → Filtres → Pages</span>
+      </div>
+      <button class="copy-btn" id="copy-btn" onclick="copyOutput()">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copier
+      </button>
+    </div>
+    <div class="output-body" id="output-body" onclick="copyOutput()">
+      <span class="placeholder">Le regex apparaîtra ici une fois les URLs collées…</span>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-bar" id="stats-bar" style="display:none">
+    <div class="stat">
+      <span class="stat-val" id="stat-urls">0</span>
+      <span class="stat-key">URLs</span>
+    </div>
+    <div class="stat">
+      <span class="stat-val" id="stat-chars">0</span>
+      <span class="stat-key">Caractères</span>
+    </div>
+    <div class="stat">
+      <span class="stat-val" id="stat-domains">0</span>
+      <span class="stat-key">Domaines</span>
+    </div>
+  </div>
+
+</div><!-- /page-wrap -->
+
+<div class="page-wrap">
+  <footer>
+    <span>Base de connaissance SEO</span>
+    <span>Regex Generator — Usage interne</span>
+  </footer>
+</div>
+
+<div class="toast" id="toast">Copié !</div>
+
+<script>
+  let mode = 'exact';
+  let sep = '|';
+
+  function setMode(m) {
+    mode = m;
+    ['exact','prefix','raw'].forEach(id => {
+      document.getElementById('btn-' + id).classList.toggle('active', id === m);
+    });
+    update();
+  }
+
+  function setSep(s) {
+    sep = s;
+    document.getElementById('sep-pipe').classList.toggle('active', s === '|');
+    document.getElementById('sep-newline').classList.toggle('active', s === '\n');
+    update();
+  }
+
+  function getPattern(url) {
+    const u = url.trim();
+    if (!u) return null;
+    if (mode === 'exact') return '^' + u + '$';
+    if (mode === 'prefix') return '^' + u;
+    return u;
+  }
+
+  function update() {
+    const raw = document.getElementById('url-input').value;
+    const lines = raw.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+    const patterns = lines.map(getPattern).filter(Boolean);
+
+    // count
+    document.getElementById('url-count').textContent = lines.length + ' url' + (lines.length !== 1 ? 's' : '');
+    document.getElementById('pat-count').textContent = patterns.length + ' pattern' + (patterns.length !== 1 ? 's' : '');
+
+    // patterns list
+    const pl = document.getElementById('patterns-list');
+    if (patterns.length === 0) {
+      pl.innerHTML = '<span class="empty-hint">Les patterns apparaîtront ici…</span>';
+    } else {
+      pl.innerHTML = patterns.map(p => {
+        if (mode === 'exact') {
+          const url = p.slice(1, -1);
+          return `<div class="pattern-line"><span class="caret">^</span><span class="pattern-url">${esc(url)}</span><span class="pattern-dollar">$</span></div>`;
+        } else if (mode === 'prefix') {
+          const url = p.slice(1);
+          return `<div class="pattern-line"><span class="caret">^</span><span class="pattern-url">${esc(url)}</span></div>`;
+        } else {
+          return `<div class="pattern-line"><span class="pattern-url">${esc(p)}</span></div>`;
+        }
+      }).join('');
+    }
+
+    // output
+    const out = document.getElementById('output-body');
+    if (patterns.length === 0) {
+      out.innerHTML = '<span class="placeholder">Le regex apparaîtra ici une fois les URLs collées…</span>';
+    } else {
+      const joined = patterns.join(sep);
+      out.textContent = joined;
+    }
+
+    // stats
+    const statsBar = document.getElementById('stats-bar');
+    if (patterns.length > 0) {
+      statsBar.style.display = 'flex';
+      document.getElementById('stat-urls').textContent = lines.length;
+      const joined = patterns.join(sep);
+      document.getElementById('stat-chars').textContent = joined.length;
+      const domains = new Set(lines.map(u => {
+        try { return new URL(u).hostname; } catch { return u.split('/')[0]; }
+      }));
+      document.getElementById('stat-domains').textContent = domains.size;
+    } else {
+      statsBar.style.display = 'none';
+    }
+  }
+
+  function esc(str) {
+    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  function copyOutput() {
+    const raw = document.getElementById('url-input').value;
+    const lines = raw.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+    const patterns = lines.map(getPattern).filter(Boolean);
+    if (patterns.length === 0) return;
+    const joined = patterns.join(sep);
+    navigator.clipboard.writeText(joined).then(() => {
+      const btn = document.getElementById('copy-btn');
+      btn.classList.add('copied');
+      btn.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Copié`;
+      showToast();
+      setTimeout(() => {
+        btn.classList.remove('copied');
+        btn.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copier`;
+      }, 2000);
+    });
+  }
+
+  function showToast() {
+    const t = document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2000);
+  }
+</script>
+
+</body>
+</html>
