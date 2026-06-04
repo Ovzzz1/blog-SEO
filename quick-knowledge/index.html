@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quick Knowledge — SEO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #f9fafb;
+      --ink-2: #d1d5db;
+      --ink-3: #9ca3af;
+      --paper: #17191a;
+      --paper-2: #212426;
+      --paper-3: #2d3134;
+      --accent: #ff6e40;
+      --mono: 'DM Mono', monospace;
+      --sans: 'DM Sans', sans-serif;
+      --display: 'Syne', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--sans); background: var(--paper); color: var(--ink); font-size: 15px; line-height: 1.6; font-weight: 300; }
+    .wrap { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+
+    header {
+      border-bottom: 1px solid var(--paper-3);
+      padding: 2.5rem 0 2rem;
+      margin-bottom: 0;
+    }
+    .back {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+      transition: color 0.15s;
+    }
+    .back:hover { color: var(--accent); }
+    header h1 {
+      font-family: var(--display);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    header h1 em { font-style: normal; color: var(--accent); }
+    header p {
+      font-size: 0.85rem;
+      color: var(--ink-3);
+      margin-top: 0.4rem;
+      font-family: var(--mono);
+      letter-spacing: 0.03em;
+    }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--paper-3);
+    }
+    .filters { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+    .filter-btn {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border: 1px solid var(--paper-3);
+      border-radius: 2px;
+      background: transparent;
+      color: var(--ink-3);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .filter-btn:hover { border-color: var(--ink-3); color: var(--ink-2); }
+    .filter-btn.active { border-color: var(--accent); color: var(--accent); background: rgba(255,110,64,0.08); }
+
+    .meta-line {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--ink-3);
+      letter-spacing: 0.04em;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1px;
+      background: var(--paper-3);
+      margin-top: 1px;
+    }
+
+    .card {
+      background: var(--paper);
+      padding: 1.4rem 1.5rem;
+      transition: background 0.15s;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .card:hover { background: var(--paper-2); }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+    .card-title {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+    .card-tag {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 7px;
+      border-radius: 2px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .card-tag.semantique  { border: 1px solid rgba(52,211,153,0.3); color: #6ee7b7; background: rgba(52,211,153,0.08); }
+    .card-tag.technique   { border: 1px solid rgba(96,165,250,0.3); color: #93c5fd; background: rgba(96,165,250,0.08); }
+    .card-tag.autorité    { border: 1px solid rgba(251,191,36,0.3); color: #fcd34d; background: rgba(251,191,36,0.08); }
+    .card-tag.blackhat    { border: 1px solid rgba(239,68,68,0.3); color: #f87171; background: rgba(239,68,68,0.08); }
+    .card-tag.brand       { border: 1px solid rgba(192,132,252,0.3); color: #d8b4fe; background: rgba(192,132,252,0.08); }
+    .card-tag.strategy    { border: 1px solid rgba(251,146,60,0.3); color: #fdba74; background: rgba(251,146,60,0.08); }
+
+    .card-text {
+      font-size: 0.85rem;
+      color: var(--ink-3);
+      line-height: 1.65;
+    }
+
+    .card-num {
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--paper-3);
+      letter-spacing: 0.05em;
+      margin-top: auto;
+      padding-top: 0.4rem;
+    }
+
+    footer {
+      margin: 3rem 0 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--paper-3);
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--ink-3);
+      letter-spacing: 0.05em;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="back" href="../index.html">← retour</a>
+    <h1>Quick <em>Knowledge</em></h1>
+    <p>Notes atomiques — terrain, lectures, discussions</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="toolbar">
+    <div class="filters">
+      <button class="filter-btn active" onclick="filter('tous')">Tous</button>
+      <button class="filter-btn" onclick="filter('semantique')">Sémantique</button>
+      <button class="filter-btn" onclick="filter('technique')">Technique</button>
+      <button class="filter-btn" onclick="filter('autorité')">Autorité</button>
+      <button class="filter-btn" onclick="filter('brand')">Brand</button>
+      <button class="filter-btn" onclick="filter('blackhat')">Blackhat</button>
+      <button class="filter-btn" onclick="filter('strategy')">Strategy</button>
+    </div>
+    <span class="meta-line" id="count"></span>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <footer>
+    <span>Quick Knowledge — SEO</span>
+    <span id="last-updated"></span>
+  </footer>
+</div>
+
+<script>
+const notes = [
+  {
+    id: "001",
+    title: "IL vers homepage",
+    tag: "semantique",
+    text: "Quand on essaye de ranker avec la home page, toujours faire un gros travail d'internal linking bien opti + mot clé secondaire pour push sur ces keywords. La théorie s'applique aussi aux pages secondaires, mais souvent oublié sur la home — l'ancre n'est pas aussi opti car linking auto via breadcrumbs, logo cliquable, etc."
+  },
+  {
+    id: "002",
+    title: "Duplicate title / H1",
+    tag: "semantique",
+    text: "Obvious mais pas forcément checké car trop évident justement. Trouvable en 2 secondes via Screaming Frog — aucune excuse pour le laisser passer en audit."
+  },
+  {
+    id: "003",
+    title: "Maîtriser sa brand",
+    tag: "brand",
+    text: "Toujours penser à aller maîtriser la brand : à la fois sa propre brand via son site, ses RS (X en tant que parasite pour faire de la SERP domination) + aller chercher la brand des autres (potentiellement du SV sur ma brand vs X), mais aussi sur juste la brand du concurrent + alternatives."
+  },
+  {
+    id: "004",
+    title: "HTTP → HTTPS migration",
+    tag: "technique",
+    text: "L'implémentation d'un certificat SSL et la migration http → https peut prendre du temps pour être bien prise en compte par Google — parfois quelques semaines. À terme le changement sera pris en compte et les rankings doivent retourner à leur état pré-SSL."
+  },
+  {
+    id: "005",
+    title: "Campagne LB : reverse engineering",
+    tag: "autorité",
+    text: "Un des meilleurs moyens de trouver la clé d'un bon netlinking : aller trouver les top competitors de sa thématique, récupérer leurs backlinks, filtrer pour garder les pertinents, et outreach ces sites pour aller chercher du BL hors catalogues classiques."
+  },
+  {
+    id: "006",
+    title: "Sub Folder location",
+    tag: "blackhat",
+    text: "Louer des subfolders auprès d'un site à grosse autorité pour l'exploiter et ranker fort (parasitage). L'hôte configure un Reverse Proxy (via une règle location avec proxy_pass sous Nginx) qui redirige de manière invisible le trafic du sous-répertoire vers le serveur du locataire — contrôle total, physiquement isolé du serveur principal."
+  },
+  {
+    id: "007",
+    title: "Influenceurs & brand graph",
+    tag: "brand",
+    text: "Ne pas sous-estimer l'impact des influenceurs en termes de visibilité, capacité à inscrire la marque dans le graph et à la connecter à l'industrie ciblée. Génère du trafic branded et semi-branded."
+  },
+  {
+    id: "008",
+    title: "Ranker sur brand competitors",
+    tag: "brand",
+    text: "Sur SaaS ou Lead gen : ranker sur Ma Brand + alternatives, Ma Brand + avis, Ma Brand vs competitors. Également possible : competitors + avis, competitors + alternatives, voire competitors vs competitors. Ces contenus évoquent les concurrents mais amènent à une conclusion qui promeut ta brand."
+  },
+  {
+    id: "009",
+    title: "Google Trends pour identifier des keywords",
+    tag: "semantique",
+    text: "Les SEO tools (Semrush, Ahrefs) sont toujours en retard de quelques mois sur leur data. Pour identifier des keywords non encore trackés par les competitors ou valider un keyword à 0 SV apparent : Google Trends peut être une bonne solution."
+  },
+  {
+    id: "010",
+    title: "Mobile First — ne pas oublier",
+    tag: "technique",
+    text: "Toujours penser au mobile first. Tendance à oublier de checker le rendu mobile alors que top priorité. Surtout quand on fait un template : toujours vérifier le rendu mobile avant de considérer que c'est done."
+  },
+  {
+    id: "011",
+    title: "Path absolu vs relatif — SEO équivalent",
+    tag: "technique",
+    text: "Un lien interne peut être en URL absolue (https://monsite.fr/page/) ou relative (/page/). Pour le SEO, les deux sont strictement équivalents aux yeux de Google — aucun avantage de l'un sur l'autre. Éviter les URL relatives pures sans / initial (href=\"page/\") qui peuvent se casser. En pratique : privilégier le relatif à la racine — plus propre, plus maintenable, évite les doublons en cas de migration."
+  },
+  {
+    id: "012",
+    title: "Market A ≠ Market B",
+    tag: "strategy",
+    text: "Ce qui est vrai sur un marché A n'est pas forcément vrai sur un marché B. Les marchés anglophones sont mieux traités par l'algo. Sur des geos secondaires/obscures, le blackhat fonctionne mieux que le whitehat/branding — faire du whitehat sur une geo obscure n'est probablement pas worth car le blackhat va te fusiller."
+  },
+  {
+    id: "013",
+    title: "Reverse engineering = compétence clé",
+    tag: "strategy",
+    text: "Clé du SEO : savoir faire du reverse engineering = savoir faire du SEO qui marche dans le temps car faculté à s'adapter aux mouvements et rester attentif à ce qui se fait, ce qui semble marcher. Ex linkbuilding : aller target tous les backlinks dans le gap avec les competitors — semble évident, mais à garder en tête."
+  },
+  {
+    id: "014",
+    title: "Indexation : site: vs GSC",
+    tag: "technique",
+    text: "site: donne un échantillon approximatif. GSC donne le vrai chiffre de l'index Google → faire confiance à GSC. L'essentiel : vérifier que les pages indexées sont toutes intentionnelles et pertinentes — c'est là qu'il faut agir."
+  },
+  {
+    id: "015",
+    title: "Consensus Linking",
+    tag: "autorité",
+    text: "Google a un link graph, et certains domaines sont plus ou moins autoritaires sur ce topical graph. La clé : reverse engineering pour les identifier, puis aller chercher des liens depuis ces domaines pour ancrer son site dans ce graph."
+  },
+  {
+    id: "016",
+    title: "LB page = pièce de puzzle",
+    tag: "autorité",
+    text: "Choisir le topic de ta page guest post en fonction des URLs qui rankent déjà sur le site cible — s'insérer dans un cluster d'autorité existant et négocier un internal link depuis ces pages pour maximiser la transmission de jus."
+  },
+  {
+    id: "017",
+    title: "JS : SSR/SSG vs CSR",
+    tag: "technique",
+    text: "JS ≠ problème par défaut. Ce qui compte : si le HTML est pré-rendu côté serveur (SSG/SSR = ok) ou laissé au navigateur (CSR = à auditer). Ne pas paniquer face à du JS — d'abord vérifier le mode de rendu."
+  },
+  {
+    id: "018",
+    title: "diffhtml.org — comparer deux sources HTML",
+    tag: "technique",
+    text: "Pour voir la différence entre deux codes source HTML (avant/après crawl, staging vs prod, etc.) : diffhtml.org permet de le voir facilement visuellement."
+  },
+  {
+    id: "019",
+    title: "Content order & clustering",
+    tag: "semantique",
+    text: "Les questions/informations dans un contenu peuvent être clusterisées = ordonnées de façon cohérente. Pour les sub-questions : aller chercher les alternatives de formulation pour bien comprendre comment répondre à chaque sous-question."
+  },
+  {
+    id: "020",
+    title: "Topical map : raisonner en balises",
+    tag: "semantique",
+    text: "Pour mapper les topics et sub-topics autour d'un sujet : raisonner en balises. On part d'un point X (main subject : ex. smartphone) → lié au sujet Y (screen) → à partir de Y un autre champ s'ouvre (résolution). On rebondit d'un sujet à l'autre, mais ça doit rester cohérent avec le cœur de base."
+  },
+  {
+    id: "021",
+    title: ".htaccess — redirections directes",
+    tag: "technique",
+    text: "Toute redirection peut se faire directement via le fichier .htaccess. Si on veut rediriger la page A vers B, même si la page A n'existe pas encore, on peut le faire via ce fichier — pas besoin que la page source existe physiquement."
+  },
+  {
+    id: "022",
+    title: "Proximity market : timezone",
+    tag: "semantique",
+    text: "La timezone est aussi un critère dans le fait qu'un marché peut être considéré comme similaire. À garder en tête dans l'analyse de marché et la priorisation des opportunités géographiques."
+  }
+];
+
+let current = "tous";
+
+function filter(tag) {
+  current = tag;
+  document.querySelectorAll(".filter-btn").forEach(b => {
+    const matches = tag === "tous" ? b.textContent === "Tous" : b.textContent.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"") === tag.normalize("NFD").replace(/[̀-ͯ]/g,"");
+    b.classList.toggle("active", matches);
+  });
+  render();
+}
+
+function render() {
+  const filtered = current === "tous" ? notes : notes.filter(n => n.tag === current);
+  document.getElementById("count").textContent = filtered.length + " note" + (filtered.length > 1 ? "s" : "");
+  document.getElementById("grid").innerHTML = filtered.map(n => `
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">${n.title}</span>
+        <span class="card-tag ${n.tag}">${n.tag}</span>
+      </div>
+      <p class="card-text">${n.text}</p>
+      <span class="card-num">#${n.id}</span>
+    </div>
+  `).join("");
+}
+
+document.getElementById("last-updated").textContent = "Mis à jour : juin 2026";
+render();
+</script>
+</body>
+</html>
