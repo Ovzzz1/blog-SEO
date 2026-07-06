@@ -52,7 +52,6 @@ def parse_feed(source, url):
     for item in root.findall(".//item"):
         title = (item.findtext("title") or "").strip()
         link = (item.findtext("link") or "").strip()
-        guid = (item.findtext("guid") or link).strip()
         pub_date_raw = item.findtext("pubDate")
         try:
             pub_date = parsedate_to_datetime(pub_date_raw).astimezone(timezone.utc).isoformat()
@@ -62,7 +61,7 @@ def parse_feed(source, url):
         content_encoded = item.findtext("content:encoded", namespaces=ns) or ""
         content_text = strip_html(content_encoded) or description
         entries.append({
-            "id": guid,
+            "id": link,
             "source": source,
             "title": title,
             "link": link,

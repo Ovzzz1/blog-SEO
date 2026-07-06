@@ -22,6 +22,19 @@ def esc(s):
 
 def main():
     items = load_items()
+
+    # dédup défensive par lien canonique (au cas où deux sources auraient
+    # produit deux variantes d'URL pour le même article)
+    seen = set()
+    unique = []
+    for it in items:
+        key = (it.get("link") or it.get("id") or "").rstrip("/")
+        if key in seen:
+            continue
+        seen.add(key)
+        unique.append(it)
+    items = unique
+
     items.sort(key=lambda x: x.get("date", ""), reverse=True)
 
     sources = sorted(set(it["source"] for it in items))
