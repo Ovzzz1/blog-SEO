@@ -54,10 +54,12 @@ def fetch_posts_since(api_url, cutoff):
     while True:
         resp = requests.get(
             api_url,
-            params={"per_page": 50, "page": page, "orderby": "date", "order": "desc"},
+            params={"per_page": 20, "page": page, "orderby": "date", "order": "desc"},
             headers=HEADERS, timeout=20,
         )
         if resp.status_code == 400:
+            if page == 1:
+                raise RuntimeError(f"échec dès la page 1 ({resp.text[:200]})")
             break  # page au-delà du total (WP renvoie 400 rest_post_invalid_page_number)
         resp.raise_for_status()
         batch = resp.json()
