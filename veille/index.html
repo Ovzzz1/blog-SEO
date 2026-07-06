@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veille SEO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #f9fafb;
+      --ink-2: #d1d5db;
+      --ink-3: #9ca3af;
+      --paper: #17191a;
+      --paper-2: #212426;
+      --paper-3: #2d3134;
+      --accent: #ff6e40;
+      --mono: 'DM Mono', monospace;
+      --sans: 'DM Sans', sans-serif;
+      --display: 'Syne', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--sans); background: var(--paper); color: var(--ink); font-size: 15px; line-height: 1.6; font-weight: 300; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+    header { border-bottom: 1px solid var(--paper-3); padding: 2.5rem 0 2rem; }
+    header h1 { font-family: var(--display); font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
+    header h1 em { font-style: normal; color: var(--accent); }
+    header p { font-size: 0.9rem; color: var(--ink-3); margin-top: 0.4rem; font-family: var(--mono); letter-spacing: 0.03em; }
+
+    h2.section-title {
+      font-family: var(--display); font-size: 1.3rem; font-weight: 700;
+      margin: 2.5rem 0 1rem; letter-spacing: -0.01em;
+    }
+
+    .digest-list { display: flex; flex-direction: column; gap: 0.9rem; margin-bottom: 1rem; }
+    .digest-card {
+      border: 1px solid var(--paper-3); border-radius: 6px; padding: 1rem 1.2rem;
+      background: var(--paper-2); text-decoration: none; color: inherit; display: block;
+      transition: border-color 0.15s;
+    }
+    .digest-card:hover { border-color: var(--accent); }
+    .digest-source {
+      font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.3rem;
+    }
+    .digest-title { font-weight: 500; font-size: 1rem; margin-bottom: 0.35rem; }
+    .digest-summary { color: var(--ink-2); font-size: 0.9rem; }
+
+    .filters { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1rem 0; }
+    .filter-btn {
+      font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 0.35rem 0.9rem; border-radius: 2px; border: 1px solid var(--paper-3);
+      background: transparent; cursor: pointer; color: var(--ink-3); transition: all 0.15s;
+    }
+    .filter-btn:hover { border-color: var(--ink-3); color: var(--ink); }
+    .filter-btn.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+    .meta-line { font-family: var(--mono); font-size: 11px; color: var(--ink-3); letter-spacing: 0.04em; margin-bottom: 1rem; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.1rem; }
+    .card {
+      border: 1px solid var(--paper-3); border-radius: 6px; overflow: hidden; text-decoration: none;
+      color: inherit; background: var(--paper-2); display: flex; flex-direction: column; transition: border-color 0.15s;
+    }
+    .card:hover { border-color: var(--ink-3); }
+    .card-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; background: var(--paper-3); display: block; }
+    .card-body { padding: 0.8rem 0.9rem; display: flex; flex-direction: column; gap: 0.4rem; flex: 1; }
+    .card-source { font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); }
+    .card-title { font-size: 0.9rem; font-weight: 400; line-height: 1.35; flex: 1; }
+    .card:hover .card-title { color: var(--accent); }
+    .card-date { font-family: var(--mono); font-size: 10px; color: var(--ink-3); }
+
+    .empty { padding: 3rem 0; font-family: var(--mono); font-size: 12px; color: var(--ink-3); letter-spacing: 0.05em; }
+
+    footer {
+      margin: 4rem 0 2rem; padding-top: 1.5rem; border-top: 1px solid var(--paper-3);
+      display: flex; justify-content: space-between; font-family: var(--mono); font-size: 10px;
+      color: var(--ink-3); letter-spacing: 0.05em;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>Veille <em>SEO</em></h1>
+    <p>Search Engine Journal · PressWhizz · Ahrefs Blog · Abondance — flux quotidien</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <h2 class="section-title">À checker aujourd'hui</h2>
+  <div class="digest-list" id="digest"></div>
+
+  <h2 class="section-title">Flux brut</h2>
+  <div class="filters" id="filters">
+    
+    <button class="filter-btn active" onclick="filter('tous')">Tous</button>
+    <button class="filter-btn" onclick="filter('Abondance')">Abondance</button>
+    <button class="filter-btn" onclick="filter('Ahrefs Blog')">Ahrefs Blog</button>
+    <button class="filter-btn" onclick="filter('PressWhizz')">PressWhizz</button>
+    <button class="filter-btn" onclick="filter('Search Engine Journal')">Search Engine Journal</button>
+
+  </div>
+  <p class="meta-line" id="count"></p>
+  <div class="grid" id="grid"></div>
+
+  <footer>
+    <span>Veille SEO — usage interne</span>
+    <span>Généré automatiquement</span>
+  </footer>
+</div>
+
+<script>
+  const items = [
+    { id: "https://www.searchenginejournal.com/google-put-ai-visibility-inside-the-seo-tool-on-purpose/577889/", source: "Search Engine Journal", title: "Google Put AI Visibility Inside The SEO Tool On Purpose via @sejournal, @slobodanmanic", link: "https://www.searchenginejournal.com/google-put-ai-visibility-inside-the-seo-tool-on-purpose/577889/", image: "https://cdn.searchenginejournal.com/wp-content/uploads/2026/06/ai-visibility-175.png", date: "2026-07-05T12:00:33+00:00", summary: "", interesting: false },
+    { id: "https://www.searchenginejournal.com/fake-dmca-complaints-keep-erasing-real-pages-from-google-what-to-watch-for/581299/", source: "Search Engine Journal", title: "Fake DMCA Complaints Keep Erasing Real Pages From Google – What To Watch For via @sejournal, @MattGSouthern", link: "https://www.searchenginejournal.com/fake-dmca-complaints-keep-erasing-real-pages-from-google-what-to-watch-for/581299/", image: "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/24e2bd35-c687-403c-aadd-0d2c9a6ff14a-304.jpeg", date: "2026-07-04T12:30:57+00:00", summary: "", interesting: false },
+    { id: "https://www.searchenginejournal.com/lighthouse-fails-your-llms-txt-without-markdown-links/577590/", source: "Search Engine Journal", title: "Lighthouse Fails Your Llms.txt Without Markdown Links via @sejournal, @slobodanmanic", link: "https://www.searchenginejournal.com/lighthouse-fails-your-llms-txt-without-markdown-links/577590/", image: "https://cdn.searchenginejournal.com/wp-content/uploads/2026/06/lighthouse-markdown-278.png", date: "2026-07-03T14:00:03+00:00", summary: "", interesting: false },
+    { id: "https://www.abondance.com/?p=2545701", source: "Abondance", title: "Google met fin au cache AMP dans les résultats de recherche", link: "https://www.abondance.com/20260703-2545701-google-met-fin-au-cache-amp-dans-les-resultats-de-recherche.html", image: "https://www.abondance.com/wp-content/uploads/2026/07/amp-google.jpg", date: "2026-07-03T13:15:27+00:00", summary: "", interesting: false },
+    { id: "https://presswhizz.com/?p=28452", source: "PressWhizz", title: "Niche Edits (What Are They, Benefits, Pricing, & More)", link: "https://presswhizz.com/blog/what-are-niche-edits/", image: "https://presswhizz.com/wp-content/uploads/2026/07/what-is-niche-edits-featured-image.jpg", date: "2026-07-03T12:47:51+00:00", summary: "", interesting: false },
+    { id: "https://www.searchenginejournal.com/seo-pulse-where-clicks-go-what-agents-skip-whos-leaving-bing/581426/", source: "Search Engine Journal", title: "Where Clicks Go, What Agents Skip, Who’s Leaving Bing – SEO Pulse via @sejournal, @MattGSouthern", link: "https://www.searchenginejournal.com/seo-pulse-where-clicks-go-what-agents-skip-whos-leaving-bing/581426/", image: "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/seo-pulse-506.png", date: "2026-07-03T12:30:55+00:00", summary: "", interesting: false },
+    { id: "https://ahrefs.com/blog/?p=184389", source: "Ahrefs Blog", title: "100 Most Expensive Keywords for Google Ads (July 2026)", link: "https://ahrefs.com/blog/most-expensive-keywords/", image: "https://ahrefs.com/blog/wp-content/uploads/2026/05/100-most-expensive-keywords-for-google-by-si-quan-ong-data-studies-1.jpg", date: "2026-07-03T09:30:59+00:00", summary: "", interesting: false },
+    { id: "https://ahrefs.com/blog/?p=180889", source: "Ahrefs Blog", title: "100 Most Asked Questions on Google (July 2026)", link: "https://ahrefs.com/blog/top-google-questions/", image: "https://ahrefs.com/blog/wp-content/uploads/2026/01/100-most-asked-questions-on-google-by-si-quan-ong-data-studies.jpg", date: "2026-07-03T09:30:43+00:00", summary: "", interesting: false },
+    { id: "https://www.searchenginejournal.com/ai-search-is-nothing-without-seo-it-knows-it/580452/", source: "Search Engine Journal", title: "AI Search Is Nothing Without SEO & It Knows It via @sejournal, @TaylorDanRW", link: "https://www.searchenginejournal.com/ai-search-is-nothing-without-seo-it-knows-it/580452/", image: "https://cdn.searchenginejournal.com/wp-content/uploads/2026/06/ai-search-seo-367.png", date: "2026-07-03T09:30:26+00:00", summary: "", interesting: false },
+    { id: "https://ahrefs.com/blog/?p=150287", source: "Ahrefs Blog", title: "Top Google Searches (July 2026)", link: "https://ahrefs.com/blog/top-google-searches/", image: "https://ahrefs.com/blog/wp-content/uploads/2026/05/top-google-searches-may-2026-by-si-quan-ong-data-studies.jpg", date: "2026-07-03T08:48:56+00:00", summary: "", interesting: false },
+    { id: "https://ahrefs.com/blog/?p=150276", source: "Ahrefs Blog", title: "Top Trending Topics (July 2026)", link: "https://ahrefs.com/blog/trending-topics/", image: "https://ahrefs.com/blog/wp-content/uploads/2022/12/2024-10-02_11-33-04-1.png", date: "2026-07-03T08:46:34+00:00", summary: "", interesting: false },
+    { id: "https://www.searchenginejournal.com/googles-mueller-flags-a-case-on-why-lcp-fixes-miss-the-target/581413/", source: "Search Engine Journal", title: "Google’s Mueller Flags A Case On Why LCP Fixes Miss the Target via @sejournal, @MattGSouthern", link: "https://www.searchenginejournal.com/googles-mueller-flags-a-case-on-why-lcp-fixes-miss-the-target/581413/", image: "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/5e5fb03f-ae28-4563-8cb5-05b6313e76d7-995.jpeg", date: "2026-07-02T22:50:47+00:00", summary: "", interesting: false },
+    { id: "https://www.searchenginejournal.com/google-ends-cache-served-amp-pages-in-search/581405/", source: "Search Engine Journal", title: "Google Ends Cache-Served AMP Pages In Search via @sejournal, @MattGSouthern", link: "https://www.searchenginejournal.com/google-ends-cache-served-amp-pages-in-search/581405/", image: "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/d1517362-d66a-4e32-9600-2388af0cb477-315.jpeg", date: "2026-07-02T20:06:10+00:00", summary: "", interesting: false },
+    { id: "https://www.searchenginejournal.com/cloudflares-ai-crawler-rules-can-block-googlebot/581385/", source: "Search Engine Journal", title: "Cloudflare’s AI Crawler Rules Can Block Googlebot via @sejournal, @MattGSouthern", link: "https://www.searchenginejournal.com/cloudflares-ai-crawler-rules-can-block-googlebot/581385/", image: "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/3fa996b9-fbbd-469a-a4e5-e09cdfd44c95-103.jpeg", date: "2026-07-02T16:29:50+00:00", summary: "", interesting: false },
+    { id: "https://www.searchenginejournal.com/your-younger-audience-is-declining-faster-than-it-looks/581277/", source: "Search Engine Journal", title: "Your Younger Audience Is Declining Faster Than It Looks", link: "https://www.searchenginejournal.com/your-younger-audience-is-declining-faster-than-it-looks/581277/", image: "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/young-audience-409.png", date: "2026-07-02T14:00:11+00:00", summary: "", interesting: false },
+    { id: "https://www.abondance.com/?p=2540773", source: "Abondance", title: "Google : Amende de 4,1 milliards d’euros confirmée pour abus de position dominante", link: "https://www.abondance.com/20260702-2540773-google-amende-de-41-milliards-deuros-confirmee-pour-abus-de-position-dominante.html", image: "https://www.abondance.com/wp-content/uploads/2026/07/google-android-amende-abus-position-dominante-ue.jpg", date: "2026-07-02T13:26:46+00:00", summary: "", interesting: false },
+    { id: "https://www.searchenginejournal.com/microsoft-just-proved-a-point-about-search-today/580664/", source: "Search Engine Journal", title: "Microsoft Just Proved A Point About Search Today via @sejournal, @DuaneForrester", link: "https://www.searchenginejournal.com/microsoft-just-proved-a-point-about-search-today/580664/", image: "https://cdn.searchenginejournal.com/wp-content/uploads/2026/06/duane-forrester-decodes-microsoft-286.png", date: "2026-07-02T12:30:20+00:00", summary: "", interesting: false },
+    { id: "https://www.searchenginejournal.com/googles-dmca-crisis-is-disrupting-the-web-it-will-only-get-worse/581340/", source: "Search Engine Journal", title: "Why Google’s DMCA Crisis Is Bad And Will Only Get Worse. via @sejournal, @martinibuster", link: "https://www.searchenginejournal.com/googles-dmca-crisis-is-disrupting-the-web-it-will-only-get-worse/581340/", image: "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/google-dmca-crisis-831.jpg", date: "2026-07-02T11:21:15+00:00", summary: "", interesting: false },
+    { id: "https://www.searchenginejournal.com/google-data-shows-ai-search-users-moved-past-keywords-your-content-hasnt/580596/", source: "Search Engine Journal", title: "Google Data Shows AI Search Users Moved Past Keywords, Your Content Hasn’t via @sejournal, @gregjarboe", link: "https://www.searchenginejournal.com/google-data-shows-ai-search-users-moved-past-keywords-your-content-hasnt/580596/", image: "https://cdn.searchenginejournal.com/wp-content/uploads/2026/06/content-keywords-248.png", date: "2026-07-02T11:00:11+00:00", summary: "", interesting: false },
+    { id: "https://www.searchenginejournal.com/ask-an-seo-should-i-block-ai-crawlers-or-measure-their-value-first/580005/", source: "Search Engine Journal", title: "Should I Block AI Crawlers Or Measure Their Value First? – Ask An SEO via @sejournal, @HelenPollitt1", link: "https://www.searchenginejournal.com/ask-an-seo-should-i-block-ai-crawlers-or-measure-their-value-first/580005/", image: "https://cdn.searchenginejournal.com/wp-content/uploads/2024/06/ask-an-seo-helen-904.jpg", date: "2026-07-02T09:30:54+00:00", summary: "", interesting: false },
+    { id: "https://www.searchenginejournal.com/google-ai-overviews-study-finds-lost-clicks-werent-lower-quality/581298/", source: "Search Engine Journal", title: "Google AI Overviews Study Finds Lost Clicks Weren’t Lower Quality via @sejournal, @MattGSouthern", link: "https://www.searchenginejournal.com/google-ai-overviews-study-finds-lost-clicks-werent-lower-quality/581298/", image: "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/c76319d5-1c40-4830-b371-91f2868b1bf9-103.jpeg", date: "2026-07-01T23:56:14+00:00", summary: "", interesting: false },
+    { id: "https://www.searchenginejournal.com/openai-hiring-points-to-image-video-ads-coming-to-chatgpt/581289/", source: "Search Engine Journal", title: "OpenAI Hiring Points To Image & Video Ads Coming To ChatGPT via @sejournal, @MattGSouthern", link: "https://www.searchenginejournal.com/openai-hiring-points-to-image-video-ads-coming-to-chatgpt/581289/", image: "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/f6bcf714-a1e4-4db4-aa50-2a18ae52e1f3-120.jpeg", date: "2026-07-01T21:44:34+00:00", summary: "", interesting: false },
+    { id: "https://ahrefs.com/blog/?p=200262", source: "Ahrefs Blog", title: "How to Use Reddit for SEO (The Right Way)", link: "https://ahrefs.com/blog/reddit-seo/", image: "https://ahrefs.com/blog/wp-content/uploads/2026/07/how-to-use-reddit-for-seo-by-despina-gavoyannis-general-seo.jpg", date: "2026-07-01T15:10:27+00:00", summary: "", interesting: false },
+    { id: "https://www.abondance.com/?p=2533816", source: "Abondance", title: "Avis Google : un tiers des clients français n’obtiennent jamais de réponse", link: "https://www.abondance.com/20260701-2533816-etude-avis-google-tiers-sans-reponse.html", image: "https://www.abondance.com/wp-content/uploads/2026/07/etude-avis-google.jpg", date: "2026-07-01T13:35:41+00:00", summary: "", interesting: false },
+    { id: "https://www.searchenginejournal.com/habitual-publisher-traffic-is-collapsing/580673/", source: "Search Engine Journal", title: "Habitual Publisher Traffic Is Collapsing", link: "https://www.searchenginejournal.com/habitual-publisher-traffic-is-collapsing/580673/", image: "https://cdn.searchenginejournal.com/wp-content/uploads/2026/06/publisher-traffic-159.png", date: "2026-07-01T13:30:13+00:00", summary: "", interesting: false },
+    { id: "https://www.searchenginejournal.com/fabrice-canel-longtime-bing-search-leader-retires-from-microsoft/581247/", source: "Search Engine Journal", title: "Fabrice Canel, Longtime Bing Search Leader, Retires From Microsoft via @sejournal, @MattGSouthern", link: "https://www.searchenginejournal.com/fabrice-canel-longtime-bing-search-leader-retires-from-microsoft/581247/", image: "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/b3a1b928-b3fe-4509-a35f-013b4dd2d6d1-770.jpeg", date: "2026-07-01T12:37:31+00:00", summary: "", interesting: false },
+    { id: "https://www.searchenginejournal.com/88-of-companies-use-ai-as-a-tool-only-12-built-a-system/580648/", source: "Search Engine Journal", title: "Why 88% Of Companies Are Using AI Wrong: The System-Building Gap via @sejournal, @gregjarboe", link: "https://www.searchenginejournal.com/88-of-companies-use-ai-as-a-tool-only-12-built-a-system/580648/", image: "https://cdn.searchenginejournal.com/wp-content/uploads/2026/06/using-ai-890.png", date: "2026-07-01T12:00:03+00:00", summary: "", interesting: false },
+    { id: "https://www.searchenginejournal.com/anthropics-claude-fable-5-is-back-with-new-usage-limits-and-safeguards/581231/", source: "Search Engine Journal", title: "Anthropic’s Claude Fable 5 Is Back With New Usage Limits And Safeguards via @sejournal, @martinibuster", link: "https://www.searchenginejournal.com/anthropics-claude-fable-5-is-back-with-new-usage-limits-and-safeguards/581231/", image: "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/anthropic-claude-fable-5-182.jpg", date: "2026-07-01T11:46:47+00:00", summary: "", interesting: false },
+    { id: "https://www.searchenginejournal.com/new-wordpress-plugin-safely-and-easily-connects-ai-to-your-website/581219/", source: "Search Engine Journal", title: "New WordPress Plugin Safely And Easily Connects AI To Your Website via @sejournal, @martinibuster", link: "https://www.searchenginejournal.com/new-wordpress-plugin-safely-and-easily-connects-ai-to-your-website/581219/", image: "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/wpvibe-wordpress-plugin-897.jpg", date: "2026-07-01T11:05:25+00:00", summary: "", interesting: false },
+    { id: "https://www.abondance.com/?p=2528492", source: "Abondance", title: "Les Google AI Overviews arrivent en France cet été", link: "https://www.abondance.com/20260630-2528492-google-ai-overviews-arrivee-france-ete.html", image: "https://www.abondance.com/wp-content/uploads/2026/06/ai-overviews-france-ete.jpg", date: "2026-06-30T07:57:00+00:00", summary: "", interesting: false },
+    { id: "https://www.abondance.com/?p=2525885", source: "Abondance", title: "Goossips SEO : Meta description & Agents IA", link: "https://www.abondance.com/20260630-2525885-goossips-seo-meta-description-agents-ia.html", image: "https://www.abondance.com/wp-content/uploads/2026/06/goossips-30-06-2026.jpg", date: "2026-06-30T06:00:00+00:00", summary: "", interesting: false },
+    { id: "https://www.abondance.com/?p=2525045", source: "Abondance", title: "Liz Reid (Google) demande aux éditeurs de créer du contenu que les gens veulent vraiment lire", link: "https://www.abondance.com/20260629-2525045-liz-reid-google-demande-editeurs-contenus-utile.html", image: "https://www.abondance.com/wp-content/uploads/2026/06/liz-reid-google.jpg", date: "2026-06-29T13:51:22+00:00", summary: "", interesting: false },
+    { id: "https://presswhizz.com/?p=3556", source: "PressWhizz", title: "Enterprise Link Building (Bulletproof Strategies for Big Companies)", link: "https://presswhizz.com/blog/enterprise-link-building/", image: "https://presswhizz.com/wp-content/uploads/2025/04/Enterprise-Link-Building.jpg", date: "2026-06-29T09:00:53+00:00", summary: "", interesting: false },
+    { id: "https://www.abondance.com/?p=2511821", source: "Abondance", title: "Google dévoile une documentation complète sur le contrôle des IA génératives dans Search Console", link: "https://www.abondance.com/20260626-2511821-google-devoile-une-documentation-complete-sur-le-controle-des-ia-generatives-dans-search-console.html", image: "https://www.abondance.com/wp-content/uploads/2026/06/google-search-console-rapports-ia.jpg", date: "2026-06-26T15:44:40+00:00", summary: "", interesting: false },
+    { id: "https://www.abondance.com/?p=2505591", source: "Abondance", title: "Open Knowledge Format : ce que Google montre, et ce qu’on en a fait", link: "https://www.abondance.com/20260626-2505591-open-knowledge-format-ce-que-google-montre-et-ce-quon-en-a-fait.html", image: "https://www.abondance.com/wp-content/uploads/2026/06/image-5.png", date: "2026-06-26T07:56:29+00:00", summary: "", interesting: false },
+    { id: "https://ahrefs.com/blog/?p=199894", source: "Ahrefs Blog", title: "Keeping Data-Driven Content Fresh Was a Monthly Slog. So We Taught an Agent to Do It.", link: "https://ahrefs.com/blog/taught-agent-to-refresh-data-content/", image: "https://ahrefs.com/blog/wp-content/uploads/2026/06/keeping-data-driven-content-fresh-was-a-by-si-quan-ong-general-seo-1.jpg", date: "2026-06-25T14:35:15+00:00", summary: "", interesting: false },
+    { id: "https://presswhizz.com/?p=28376", source: "PressWhizz", title: "Selling Links Guide (How to Sell Links Safely in 2026)", link: "https://presswhizz.com/blog/selling-links/", image: "https://presswhizz.com/wp-content/uploads/2026/06/selling-links-guide-featured-image.jpg", date: "2026-06-25T09:40:11+00:00", summary: "", interesting: false },
+    { id: "https://www.abondance.com/?p=2500595", source: "Abondance", title: "Google Spam Update de Juin 2026 : les algorithmes anti-spam mis à jour", link: "https://www.abondance.com/20260624-2500595-google-spam-update-de-juin-2026-les-algorithmes-anti-spam-mis-a-jour.html", image: "https://www.abondance.com/wp-content/uploads/2026/06/google-spam-update-juin-2026.jpg", date: "2026-06-24T19:59:43+00:00", summary: "", interesting: false },
+    { id: "https://www.abondance.com/?p=2499060", source: "Abondance", title: "Bing Webmaster Tools enrichit son rapport de performance IA avec quatre nouvelles fonctionnalités", link: "https://www.abondance.com/20260624-2499060-bing-webmaster-tools-rapport-de-performance-ia-nouvelles-fonctionnalites.html", image: "https://www.abondance.com/wp-content/uploads/2026/06/bing-webmaster-tools-fonctionnalties-ia.jpg", date: "2026-06-24T12:45:57+00:00", summary: "", interesting: false },
+    { id: "https://ahrefs.com/blog/?p=199701", source: "Ahrefs Blog", title: "Average Organic Traffic Benchmarks From Real Websites (June 2026)", link: "https://ahrefs.com/blog/average-organic-traffic-benchmarks/", image: "https://ahrefs.com/blog/wp-content/uploads/2026/06/average-organic-traffic-benchmarks-from-real-by-ryan-law-general-seo.jpg", date: "2026-06-23T12:21:43+00:00", summary: "", interesting: false },
+    { id: "https://ahrefs.com/blog/?p=199679", source: "Ahrefs Blog", title: "What is a Good Organic CTR? Real Website Benchmarks (June 2026)", link: "https://ahrefs.com/blog/what-is-a-good-ctr/", image: "https://ahrefs.com/blog/wp-content/uploads/2026/06/what-is-a-good-organic-ctr-by-ryan-law-general-seo-2.jpg", date: "2026-06-22T14:59:11+00:00", summary: "", interesting: false },
+    { id: "https://presswhizz.com/?p=28348", source: "PressWhizz", title: "What Are Spam Links? Are They Hurting Your SEO & How To Remove Them", link: "https://presswhizz.com/blog/spam-links/", image: "https://presswhizz.com/wp-content/uploads/2026/06/spam-links-featured-image.jpg", date: "2026-06-19T11:09:02+00:00", summary: "", interesting: false },
+    { id: "https://ahrefs.com/blog/?p=199004", source: "Ahrefs Blog", title: "What is an AI Agent? A Plain-English Guide", link: "https://ahrefs.com/blog/what-is-an-ai-agent/", image: "https://ahrefs.com/blog/wp-content/uploads/2026/06/1-agent-loop.png", date: "2026-06-18T13:39:36+00:00", summary: "", interesting: false },
+    { id: "https://ahrefs.com/blog/?p=132188", source: "Ahrefs Blog", title: "10 SEO Trends I’ve Seen Firsthand in 2026 (With Data)", link: "https://ahrefs.com/blog/seo-trends/", image: "https://ahrefs.com/blog/wp-content/uploads/2026/06/10-seo-trends-ive-seen-firsthand-by-ryan-law-general-seo.jpg", date: "2026-06-18T12:00:14+00:00", summary: "", interesting: false },
+    { id: "https://presswhizz.com/?p=28155", source: "PressWhizz", title: "Wikipedia Backlinks (Brutal Truth, How to Get Them, & More)", link: "https://presswhizz.com/blog/wikipedia-backlinks/", image: "https://presswhizz.com/wp-content/uploads/2026/06/wikipedia-backlinks-featured-image.jpg", date: "2026-06-12T13:09:29+00:00", summary: "", interesting: false },
+    { id: "https://presswhizz.com/?p=28116", source: "PressWhizz", title: "The Definitive Link Building Checklist for 2026", link: "https://presswhizz.com/blog/link-building-checklist/", image: "https://presswhizz.com/wp-content/uploads/2026/06/The-Definitive-Link-Building-Checklist-for-2026-featured-image.jpg", date: "2026-06-10T14:42:55+00:00", summary: "", interesting: false },
+    { id: "https://presswhizz.com/?p=28078", source: "PressWhizz", title: "PR Backlinks (What Are They, How to Get Them, & More)", link: "https://presswhizz.com/blog/pr-backlinks/", image: "https://presswhizz.com/wp-content/uploads/2026/06/PR-Backlinks-Featured-Image.jpg", date: "2026-06-04T08:20:12+00:00", summary: "", interesting: false },
+    { id: "https://presswhizz.com/?p=3574", source: "PressWhizz", title: "Competitor Backlink Analysis (Strategies, Examples, Tools, & More)", link: "https://presswhizz.com/blog/competitor-link-analysis/", image: "https://presswhizz.com/wp-content/uploads/2025/05/A-Guide-To-Competitor-Link.jpg", date: "2026-05-29T09:00:56+00:00", summary: "", interesting: false },
+    { id: "https://presswhizz.com/?p=3551", source: "PressWhizz", title: "Toxic Backlinks: What Are They And How to Find Them?", link: "https://presswhizz.com/blog/toxic-backlinks/", image: "https://presswhizz.com/wp-content/uploads/2025/05/Toxic-Backlinks-How-To-Find-Fix-Them-1.jpg", date: "2026-05-26T09:00:48+00:00", summary: "", interesting: false },
+    { id: "https://presswhizz.com/?p=3549", source: "PressWhizz", title: "AI Link Building: 10 Strategies From an AI Link Building Agency", link: "https://presswhizz.com/blog/ai-link-building-chatgpt/", image: "https://presswhizz.com/wp-content/uploads/2025/05/How-to-Actually-Use-ChatGPT.jpg", date: "2026-05-22T13:00:09+00:00", summary: "", interesting: false }
+  ];
+
+  let current = "tous";
+
+  function fmt(s) {
+    const d = new Date(s);
+    return d.toLocaleDateString("fr-FR", { day: "2-digit", month: "short", year: "numeric" });
+  }
+
+  function renderDigest() {
+    const interesting = items.filter(a => a.interesting);
+    const el = document.getElementById("digest");
+    if (interesting.length === 0) {
+      el.innerHTML = '<p class="empty">Rien de marquant pour l\'instant.</p>';
+      return;
+    }
+    el.innerHTML = interesting.slice(0, 20).map(a => `
+      <a class="digest-card" href="${a.link}" target="_blank" rel="noopener">
+        <div class="digest-source">${a.source} — ${fmt(a.date)}</div>
+        <div class="digest-title">${a.title}</div>
+        <div class="digest-summary">${a.summary}</div>
+      </a>
+    `).join("");
+  }
+
+  function filter(source) {
+    current = source;
+    document.querySelectorAll(".filter-btn").forEach(b => {
+      b.classList.toggle("active",
+        (source === "tous" && b.textContent === "Tous") || b.textContent === source
+      );
+    });
+    renderGrid();
+  }
+
+  function renderGrid() {
+    const filtered = current === "tous" ? items : items.filter(a => a.source === current);
+    document.getElementById("count").textContent = filtered.length + " article" + (filtered.length > 1 ? "s" : "");
+    if (filtered.length === 0) {
+      document.getElementById("grid").innerHTML = '<p class="empty">Aucun article.</p>';
+      return;
+    }
+    document.getElementById("grid").innerHTML = filtered.map(a => `
+      <a class="card" href="${a.link}" target="_blank" rel="noopener">
+        ${a.image ? `<img class="card-img" src="${a.image}" loading="lazy" onerror="this.style.display='none'">` : ''}
+        <div class="card-body">
+          <div class="card-source">${a.source}</div>
+          <div class="card-title">${a.title}</div>
+          <div class="card-date">${fmt(a.date)}</div>
+        </div>
+      </a>
+    `).join("");
+  }
+
+  renderDigest();
+  renderGrid();
+</script>
+
+</body>
+</html>
