@@ -1,5 +1,57 @@
 [
   {
+    "id": "https://www.searchenginejournal.com/evergreen-is-over-the-individual-is-the-only-strategy-left/581532/",
+    "source": "Search Engine Journal",
+    "title": "Evergreen Content Is Over – The Individual Is The Only Strategy Left via @sejournal, @theshelleywalsh",
+    "link": "https://www.searchenginejournal.com/evergreen-is-over-the-individual-is-the-only-strategy-left/581532/",
+    "date": "2026-07-13T13:30:51+00:00",
+    "description": "Do individuals hold all the power in publishing now? Why the reverse halo effect is reshaping content strategy for every brand in search. The post Evergreen Content Is Over – The Individual Is The Only Strategy Left appeared first on Search Engine Journal .",
+    "content_text": "Do individuals hold all the power in publishing now? Why the reverse halo effect is reshaping content strategy for every brand in search. The post Evergreen Content Is Over – The Individual Is The Only Strategy Left appeared first on Search Engine Journal .",
+    "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/sej-857.png",
+    "summary": null,
+    "interesting": false,
+    "fetched_at": "2026-07-13T15:47:46.623618+00:00"
+  },
+  {
+    "id": "https://www.searchenginejournal.com/only-28-of-americans-trust-ai-search-and-that-gap-is-your-seo-opening/581913/",
+    "source": "Search Engine Journal",
+    "title": "Only 28% Of Americans Trust AI Search – And That Gap Is Your SEO Opening via @sejournal, @gregjarboe",
+    "link": "https://www.searchenginejournal.com/only-28-of-americans-trust-ai-search-and-that-gap-is-your-seo-opening/581913/",
+    "date": "2026-07-13T11:30:27+00:00",
+    "description": "Want to win the AI citation game? Build for the click-through moment, not just the citation. Here's where to start. The post Only 28% Of Americans Trust AI Search – And That Gap Is Your SEO Opening appeared first on Search Engine Journal .",
+    "content_text": "Want to win the AI citation game? Build for the click-through moment, not just the citation. Here's where to start. The post Only 28% Of Americans Trust AI Search – And That Gap Is Your SEO Opening appeared first on Search Engine Journal .",
+    "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/ai-gap-582.png",
+    "summary": null,
+    "interesting": false,
+    "fetched_at": "2026-07-13T15:47:46.845174+00:00"
+  },
+  {
+    "id": "https://www.searchenginejournal.com/ai-agent-standards-what-do-we-need-to-know/581763/",
+    "source": "Search Engine Journal",
+    "title": "AI Agent Standards: What Do We Need To Know? via @sejournal, @chrisgreenseo",
+    "link": "https://www.searchenginejournal.com/ai-agent-standards-what-do-we-need-to-know/581763/",
+    "date": "2026-07-13T09:30:08+00:00",
+    "description": "Overwhelmed by agentic web acronyms? Map each protocol to the problem it solves before deciding which ones deserve your attention. The post AI Agent Standards: What Do We Need To Know? appeared first on Search Engine Journal .",
+    "content_text": "Overwhelmed by agentic web acronyms? Map each protocol to the problem it solves before deciding which ones deserve your attention. The post AI Agent Standards: What Do We Need To Know? appeared first on Search Engine Journal .",
+    "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/ai-agents-955.png",
+    "summary": null,
+    "interesting": false,
+    "fetched_at": "2026-07-13T15:47:47.046644+00:00"
+  },
+  {
+    "id": "https://www.abondance.com/20260713-2591516-pages-dupliquees-delais-reevaluation-canonicals.html",
+    "source": "Abondance",
+    "title": "Pages dupliquées : Google donne enfin un délai précis pour la réévaluation des canonicals",
+    "link": "https://www.abondance.com/20260713-2591516-pages-dupliquees-delais-reevaluation-canonicals.html",
+    "date": "2026-07-13T08:22:18+00:00",
+    "description": "Ce qu'il faut retenir : Après une correction de contenu, Google peut mettre jusqu'à deux semaines avant de sortir une page d'un cluster de doublons. Ce délai concerne uniquement les corrections de contenu, pas les redirections, les balises rel=\"canonical\" ou les erreurs de configuration serveur, qui sont traités comme des problèmes distincts. Plus la différence [&#8230;] L’article \" Pages dupliquées : Google donne enfin un délai précis pour la réévaluation des canonicals \" a été publié sur le si",
+    "content_text": "Ce qu'il faut retenir : Après une correction de contenu, Google peut mettre jusqu'à deux semaines avant de sortir une page d'un cluster de doublons. Ce délai concerne uniquement les corrections de contenu, pas les redirections, les balises rel=\"canonical\" ou les erreurs de configuration serveur, qui sont traités comme des problèmes distincts. Plus la différence entre les pages du cluster est nette, plus la sortie du cluster est rapide. L'outil Demander une indexation permet de solliciter une réévaluation, mais Google recommande de le réserver aux URL les plus stratégiques. Un cluster, c'est quoi au juste Pour rappel, Google regroupe des pages lorsqu'il estime qu'elles partagent un contenu principal identique ou très similaire. Une seule URL est alors désignée comme canonique, et les autres se retrouvent avec le statut \" Duplicate, Google chose a different canonical ” (\"Dupliquée, Google a choisi une canonique différent\") dans la Search Console. Le nouveau paragraphe du guide publié par Google s'attaque directement à une question que beaucoup de référenceurs se posent après avoir modifié leur contenu : combien de temps avant que Google reconnaisse le changement ? Pourquoi ce délai concerne seulement le contenu Le guide est clair sur ce point : la fenêtre de deux semaines s'applique aux corrections de contenu , et à rien d'autre. Une redirection mal configurée, une balise canonique erronée ou un problème serveur ne suivent pas cette temporalité. Google les traite comme des catégories de problèmes séparées, avec leurs propres logiques de résolution. Cette distinction a son importance pratique. Avant même de commencer à modifier quoi que ce soit, Google recommande de vérifier dans l'outil d'inspection d'URL quelle URL canonique a été choisie, et de se demander honnêtement s'il ne sert pas mieux les internautes que celui qu'on aurait préféré voir remonter. Ce qui accélère la sortie du cluster Un point mérite d'être souligné : plus la différence entre le contenu retravaillé et celui des autres pages du cluster est marquée, plus la séparation se fait rapidement . Autrement dit, une réécriture superficielle a peu de chances de convaincre l'algorithme avant l'échéance des deux semaines, alors qu'une différenciation claire du contenu principal peut accélérer le processus. Demander une indexation, mais avec parcimonie Une fois le contenu corrigé, il reste possible de solliciter une réévaluation via Request Indexing . Google le permet, mais insiste sur un usage raisonné de cette fonctionnalité, à réserver aux URL jugées les plus importantes plutôt qu'à l'ensemble des pages concernées par un cluster. Une mise à jour parmi d'autres sur les canonicals Cette précision s'ajoute à une série de révisions récentes du guide sur la canonicalisation . Google avait déjà mis à jour sa documentation JavaScript pour couvrir l'injection de balises canoniques côté client, après avoir partagé des recommandations spécifiques aux sites en JavaScript. Le sujet des canonicals reste manifestement une priorité pour la documentation officielle de Google ces derniers mois. L’article \" Pages dupliquées : Google donne enfin un délai précis pour la réévaluation des canonicals \" a été publié sur le site Abondance .",
+    "image": "https://www.abondance.com/wp-content/uploads/2026/07/google-doc-duplicate.jpg",
+    "summary": null,
+    "interesting": false,
+    "fetched_at": "2026-07-13T15:47:48.571517+00:00"
+  },
+  {
     "id": "https://www.searchenginejournal.com/the-webmcp-tools-you-expose-to-agents-can-be-used-to-hijack-them/579204/",
     "source": "Search Engine Journal",
     "title": "The WebMCP Tools You Expose To Agents Can Be Used To Hijack Them via @sejournal, @slobodanmanic",
