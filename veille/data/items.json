@@ -1,5 +1,44 @@
 [
   {
+    "id": "https://www.searchenginejournal.com/surviving-the-impression-squeeze-how-agentic-commerce-is-changing-google-ads-in-2026/579939/",
+    "source": "Search Engine Journal",
+    "title": "Surviving The Impression Squeeze: How Agentic Commerce Is Changing Google Ads In 2026 via @sejournal, @siliconvallaeys",
+    "link": "https://www.searchenginejournal.com/surviving-the-impression-squeeze-how-agentic-commerce-is-changing-google-ads-in-2026/579939/",
+    "date": "2026-07-14T09:30:43+00:00",
+    "description": "The shortlist economy is here: AI agents hand buyers three to five options. Here's how to make sure you're on it. The post Surviving The Impression Squeeze: How Agentic Commerce Is Changing Google Ads In 2026 appeared first on Search Engine Journal .",
+    "content_text": "The shortlist economy is here: AI agents hand buyers three to five options. Here's how to make sure you're on it. The post Surviving The Impression Squeeze: How Agentic Commerce Is Changing Google Ads In 2026 appeared first on Search Engine Journal .",
+    "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/06/agentic-commerce-google-ads-46.png",
+    "summary": null,
+    "interesting": false,
+    "fetched_at": "2026-07-14T09:49:17.075199+00:00"
+  },
+  {
+    "id": "https://www.abondance.com/20260714-2593240-goossips-seo-cloudflare-robots-txt.html",
+    "source": "Abondance",
+    "title": "Goossips SEO : Cloudflare & Robots.txt",
+    "link": "https://www.abondance.com/20260714-2593240-goossips-seo-cloudflare-robots-txt.html",
+    "date": "2026-07-14T08:35:03+00:00",
+    "description": "L’article \" Goossips SEO : Cloudflare &amp; Robots.txt \" a été publié sur le site Abondance .",
+    "content_text": "Goossip #1 La directive « Content Signals » de Cloudflare dans le fichier robots.txt est sans effet John Mueller a déclaré sur Reddit que la directive \"Content Signals\" de robots.txt, créée par Cloudflare l'an dernier, n'a \"aucun effet\" pour les crawlers ou les LLM. Selon lui, elle ne fait qu'ajouter du poids inutile et de la maintenance supplémentaire au fichier robots.txt. Points clés : Google n'utilise ni llms.txt ni llms-author.txt, et Mueller n'a connaissance d'aucun autre crawler ou LLM qui les utiliserait (à part des outils SEO). À sa connaissance, aucun crawler ou LLM ne respecte les directives \"content-signal\" du robots.txt, une initiative lancée par un CDN (Cloudflare) sans adoption réelle côté moteurs. Les crawlers n'appliquent que les directives qu'ils reconnaissent explicitement et ignorent le reste, quel que soit ce qu'on ajoute au robots.txt. Un peu de contexte : Cloudflare a fixé une échéance au 15 septembre 2026 pour de nouveaux réglages par défaut sur trois catégories (Training, Agent, Search). Pour les nouveaux domaines rejoignant Cloudflare, les catégories Training et Agent seront bloquées par défaut sur les pages avec publicité, tandis que Search restera autorisé. Cloudflare équipe environ 21,3 % des sites web dans le monde (janvier 2026), donc les utilisateurs de Cloudflare sont invités à vérifier leurs paramètres. Source : Search Engine Roundtable Taux de fiabilité : On a quelques doutes... Retenons la distinction entre ce signal déclaratif (non contraignant) et le vrai blocage technique de Cloudflare prévu au niveau réseau dès septembre 2026, qui lui fonctionne indépendamment du robots.txt. Barry Schwartz rappelle l'écart récurrent entre ce que les éditeurs espèrent et ce que les crawlers respectent réellement. Certains y voient aussi une position prévisible de Google, qui privilégie ses propres mécanismes de contrôles (Googlebot, Google-Extended). L’article \" Goossips SEO : Cloudflare &amp; Robots.txt \" a été publié sur le site Abondance .",
+    "image": "https://www.abondance.com/wp-content/uploads/2026/07/goossips-14-07-2026.jpg",
+    "summary": null,
+    "interesting": false,
+    "fetched_at": "2026-07-14T09:49:18.757665+00:00"
+  },
+  {
+    "id": "https://www.searchenginejournal.com/googles-marvin-clarifies-ai-search-and-qualified-future-conversions/582185/",
+    "source": "Search Engine Journal",
+    "title": "Google’s Marvin Clarifies AI Search and Qualified Future Conversions via @sejournal, @brookeosmundson",
+    "link": "https://www.searchenginejournal.com/googles-marvin-clarifies-ai-search-and-qualified-future-conversions/582185/",
+    "date": "2026-07-13T20:46:27+00:00",
+    "description": "Google's Ginny Marvin explains AI Search eligibility, Qualified Future Conversions, and Creator Partnerships, adding context to key Google Marketing Live announcements. The post Google&#8217;s Marvin Clarifies AI Search and Qualified Future Conversions appeared first on Search Engine Journal .",
+    "content_text": "Google's Ginny Marvin explains AI Search eligibility, Qualified Future Conversions, and Creator Partnerships, adding context to key Google Marketing Live announcements. The post Google&#8217;s Marvin Clarifies AI Search and Qualified Future Conversions appeared first on Search Engine Journal .",
+    "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/google-ads-decoded-qa_07132026-403.png",
+    "summary": null,
+    "interesting": false,
+    "fetched_at": "2026-07-14T09:49:17.300937+00:00"
+  },
+  {
     "id": "https://www.searchenginejournal.com/chatgpt-access-tied-to-9-drop-in-traditional-search/582167/",
     "source": "Search Engine Journal",
     "title": "ChatGPT Access Tied To 9% Drop In Traditional Search via @sejournal, @MattGSouthern",
