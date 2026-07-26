@@ -1334,8 +1334,8 @@
     "description": "Ce qu'il faut retenir : Google ajoute une propriété category à sa structured data Product, qui accepte du texte libre ou un objet CategoryCode relié à la taxonomie officielle Google Product Category. Trois propriétés (priceValidUntil, validFrom, validThrough) permettent désormais d'indiquer précisément le début et la fin d'une période de soldes, au format ISO 8601. Ces [&#8230;] L’article \" Google enrichit ses données structurées pour les fiches produits : catégorie et durée des soldes \" a été p",
     "content_text": "Ce qu'il faut retenir : Google ajoute une propriété category à sa structured data Product, qui accepte du texte libre ou un objet CategoryCode relié à la taxonomie officielle Google Product Category. Trois propriétés (priceValidUntil, validFrom, validThrough) permettent désormais d'indiquer précisément le début et la fin d'une période de soldes, au format ISO 8601. Ces ajouts font le lien entre le balisage Schema.org de la page et les attributs product_type, google_product_category et sale_price_effective_date du flux Merchant Center. Aucune de ces propriétés n'est obligatoire, mais Google les recommande pour améliorer la fiabilité des informations affichées dans les résultats de recherche. Une nouvelle propriété category pour classer les produits Dans le vocabulaire Schema.org, un Type désigne la nature d'une entité (par exemple Product), tandis qu'une Property vient préciser ou décrire ce Type. Jusqu'ici, les marchands qui voulaient classer finement leurs produits devaient s'appuyer presque exclusivement sur les attributs de leur flux Merchant Center. Google comble ce manque en introduisant la propriété category directement dans la structured data Product. Concrètement, cette propriété peut recevoir deux types de valeurs, et même les combiner au sein d'un tableau. La première possibilité consiste à utiliser du texte brut. Cela fonctionne exactement comme l'attribut product_type des flux produits : il s'agit d'une catégorie personnalisée, définie librement par le marchand. Google recommande toutefois de rester sous la limite de 750 caractères. La seconde possibilité repose sur l'objet CategoryCode , une structure qui permet de déclarer une catégorie officielle Google Product Category (GPC) directement dans le code de la page. Deux champs la composent : inCodeSet , qui pointe vers l'URL de la taxonomie Google, et codeValue , qui précise la catégorie, soit par un identifiant numérique, soit par un chemin complet. Ce codeValue correspond exactement à l'attribut google_product_category du flux marchand. Autrement dit, la même valeur GPC peut désormais figurer aussi bien dans le flux que dans le balisage de la page. Voici un exemple de balisage fourni par Google, qui illustre bien la souplesse de cette nouvelle propriété : \"category\": [ { \"@type\": \"CategoryCode\", \"inCodeSet\": \"https://www.google.com/basepages/producttype/taxonomy-with-ids.en-US.txt\", \"codeValue\": \"2271\" }, { \"@type\": \"CategoryCode\", \"inCodeSet\": \"https://www.google.com/basepages/producttype/taxonomy-with-ids.en-US.txt\", \"codeValue\": \"Apparel &amp; Accessories &gt; Clothing &gt; Dresses\" }, \"Dresses\", \"Special Occasion &gt; Wedding &amp; Bridal Party Dresses\" ] Cet exemple montre qu'un même produit peut porter plusieurs valeurs de catégorie : un identifiant GPC numérique, un chemin de catégorie GPC complet, une catégorie personnalisée en texte libre, et même plusieurs catégories personnalisées à la fois. Lorsqu'on utilise le format de chemin, chaque niveau doit être séparé par le symbole &gt; et contenir au moins une lettre. Les identifiants numériques restent également acceptés. Trois propriétés pour préciser la durée d'une promotion Le second grand ajout concerne la durée de validité des prix . Google a complété sa documentation avec trois propriétés qui permettent d'indiquer clairement quand une réduction commence et quand elle se termine. La propriété priceValidUntil indique la date et l'heure après lesquelles le prix affiché ne sera plus disponible, au format ISO 8601. Google précise qu'une fiche produit risque de ne plus s'afficher si cette date est déjà dépassée. La propriété validFrom marque le début de la période durant laquelle le prix est valide, tandis que validThrough en marque la fin. Les deux acceptent un format DateTime ou Date , toujours selon la norme ISO 8601. Comment et où placer ces propriétés Google recommande d'indiquer à la fois une date de début et une date de fin pour délimiter clairement la période de soldes, et de veiller à ce que la date de début ( validFrom ) soit antérieure ou égale à la date de fin ( validThrough ou priceValidUntil ). Il est également conseillé d'inclure l'heure et le fuseau horaire dans le format ISO 8601, pour une meilleure précision côté systèmes Google. L'emplacement de ces propriétés dépend de la structure du balisage. Si le prix soldé figure directement dans le prix de l'offre ( property price du nœud Offer ), alors validFrom et l'une des deux propriétés de fin de validité (validThrough ou priceValidUntil) doivent être ajoutées directement sur ce nœud Offer. Si en revanche le prix soldé est défini dans un nœud PriceSpecification distinct, typiquement un nœud sans propriété priceType lorsqu'un prix barré ( StrikethroughPrice ) est également présent, alors validFrom et validThrough doivent être ajoutées à ce nœud PriceSpecification spécifique. À noter que priceValidUntil ne s'applique pas au type PriceSpecification : dans ce cas de figure, seule validThrough peut être utilisée pour marquer la fin de la période. Ce que ces ajouts changent pour les e-commerçants Ces nouvelles propriétés ne sont pas obligatoires, mais Google les recommande car elles renforcent la cohérence entre ce qui est affiché sur la page et ce qui est transmis dans le flux Merchant Center. La propriété category fait désormais écho aux attributs product_type et google_product_category du flux, tandis que les propriétés de durée de soldes correspondent à l'attribut sale_price_effective_date. Pour les marchands, l'intérêt est double. D'une part, ces données permettent à Google d'afficher des informations produit plus précises dans les résultats de recherche. D'autre part, elles offrent un moyen de déclarer ces informations au niveau de la page elle-même, sans dépendre uniquement du flux produit pour tenir Google informé des catégories et des périodes de promotion en cours. L’article \" Google enrichit ses données structurées pour les fiches produits : catégorie et durée des soldes \" a été publié sur le site A",
     "image": null,
-    "summary": null,
-    "interesting": false,
+    "summary": "Google ajoute la propriété 'category' et des champs de dates de soldes (priceValidUntil, validFrom, validThrough) à la structured data Product. Ces ajouts facilitent le lien avec les flux Merchant Center et améliorent la fiabilité de l'affichage produit dans les résultats de recherche.",
+    "interesting": true,
     "fetched_at": "2026-07-09T13:58:08.234784+00:00"
   },
   {
@@ -1360,8 +1360,8 @@
     "description": "Google's new Category and Sale Duration structured data properties give merchants a way to rank more precise product data. The post Google&#8217;s New Merchant Listing Structured Data Improves SEO appeared first on Search Engine Journal .",
     "content_text": "Google's new Category and Sale Duration structured data properties give merchants a way to rank more precise product data. The post Google&#8217;s New Merchant Listing Structured Data Improves SEO appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/google-structured-data-987.jpg",
-    "summary": null,
-    "interesting": false,
+    "summary": "Google introduit de nouvelles propriétés de structured data (catégorie et durée des soldes) pour les fiches produits marchands. Cela permet un classement plus précis des données produit, utile pour tout site avec des pages de vente/service.",
+    "interesting": true,
     "fetched_at": "2026-07-09T13:58:03.698672+00:00"
   },
   {
@@ -2491,8 +2491,8 @@
     "description": "Five search developments this week: a spam update, AI impression counts, CTR data, Similarweb’s branded search findings, and Google’s tool access stance.",
     "content_text": "Five search developments this week: a spam update, AI impression counts, CTR data, Similarweb’s branded search findings, and Google’s tool access stance.",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/06/seo-pulse-641.png",
-    "summary": null,
-    "interesting": false,
+    "summary": "Récap SEO Pulse confirmant le déploiement d'une mise à jour anti-spam ciblant aussi la manipulation par IA, avec des données sur les impressions IA et le CTR. À noter pour comprendre les fluctuations de trafic sur les sites de la flotte.",
+    "interesting": true,
     "fetched_at": "2026-07-06T20:21:53.904354+00:00"
   },
   {
@@ -2712,8 +2712,8 @@
     "description": "Microsoft Clarity’s Bot Analytics dashboard now detects when bots request URLs your robots.txt disallows, with trends and filters by bot and operator.",
     "content_text": "Microsoft Clarity’s Bot Analytics dashboard now detects when bots request URLs your robots.txt disallows, with trends and filters by bot and operator.",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/06/84aa5c23-315f-4e5a-adbf-90d8b8135473-186.png",
-    "summary": null,
-    "interesting": false,
+    "summary": "Microsoft Clarity ajoute un tableau de bord Bot Analytics qui détecte les bots ignorant les règles du robots.txt, avec tendances et filtres par bot. Outil utile pour surveiller le crawl et l'indexation des sites.",
+    "interesting": true,
     "fetched_at": "2026-07-06T20:21:53.905030+00:00"
   },
   {
@@ -2725,8 +2725,8 @@
     "description": "Google has finished rolling out the June 2026 spam update globally and across all languages. It’s the second spam update of the year.",
     "content_text": "Google has finished rolling out the June 2026 spam update globally and across all languages. It’s the second spam update of the year.",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/06/7e989ac7-335f-4447-918c-d2ae05a821c1-560.jpeg",
-    "summary": null,
-    "interesting": false,
+    "summary": "Google a terminé le déploiement mondial de la mise à jour anti-spam de juin 2026, la deuxième de l'année. Ce type de mise à jour peut impacter directement le classement des sites de la flotte, à surveiller via GSC.",
+    "interesting": true,
     "fetched_at": "2026-07-06T20:21:53.905065+00:00"
   },
   {
