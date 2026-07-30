@@ -1,5 +1,70 @@
 [
   {
+    "id": "https://www.searchenginejournal.com/googles-generative-ai-search-console-data-is-a-trap-for-marketers/584018/",
+    "source": "Search Engine Journal",
+    "title": "Google’s ‘Generative AI’ Search Console Data Is A Trap For Marketers via @sejournal, @TaylorDanRW",
+    "link": "https://www.searchenginejournal.com/googles-generative-ai-search-console-data-is-a-trap-for-marketers/584018/",
+    "date": "2026-07-30T14:30:22+00:00",
+    "description": "Eight weeks of AI Overviews data in Search Console reveals impressions without clicks, inflated position-one rankings, and misleading averages that can mask real traffic losses. The post Google’s &#8216;Generative AI&#8217; Search Console Data Is A Trap For Marketers appeared first on Search Engine Journal .",
+    "content_text": "Eight weeks of AI Overviews data in Search Console reveals impressions without clicks, inflated position-one rankings, and misleading averages that can mask real traffic losses. The post Google’s &#8216;Generative AI&#8217; Search Console Data Is A Trap For Marketers appeared first on Search Engine Journal .",
+    "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/gsc-trap-859.png",
+    "summary": "L'analyse de 8 semaines de données AI Overviews dans GSC révèle des impressions sans clics et des positions moyennes trompeuses masquant des pertes de trafic réelles. Utile pour interpréter correctement les rapports GSC de la flotte.",
+    "interesting": true,
+    "fetched_at": "2026-07-30T18:15:04.063333+00:00"
+  },
+  {
+    "id": "https://www.abondance.com/20260730-2687805-google-search-console-donnees-posts-instagram-tiktok-x-youtube.html",
+    "source": "Abondance",
+    "title": "Google Search Console ouvre enfin les données de vos posts Instagram, TikTok, X et YouTube",
+    "link": "https://www.abondance.com/20260730-2687805-google-search-console-donnees-posts-instagram-tiktok-x-youtube.html",
+    "date": "2026-07-30T14:04:47+00:00",
+    "description": "Ce qu'il faut retenir : Les propriétés de plateforme, annoncées début juillet 2026, sont désormais accessibles à tous dans Search Console pour les comptes Instagram, TikTok, X et YouTube. Elles permettent de suivre comment ces contenus sociaux et vidéo remontent sur la Recherche Google, Discover et Google News. Un guide dédié détaille les usages concrets [&#8230;] L’article \" Google Search Console ouvre enfin les données de vos posts Instagram, TikTok, X et YouTube \" a été publié sur le site Abo",
+    "content_text": "Ce qu'il faut retenir : Les propriétés de plateforme, annoncées début juillet 2026, sont désormais accessibles à tous dans Search Console pour les comptes Instagram, TikTok, X et YouTube. Elles permettent de suivre comment ces contenus sociaux et vidéo remontent sur la Recherche Google, Discover et Google News. Un guide dédié détaille les usages concrets : identifier les thématiques de recherche qui génèrent du trafic, repérer les pics soudains sur 24 heures, comparer les performances entre plateformes ou entre formats. Si un profil de recherche a déjà été configuré sur une plateforme, l'accès aux données correspondantes dans Search Console se fait automatiquement. Une nouveauté déjà annoncée Ce lancement fait suite à une première annonce faite au début du mois de juillet . Google avait alors introduit les propriétés de plateforme à titre expérimental, avant de les généraliser aujourd'hui à l'ensemble des utilisateurs de Search Console, partout dans le monde. Concrètement, cette fonctionnalité s'adresse à tous ceux qui publient au-delà de leur seul site web. Elle offre une vision jusqu'ici absente de Search Console : celle de la performance des posts sociaux et vidéo dans les résultats de recherche Google , qu'il s'agisse de la recherche classique (Search), de Discover ou de Google News. Pour accompagner ce déploiement, Google publie également un guide consacré à l'analyse des contenus sociaux et vidéo . Il s'adresse aussi bien aux créateurs de contenu qu'aux community managers ou aux professionnels du SEO, et détaille plusieurs usages pratiques. La fonctionnalité en détails Le rapport Insights permet d'abord d'identifier les groupes de requêtes qui envoient du trafic depuis la Recherche Google vers les contenus sociaux et vidéo, en distinguant celles qui progressent, celles qui reculent et celles qui restent stables. Cette lecture des thématiques de recherche aide à comprendre les centres d'intérêt de l'audience et peut inspirer de nouveaux sujets de vidéos, de légendes ou de hashtags. Le filtre sur 24 heures sert quant à lui à repérer les pics de trafic soudains provenant de la Recherche Google vers des publications récentes, ce qui permet ensuite de relayer ce contenu en tendance sur d'autres plateformes. Autre usage mis en avant : l'export des données de performance de plusieurs propriétés dans un même tableur, pour comparer côte à côte les résultats sur YouTube, Instagram, X ou TikTok. Le guide évoque aussi l'optimisation des contenus existants . Search Console peut aider à repérer d'anciennes vidéos qui regagnent en visibilité dans la recherche, ce qui peut orienter la décision d'épingler un contenu en avant sur un flux social ou vidéo, ou d'en produire une suite. Les annotations de Search Console permettent en complément de suivre l'effet de modifications externes, comme la réécriture d'un titre YouTube ou d'une légende TikTok, sur les performances de recherche dans le temps. Enfin, les filtres de page et le mode de comparaison offrent la possibilité de confronter différents formats, par exemple pour évaluer une playlist vidéo ou comparer la performance de vidéos courtes face à des vidéos longues. Google indique que les retours des utilisateurs peuvent être transmis via le lien « Envoyer des commentaires » dans Search Console, directement sur la page de documentation, sur LinkedIn ou via la communauté Google Search Central. L’article \" Google Search Console ouvre enfin les données de vos posts Instagram, TikTok, X et YouTube \" a été publié sur le site Abondance .",
+    "image": "https://www.abondance.com/wp-content/uploads/2026/07/google-search-console-reseaux-sociaux.jpg",
+    "summary": "",
+    "interesting": false,
+    "fetched_at": "2026-07-30T18:15:06.463875+00:00"
+  },
+  {
+    "id": "https://www.searchenginejournal.com/head-of-anthropics-claude-code-says-prompt-engineering-not-that-important/584286/",
+    "source": "Search Engine Journal",
+    "title": "Head Of Anthropic’s Claude Code Says Prompt Engineering Not That Important via @sejournal, @martinibuster",
+    "link": "https://www.searchenginejournal.com/head-of-anthropics-claude-code-says-prompt-engineering-not-that-important/584286/",
+    "date": "2026-07-30T12:30:07+00:00",
+    "description": "Anthropic's Boris Cherny, head of Claude Code, explains how to become one of the top 1% of users who get things done. The post Head Of Anthropic&#8217;s Claude Code Says Prompt Engineering Not That Important appeared first on Search Engine Journal .",
+    "content_text": "Anthropic's Boris Cherny, head of Claude Code, explains how to become one of the top 1% of users who get things done. The post Head Of Anthropic&#8217;s Claude Code Says Prompt Engineering Not That Important appeared first on Search Engine Journal .",
+    "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/anthropic-claude-code-315.jpg",
+    "summary": "",
+    "interesting": false,
+    "fetched_at": "2026-07-30T18:15:04.277649+00:00"
+  },
+  {
+    "id": "https://www.searchenginejournal.com/entity-mapping-works-on-google-does-any-of-it-reach-chatgpt/583663/",
+    "source": "Search Engine Journal",
+    "title": "Entity Mapping Works On Google. Does Any Of It Reach ChatGPT? via @sejournal, @DuaneForrester",
+    "link": "https://www.searchenginejournal.com/entity-mapping-works-on-google-does-any-of-it-reach-chatgpt/583663/",
+    "date": "2026-07-30T12:00:50+00:00",
+    "description": "A language model has no node to feed. Here's why on-site entity work moves Google's graph and never touches what the model learned. The post Entity Mapping Works On Google. Does Any Of It Reach ChatGPT? appeared first on Search Engine Journal .",
+    "content_text": "A language model has no node to feed. Here's why on-site entity work moves Google's graph and never touches what the model learned. The post Entity Mapping Works On Google. Does Any Of It Reach ChatGPT? appeared first on Search Engine Journal .",
+    "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/duane-forrester-decodes-entity-mapping-350.png",
+    "summary": "",
+    "interesting": false,
+    "fetched_at": "2026-07-30T18:15:04.501574+00:00"
+  },
+  {
+    "id": "https://www.searchenginejournal.com/rundowns/q3-ai-visibility-ai-citations-brand-mentions-content-refreshes-that-work/",
+    "source": "Search Engine Journal",
+    "title": "Q3 AI Visibility: AI Citations, Brand Mentions & Content Refreshes That Work via @sejournal, @AirOpsHQ",
+    "link": "https://www.searchenginejournal.com/rundowns/q3-ai-visibility-ai-citations-brand-mentions-content-refreshes-that-work/",
+    "date": "2026-07-29T19:41:37+00:00",
+    "description": "Five articles explain why AI citations fluctuate, where they come from, what makes them persist, and how to audit content for stronger AI visibility. The post Q3 AI Visibility: AI Citations, Brand Mentions &#038; Content Refreshes That Work appeared first on Search Engine Journal .",
+    "content_text": "Five articles explain why AI citations fluctuate, where they come from, what makes them persist, and how to audit content for stronger AI visibility. The post Q3 AI Visibility: AI Citations, Brand Mentions &#038; Content Refreshes That Work appeared first on Search Engine Journal .",
+    "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/what-it-takes-to-get-cited-ai-search-rundown-hero.png",
+    "summary": "",
+    "interesting": false,
+    "fetched_at": "2026-07-30T18:15:04.715281+00:00"
+  },
+  {
     "id": "https://www.searchenginejournal.com/89-of-ai-search-demand-has-no-clear-owner-use-this-before-the-window-closes/583255/",
     "source": "Search Engine Journal",
     "title": "89% Of AI Search Demand Has No Clear Owner: Use This Before The Window Closes via @sejournal, @gregjarboe",
@@ -8,7 +73,7 @@
     "description": "Kevin Indig's data across 1,094 categories shows that only 15.2% have a clear ChatGPT owner, and citations barely predict which brand gets named. The post 89% Of AI Search Demand Has No Clear Owner: Use This Before The Window Closes appeared first on Search Engine Journal .",
     "content_text": "Kevin Indig's data across 1,094 categories shows that only 15.2% have a clear ChatGPT owner, and citations barely predict which brand gets named. The post 89% Of AI Search Demand Has No Clear Owner: Use This Before The Window Closes appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/chatgpt-winners-252.png",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-07-29T20:42:46.449713+00:00"
   },
@@ -21,7 +86,7 @@
     "description": "Treat Europe as one Google market, and you'll miss Seznam, Ecosia, Zalando, and a regulatory layer that can close a door overnight. The post European Search Strategy Goes Beyond Google &#038; Bing appeared first on Search Engine Journal .",
     "content_text": "Treat Europe as one Google market, and you'll miss Seznam, Ecosia, Zalando, and a regulatory layer that can close a door overnight. The post European Search Strategy Goes Beyond Google &#038; Bing appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/eu-strategy-972.png",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-07-29T20:42:46.664005+00:00"
   },
@@ -34,7 +99,7 @@
     "description": "Search Console platform properties are now open to everyone worldwide, and Google has published a guide to reading your social and video search data. The post Google Opens Search Console Social Reporting To Everyone appeared first on Search Engine Journal .",
     "content_text": "Search Console platform properties are now open to everyone worldwide, and Google has published a guide to reading your social and video search data. The post Google Opens Search Console Social Reporting To Everyone appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/google-search-console-social-reporting-featured-1600x840-1.jpg",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-07-29T20:42:46.935597+00:00"
   },
@@ -47,7 +112,7 @@
     "description": "Lead-gen and ecommerce managers: two Google Ads bidding changes landed this summer. Here's what shifts, what doesn't, and which campaigns to audit first. The post Google Ads Bidding Strategies: Where To Spend Your Time In 2026 appeared first on Search Engine Journal .",
     "content_text": "Lead-gen and ecommerce managers: two Google Ads bidding changes landed this summer. Here's what shifts, what doesn't, and which campaigns to audit first. The post Google Ads Bidding Strategies: Where To Spend Your Time In 2026 appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/ppc-strategy-616.png",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-07-29T20:42:47.185832+00:00"
   },
@@ -60,7 +125,7 @@
     "description": "Perplexity never skips the web, so every query is winnable. Here's what its live answer stream reveals about citations, video, and local. The post How Perplexity Actually Picks Sources (I Read The Stream, Not The Answers) appeared first on Search Engine Journal .",
     "content_text": "Perplexity never skips the web, so every query is winnable. Here's what its live answer stream reveals about citations, video, and local. The post How Perplexity Actually Picks Sources (I Read The Stream, Not The Answers) appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/ai-picks-sources-140.png",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-07-29T20:42:47.388638+00:00"
   },
@@ -73,7 +138,7 @@
     "description": "Google announced version 0.2 of the Open Knowledge Format, introducing five new trust signals. The post Google&#8217;s Open Knowledge Format Adds Five Trust Signals appeared first on Search Engine Journal .",
     "content_text": "Google announced version 0.2 of the Open Knowledge Format, introducing five new trust signals. The post Google&#8217;s Open Knowledge Format Adds Five Trust Signals appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/google-open-knowledge-forma-329.png",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-07-29T20:42:47.598759+00:00"
   },
@@ -86,8 +151,8 @@
     "description": "Google's John Mueller says if sites are serving conflicting metadata, they should fix the conflict, not test which source wins. The post Google&#8217;s Mueller: Fix Conflicting Metadata, Don&#8217;t Test It appeared first on Search Engine Journal .",
     "content_text": "Google's John Mueller says if sites are serving conflicting metadata, they should fix the conflict, not test which source wins. The post Google&#8217;s Mueller: Fix Conflicting Metadata, Don&#8217;t Test It appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/google-conflicting-metadata-data-review.jpg",
-    "summary": null,
-    "interesting": false,
+    "summary": "John Mueller recommande de corriger les métadonnées en conflit sur un site plutôt que de laisser Google arbitrer entre plusieurs sources. Point technique utile pour l'audit des balises meta sur les sites de la flotte.",
+    "interesting": true,
     "fetched_at": "2026-07-29T20:42:47.807673+00:00"
   },
   {
@@ -99,7 +164,7 @@
     "description": "Metricool data shows views per long-form YouTube post increased while estimated ad revenue and average view duration fell. The post YouTube Views Rose While Long-Form Ad Revenue Fell, Data Shows appeared first on Search Engine Journal .",
     "content_text": "Metricool data shows views per long-form YouTube post increased while estimated ad revenue and average view duration fell. The post YouTube Views Rose While Long-Form Ad Revenue Fell, Data Shows appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/youtube-views-revenue-featured-image.png",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-07-29T20:42:48.011504+00:00"
   },
@@ -112,8 +177,8 @@
     "description": "Ce qu'il faut retenir : Google a ajouté une nouvelle règle à sa documentation sur les extraits d'avis, qui interdit désormais explicitement les avis faux ou incités non déclarés. Deux cas sont visés en particulier : les avis qui ne reposent pas sur une expérience réelle du produit ou du service, et ceux rédigés en [&#8230;] L’article \" Google muscle ses règles sur les avis en ligne et prévient des sanctions manuelles \" a été publié sur le site Abondance .",
     "content_text": "Ce qu'il faut retenir : Google a ajouté une nouvelle règle à sa documentation sur les extraits d'avis, qui interdit désormais explicitement les avis faux ou incités non déclarés. Deux cas sont visés en particulier : les avis qui ne reposent pas sur une expérience réelle du produit ou du service, et ceux rédigés en échange d'un avantage (argent, réduction, bon d'achat, produit gratuit) sans mention claire et visible de cette contrepartie. En cas de non-respect, Google prévient qu'une action manuelle peut être appliquée au site concerné, avec la possibilité de demander un réexamen une fois le problème corrigé. Cette évolution s'inscrit dans la logique du système Reviews de Google, dédié à l'évaluation des contenus de type avis, recommandations ou analyses publiés en propre par un site. Une documentation qui cible l'authenticité, pas la structured data Il est important de noter que cette mise à jour figure dans la documentation consacrée aux données structurées pour les extraits d'avis, mais qu' elle ne concerne pas la structured data elle-même . Elle porte sur la section Guidelines, qui définit quel type de contenu est éligible à un affichage en rich results dans les résultats de recherche. Autrement dit, Google resserre les conditions de fond, pas les conditions techniques de balisage. La documentation est explicite sur les conséquences d'un manquement : « Si votre site enfreint une ou plusieurs de ces règles, Google peut prendre une action manuelle à son encontre. Une fois le problème résolu, vous pouvez soumettre votre site pour réexamen. » Ce que change concrètement la mise à jour Le changelog associé à cette mise à jour précise l'intention derrière l'ajout : améliorer la transparence des avis pour les utilisateurs. La nouvelle règle vise deux situations distinctes, toutes deux liées à un manque de sincérité dans le contenu publié : Les avis qui ne découlent pas d'une expérience réelle et vérifiable du produit ou du service. Autrement dit, un avis rédigé sans usage effectif du produit tombe sous le coup de cette règle, même s'il n'y a pas eu de rémunération. Les avis rédigés contre un avantage matériel (argent, réduction, bon, produit offert) lorsque cette contrepartie n'est pas signalée de façon claire et visible. La sanction ne vise donc pas l'avis incité en tant que tel, mais son absence de divulgation. Le système Reviews de Google, en toile de fond Cette évolution ne sort pas de nulle part. Google dispose d'un système algorithmique entièrement dédié à l'évaluation des contenus d'avis, appelé Reviews System. Sa documentation le décrit ainsi : il évalue les articles, billets de blog, pages ou contenus autonomes similaires, rédigés en première partie, dont l'objectif est de fournir une recommandation, un avis ou une analyse. Il ne s'applique en revanche pas aux avis tiers, comme ceux que les internautes postent directement dans la section commentaires d'une fiche produit ou service. Cette précision est utile pour cerner le périmètre de la nouvelle règle. Elle concerne les sites qui publient eux-mêmes du contenu de type avis ou test, pas les plateformes qui hébergent des avis clients déposés par des tiers. Pourquoi cette mise à jour compte pour les éditeurs de contenu Cette évolution confirme une tendance de fond chez Google : l'authenticité et l'expertise réelle derrière un contenu sont des critères de plus en plus surveillés, en particulier pour les formats qui engagent la confiance du lecteur, comme les avis et les tests produits. Pour les sites qui publient ce type de contenu, disclaimer clairement toute incitation commerciale n'est plus seulement une bonne pratique de transparence, c'est désormais une condition explicite pour rester éligible aux rich results et éviter une action manuelle. L’article \" Google muscle ses règles sur les avis en ligne et prévient des sanctions manuelles \" a été publié sur le site Abondance .",
     "image": "https://www.abondance.com/wp-content/uploads/2023/08/avis-etoiles.jpg",
-    "summary": null,
-    "interesting": false,
+    "summary": "Google a durci sa documentation sur les extraits d'avis, interdisant explicitement les faux avis et ceux obtenus en échange d'un avantage non déclaré, sous peine d'action manuelle. À surveiller pour les pages avis clients des sites de garages de la flotte.",
+    "interesting": true,
     "fetched_at": "2026-07-29T20:42:52.203352+00:00"
   },
   {
@@ -125,7 +190,7 @@
     "description": "Google's Gary Illyes said he would need to check whether pushing an unavailable_after date forward on every renewal causes problems. He gave a first read. The post Google&#8217;s Illyes Unsure On Shifting unavailable_after Dates appeared first on Search Engine Journal .",
     "content_text": "Google's Gary Illyes said he would need to check whether pushing an unavailable_after date forward on every renewal causes problems. He gave a first read. The post Google&#8217;s Illyes Unsure On Shifting unavailable_after Dates appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/google-unavailable-after-featured-1600x840-v2.jpg",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-07-29T20:42:48.227232+00:00"
   },
@@ -138,7 +203,7 @@
     "description": "Find out how AI accurately describes brands but struggles with visibility. Explore Victorious' findings in this insightful report. The post AI Recognizes 96% Of Brands But Mentions Almost None, New Study Finds appeared first on Search Engine Journal .",
     "content_text": "Find out how AI accurately describes brands but struggles with visibility. Explore Victorious' findings in this insightful report. The post AI Recognizes 96% Of Brands But Mentions Almost None, New Study Finds appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/q2-featured-image-1600x840-415.png",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-07-29T20:42:48.434673+00:00"
   },
@@ -151,8 +216,8 @@
     "description": "Google's John Mueller explains the SEO impact of random URLs injected into web pages by CMS platforms. The post Google On SEO Impact Of URLs Injected By CMS Platforms appeared first on Search Engine Journal .",
     "content_text": "Google's John Mueller explains the SEO impact of random URLs injected into web pages by CMS platforms. The post Google On SEO Impact Of URLs Injected By CMS Platforms appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/google-seo-impact-518.jpg",
-    "summary": null,
-    "interesting": false,
+    "summary": "John Mueller explique l'impact SEO des URLs aléatoires injectées dans le HTML par certains CMS, un point technique à vérifier sur les templates PHP maison de la flotte. Ces URLs parasites peuvent affecter le crawl et l'indexation.",
+    "interesting": true,
     "fetched_at": "2026-07-29T20:42:48.664617+00:00"
   },
   {
@@ -177,7 +242,7 @@
     "description": "Is Google still a search engine? Its Q2 2026 earnings call suggests the answer is changing, and website owners should plan accordingly. The post The Future Of Search &#038; AI: What I Learned From Google&#8217;s Latest Earnings Call appeared first on Search Engine Journal .",
     "content_text": "Is Google still a search engine? Its Q2 2026 earnings call suggests the answer is changing, and website owners should plan accordingly. The post The Future Of Search &#038; AI: What I Learned From Google&#8217;s Latest Earnings Call appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/future-of-search-and-ai-547.png",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-07-29T20:42:49.065280+00:00"
   },
@@ -190,7 +255,7 @@
     "description": "Data ties higher AI detector scores to lower positions and to fewer pages in Google's index, though heavily flagged pages still rank in top 10. The post Google Search Results Still Rank Heavily AI-Flagged Pages appeared first on Search Engine Journal .",
     "content_text": "Data ties higher AI detector scores to lower positions and to fewer pages in Google's index, though heavily flagged pages still rank in top 10. The post Google Search Results Still Rank Heavily AI-Flagged Pages appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/ai-flagged-pages-google-top-10.jpg",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-07-29T20:42:49.281307+00:00"
   },
@@ -203,7 +268,7 @@
     "description": "Google's DMCA case against scraper SerpApi collapsed because SearchGuard protects ad revenue, not copyright. The same reasoning weakens every site's anti-bot defense against AI crawlers. The post Google Lost Its Scraping Case – Now You Have To Pick A Side On The Open Web appeared first on Search Engine Journal .",
     "content_text": "Google's DMCA case against scraper SerpApi collapsed because SearchGuard protects ad revenue, not copyright. The same reasoning weakens every site's anti-bot defense against AI crawlers. The post Google Lost Its Scraping Case – Now You Have To Pick A Side On The Open Web appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/google-scraping-189.png",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-07-29T20:42:49.491861+00:00"
   },
@@ -216,7 +281,7 @@
     "description": "Agentic protocols are multiplying with no consensus standard in sight. Own the layers underneath instead of chasing a winner. The post Why Data Integrity Is The New Technical SEO: From Crawling To Trust appeared first on Search Engine Journal .",
     "content_text": "Agentic protocols are multiplying with no consensus standard in sight. Own the layers underneath instead of chasing a winner. The post Why Data Integrity Is The New Technical SEO: From Crawling To Trust appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/data-integrity-187.png",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-07-29T20:42:49.883500+00:00"
   },
@@ -229,7 +294,7 @@
     "description": "Amazon pulled out of U.S. Google Shopping in July 2025 and still hasn't returned. Here's what a year of auction data reveals for retailers. The post Amazon Left US Google Shopping A Year Ago &#038; Never Came Back appeared first on Search Engine Journal .",
     "content_text": "Amazon pulled out of U.S. Google Shopping in July 2025 and still hasn't returned. Here's what a year of auction data reveals for retailers. The post Amazon Left US Google Shopping A Year Ago &#038; Never Came Back appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/amazon-left-570.png",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-07-29T20:42:50.110175+00:00"
   },
@@ -242,8 +307,8 @@
     "description": "A new SEO test shows what happens when Google's Web Rendering Service continues past five seconds: Google pauses time with a virtual clock. The post Google SEO Test Shows What Happens In 5-Second Rendering Window appeared first on Search Engine Journal .",
     "content_text": "A new SEO test shows what happens when Google's Web Rendering Service continues past five seconds: Google pauses time with a virtual clock. The post Google SEO Test Shows What Happens In 5-Second Rendering Window appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/google-web-rendering-service-553.jpg",
-    "summary": null,
-    "interesting": false,
+    "summary": "Un test SEO montre que le Web Rendering Service de Google gère le rendu au-delà de 5 secondes via une horloge virtuelle, sans pénaliser les pages plus lentes à se rendre. Utile pour comprendre comment Google traite le rendu JS/CSS lourds sur les sites de la flotte.",
+    "interesting": true,
     "fetched_at": "2026-07-29T20:42:50.309004+00:00"
   },
   {
@@ -255,7 +320,7 @@
     "description": "Canva made this painfully clear: they gave 5,000 employees a full week to explore AI, and most couldn’t figure out how to start. No surprise there, most vibe-coding tools expect you to manage files, wrangle a terminal, and deploy to &#8230; Read more &#8250;",
     "content_text": "Canva made this painfully clear: they gave 5,000 employees a full week to explore AI, and most couldn’t figure out how to start. No surprise there, most vibe-coding tools expect you to manage files, wrangle a terminal, and deploy to &#8230; Read more &#8250;",
     "image": "https://ahrefs.com/blog/wp-content/uploads/2026/07/vibe-coding-for-marketers-a-beginner8217s-by-kamila-olexa-marketing.jpg",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-07-29T20:42:51.120785+00:00"
   },
@@ -268,8 +333,8 @@
     "description": "L’article \" Goossips SEO : Robots.txt \" a été publié sur le site Abondance .",
     "content_text": "Goossip #1 Robots.txt : pourquoi Google peut ignorer vos règles de blocage Un utilisateur Reddit gérait un client Shopify dont la barre de recherche interne se faisait exploiter par du spam : des requêtes de spammeurs généraient des URLs de résultats de recherche pointant vers des sites tiers. Le client avait bloqué /search via disallow dans le robots.txt, mais Google continuait d'indexer ces pages malgré tout. John Mueller a examiné le fichier robots.txt du site en question et identifié la cause : le fichier contenait à la fois une section user-agent: Googlebot et une section user-agent: * (pour tous les robots), avec des règles différentes dans chacune. Le point clé qu’il met en exergue : avec le robots.txt, la règle la plus spécifique l'emporte toujours . Si un fichier contient une section dédiée à Googlebot, ce dernier n'appliquera que les règles de cette section précise, il ignorera complètement celles définies sous user-agent: *, même si elles semblaient censées s'appliquer à tous les robots, Googlebot inclus. John Mueller propose une solution pratique : si on veut appliquer les mêmes règles à plusieurs user-agents, il faut soit dupliquer les règles dans chaque section, soit lister tous les user-agents concernés ensemble au-dessus d'un même bloc de règles partagées. Source : Search Engine Journal Taux de fiabilité : On est d'accord ! Comme rappelé dans l’article de Search Engine Journal, le fichier robots.txt ne contrôle pas le crawl, mais l’indexation, d’où l’intérêt d’utiliser plutôt une directive noindex. L’article \" Goossips SEO : Robots.txt \" a été publié sur le site Abondance .",
     "image": "https://www.abondance.com/wp-content/uploads/2026/07/goossips-28-07-2026.jpg",
-    "summary": null,
-    "interesting": false,
+    "summary": "Un cas concret montre que Google applique la règle la plus spécifique dans robots.txt : une section dédiée à Googlebot écrase totalement les règles génériques user-agent *, même si elles semblaient s'appliquer à tous. Rappel important que disallow bloque le crawl mais pas l'indexation, contrairement à noindex — à vérifier sur les robots.txt des 9 sites.",
+    "interesting": true,
     "fetched_at": "2026-07-29T20:42:52.481305+00:00"
   },
   {
@@ -281,8 +346,8 @@
     "description": "Shared Claude chats showed up in Google. We checked the pages and found a noindex header sitting behind a robots.txt block that keeps Google out. The post Indexed Claude Chats Show Why Disallow Is Not Noindex appeared first on Search Engine Journal .",
     "content_text": "Shared Claude chats showed up in Google. We checked the pages and found a noindex header sitting behind a robots.txt block that keeps Google out. The post Indexed Claude Chats Show Why Disallow Is Not Noindex appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/claude-shared-chats-featured-image.png",
-    "summary": null,
-    "interesting": false,
+    "summary": "Des conversations Claude partagées se sont retrouvées indexées par Google malgré un blocage robots.txt, car disallow empêche le crawl mais pas l'indexation d'une URL déjà connue. Confirme la nécessité d'utiliser noindex plutôt que disallow pour vraiment exclure des pages de l'index sur les sites de la flotte.",
+    "interesting": true,
     "fetched_at": "2026-07-29T20:42:50.540631+00:00"
   },
   {
@@ -3180,7 +3245,7 @@
     "description": "AI visibility issues often reflect organizational misalignment rather than SEO problems, as inconsistent data confuses language models.",
     "content_text": "AI visibility issues often reflect organizational misalignment rather than SEO problems, as inconsistent data confuses language models.",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/06/alignment-231.png",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-07-06T20:21:53.905355+00:00"
   },
