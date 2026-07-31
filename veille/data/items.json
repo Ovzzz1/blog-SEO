@@ -1,5 +1,57 @@
 [
   {
+    "id": "https://www.searchenginejournal.com/seo-pulse-social-search-data-for-all-ai-detected-pages-rank-lower/584337/",
+    "source": "Search Engine Journal",
+    "title": "Social Search Data For All, AI-Detected Pages Rank Lower – SEO Pulse via @sejournal, @MattGSouthern",
+    "link": "https://www.searchenginejournal.com/seo-pulse-social-search-data-for-all-ai-detected-pages-rank-lower/584337/",
+    "date": "2026-07-31T12:30:09+00:00",
+    "description": "This week’s SEO Pulse covers expanded Search Console social reporting, Ahrefs’ AI-content ranking analysis, AI opt-out implications, and metadata guidance. The post Social Search Data For All, AI-Detected Pages Rank Lower – SEO Pulse appeared first on Search Engine Journal .",
+    "content_text": "This week’s SEO Pulse covers expanded Search Console social reporting, Ahrefs’ AI-content ranking analysis, AI opt-out implications, and metadata guidance. The post Social Search Data For All, AI-Detected Pages Rank Lower – SEO Pulse appeared first on Search Engine Journal .",
+    "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/seo-pulse-584337.jpg",
+    "summary": "",
+    "interesting": false,
+    "fetched_at": "2026-07-31T13:24:45.799981+00:00"
+  },
+  {
+    "id": "https://www.searchenginejournal.com/google-may-treat-search-box-pages-as-a-site-quality-issue/584419/",
+    "source": "Search Engine Journal",
+    "title": "Google May Treat Search Box Pages As A Site Quality Issue via @sejournal, @martinibuster",
+    "link": "https://www.searchenginejournal.com/google-may-treat-search-box-pages-as-a-site-quality-issue/584419/",
+    "date": "2026-07-31T11:24:14+00:00",
+    "description": "Google said that spammed search box pages may become a site quality issue and dealt with as if they were hacked. The post Google May Treat Search Box Pages As A Site Quality Issue appeared first on Search Engine Journal .",
+    "content_text": "Google said that spammed search box pages may become a site quality issue and dealt with as if they were hacked. The post Google May Treat Search Box Pages As A Site Quality Issue appeared first on Search Engine Journal .",
+    "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/google-site-quality-seo-810.jpg",
+    "summary": "Google peut considérer les pages de recherche interne spammées comme un problème de qualité du site, traité comme un piratage. À surveiller pour les sites de la flotte qui exposent des pages de recherche indexables générées automatiquement.",
+    "interesting": true,
+    "fetched_at": "2026-07-31T13:24:46.015835+00:00"
+  },
+  {
+    "id": "https://www.searchenginejournal.com/wp-engine-bigcommerce-wordpress-stores/584343/",
+    "source": "Search Engine Journal",
+    "title": "WP Engine Partners With BigCommerce To Scale WordPress Stores via @sejournal, @martinibuster",
+    "link": "https://www.searchenginejournal.com/wp-engine-bigcommerce-wordpress-stores/584343/",
+    "date": "2026-07-30T23:04:36+00:00",
+    "description": "WP Engine announced Commerce Connect, a safe way for fast-growth brands to modernize and scale while preserving design, SEO, and user experience. The post WP Engine Partners With BigCommerce To Scale WordPress Stores appeared first on Search Engine Journal .",
+    "content_text": "WP Engine announced Commerce Connect, a safe way for fast-growth brands to modernize and scale while preserving design, SEO, and user experience. The post WP Engine Partners With BigCommerce To Scale WordPress Stores appeared first on Search Engine Journal .",
+    "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/wp-engine-bigcommerce-574.jpg",
+    "summary": "",
+    "interesting": false,
+    "fetched_at": "2026-07-31T13:24:46.217563+00:00"
+  },
+  {
+    "id": "https://www.searchenginejournal.com/ai-search-isnt-replacing-google-its-layering-on-top-similarweb-data/583378/",
+    "source": "Search Engine Journal",
+    "title": "AI Search Isn’t Replacing Google, It’s Layering On Top – Similarweb Data via @sejournal, @gregjarboe",
+    "link": "https://www.searchenginejournal.com/ai-search-isnt-replacing-google-its-layering-on-top-similarweb-data/583378/",
+    "date": "2026-07-30T19:00:03+00:00",
+    "description": "New Similarweb figures reveal how narrowly ChatGPT distributes its outbound clicks, and what that concentration means for publishers chasing AI referral traffic. The post AI Search Isn&#8217;t Replacing Google, It&#8217;s Layering On Top – Similarweb Data appeared first on Search Engine Journal .",
+    "content_text": "New Similarweb figures reveal how narrowly ChatGPT distributes its outbound clicks, and what that concentration means for publishers chasing AI referral traffic. The post AI Search Isn&#8217;t Replacing Google, It&#8217;s Layering On Top – Similarweb Data appeared first on Search Engine Journal .",
+    "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/ai-search-265.png",
+    "summary": "",
+    "interesting": false,
+    "fetched_at": "2026-07-31T13:24:46.436047+00:00"
+  },
+  {
     "id": "https://www.searchenginejournal.com/googles-generative-ai-search-console-data-is-a-trap-for-marketers/584018/",
     "source": "Search Engine Journal",
     "title": "Google’s ‘Generative AI’ Search Console Data Is A Trap For Marketers via @sejournal, @TaylorDanRW",
@@ -229,8 +281,8 @@
     "description": "Google is putting Top Stories carousels inside AI Overviews, raising the stakes on its new AI opt-out setting in Search Console. The post AI Opt-Out May Cost Sites A Google Top Stories Spot appeared first on Search Engine Journal .",
     "content_text": "Google is putting Top Stories carousels inside AI Overviews, raising the stakes on its new AI opt-out setting in Search Console. The post AI Opt-Out May Cost Sites A Google Top Stories Spot appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/ai-opt-out-top-stories-1947415102.jpg",
-    "summary": null,
-    "interesting": false,
+    "summary": "Google intègre les carrousels Top Stories dans les AI Overviews, ce qui renforce l'enjeu du nouveau paramètre d'opt-out IA dans Search Console. Un site optant pour l'exclusion IA pourrait perdre sa visibilité dans ces carrousels.",
+    "interesting": true,
     "fetched_at": "2026-07-29T20:42:48.861842+00:00"
   },
   {
