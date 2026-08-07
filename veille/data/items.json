@@ -1,5 +1,31 @@
 [
   {
+    "id": "https://www.searchenginejournal.com/wordpress-security-release-7-0-3-fixes-high-severity-xss-vulnerability/584927/",
+    "source": "Search Engine Journal",
+    "title": "WordPress Security Release 7.0.3 Fixes High Severity XSS Vulnerability via @sejournal, @martinibuster",
+    "link": "https://www.searchenginejournal.com/wordpress-security-release-7-0-3-fixes-high-severity-xss-vulnerability/584927/",
+    "date": "2026-08-06T23:02:34+00:00",
+    "description": "WordPress security update fixes 12 vulnerabilities. Security researcher: \"nastiest one is a login screen XSS.\" The post WordPress Security Release 7.0.3 Fixes High Severity XSS Vulnerability appeared first on Search Engine Journal .",
+    "content_text": "WordPress security update fixes 12 vulnerabilities. Security researcher: \"nastiest one is a login screen XSS.\" The post WordPress Security Release 7.0.3 Fixes High Severity XSS Vulnerability appeared first on Search Engine Journal .",
+    "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/wordpress-vulnerability-78.jpg",
+    "summary": "WordPress publie la version 7.0.3 corrigeant 12 vulnérabilités dont une faille XSS critique sur l'écran de connexion. Pertinent pour la sécurité des sites de la flotte s'ils tournent sous WordPress.",
+    "interesting": true,
+    "fetched_at": "2026-08-07T03:21:57.039232+00:00"
+  },
+  {
+    "id": "https://www.searchenginejournal.com/i-helped-scale-google-ads-to-billions-heres-how-id-build-an-ai-search-strategy-today/582556/",
+    "source": "Search Engine Journal",
+    "title": "I Helped Scale Google Ads To Billions – Here’s How I’d Build An AI Search Strategy Today",
+    "link": "https://www.searchenginejournal.com/i-helped-scale-google-ads-to-billions-heres-how-id-build-an-ai-search-strategy-today/582556/",
+    "date": "2026-08-06T19:00:59+00:00",
+    "description": "Impression share ran the auction years. Citation share runs this one. A 90-day sprint for measuring and winning AI search visibility. The post I Helped Scale Google Ads To Billions – Here&#8217;s How I&#8217;d Build An AI Search Strategy Today appeared first on Search Engine Journal .",
+    "content_text": "Impression share ran the auction years. Citation share runs this one. A 90-day sprint for measuring and winning AI search visibility. The post I Helped Scale Google Ads To Billions – Here&#8217;s How I&#8217;d Build An AI Search Strategy Today appeared first on Search Engine Journal .",
+    "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/ai-search-strategy-934.png",
+    "summary": "",
+    "interesting": false,
+    "fetched_at": "2026-08-07T03:21:57.261372+00:00"
+  },
+  {
     "id": "https://www.searchenginejournal.com/why-part-of-your-ai-authority-takes-years-not-campaigns-why-it-comes-from-other-people/584467/",
     "source": "Search Engine Journal",
     "title": "Why Part Of Your AI Authority Takes Years, Not Campaigns & Why It Comes From Other People via @sejournal, @DuaneForrester",
