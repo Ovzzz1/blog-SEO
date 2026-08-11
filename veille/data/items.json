@@ -1,5 +1,31 @@
 [
   {
+    "id": "https://www.searchenginejournal.com/wpforms-lite-accused-of-adding-backdoor-i-tested-it-and-was-surprised/585273/",
+    "source": "Search Engine Journal",
+    "title": "WPForms Lite Accused Of Adding Backdoor. I Tested It And Was Surprised via @sejournal, @martinibuster",
+    "link": "https://www.searchenginejournal.com/wpforms-lite-accused-of-adding-backdoor-i-tested-it-and-was-surprised/585273/",
+    "date": "2026-08-11T09:03:14+00:00",
+    "description": "WPForms Lite WordPress plugin accused of adding a backdoor to new installs. I gave it and try and was surprised. The post WPForms Lite Accused Of Adding Backdoor. I Tested It And Was Surprised appeared first on Search Engine Journal .",
+    "content_text": "WPForms Lite WordPress plugin accused of adding a backdoor to new installs. I gave it and try and was surprised. The post WPForms Lite Accused Of Adding Backdoor. I Tested It And Was Surprised appeared first on Search Engine Journal .",
+    "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/wpforms-lite-638.jpg",
+    "summary": "",
+    "interesting": false,
+    "fetched_at": "2026-08-11T09:10:15.249531+00:00"
+  },
+  {
+    "id": "https://www.abondance.com/20260811-2739068-goossips-seo-crawlers.html",
+    "source": "Abondance",
+    "title": "Goossips SEO : Crawlers",
+    "link": "https://www.abondance.com/20260811-2739068-goossips-seo-crawlers.html",
+    "date": "2026-08-11T05:30:00+00:00",
+    "description": "L’article \" Goossips SEO : Crawlers \" a été publié sur le site Abondance .",
+    "content_text": "Goossip #1 Les crawlers de Google renvoient parfois des requêtes différentes de GET et POST Gary Illyes a confirmé sur LinkedIn que les robots d'exploration de Google n'envoient pas uniquement des requêtes HTTP GET et POST, mais aussi des requêtes HEAD, OPTIONS, PUT, PATCH et DELETE, en réponse à plusieurs questions reçues à ce sujet ces dernières semaines. Ces types de requêtes (HEAD, OPTIONS, PUT, PATCH, DELETE) représentent moins de 1,5% du total des requêtes envoyées par l'ensemble des crawlers Google. Leur origine : le JavaScript . Selon Gary Illyes, c'est du code JS présent sur les pages qui déclenche ces requêtes lors du processus de rendu effectué par Google. Source : Search Engine Roundtable Taux de fiabilité : On est d'accord ! En résumé, rien d'alarmant : ce comportement est marginal et lié au rendu des scripts JS, pas à une nouvelle pratique de crawl volontaire de Google. L’article \" Goossips SEO : Crawlers \" a été publié sur le site Abondance .",
+    "image": "https://www.abondance.com/wp-content/uploads/2026/08/goossips-11-08-2026.jpg",
+    "summary": "Gary Illyes confirme que les crawlers Google envoient aussi des requêtes HEAD, OPTIONS, PUT, PATCH et DELETE en plus de GET/POST, mais cela reste marginal (moins de 1,5%) et lié au rendu JavaScript. Rien d'alarmant pour le SEO technique, comportement normal du crawl.",
+    "interesting": true,
+    "fetched_at": "2026-08-11T09:10:16.726190+00:00"
+  },
+  {
     "id": "https://www.searchenginejournal.com/the-scenic-route-to-roi-mastering-non-linear-targeting-in-google-ads/581784/",
     "source": "Search Engine Journal",
     "title": "The Scenic Route To ROI: Mastering Non-Linear Targeting In Google Ads",
