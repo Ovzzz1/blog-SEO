@@ -1,5 +1,44 @@
 [
   {
+    "id": "https://www.searchenginejournal.com/youtube-changes-how-it-counts-views-on-long-form-live/586166/",
+    "source": "Search Engine Journal",
+    "title": "YouTube Changes How It Counts Views On Long-Form & Live via @sejournal, @MattGSouthern",
+    "link": "https://www.searchenginejournal.com/youtube-changes-how-it-counts-views-on-long-form-live/586166/",
+    "date": "2026-08-17T20:10:31+00:00",
+    "description": "YouTube is changing how it counts views on long-form videos and live streams. The post YouTube Changes How It Counts Views On Long-Form &#038; Live appeared first on Search Engine Journal .",
+    "content_text": "YouTube is changing how it counts views on long-form videos and live streams. The post YouTube Changes How It Counts Views On Long-Form &#038; Live appeared first on Search Engine Journal .",
+    "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/youtube-view-counts-featured.jpg",
+    "summary": "",
+    "interesting": false,
+    "fetched_at": "2026-08-17T21:01:26.129519+00:00"
+  },
+  {
+    "id": "https://www.searchenginejournal.com/the-ai-conversations-leaking-into-your-search-console/585663/",
+    "source": "Search Engine Journal",
+    "title": "The AI Conversations Leaking Into Your Search Console via @sejournal, @suganthan",
+    "link": "https://www.searchenginejournal.com/the-ai-conversations-leaking-into-your-search-console/585663/",
+    "date": "2026-08-17T19:00:05+00:00",
+    "description": "Search Console records what people say to AI Mode. Here's how to pull those fragments out and sort them into seven buckets. The post The AI Conversations Leaking Into Your Search Console appeared first on Search Engine Journal .",
+    "content_text": "Search Console records what people say to AI Mode. Here's how to pull those fragments out and sort them into seven buckets. The post The AI Conversations Leaking Into Your Search Console appeared first on Search Engine Journal .",
+    "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/ai-conversations-638.png",
+    "summary": "L'article explique comment repérer et extraire dans Search Console des fragments de conversations issues d'AI Mode, en les classant en sept catégories. Utile pour comprendre l'évolution des requêtes/intentions captées via GSC dans un contexte de recherche générative.",
+    "interesting": true,
+    "fetched_at": "2026-08-17T21:01:26.352973+00:00"
+  },
+  {
+    "id": "https://www.searchenginejournal.com/google-lets-you-turn-off-visible-watermarks-in-gemini/586145/",
+    "source": "Search Engine Journal",
+    "title": "Google Lets You Turn Off Visible Watermarks In Gemini via @sejournal, @MattGSouthern",
+    "link": "https://www.searchenginejournal.com/google-lets-you-turn-off-visible-watermarks-in-gemini/586145/",
+    "date": "2026-08-17T17:00:44+00:00",
+    "description": "Google Gemini allows users to disable the visible watermark on AI-generated images, videos, and music, while SynthID and C2PA marks stay embedded. The post Google Lets You Turn Off Visible Watermarks In Gemini appeared first on Search Engine Journal .",
+    "content_text": "Google Gemini allows users to disable the visible watermark on AI-generated images, videos, and music, while SynthID and C2PA marks stay embedded. The post Google Lets You Turn Off Visible Watermarks In Gemini appeared first on Search Engine Journal .",
+    "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/google-gemini-watermark-featured-1600x840-1.jpg",
+    "summary": "",
+    "interesting": false,
+    "fetched_at": "2026-08-17T21:01:26.562034+00:00"
+  },
+  {
     "id": "https://www.searchenginejournal.com/llms-txt-v2-formal-markdown-linking-ai-agents/586119/",
     "source": "Search Engine Journal",
     "title": "Llms.txt V2 Adds Formal Markdown Linking For AI Agents via @sejournal, @MattGSouthern",
