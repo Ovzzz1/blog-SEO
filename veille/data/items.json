@@ -1,5 +1,31 @@
 [
   {
+    "id": "https://www.searchenginejournal.com/the-house-doesnt-publish-its-tells/586359/",
+    "source": "Search Engine Journal",
+    "title": "The House Doesn’t Publish Its Tells via @sejournal, @pedrodias",
+    "link": "https://www.searchenginejournal.com/the-house-doesnt-publish-its-tells/586359/",
+    "date": "2026-08-21T14:30:45+00:00",
+    "description": "AI labs are buying pre-2022 books to avoid training on AI slop while quietly building text watermarking, exposing why content-at-scale strategies are a losing bet. The post The House Doesn&#8217;t Publish Its Tells appeared first on Search Engine Journal .",
+    "content_text": "AI labs are buying pre-2022 books to avoid training on AI slop while quietly building text watermarking, exposing why content-at-scale strategies are a losing bet. The post The House Doesn&#8217;t Publish Its Tells appeared first on Search Engine Journal .",
+    "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/pedro-dias-159.png",
+    "summary": "",
+    "interesting": false,
+    "fetched_at": "2026-08-21T14:57:18.919343+00:00"
+  },
+  {
+    "id": "https://www.searchenginejournal.com/googles-generated-interfaces-could-compete-with-tool-pages/586589/",
+    "source": "Search Engine Journal",
+    "title": "Google’s Generated Interfaces Could Compete With Tool Pages via @sejournal, @MattGSouthern",
+    "link": "https://www.searchenginejournal.com/googles-generated-interfaces-could-compete-with-tool-pages/586589/",
+    "date": "2026-08-21T12:00:32+00:00",
+    "description": "AI Overviews can now build interactive tools inside Search. Google’s testing shows generated interfaces often beat top results in head-to-head comparisons. The post Google’s Generated Interfaces Could Compete With Tool Pages appeared first on Search Engine Journal .",
+    "content_text": "AI Overviews can now build interactive tools inside Search. Google’s testing shows generated interfaces often beat top results in head-to-head comparisons. The post Google’s Generated Interfaces Could Compete With Tool Pages appeared first on Search Engine Journal .",
+    "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/google-generated-interfaces-featured-1600x840-1.jpg",
+    "summary": "Google teste des interfaces générées par IA directement dans les AI Overviews, qui surpassent souvent les résultats classiques lors des comparaisons. Cette évolution pourrait concurrencer les pages outils traditionnelles et réduire le trafic organique vers ces pages.",
+    "interesting": true,
+    "fetched_at": "2026-08-21T14:57:19.146075+00:00"
+  },
+  {
     "id": "https://www.abondance.com/20260821-2805701-youtube-changement-comptage-vues-24-aout.html",
     "source": "Abondance",
     "title": "YouTube va compter les vues dès la première seconde à partir du 24 août",
