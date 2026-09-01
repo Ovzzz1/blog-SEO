@@ -1,5 +1,31 @@
 [
   {
+    "id": "https://www.searchenginejournal.com/google-details-who-can-license-its-search-data-in-europe/587995/",
+    "source": "Search Engine Journal",
+    "title": "Google Details Who Can License Its Search Data In Europe via @sejournal, @MattGSouthern",
+    "link": "https://www.searchenginejournal.com/google-details-who-can-license-its-search-data-in-europe/587995/",
+    "date": "2026-09-01T17:20:25+00:00",
+    "description": "Google published eligibility rules, samples, and key dates for licensing ranking, query, click, and view data from EEA Search under the EU's Digital Markets Act. The post Google Details Who Can License Its Search Data In Europe appeared first on Search Engine Journal .",
+    "content_text": "Google published eligibility rules, samples, and key dates for licensing ranking, query, click, and view data from EEA Search under the EU's Digital Markets Act. The post Google Details Who Can License Its Search Data In Europe appeared first on Search Engine Journal .",
+    "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/09/google-search-data-licensing-featured-v4.jpg",
+    "summary": "Google a publié les règles d'éligibilité, échantillons et dates clés pour licencier ses données de recherche EEE (classements, requêtes, clics, vues) dans le cadre du DMA. Cela pourrait ouvrir l'accès à des données de ranking et de requêtes jusqu'ici réservées à Google, avec un impact sur les outils SEO tiers.",
+    "interesting": true,
+    "fetched_at": "2026-09-01T17:48:41.615844+00:00"
+  },
+  {
+    "id": "https://www.abondance.com/20260901-2851601-obtenir-affichage-etoiles-collections-produits.html",
+    "source": "Abondance",
+    "title": "Comment obtenir l’affichage des étoiles en SERP sur des collections de produits ?",
+    "link": "https://www.abondance.com/20260901-2851601-obtenir-affichage-etoiles-collections-produits.html",
+    "date": "2026-09-01T13:13:53+00:00",
+    "description": "Dans notre travail de R&#38;D chez Kalys, on voit de plus en plus d’e-commerçants s’en servir pour se démarquer dans les résultats. Et l’ajout des étoiles ne se limite pas aux fiches produit, comme on pourrait le croire : Sur une fiche produit, c’est balisé et documenté par Google depuis des années : c’est ce [&#8230;] L’article \" Comment obtenir l’affichage des étoiles en SERP sur des collections de produits ? \" a été publié sur le site Abondance .",
+    "content_text": "Dans notre travail de R&amp;D chez Kalys , on voit de plus en plus d’e-commerçants s’en servir pour se démarquer dans les résultats. Et l’ajout des étoiles ne se limite pas aux fiches produit, comme on pourrait le croire : Exemple de collection Made in France affichant étoiles, avis et fourchette de prix en SERP Sur une fiche produit, c’est balisé et documenté par Google depuis des années : c’est ce qu’il appelle l’extrait d’avis , basé sur les données structurées Product et AggregateRating. Ce qui l’est beaucoup moins, c’est comment, et surtout si, on peut obtenir ce même affichage sur une page de collection : une catégorie qui regroupe plusieurs dizaines ou centaines de produits, sans note propre à afficher. C’est tout l’objet de cet article. On va voir : comment fonctionne un extrait enrichi, et comment l’ajouter concrètement à vos pages e-commerce et surtout, le cas des collections de produits ; ce que Google interdit officiellement, et ce qu’on observe quand même en SERP Un extrait enrichi, ça vient d’où ? Exemple d’extrait enrichi avec étoiles sur une fiche produit dans Google Ces étoiles ne sont pas décidées à la main par Google. Elles viennent de données structurées ; du code JSON-LD injecté dans la page, invisible pour le visiteur, mais lisible par les moteurs de recherche. Exemple, pour l’image au-dessus, il faudrait ajouter ceci : &lt;script type=\"application/ld+json\"&gt; { \"@context\": \"https://schema.org/\", \"@type\": \"Product\", \"name\": \"Ice Cream Matcha\", \"aggregateRating\": { \"@type\": \"AggregateRating\", \"ratingValue\": \"4.9\", \"reviewCount\": \"114\" }, \"offers\": { \"@type\": \"Offer\", \"priceCurrency\": \"GBP\", \"price\": \"22.00\", \"availability\": \"https://schema.org/InStock\" } } &lt;/script&gt; Une fois ce balisage détecté, validé et jugé pertinent, Google peut décider de l’afficher sous forme de rich snippet en résultats de recherche. J’insiste sur le “peut” : le balisage est une condition nécessaire, jamais une garantie d’affichage. Où on l’ajoute ? Vous n’avez pas besoin d’un plugin, module ou application pour ajouter des données structurées à votre boutique , surtout si vous utilisez le format JSON-LD. Il suffit de coller du code dans la page directement, ou dans les fichiers du thème. Voici comment procéder : Ajouter à la description de page Il est possible d’ajouter le script JSON-LD directement dans la description d’une page. Depuis l’éditeur, collez-le dans vos pages de type Collection (ou autres), en passant en mode HTML/Code : Bouton “Show HTML” dans l’éditeur de description Shopify Puis collez le script JSON-LD au début ou à la fin du contenu (peu importe l’ordre). Cette solution est spécifique à une seule page. Pour l’appliquer à plusieurs, préférez la solution suivante. Ajouter au thème Pour que cela s’applique sur un même type de page, vous devrez l’ajouter à votre thème — bien qu’il soit probable qu’une version de base de code JSON-LD soit déjà présente par défaut. Exemples pour Shopify : Les données structurées de type Product peuvent être ajoutées au fichier product-template.liquid, repris sur tous les templates produit de base. Le type Breadcrumb peut être ajouté ou personnalisé directement dans breadcrumbs.liquid, sous theme &gt; snippets. Le type Organization peut être inclus dans le modèle theme.liquid. Comment les mettre en place sur une fiche produit ? Sur Shopify et Prestashop, dans l’immense majorité des cas, c’est déja intégré nativement par les développeurs de thème. Et pour les données structurées liées aux produits, vous n’avez pas à écrire ce balisage à la main : une application d’avis (Loox, Judge.me, Yotpo, Stamped, Skeepers…) s’en charge, en stockant la note et le nombre d’avis dans un metafield produit. Votre travail consiste surtout à vérifier que ce metafield est bien repris dans le JSON-LD de la fiche produit, ce qui n’est pas toujours le cas par défaut. Pour vérifier que vos données structurées “Produits” sont valides, plusieurs possibilités rapides et gratuites : Testez votre URL dans le validateur Schema.org . Passez-la dans le Rich Results Test de Google (afin de doubler la verification, on a parfois des surprises) Ou consultez directement l’onglet Extraits d’avis de la Search Console, pour repérer d’éventuelles erreurs sur vos pages produit. Jusque-là, rien de très différent de ce que vous avez peut-être déjà lu ailleurs. La vraie question, celle qui m’a été posée, et qui revient régulièrement en clientèle, c’est celle des collections. Le cas des collections de produits : ce que dit Google (et ce qu’on observe en pratique) Consigne officielle Google sur les avis de catégorie ou de liste La documentation Google est sans ambiguïté : « Veillez à ne fournir un avis que sur un élément spécifique, et non sur une catégorie ou une liste d’éléments. » Une page de collection n’est pas un produit. Elle n’a pas de note propre; elle contient des dizaines de produits qui, eux, en ont potentiellement une. En toute rigueur, une collection n’est donc pas éligible aux étoiles en SERP. Et pourtant, dans les faits, la plupart des e-commerçants utilisent cette technique depuis très longtemps, peut-être même depuis le début des extraits enrichis pour les sites marchands en novembre 2010 . Regardez : les plus gros acteurs du web utilisent eux aussi cette méthode. Capture SERP réelle (août 2026) : étoiles, avis et fourchette de prix affichés sur une page de collection Le Site du Made in France Et ce n’est pas un cas isolé : Décathlon, Lidl, Norauto, Manomano, Speedway.fr... tous secteurs confondus, sur des pages qui sont bien des collections, pas des fiches produit. Collection vélos électriques Norauto avec étoiles et 124 138 avis en SERP On voit qu’ils basent leur notation sur les avis global de la boutique. Note présente dans le footer de la page d’accueil base sur les données google et partenaires. Collection Decathlon “New era” avec 2602 étoiles, basé sur le total des avis de chaque produit. Collection équipement moto Speedway.fr avec étoiles et fourchette de prix en",
+    "image": "https://www.abondance.com/wp-content/uploads/2026/08/affichage-etoile-collection-produits.jpg",
+    "summary": "",
+    "interesting": false,
+    "fetched_at": "2026-09-01T17:48:43.963002+00:00"
+  },
+  {
     "id": "https://www.searchenginejournal.com/wordpress-announces-a-proactive-security-initiative/587942/",
     "source": "Search Engine Journal",
     "title": "WordPress Announces A Proactive Security Initiative via @sejournal, @martinibuster",
@@ -8,7 +34,7 @@
     "description": "WordPress announced an initiative to scale security as AI makes it easier for criminal to find and exploit vulnerabilities. The post WordPress Announces A Proactive Security Initiative appeared first on Search Engine Journal .",
     "content_text": "WordPress announced an initiative to scale security as AI makes it easier for criminal to find and exploit vulnerabilities. The post WordPress Announces A Proactive Security Initiative appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/09/wordpress-security-234.jpg",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-09-01T13:05:18.404639+00:00"
   },
@@ -21,7 +47,7 @@
     "description": "Schema is not a magic ranking switch. Loren Baker explains how consistent structured data strengthens entity trust across local, ecommerce, and author-driven content. The post Schema For AI Citations: How To Become A Trusted Source appeared first on Search Engine Journal .",
     "content_text": "Schema is not a magic ranking switch. Loren Baker explains how consistent structured data strengthens entity trust across local, ecommerce, and author-driven content. The post Schema For AI Citations: How To Become A Trusted Source appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/schema-for-ai-418.png",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-09-01T13:05:18.611393+00:00"
   },
@@ -34,8 +60,8 @@
     "description": "L’article \" Goossips SEO : Liens obsolètes \" a été publié sur le site Abondance .",
     "content_text": "Goossip #1 Google ne pénalise pas les liens obsolètes, mais il y a une nuance importante Sur Reddit, John Mueller a répondu à une question sur les liens sortants anciens pointant vers un site qui a changé de propriétaire et héberge désormais du contenu douteux. Sa réponse : Google ne pénalise pas ce genre de liens (« le web est plein de turbulences »), même s'il reste préférable de garder ses liens à jour. Il ajoute cependant une nuance importante : « Cela dit, et c'est, je l'espère, une évidence, si la valeur de l'ensemble de votre site est devenue obsolète, il s'agit d'un problème d'une tout autre nature que celui de quelques liens rompus. » Source : Search Engine Roundtable Taux de fiabilité : On est d'accord ! Cette déclaration reflète le positionnement de Google depuis des années, qui a tendance à ignorer les liens anciens, spammy et non pertinents accumulés au fil du temps, au lieu de pénaliser les sites qui les hébergent. L’article \" Goossips SEO : Liens obsolètes \" a été publié sur le site Abondance .",
     "image": "https://www.abondance.com/wp-content/uploads/2026/09/goossips-01-09-2026.jpg",
-    "summary": null,
-    "interesting": false,
+    "summary": "John Mueller confirme que Google ne pénalise pas les liens sortants obsolètes pointant vers des sites devenus douteux, ces liens étant plutôt ignorés. Nuance : si c'est l'ensemble du site qui est obsolète, le problème est d'une autre nature.",
+    "interesting": true,
     "fetched_at": "2026-09-01T13:05:21.301539+00:00"
   },
   {
@@ -47,8 +73,8 @@
     "description": "Kevin Rowe broke down the digital PR system behind 1,000+ earned citations, which data stories journalists cover, and how research wins AI Overviews spots. The post How We Earned 1,000+ Links For GEO/SEO appeared first on Search Engine Journal .",
     "content_text": "Kevin Rowe broke down the digital PR system behind 1,000+ earned citations, which data stories journalists cover, and how research wins AI Overviews spots. The post How We Earned 1,000+ Links For GEO/SEO appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/sej-purelinq-webinar-recap-featured.png",
-    "summary": null,
-    "interesting": false,
+    "summary": "Kevin Rowe détaille le système de digital PR ayant généré plus de 1 000 citations et liens gagnés, en identifiant les types de data stories que les journalistes reprennent. Il explique aussi comment ces contenus de recherche décrochent des positions dans les AI Overviews.",
+    "interesting": true,
     "fetched_at": "2026-09-01T13:05:18.820659+00:00"
   },
   {
@@ -60,7 +86,7 @@
     "description": "FTC and 22 states sued Amazon over alleged changes to its ad auctions that the agency says overcharged advertisers by more than $20 billion. The post FTC Sues Amazon Over Alleged $20 Billion Advertising Surcharge Scheme appeared first on Search Engine Journal .",
     "content_text": "FTC and 22 states sued Amazon over alleged changes to its ad auctions that the agency says overcharged advertisers by more than $20 billion. The post FTC Sues Amazon Over Alleged $20 Billion Advertising Surcharge Scheme appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/shutterstock_amazon_judge_1600x840-629.png",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-09-01T13:05:19.019368+00:00"
   },
@@ -73,8 +99,8 @@
     "description": "Rank Math paused its controversial feature, acknowledge a serious consent failure, and explains why it's coming back. The post Rank Math SEO Plugin Pauses Controversial Feature. Says It Will Return appeared first on Search Engine Journal .",
     "content_text": "Rank Math paused its controversial feature, acknowledge a serious consent failure, and explains why it's coming back. The post Rank Math SEO Plugin Pauses Controversial Feature. Says It Will Return appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/rank-math-seo-wordpress-33.jpg",
-    "summary": null,
-    "interesting": false,
+    "summary": "Rank Math a suspendu la fonctionnalité qui créait silencieusement un Application Password admin lors de l'ouverture de la section Help & Support, reconnaissant un défaut de consentement. L'éditeur annonce son retour ultérieur ; à vérifier sur les sites WordPress utilisant le plugin.",
+    "interesting": true,
     "fetched_at": "2026-09-01T13:05:19.224956+00:00"
   },
   {
@@ -86,8 +112,8 @@
     "description": "Google says Search Console's generative AI performance reports, which track AI Overviews and AI Mode impressions, have now rolled out to all sites worldwide. The post Google Search Console AI Reports Rolled Out Worldwide appeared first on Search Engine Journal .",
     "content_text": "Google says Search Console's generative AI performance reports, which track AI Overviews and AI Mode impressions, have now rolled out to all sites worldwide. The post Google Search Console AI Reports Rolled Out Worldwide appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/google-search-console-ai-reports-worldwide.jpg",
-    "summary": null,
-    "interesting": false,
+    "summary": "Les rapports de performance IA générative de Search Console, qui suivent les impressions dans AI Overviews et AI Mode, sont désormais déployés sur tous les sites dans le monde. Cela permet de mesurer la visibilité IA directement dans GSC.",
+    "interesting": true,
     "fetched_at": "2026-08-31T20:16:54.882683+00:00"
   },
   {
@@ -99,7 +125,7 @@
     "description": "ChatGPT is now a very large online search engine under the EU Digital Services Act after OpenAI reported about 159.1 million average monthly search recipients. The post ChatGPT Is Now A &#8220;Very Large Online Search Engine&#8221; In The EU appeared first on Search Engine Journal .",
     "content_text": "ChatGPT is now a very large online search engine under the EU Digital Services Act after OpenAI reported about 159.1 million average monthly search recipients. The post ChatGPT Is Now A &#8220;Very Large Online Search Engine&#8221; In The EU appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/chatgpt-eu-dsa-openai-featured-1600x840-1.jpg",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-31T20:16:55.096304+00:00"
   },
@@ -112,7 +138,7 @@
     "description": "Three role changes and a budget rebalance can move a marketing team from invisible to cited in AI search results, no new headcount required. The post How To Restructure Your Marketing Team &#038; Budget For The AI-Search Era appeared first on Search Engine Journal .",
     "content_text": "Three role changes and a budget rebalance can move a marketing team from invisible to cited in AI search results, no new headcount required. The post How To Restructure Your Marketing Team &#038; Budget For The AI-Search Era appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/team-restructuring-273.png",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-31T20:16:55.310498+00:00"
   },
@@ -125,7 +151,7 @@
     "description": "As Google Ads automates more decisions, advertisers must define success beyond platform metrics, tracking leads and sales through to actual business outcomes. The post Google Ads Is Automating More Decisions, Your Measurement Needs To Get Better appeared first on Search Engine Journal .",
     "content_text": "As Google Ads automates more decisions, advertisers must define success beyond platform metrics, tracking leads and sales through to actual business outcomes. The post Google Ads Is Automating More Decisions, Your Measurement Needs To Get Better appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/google-ads-automations-320.png",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-31T14:06:27.341622+00:00"
   },
@@ -138,7 +164,7 @@
     "description": "Ce qu'il faut retenir : La version v2026-08-25 d'UCP ajoute des outils de géolocalisation pour les commerces physiques, un format standardisé des horaires d'ouverture et la commande au poids. Des changements de schéma cassants touchent la structure de fulfillment, le consentement acheteur et les clés de signature de profil : les entreprises déjà en place [&#8230;] L’article \" UCP publie sa quatrième version : l&rsquo;épicerie arrive, l&rsquo;hôtellerie et la restauration se préparent \" a été pub",
     "content_text": "Ce qu'il faut retenir : La version v2026-08-25 d'UCP ajoute des outils de géolocalisation pour les commerces physiques, un format standardisé des horaires d'ouverture et la commande au poids. Des changements de schéma cassants touchent la structure de fulfillment, le consentement acheteur et les clés de signature de profil : les entreprises déjà en place doivent vérifier si elles sont concernées. Deux nouveaux conseils techniques, dédiés à la restauration et à l'hôtellerie, ont été créés cet été avec des acteurs comme DoorDash, Uber Eats, Booking.com ou Marriott. Aucune fonctionnalité de commande d'épicerie ou de réservation d'hôtel n'est encore disponible dans une interface IA : cette version pose des fondations techniques, pas des usages finaux. Un protocole porté par Google, Shopify et Stripe L'Universal Commerce Protocol a été présenté par Google lors du salon NRF en janvier 2026 . Il vise à standardiser la manière dont les agents IA interagissent avec les systèmes de commerce, du panier au paiement. Le Conseil de gouvernance du projet s'est élargi en avril avec l'arrivée de Stripe, qui rejoint les membres permanents Google et Shopify. Cette nouvelle version constitue la quatrième publication du protocole et la première depuis les fonctionnalités de panier et de catalogue introduites en mars. Les nouveautés pour l'épicerie Le cœur de cette mise à jour porte sur la préparation du protocole aux usages liés à l'épicerie. Concrètement, les agents peuvent désormais localiser des points de vente physiques et accéder à des informations pratiques comme l'adresse, les horaires ou les coordonnées cartographiques du magasin. Un format standardisé pour les horaires d'ouverture a également été introduit, ce qui facilite l'affichage cohérent de cette information quelle que soit la plateforme. Autre ajout notable : la possibilité de commander certains produits au poids, une fonctionnalité indispensable pour les rayons frais ou en vrac typiques de l'épicerie. Des évolutions sur le paiement Le volet paiement de la spécification a lui aussi été enrichi. UCP intègre désormais l'authentification 3D Secure 2 , conçue de façon neutre vis-à-vis des prestataires de paiement. Le protocole prend également en charge les échéanciers de paiement, avec des dépôts et des paiements en plusieurs fois, ainsi que la possibilité de répartir une commande sur plusieurs moyens de paiement. Pour accompagner cette extension, la spécification a été réorganisée en trois grandes sections : Shopping, Payment et Common . Cette structure permet de positionner les fonctionnalités de paiement comme des briques transversales, utilisables au-delà du seul commerce de détail. Les changements de schéma à anticiper Cette version introduit des changements cassants, ce qui signifie que certaines intégrations existantes doivent être mises à jour pour rester compatibles. Trois éléments sont particulièrement concernés : Les schémas de fulfillment ont été modifiés selon une nouvelle structure. Le consentement de l'acheteur repose désormais sur une carte flexible (map) plutôt que sur des champs fixes. Les clés de signature de profil sont consolidées dans un seul JWK Set, un format de clé commun. Autre changement de fond, le versionnage d'UCP passe d'une numérotation classique à un étiquetage par date. Cette approche doit aider les plateformes et les entreprises à s'accorder plus facilement sur la version utilisée. Les entreprises conservent la possibilité de continuer à supporter d'anciennes versions même après avoir migré vers la dernière. Pour les entreprises déjà engagées avec UCP, la marche à suivre consiste à consulter la section des changements cassants dans les notes de version, puis à déterminer si les fonctionnalités qu'elles utilisent sont concernées. L'extension vers la restauration et l'hôtellerie Cette montée en puissance vers de nouveaux secteurs s'appuie sur des décisions de gouvernance prises cet été. En juillet, le Conseil de gouvernance a créé un Food Technical Council , avec pour membres initiaux Block (Square), DoorDash, Google, Toast et Uber Eats. Le 11 août, un Lodging Technical Council a suivi, réunissant Amadeus, Booking.com, Expedia, Google, Hilton, Marriott et Trip.com. D'après la feuille de route d'UCP , de nouvelles spécifications sont en cours de développement en collaboration avec ces acteurs sectoriels. Côté restauration, les travaux couvrent la recherche de restaurants et de menus, la sélection de plats, ainsi que la gestion du paiement, du pourboire et des instructions de livraison. Côté hôtellerie, l'accent est mis sur la recherche d'hôtels, la sélection de chambres et la réservation. Le projet présente cette version comme un travail de fondation pour ces deux secteurs, avec des composants partagés, comme le token binding, repensés pour les prendre en charge. Ce que cette version ne fait pas encore Il est important de noter ce que cette publication ne dit pas . Les notes de version n'annoncent aucune disponibilité de la commande d'épicerie ou de la réservation d'hôtel via une interface IA, que ce soit dans AI Mode ou Gemini. Les fonctionnalités liées à la restauration et à l'hôtellerie restent des briques de base, en attendant des développements ultérieurs encore en cours. À la date de publication, la page d'annonces d'UCP ne mentionne pas de calendrier précis pour la sortie des spécifications dédiées à la restauration ou à l'hôtellerie. Le déploiement du checkout UCP se poursuit Sur le volet retail, déjà opérationnel, les annonces faites lors de Google I/O ont confirmé que le checkout propulsé par UCP s'étend au Canada et en Australie, avec un déploiement au Royaume-Uni prévu ultérieurement. L’article \" UCP publie sa quatrième version : l&rsquo;épicerie arrive, l&rsquo;hôtellerie et la restauration se préparent \" a été publié sur le site Abondance .",
     "image": "https://www.abondance.com/wp-content/uploads/2026/08/ucp-version-4.jpg",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-31T14:06:29.739254+00:00"
   },
@@ -151,8 +177,8 @@
     "description": "Google's John Mueller shares what happened when he checked whether AI crawlers were actually asking his sites for markdown. The post Google&#8217;s Mueller Shares Their Experience With Markdown For AI SEO appeared first on Search Engine Journal .",
     "content_text": "Google's John Mueller shares what happened when he checked whether AI crawlers were actually asking his sites for markdown. The post Google&#8217;s Mueller Shares Their Experience With Markdown For AI SEO appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/google-ai-seo-857.jpg",
-    "summary": null,
-    "interesting": false,
+    "summary": "John Mueller a vérifié ses propres logs et constate que les crawlers IA ne demandent quasiment jamais les versions markdown des pages. Cela relativise la mode consistant à servir du markdown pour le « AI SEO ».",
+    "interesting": true,
     "fetched_at": "2026-08-31T14:06:27.563472+00:00"
   },
   {
@@ -164,7 +190,7 @@
     "description": "The Universal Commerce Protocol's first spec release since April adds grocery readiness, lays groundwork for food and lodging, and brings schema changes. The post UCP Releases Spec Update With Schema Changes appeared first on Search Engine Journal .",
     "content_text": "The Universal Commerce Protocol's first spec release since April adds grocery readiness, lays groundwork for food and lodging, and brings schema changes. The post UCP Releases Spec Update With Schema Changes appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/ucp-spec-update-featured-image-1600x840-1.jpg",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-31T14:06:27.804181+00:00"
   },
@@ -177,7 +203,7 @@
     "description": "New data finds Claude and Claude Code search at different rates, mention different brands, and send their agents to different types of pages. The post Claude Searches Web Differently From Claude Code, Data Shows appeared first on Search Engine Journal .",
     "content_text": "New data finds Claude and Claude Code search at different rates, mention different brands, and send their agents to different types of pages. The post Claude Searches Web Differently From Claude Code, Data Shows appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/claude-code-web-search-data-featured-1600x840-1.jpg",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-31T14:06:28.016109+00:00"
   },
@@ -190,8 +216,8 @@
     "description": "Ahrefs data shows public Facebook Group posts appear in 38% of Google's Discussions and forums results, passing Quora and trailing only Reddit. The post Facebook Groups Are Google&#8217;s No. 2 Forum Source appeared first on Search Engine Journal .",
     "content_text": "Ahrefs data shows public Facebook Group posts appear in 38% of Google's Discussions and forums results, passing Quora and trailing only Reddit. The post Facebook Groups Are Google&#8217;s No. 2 Forum Source appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/facebook-groups-google-discussions-featured.jpg",
-    "summary": null,
-    "interesting": false,
+    "summary": "Selon des données Ahrefs, les posts publics de groupes Facebook apparaissent dans 38 % des blocs « Discussions et forums » de Google, devant Quora et derrière Reddit. Un canal exploitable pour du placement de liens et de la visibilité en SERP.",
+    "interesting": true,
     "fetched_at": "2026-08-31T08:26:22.456467+00:00"
   },
   {
@@ -203,7 +229,7 @@
     "description": "Anthropic warns that infostealer malware is stealing Claude login sessions to drain account usage. The post Anthropic Warns Hackers Are Stealing Claude Sessions To Hijack Accounts appeared first on Search Engine Journal .",
     "content_text": "Anthropic warns that infostealer malware is stealing Claude login sessions to drain account usage. The post Anthropic Warns Hackers Are Stealing Claude Sessions To Hijack Accounts appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/anthropic-claude-535.jpg",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-31T08:26:22.646815+00:00"
   },
@@ -216,8 +242,8 @@
     "description": "New allegations surfaced that Rank Math has introduced a functionality that silently gives the company administrator-level permissions over WordPress sites. The access is triggered when a user installs Rank Math and opens the plugin’s Help & Support area. Allegedly There Is Zero Consent Or Notification The developer of The SEO Framework SEO plugin recently tweeted that when a user opens Rank Math’s Help & Support section that the plugin creates a WordPress Application Password tied to the user t",
     "content_text": "New allegations surfaced that Rank Math has introduced a functionality that silently gives the company administrator-level permissions over WordPress sites. The access is triggered when a user installs Rank Math and opens the plugin’s Help & Support area. Allegedly There Is Zero Consent Or Notification The developer of The SEO Framework SEO plugin recently tweeted that when a user opens Rank Math’s Help & Support section that the plugin creates a WordPress Application Password tied to the user that is opening that Help & Support section. So if the user who is clicking around in the plugin administration area has […] The post Rank Math WordPress Plugin Accused Of Secretly Taking Admin Access appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/wordpress-rank-math-655.jpg",
-    "summary": null,
-    "interesting": false,
+    "summary": "Rank Math est accusé de créer sans consentement un Application Password donnant à l'éditeur un accès niveau administrateur, déclenché à l'ouverture de la section Help & Support du plugin. Risque de sécurité direct pour toute flotte de sites WordPress équipée du plugin.",
+    "interesting": true,
     "fetched_at": "2026-08-30T13:47:11.744709+00:00"
   },
   {
@@ -229,8 +255,8 @@
     "description": "This week’s SEO Pulse covers Google’s AI publisher dispute, spam update fallout, the GEO debate, AI citation gaps, and ChatGPT’s Reddit behavior in search. The post Judge Questions Google AI, Spam Update Fallout – SEO Pulse appeared first on Search Engine Journal .",
     "content_text": "This week’s SEO Pulse covers Google’s AI publisher dispute, spam update fallout, the GEO debate, AI citation gaps, and ChatGPT’s Reddit behavior in search. The post Judge Questions Google AI, Spam Update Fallout – SEO Pulse appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/seo-pulse-google-ai-spam-update-logo-1600x840-1.jpg",
-    "summary": null,
-    "interesting": false,
+    "summary": "Récap hebdo couvrant les retombées de la Spam Update, le litige Google/éditeurs sur l'IA et les écarts de citations dans les moteurs IA. Utile pour suivre l'impact de la dernière spam update.",
+    "interesting": true,
     "fetched_at": "2026-08-29T13:29:30.518486+00:00"
   },
   {
@@ -242,7 +268,7 @@
     "description": "Add Google's Preferred Sources button with the standard embed, a configurable WordPress widget, or a deeplink. The post How To Add Google&#8217;s Preferred Sources Button To Your Website appeared first on Search Engine Journal .",
     "content_text": "Add Google's Preferred Sources button with the standard embed, a configurable WordPress widget, or a deeplink. The post How To Add Google&#8217;s Preferred Sources Button To Your Website appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/google-preferred-sources-light-dark-badges-sharp-1.png",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-29T09:09:28.499083+00:00"
   },
@@ -255,8 +281,8 @@
     "description": "Ce qu'il faut retenir : À partir du 30 août 2026, les actions manuelles pour abus de réputation de site n'auront plus d'effet sur les résultats affichés aux internautes de l'EEE. Ces actions manuelles continueront en revanche de s'appliquer normalement pour les recherches effectuées hors de l'EEE. Les sites de l'EEE continueront de recevoir des [&#8230;] L’article \" Abus de réputation de site : les actions manuelles n&rsquo;ont plus d&rsquo;effet en Europe \" a été publié sur le site Abondance .",
     "content_text": "Ce qu'il faut retenir : À partir du 30 août 2026, les actions manuelles pour abus de réputation de site n'auront plus d'effet sur les résultats affichés aux internautes de l'EEE. Ces actions manuelles continueront en revanche de s'appliquer normalement pour les recherches effectuées hors de l'EEE. Les sites de l'EEE continueront de recevoir des actions manuelles visibles dans Search Console, même si elles restent sans effet localement. Le traitement algorithmique des sections concernées, lui, reste inchangé : Google peut toujours isoler une section d'un site pour la faire se positionner de façon indépendante. Les procédures de réexamen et de médiation restent disponibles pour les sites concernés. Ce changement fait suite à des échanges avec la Commission européenne dans le cadre du DMA. Un rappel sur la politique d’abus de réputation Google a introduit cette politique en mars 2024, en marge de sa core update de ce mois-là, pour lutter contre ce qu'on appelle communément le Parasite SEO . Cette pratique consiste à publier du contenu tiers sur un site hôte principalement parce que ce site bénéficie déjà de bons signaux de positionnement acquis grâce à son propre contenu. L'objectif est de faire profiter ce contenu tiers d'un classement qu'il n'aurait pas pu obtenir seul. Google avait commencé à appliquer cette politique en Europe en janvier 2025. Ce qui change concrètement à partir du 30 août Selon le billet officiel de Google, les actions manuelles liées à cette politique auront désormais un effet différent selon la localisation de l'internaute qui effectue la recherche. Pour les recherches effectuées en dehors de l'EEE, rien ne change : une action manuelle continue d'affecter directement les résultats de recherche pour la portion du site concernée, sans impact sur le reste du site. Pour les recherches effectuées à l'intérieur de l'EEE, l'action manuelle n'aura plus d'effet . Google précise que la section concernée du site pourra être isolée dans ses systèmes afin qu'elle finisse, avec le temps, par se positionner de manière indépendante du reste du site. Cela ne signifie pas que les sites situés dans l'EEE ne recevront plus d'actions manuelles pour ce motif dans Search Console. Ils continueront à en recevoir. Simplement, cette action manuelle n'aura aucun impact sur les résultats affichés aux internautes situés dans l'EEE. En revanche, elle continuera d'affecter le positionnement du site pour les internautes situés hors de l'EEE. Le traitement algorithmique, lui, reste en place Google insiste sur un point : ce changement ne concerne que les actions manuelles, pas le traitement algorithmique . La partie de la section concernée pourra continuer d'être traitée par les systèmes de Google comme une entité distincte du reste du domaine, indépendamment de toute action manuelle. Dans sa politique mise à jour , Google précise que, pour les résultats affichés dans l'EEE, les pages concernées pourront être catégorisées séparément du domaine principal, ce qui leur permettra de se positionner sur leurs propres mérites, en cohérence avec d'autres contenus de même nature (par exemple, du contenu casino face à d'autres contenus casino). Les recours restent inchangés Les propriétaires de sites continueront d'être notifiés dans Search Console lorsqu'une action manuelle est appliquée. En cas de désaccord, une demande de réexamen reste possible, avec, pour les sites éligibles, un accès à une médiation en cas de litige persistant. Ce que dit Google en interne Un porte-parole de Google, cité par Barry Schwartz sur Search Engine Roundtable , a indiqué que Google reste attaché à sa politique d'abus de réputation de site , car elle garantit, selon l'entreprise, une expérience de recherche plus fiable pour tous les utilisateurs, tout en reconnaissant avoir accepté d'ajuster son mode d'application en Europe pour répondre aux préoccupations de la Commission européenne . À noter : Barry Schwartz souligne qu'il s'agit de la première fois que Google applique des règles et des résultats différents pour une politique anti-spam selon la localisation de l'internaute. Il s'agit là de son analyse personnelle, pas d'une déclaration de Google. L’article \" Abus de réputation de site : les actions manuelles n&rsquo;ont plus d&rsquo;effet en Europe \" a été publié sur le site Abondance .",
     "image": "https://www.abondance.com/wp-content/uploads/2026/08/europe-abus-position-google1.jpg",
-    "summary": null,
-    "interesting": false,
+    "summary": "Depuis le 30 août 2026, les actions manuelles pour abus de réputation de site (Parasite SEO) n'ont plus d'effet sur les résultats affichés aux internautes de l'EEE, suite aux échanges DMA avec la Commission européenne. Elles restent appliquées hors EEE et le traitement algorithmique (isolement de sections de site) demeure inchangé.",
+    "interesting": true,
     "fetched_at": "2026-08-29T09:09:31.771654+00:00"
   },
   {
@@ -268,7 +294,7 @@
     "description": "When Meta's ad AI altered approved creative without warning, it exposed a deeper problem: marketing teams rarely define who owns AI mistakes after sign-off. The post AI Isn&#8217;t Killing Marketing Accountability, It&#8217;s Exposing Who Never Had It appeared first on Search Engine Journal .",
     "content_text": "When Meta's ad AI altered approved creative without warning, it exposed a deeper problem: marketing teams rarely define who owns AI mistakes after sign-off. The post AI Isn&#8217;t Killing Marketing Accountability, It&#8217;s Exposing Who Never Had It appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/marketing-accountability-146.png",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-29T09:09:28.713755+00:00"
   },
@@ -281,8 +307,8 @@
     "description": "Yes, every one. We have even built a Letaido pipeline that can research, outline, draft, and fact-check a nearly publish-ready article in six to twelve minutes. In theory, it could produce tens of thousands of articles. (It could… but that’s &#8230; Read more &#8250;",
     "content_text": "Yes, every one. We have even built a Letaido pipeline that can research, outline, draft, and fact-check a nearly publish-ready article in six to twelve minutes. In theory, it could produce tens of thousands of articles. (It could… but that’s &#8230; Read more &#8250;",
     "image": "https://ahrefs.com/blog/wp-content/uploads/2026/08/how-we-use-ai-for-every-by-si-quan-ong-content-marketing.jpg",
-    "summary": null,
-    "interesting": false,
+    "summary": "Ahrefs détaille son pipeline de production de contenu assisté par IA capable de rechercher, structurer, rédiger et fact-checker un article quasi publiable en 6 à 12 minutes. L'article explique les garde-fous éditoriaux qui évitent le contenu générique de masse.",
+    "interesting": true,
     "fetched_at": "2026-08-29T09:09:30.190561+00:00"
   },
   {
@@ -294,7 +320,7 @@
     "description": "Ce qu'il faut retenir : Les agents IA ne jouent un rôle significatif que dans 3 % des transactions en ligne aux États-Unis et au Royaume-Uni malgré l'engouement affiché 72 % des commerçants pensent que les consommateurs adopteront le commerce agentique plus vite qu'eux-mêmes ne pourront le prendre en charge Un fossé générationnel marqué : [&#8230;] L’article \" Etude commerce agentique : ce que pensent les marchands et les consommateurs \" a été publié sur le site Abondance .",
     "content_text": "Ce qu'il faut retenir : Les agents IA ne jouent un rôle significatif que dans 3 % des transactions en ligne aux États-Unis et au Royaume-Uni malgré l'engouement affiché 72 % des commerçants pensent que les consommateurs adopteront le commerce agentique plus vite qu'eux-mêmes ne pourront le prendre en charge Un fossé générationnel marqué : 71 % des 18-24 ans connaissent les agents IA d'achat contre 19 % des 55 ans et plus Commerçants et consommateurs divergent sur les catégories à déléguer en priorité : produits complexes et à forte valeur pour les premiers, achats du quotidien pour les seconds Les consommateurs veulent des garde-fous concrets : plafond de dépenses, révocation instantanée, validation au-delà d'un seuil Les Français figurent parmi les consommateurs les plus attachés à leurs marques (43 % accepteraient qu'une IA en change pour une meilleure offre, contre 57 % en moyenne mondiale et jusqu'à 71 % aux Émirats arabes unis) Les agents IA, encore marginaux dans les transactions réelles Malgré tout le bruit médiatique autour du sujet, les agents IA ne joueraient un rôle significatif dans la sélection de produits et le passage en caisse que dans 3 % des transactions en ligne aux États-Unis et au Royaume-Uni . OpenAI avec ses capacités commerciales, Mastercard avec son infrastructure de commerce agentique, Google avec son Universal Commerce Protocol (UCP) pour Search AI Mode et Gemini, ou encore Visa avec Visa Intelligent Commerce et le Trusted Agent Protocol : tous ces acteurs en sont encore au stade de l'expérimentation en environnement contrôlé. Un décalage marqué entre attentes et préparation Près des trois quarts des commerçants interrogés (72 %) pensent que les consommateurs adopteront les achats pilotés par des agents plus vite que les entreprises ne seront capables de les prendre en charge. Du côté des consommateurs , la dynamique est réelle mais inégale selon les générations. 71 % des 18-24 ans connaissent déjà les agents IA dédiés aux achats, contre seulement 19 % des 55 ans et plus. Et l'écart se retrouve dans la confiance accordée à l'IA pour finaliser un achat : 64 % des plus jeunes s'en disent à l'aise, contre 63 % des plus âgés qui s'en disent mal à l'aise. Un consommateur sur quatre (24 %) affirme même qu'il ne serait jamais prêt à déléguer ses achats à un agent IA. L'adoption ne sera donc probablement ni rapide ni uniforme. Côté marchands, l'avance des États-Unis sur le Royaume-Uni est nette : 82 % des commerçants américains considèrent que le commerce agentique représentera le plus grand bouleversement qu'ait connu leur secteur, contre 58 % des Britanniques, plus prudents face au risque de litiges et de chargebacks. Un décalage aussi sur les catégories de produits concernées Commerçants et consommateurs ne visent pas les mêmes usages en priorité. Les marchands anticipent une délégation qui démarrerait par des catégories complexes et à forte valeur : organisation de voyages (35 %), abonnements et changement de fournisseurs (33 %), produits financiers (31 %). Les consommateurs, eux, veulent d'abord confier à l'IA les achats du quotidien à faible risque : produits alimentaires (41 %), produits pour la maison (31 %), mode (26 %), beauté (25 %). Logique : on délègue plus facilement une commande de courses qu'un investissement financier. La responsabilité, le vrai point de blocage C'est le nœud du problème identifié par l'étude. Quand un achat piloté par un agent IA tourne mal, qui paie ? Les commerçants pointent en premier lieu les prestataires de paiement (35 %), puis les plateformes d'agents IA (28 %), puis eux-mêmes (22 %). Les consommateurs arrivent en dernier avec seulement 12 % des réponses. Les consommateurs voient les choses très différemment : pour eux, c'est d'abord la plateforme d'agent IA qui devrait être responsable (38 %), suivie par les consommateurs eux-mêmes (18 %), les commerçants (10 %) et enfin les prestataires de paiement (9 %). Ce flou généralisé sur l'imputabilité explique en grande partie pourquoi le commerce agentique reste cantonné à l'expérimentation. Ce que les consommateurs exigent avant de faire confiance à un agent IA L'étude liste les garde-fous jugés indispensables par les consommateurs avant d'autoriser un agent à acheter en leur nom : Un plafond de dépenses (30 %) La possibilité de révoquer l'autorisation instantanément (29 %) Une procédure d'annulation ou de rétractation simplifiée (28 %) Une validation obligatoire au-delà d'un certain montant (27 %) L'affichage des choix disponibles avant de finaliser l'achat (26 %) Les commerçants semblent avoir sous-estimé l'importance de l'après-achat : alors qu'un quart des consommateurs (25 %) déclarent qu'ils cesseraient d'utiliser un agent IA si un achat s'avérait difficile à retourner ou à contester, seuls 16 % des marchands considèrent les retours et le SAV comme un frein à leur préparation. Les Français, plus attachés à leurs marques que la moyenne mondiale L'étude apporte une précision intéressante sur le rapport des Français à ce sujet , mais elle porte sur la fidélité aux marques plutôt que sur l'adoption du commerce agentique en tant que telle. Interrogés sur leur volonté de laisser une IA changer de marque pour obtenir une meilleure offre, 57 % des consommateurs dans le monde s'y disent prêts. Les Français, eux, ne sont que 43 % à l'accepter , un chiffre proche de celui du Royaume-Uni (46 %) mais très en retrait par rapport aux Émirats arabes unis (71 %), à la Chine (68 %) ou au Brésil (65 %). Autrement dit, si un agent IA devait faire ses courses à leur place, les Français resteraient parmi les plus attachés à leurs marques habituelles , plutôt que de tout arbitrer au prix. Le rapport n'indique pas de données françaises spécifiques sur la connaissance ou l'adoption globale des agents IA d'achat, contrairement à ce qui est précisé pour la Chine, le Brésil ou les Émirats arabes unis sur d'autres critères. Trois chantiers prioritaires pour les commerçants Le rapport recommande aux marcha",
     "image": "https://www.abondance.com/wp-content/uploads/2026/08/ecommerce-agentique-consommateurs-marchands.jpg",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-29T09:09:32.040775+00:00"
   },
@@ -307,7 +333,7 @@
     "description": "OpenAI, Shopify, and Cloudflare are putting WebMCP into live products, giving AI agents a structured way to use websites without relying on visual clicks. The post WebMCP Connects AI Agents To Actions Inside Websites appeared first on Search Engine Journal .",
     "content_text": "OpenAI, Shopify, and Cloudflare are putting WebMCP into live products, giving AI agents a structured way to use websites without relying on visual clicks. The post WebMCP Connects AI Agents To Actions Inside Websites appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/shutterstock_2722842465-1600x840-1.jpg",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-29T09:09:28.932656+00:00"
   },
@@ -320,7 +346,7 @@
     "description": "More than 100 organizations, including OpenAI, Google, and Microsoft, urge governments and website owners to prepare now for escalating AI cyberattacks. The post AI Is Changing Website Security. Here’s What SEO Teams Should Know appeared first on Search Engine Journal .",
     "content_text": "More than 100 organizations, including OpenAI, Google, and Microsoft, urge governments and website owners to prepare now for escalating AI cyberattacks. The post AI Is Changing Website Security. Here’s What SEO Teams Should Know appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/collective-ai-cyber-defense-supporters-sej-v3.png",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-29T09:09:29.162159+00:00"
   },
@@ -333,8 +359,8 @@
     "description": "Google explains why a named update can shake up rankings without giving affected site owners anything specific to act on. The post Google Answers If Updates Come With Actionable SEO Signals appeared first on Search Engine Journal .",
     "content_text": "Google explains why a named update can shake up rankings without giving affected site owners anything specific to act on. The post Google Answers If Updates Come With Actionable SEO Signals appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/google-updates-222.jpg",
-    "summary": null,
-    "interesting": false,
+    "summary": "Google explique pourquoi une update nommée peut bouleverser les classements sans fournir de signal actionnable aux sites impactés. Utile pour calibrer les attentes après une core ou spam update.",
+    "interesting": true,
     "fetched_at": "2026-08-29T09:09:29.377054+00:00"
   },
   {
@@ -346,8 +372,8 @@
     "description": "Google is replacing site reputation abuse manual actions in the EEA with a system that can rank affected site sections independently. The post Google Updates Site Reputation Abuse (Parasite SEO) Policy appeared first on Search Engine Journal .",
     "content_text": "Google is replacing site reputation abuse manual actions in the EEA with a system that can rank affected site sections independently. The post Google Updates Site Reputation Abuse (Parasite SEO) Policy appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/google-eea-seo-99.jpg",
-    "summary": null,
-    "interesting": false,
+    "summary": "Google remplace dans l'EEE les actions manuelles pour abus de réputation de site par un système capable de classer indépendamment les sections concernées d'un site. Changement structurant pour les pratiques de type Parasite SEO en Europe.",
+    "interesting": true,
     "fetched_at": "2026-08-29T09:09:29.592695+00:00"
   },
   {
@@ -359,7 +385,7 @@
     "description": "Un chiffre qui résume l'enjeu Dans les pays où les AI Overviews sont actifs depuis plus longtemps, la baisse de clic sur la première position dépasse la moitié du trafic habituel : -58 % selon Ahrefs. Être premier sur Google ne garantit donc plus la visite sur le site. Ce que l'on observe aujourd'hui sur [&#8230;] L’article \" AI Overviews en France : rendez-vous le 10 septembre pour un webinaire exceptionnel ! \" a été publié sur le site Abondance .",
     "content_text": "Un chiffre qui résume l'enjeu Dans les pays où les AI Overviews sont actifs depuis plus longtemps, la baisse de clic sur la première position dépasse la moitié du trafic habituel : - 58 % selon Ahrefs . Être premier sur Google ne garantit donc plus la visite sur le site. Ce que l'on observe aujourd'hui sur la visibilité de marque dans ChatGPT pourrait bien préfigurer ce qui attend Google demain. La question n'est plus de savoir s'il faut faire du GEO, mais de comprendre précisément ce qui change. Les signaux qui poussent AI Overviews à reprendre un contenu sont-ils les mêmes que ceux recherchés par ChatGPT ou Perplexity ? Qu'est-ce qui se recoupe, qu'est-ce qui diverge, et comment travailler les deux fronts en même temps ? C'est justement l'objet de ce webinaire gratuit , qui aura lieu le 10 septembre, à 11h ! Le programme du webinar T homas Casiez et J ulien Bismuth mettront en commun leur expérience du GEO à l'international et les résultats de leurs actions récentes. Quatre thèmes seront abordés : Ce que l'arrivée d'AI Overviews change, et ne change pas, par rapport à ce que l'on sait déjà du GEO Comment ces moteurs sélectionnent réellement leurs sources : fan-out, récupération, recomposition Ce qui rapproche et ce qui distingue les signaux attendus par Google et par les autres IA génératives Les signaux de confiance et d'autorité qui déterminent quels contenus sont sélectionnés et quelles marques sont mentionnées Le webinar se conclura par la présentation des 4 C de la mention dans les réponses IA , un cadre directement applicable à la prochaine feuille de route SEO/GEO. Les intervenants Thomas Casiez , directeur général SEO/GEO de Datashake Julien Bismuth , consultant SEO chez Getfluence Victor Lerat , consultant SEO et directeur général associé d'Abondance.com, animateur du webinar Une heure d'échanges illustrés par des cas concrets, avec des méthodes directement applicables et pas seulement un état des lieux. Pour s'inscrire à ce webinaire gratuit, c'est ici que ça se passe ! L’article \" AI Overviews en France : rendez-vous le 10 septembre pour un webinaire exceptionnel ! \" a été publié sur le site Abondance .",
     "image": "https://www.abondance.com/wp-content/uploads/2026/08/webinar-10-septembre.jpg",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-28T08:57:42.754386+00:00"
   },
@@ -372,7 +398,7 @@
     "description": "Answer sooner, write less, simplify: standard advice that can relocate informational work rather than remove it. Here's the sharper test. The post AI Search Didn’t Remove Cognitive Load, It Moved It appeared first on Search Engine Journal .",
     "content_text": "Answer sooner, write less, simplify: standard advice that can relocate informational work rather than remove it. Here's the sharper test. The post AI Search Didn’t Remove Cognitive Load, It Moved It appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/duane-forrester-decodes-cognitive-load-154.png",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-28T08:57:37.467695+00:00"
   },
@@ -385,7 +411,7 @@
     "description": "Google is rolling out hotel booking in AI Mode with Google Pay checkout. Flight alerts and rewards pricing are available in supported markets. The post Google Starts Rolling Out Hotel Booking In AI Mode appeared first on Search Engine Journal .",
     "content_text": "Google is rolling out hotel booking in AI Mode with Google Pay checkout. Flight alerts and rewards pricing are available in supported markets. The post Google Starts Rolling Out Hotel Booking In AI Mode appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/google-ai-mode-hotel-booking-featured-1600x840-1.jpg",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-28T08:57:37.683871+00:00"
   },
@@ -398,7 +424,7 @@
     "description": "OpenAI added WebMCP support to ChatGPT’s desktop browser, letting supported webpages expose structured actions to ChatGPT Work and Codex. The post OpenAI Adds WebMCP Site Tools To ChatGPT’s Browser appeared first on Search Engine Journal .",
     "content_text": "OpenAI added WebMCP support to ChatGPT’s desktop browser, letting supported webpages expose structured actions to ChatGPT Work and Codex. The post OpenAI Adds WebMCP Site Tools To ChatGPT’s Browser appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/chatgpt-webmcp-openai-featured-1600x840-1.jpg",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-28T08:57:37.912098+00:00"
   },
@@ -411,7 +437,7 @@
     "description": "Client-agency relationships now average seven years, but only when agencies act as strategic partners instead of task-completing vendors clients can replace. The post How To Become A Strategic Partner &#038; Keep Clients Years Longer appeared first on Search Engine Journal .",
     "content_text": "Client-agency relationships now average seven years, but only when agencies act as strategic partners instead of task-completing vendors clients can replace. The post How To Become A Strategic Partner &#038; Keep Clients Years Longer appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/clv-785.png",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-28T08:57:38.139889+00:00"
   },
@@ -424,8 +450,8 @@
     "description": "The most prominent domain was Reddit.com, which showed up in 87.8% of SERPs (83.9% worldwide), with an average of 1.29 link appearances. Along with Ahrefs’ data scientist Xibeijia Guan, I set out to uncover how prominent other sites were, whether &#8230; Read more &#8250;",
     "content_text": "The most prominent domain was Reddit.com, which showed up in 87.8% of SERPs (83.9% worldwide), with an average of 1.29 link appearances. Along with Ahrefs’ data scientist Xibeijia Guan, I set out to uncover how prominent other sites were, whether &#8230; Read more &#8250;",
     "image": "https://ahrefs.com/blog/wp-content/uploads/2026/08/analysis-reddit-appears-in-83.9-of-by-glen-allsopp-data-studies.jpg",
-    "summary": null,
-    "interesting": false,
+    "summary": "Étude Ahrefs : Reddit apparaît dans 83,9 % des blocs « Discussions et forums » de Google au niveau mondial, avec 1,29 lien en moyenne. L'analyse classe aussi les autres domaines forums présents, utile pour prioriser les cibles de ninjalinking.",
+    "interesting": true,
     "fetched_at": "2026-08-28T08:57:41.181386+00:00"
   },
   {
@@ -437,8 +463,8 @@
     "description": "Discover the top citation sources for AI answers and how they impact recommendations across major AI platforms. The post We Analyzed 107 Million AI Answers. Here&#8217;s Where Each Industry&#8217;s Citations Actually Come From appeared first on Search Engine Journal .",
     "content_text": "Discover the top citation sources for AI answers and how they impact recommendations across major AI platforms. The post We Analyzed 107 Million AI Answers. Here&#8217;s Where Each Industry&#8217;s Citations Actually Come From appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/featured-copy-438.png",
-    "summary": null,
-    "interesting": false,
+    "summary": "Analyse de 107 millions de réponses IA identifiant les sources les plus citées par secteur et par plateforme. Données exploitables pour cibler les domaines à travailler en netlinking et en visibilité IA.",
+    "interesting": true,
     "fetched_at": "2026-08-28T08:57:38.359750+00:00"
   },
   {
@@ -450,7 +476,7 @@
     "description": "Reddit still wins ChatGPT citations where a forum is the best source. Two captures, four days apart, show what actually decides the credit. The post ChatGPT Searches Individual Subreddits By Name appeared first on Search Engine Journal .",
     "content_text": "Reddit still wins ChatGPT citations where a forum is the best source. Two captures, four days apart, show what actually decides the credit. The post ChatGPT Searches Individual Subreddits By Name appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/chatgpt-reddit-300.png",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-28T08:57:38.579061+00:00"
   },
@@ -463,8 +489,8 @@
     "description": "Ce qu'il faut retenir : Google déploie à grande échelle le paramètre google.com/goto, testé depuis juillet 2026, pour remplacer les liens directs vers les sites dans ses résultats de recherche. Un porte-parole de Google a confirmé le déploiement, évoquant des \"mesures techniques contre des formes d'abus en constante évolution\". Selon Derek Perkins (Nozzle), le déploiement [&#8230;] L’article \" Google Search déploie google.com/goto : vos clics sont désormais redirigés \" a été publié sur le site A",
     "content_text": "Ce qu'il faut retenir : Google déploie à grande échelle le paramètre google.com/goto, testé depuis juillet 2026, pour remplacer les liens directs vers les sites dans ses résultats de recherche. Un porte-parole de Google a confirmé le déploiement, évoquant des \"mesures techniques contre des formes d'abus en constante évolution\". Selon Derek Perkins (Nozzle), le déploiement atteint près de 100 % sur plusieurs fournisseurs d'IP résidentielles, et les liens goto ne peuvent pas être décodés côté client. L'objectif présumé est de limiter le scraping des résultats de recherche par des outils tiers et des entreprises d'IA. Le site Search Engine Roundtable a documenté ce mercredi 26 août le déploiement d'un nouveau système de liens dans Google Search . Concrètement, lorsqu'un internaute passe sa souris sur un résultat, l'URL affichée ne pointe plus directement vers le site de destination, mais vers une adresse de type google.com/goto . Cette URL agit comme un intermédiaire : elle redirige ensuite l'utilisateur vers la page réelle, via une redirection côté serveur. Ce mécanisme n'est pas totalement nouveau. Barry Schwartz, l'auteur de l'article, précise que Google testait déjà ce paramètre goto depuis juillet 2026. Ce qui change désormais, c'est l'ampleur de son déploiement, qui semble se généraliser à l'ensemble des résultats. Un changement confirmé officiellement, mais sans détails Interrogé sur ce changement, un porte-parole de Google a confirmé le déploiement auprès de Search Engine Roundtable, sans donner de détails techniques précis. La déclaration officielle reste volontairement vague : l'entreprise indique disposer d'un historique de mesures techniques contre des formes d'abus évolutives, et affirme prendre régulièrement des dispositions pour protéger ses services et ses utilisateurs. Derek Perkins, de la société Nozzle, a apporté des précisions complémentaires sur X . D'après ses observations, le déploiement du système goto atteindrait près de 100 % sur plusieurs fournisseurs d'adresses IP résidentielles. Il a également partagé un graphique montrant l'évolution de la part des pages de résultats utilisant exclusivement des liens goto, mesurée par Nozzle sur les quatre derniers mois de test. Source : Derek Perkins sur X Selon Perkins, ce nouveau système s'inscrit dans une stratégie plus large de Google visant à éliminer les liens client dans les SERP au profit de redirections serveur . Un point technique important : ces liens goto ne peuvent pas être décodés directement. Les outils qui veulent extraire les véritables URLs de destination doivent donc suivre chaque redirection une par une. Perkins souligne que cette approche fonctionne à petite échelle dans des tests, mais qu'elle devient nettement plus lourde à grande échelle, chaque page de résultats pouvant contenir des centaines de liens à traiter individuellement. Barry Schwartz indique de son côté avoir lui-même constaté l'apparition de ces redirections goto sur plusieurs navigateurs qu'il a testés. Il précise avoir sollicité Google pour obtenir une confirmation officielle du déploiement, confirmation qui est finalement arrivée sous la forme de la déclaration citée plus haut. L’article \" Google Search déploie google.com/goto : vos clics sont désormais redirigés \" a été publié sur le site Abondance .",
     "image": "https://www.abondance.com/wp-content/uploads/2026/08/google-parametre-goto.jpg",
-    "summary": null,
-    "interesting": false,
+    "summary": "Google généralise les liens google.com/goto en SERP : les résultats ne pointent plus directement vers les sites mais passent par une redirection serveur non décodable côté client. L'objectif présumé est de bloquer le scraping des SERP, ce qui menace le fonctionnement des outils de suivi de positions.",
+    "interesting": true,
     "fetched_at": "2026-08-28T08:57:43.070265+00:00"
   },
   {
@@ -476,7 +502,7 @@
     "description": "Judge who ruled that Google is a monopoly said in the Penske vs Google hearing that the AI Overviews situation \"seems really unfair.\" The post Judge Says Google/Publisher AI Situation &#8220;Seems Really Unfair&#8221; appeared first on Search Engine Journal .",
     "content_text": "Judge who ruled that Google is a monopoly said in the Penske vs Google hearing that the AI Overviews situation \"seems really unfair.\" The post Judge Says Google/Publisher AI Situation &#8220;Seems Really Unfair&#8221; appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/penske-vs-google-79.jpg",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-28T08:57:38.803732+00:00"
   },
@@ -489,7 +515,7 @@
     "description": "A report finds AI tools often recommend brands while citing other websites as the source. The post AI Tools Recommend Brands But Cite Other Sites, Data Shows appeared first on Search Engine Journal .",
     "content_text": "A report finds AI tools often recommend brands while citing other websites as the source. The post AI Tools Recommend Brands But Cite Other Sites, Data Shows appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/ai-tools-brand-citations-1600x840-1.jpg",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-28T08:57:39.016399+00:00"
   },
@@ -502,7 +528,7 @@
     "description": "Before funding YouTube Ads, businesses must fix attribution, build skip-proof creative, budget for algorithmic calibration, and simplify offers to one clear promise. The post Why Running YouTube Ads Like Search Will Burn Your Budget appeared first on Search Engine Journal .",
     "content_text": "Before funding YouTube Ads, businesses must fix attribution, build skip-proof creative, budget for algorithmic calibration, and simplify offers to one clear promise. The post Why Running YouTube Ads Like Search Will Burn Your Budget appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/youtube-ads-219.png",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-28T08:57:39.234314+00:00"
   },
@@ -515,7 +541,7 @@
     "description": "Claude's Gen Z preference now outpaces Boomers nearly 8-to-1, and a chicken salad chain's rise shows why AI consideration scores never equal user trust. The post AI Brand Preference Now Splits By Generation, Claude Leads Gen Z More Than 7-To-1 appeared first on Search Engine Journal .",
     "content_text": "Claude's Gen Z preference now outpaces Boomers nearly 8-to-1, and a chicken salad chain's rise shows why AI consideration scores never equal user trust. The post AI Brand Preference Now Splits By Generation, Claude Leads Gen Z More Than 7-To-1 appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/ai-gen-z-940.png",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-28T08:57:39.448330+00:00"
   },
@@ -528,7 +554,7 @@
     "description": "Google generates AI Mode ads directly from your product feed, not your ad copy. Here's which Merchant Center attributes decide whether your products get chosen. The post How To Advertise In Google AI Mode For Ecommerce appeared first on Search Engine Journal .",
     "content_text": "Google generates AI Mode ads directly from your product feed, not your ad copy. Here's which Merchant Center attributes decide whether your products get chosen. The post How To Advertise In Google AI Mode For Ecommerce appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/ai-mode-ecom-236.png",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-28T08:57:39.661481+00:00"
   },
@@ -541,8 +567,8 @@
     "description": "Un binaire récent de Google expose Geostore, Oyster Rank, 793 data providers et les différentes couches qui relient Maps au Web, au Knowledge Graph et désormais à l’IA. Lorsqu’un établissement apparaît dans Google Maps, la liste que vous voyez n’est que le produit final d’un système beaucoup plus vaste. En amont se trouve une entité [&#8230;] L’article \" Dans les coulisses de Google Maps : 72 signaux de ranking et l’architecture derrière la recherche locale \" a été publié sur le site Abondance .",
     "content_text": "Un binaire récent de Google expose Geostore, Oyster Rank, 793 data providers et les différentes couches qui relient Maps au Web, au Knowledge Graph et désormais à l’IA. Lorsqu’un établissement apparaît dans Google Maps, la liste que vous voyez n’est que le produit final d’un système beaucoup plus vaste. En amont se trouve une entité géographique canonique, construite à partir de multiples sources de données, connectée au Knowledge Graph et au Web, évaluée par plusieurs systèmes de ranking, filtrée par des couches de retrieval géographique et sémantique, personnalisée pour l’utilisateur, puis transmise à un moteur de rendu qui décide finalement de ce qui peut réellement apparaître sur la carte. Chez RESONEO, nous avons récemment mis la main sur un binaire exposant un scope non public de Geostore, le système utilisé par Google pour représenter les entités géographiques . Nous l’avons croisé avec les protocoles de Maps, le trafic réseau, le Web index, différents services mobiles, les tables de styles, des composants exécutés directement sur le téléphone et le Google leak de 2024. Le corpus récupéré contient notamment : 72 signaux de ranking Geostore 793 data source providers 446 types d’intentions de recherche locale 50 998 styles Mapcore 12 936 styles de labels 10 936 déclarations Geostore consultables dans notre archive https://think.resoneo.com/google-map-dissected/archive/ Les 72 signaux de ranking vont probablement attirer le plus l’attention des SEO. Mais ils ne représentent qu’une couche du système. L’architecture qui les entoure raconte quelque chose de beaucoup plus important sur la manière dont Google comprend les lieux, et sur ce que le local SEO pourrait devenir à mesure que Maps se transforme en interface conversationnelle. Première chose à comprendre : le listing n’est pas l’entité Le meilleur point de départ est Geostore . Google y représente les objets géographiques sous forme de Features . Une Feature peut être un établissement, un bâtiment, une route, une ville, une station, une zone ou même un objet 3D. Dans le cas d’un établissement, l’objet peut contenir son identité, sa géométrie, ses sources, ses catégories, ses relations avec une chaîne, ses références au Knowledge Graph, différents concepts et des informations de ranking. Le listing Maps que nous connaissons tous est assemblé plus tard. Cette distinction est importante, car l’objet qu’un propriétaire modifie dans Google Business Profile et l’entité que Google maintient en interne ne sont pas exactement la même chose . Google cherche à construire sa propre représentation canonique du lieu . Cette représentation peut agréger plusieurs sources, conserver une identité malgré des changements de données et se connecter à d’autres identifiants utilisés dans l’écosystème Google, notamment les MID du Knowledge Graph (Machine ID). Pour le local SEO, cela change l’objet même que nous devons chercher à optimiser. Google construit sa propre vérité à partir de 793 providers L’un des aspects les plus intéressants de Geostore concerne la provenance des données. Un établissement n’a pas nécessairement une source unique. Son nom peut provenir d’un provider, son numéro de téléphone d’un autre, sa catégorie d’un troisième et sa géométrie d’une autre source encore. Le corpus expose 793 data source providers, ainsi que des mécanismes de provenance, de priorité, de trust et de conflation. La conflation correspond au processus utilisé lorsque plusieurs sources décrivent le même objet et ne sont pas d’accord. Geostore possède des mécanismes permettant de sélectionner une valeur, d’en fusionner plusieurs ou de déterminer quelle donnée doit survivre. Le système modélise également plusieurs niveaux de confiance, allant de sources bloquées ou non fiables jusqu’à des sources TRUSTED et SUPER_TRUSTED . Cela donne une autre lecture d'un problème bien connu des SEO. Modifier une donnée dans Google Business Profile ne signifie pas nécessairement que Google va immédiatement adopter cette nouvelle valeur. La modification devient une nouvelle évidence dans un système qui peut déjà disposer d’informations contradictoires. Cela aide à comprendre pourquoi certaines données incorrectes réapparaissent, pourquoi certaines modifications sont refusées et pourquoi corriger un établissement peut parfois être beaucoup plus compliqué que simplement modifier sa fiche Business Profile. L’archive rend le leak beaucoup plus exploitable Le binaire récent nous donne des structures, des numéros de champs et des enums complètes.La documentation Google de 2024 apporte autre chose : des descriptions textuelles expliquant parfois ce que ces structures signifient. Nous avons donc décidé de publier les deux ensemble. L’archive contient 10 936 déclarations Geostore . Elles peuvent être recherchées par nom de message, package, type de champ, documentation, numéro de tag, statut et plusieurs autres propriétés. C’est important, car le reverse engineering pose toujours le même problème : un nom interne peut rapidement devenir une théorie lorsqu’il commence à circuler dans la communauté SEO. L’archive permet de revenir directement à l’évidence. Si un signal existe, sa déclaration peut être retrouvée. Si un champ était documenté dans les données de 2024, il est possible de consulter sa description. Et lorsqu’un champ a disparu du scope exposé dans le binaire plus récent, son numéro protobuf peut parfois laisser un trou visible dans la séquence des tags. Le leak de 2024 nous avait donné de nombreuses descriptions des systèmes de Google. Le binaire récent nous donne une grande partie de leur vocabulaire réel. Le croisement des deux est beaucoup plus intéressant que l’analyse de chacun séparément. Oyster Rank contient 72 signaux de ranking Geostore possède son propre système de ranking. Son nom interne est Oyster Rank . Nous avons récupéré une enum complète contenant 72 signaux visibles, parmi lesquels : les reviews Google le volume de requêtes Web les impressions du listing les ouvertu",
     "image": "https://www.abondance.com/wp-content/uploads/2026/08/google-maps-signaux-ranking.jpg",
-    "summary": null,
-    "interesting": false,
+    "summary": "RESONEO a analysé un binaire Google exposant Geostore et documente 72 signaux de ranking local, 793 fournisseurs de données et 446 types d'intentions de recherche locale. Une archive publique des déclarations est consultable, éclairant le fonctionnement réel du ranking Maps.",
+    "interesting": true,
     "fetched_at": "2026-08-28T08:57:43.384069+00:00"
   },
   {
@@ -554,7 +580,7 @@
     "description": "Wix introduced Symphony, an easy and safe way for small to medium size local businesses to use AI agents. The post Wix Introduces Symphony, An Easy Way For Local Businesses To Use AI Agents appeared first on Search Engine Journal .",
     "content_text": "Wix introduced Symphony, an easy and safe way for small to medium size local businesses to use AI agents. The post Wix Introduces Symphony, An Easy Way For Local Businesses To Use AI Agents appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/wix-symphony-778.jpg",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-28T08:57:39.886324+00:00"
   },
@@ -567,7 +593,7 @@
     "description": "Data shows that alternative domain extensions show stronger performance over traditional .com domains. The post .Org Sites Are 34% Likelier To Generate Ecommerce Revenue Than .Com appeared first on Search Engine Journal .",
     "content_text": "Data shows that alternative domain extensions show stronger performance over traditional .com domains. The post .Org Sites Are 34% Likelier To Generate Ecommerce Revenue Than .Com appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/domain-name-seo-682.jpg",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-28T08:57:40.096860+00:00"
   },
@@ -580,7 +606,7 @@
     "description": "84 Reddit threads entered the retrieval pool. Zero got cited. The new tool-call format shows what ChatGPT fetches before it answers. The post ChatGPT Rebuilt Its Search Tool, I Read The New Language It Speaks appeared first on Search Engine Journal .",
     "content_text": "84 Reddit threads entered the retrieval pool. Zero got cited. The new tool-call format shows what ChatGPT fetches before it answers. The post ChatGPT Rebuilt Its Search Tool, I Read The New Language It Speaks appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/ai-new-tool-696.png",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-28T08:57:40.312397+00:00"
   },
@@ -593,7 +619,7 @@
     "description": "Google has brought its developing-topic link carousels to AI Mode, putting timely article links and Preferred Sources prominently inside AI responses. The post Google Brings Developing-Topic Link Carousels To AI Mode appeared first on Search Engine Journal .",
     "content_text": "Google has brought its developing-topic link carousels to AI Mode, putting timely article links and Preferred Sources prominently inside AI responses. The post Google Brings Developing-Topic Link Carousels To AI Mode appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/google-ai-mode-link-carousels-featured-1600x840-1.jpg",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-25T18:58:51.062167+00:00"
   },
@@ -606,7 +632,7 @@
     "description": "AI can flatten decades of localized expertise into one generic brand impression, meaning global brands must translate credentials into evidence machines actually recognize. The post Why International SEO Needs Machine-Recognizable E-E-A-T appeared first on Search Engine Journal .",
     "content_text": "AI can flatten decades of localized expertise into one generic brand impression, meaning global brands must translate credentials into evidence machines actually recognize. The post Why International SEO Needs Machine-Recognizable E-E-A-T appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/07/international-seo-848.png",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-25T18:58:51.272888+00:00"
   },
@@ -619,7 +645,7 @@
     "description": "Ce qu'il faut retenir : Un nouveau bouton \"Preferred Sources\", intégrable par les éditeurs sur leurs pages, permet aux lecteurs d'ajouter un site en source préférée sur Google d'un simple clic, avec plus de 600 000 sources déjà sélectionnées à ce jour. Le flux Discover pourra bientôt être affiné en langage naturel, directement depuis le [&#8230;] L’article \" Google donne aux internautes plus de contrôle sur Search, Discover et News \" a été publié sur le site Abondance .",
     "content_text": "Ce qu'il faut retenir : Un nouveau bouton \"Preferred Sources\", intégrable par les éditeurs sur leurs pages, permet aux lecteurs d'ajouter un site en source préférée sur Google d'un simple clic, avec plus de 600 000 sources déjà sélectionnées à ce jour. Le flux Discover pourra bientôt être affiné en langage naturel, directement depuis le menu à trois points, pour préciser les sujets à voir davantage ou moins souvent. Les briefings audio de l'application Google News sur Android deviennent personnalisables par thématique, avec attribution claire des sources et liens vers les articles complets. Ces évolutions s'inscrivent dans un programme pilote d'IA appliqué aux actualités, associant un large panel d'éditeurs partenaires. Un bouton pour fidéliser les lecteurs directement depuis les pages des éditeurs La mesure phare de cette annonce est le bouton interactif \" Preferred Sources \". Les éditeurs peuvent désormais l'intégrer directement sur leurs pages. Lorsqu'un lecteur clique dessus, le site est automatiquement ajouté à ses sources préférées sur Google, et l'utilisateur est immédiatement redirigé vers l'endroit précis où il se trouvait sur la page de l'éditeur. Concrètement, cela signifie que les lecteurs retrouveront plus facilement leurs publications favorites dans les Top Stories, les AI Overviews et l'AI Mode. Pour les éditeurs, l'intérêt est de disposer d'un moyen plus direct de tisser un lien avec leur audience à travers les différents produits Google. Selon Google, plus de 600 000 sources uniques ont déjà été sélectionnées par les internautes depuis le lancement de cette fonctionnalité. Les éditeurs intéressés peuvent récupérer le code du bouton dans la documentation Google Search Central . Un flux Discover ajustable en langage naturel Deuxième nouveauté annoncée : la possibilité de personnaliser son flux Discover en formulant des requêtes en langage courant , un peu comme on enverrait un message à un ami. Google donne l'exemple d'un utilisateur souhaitant voir des idées de rénovation de cuisine, mais uniquement sur des approches écologiques, ou des vidéos sur les road trips du week-end, sans contenu lié au camping. Dans les jours à venir, dans l'application Google, il sera possible d'ouvrir le menu à trois points sur n'importe quel contenu du flux pour indiquer, avec ses propres mots, les sujets ou liens que l'on souhaite voir davantage ou moins souvent. Le flux s'ajustera alors en temps réel, et Google indique que ces préférences seront mémorisées pour les prochaines sessions. Des briefings audio personnalisables sur Google News Android Enfin, Google News propose désormais, sur Android, des briefings audio quotidiens personnalisables par thématique . Les utilisateurs peuvent choisir les sujets qu'ils souhaitent entendre, avec une attribution claire des sources et des liens permettant d'accéder à l'article complet en un clic. Google précise que ces briefings intègrent aussi des approfondissements sur certaines actualités clés, rendus possibles grâce à la participation de nombreux éditeurs au programme pilote d'IA appliqué aux actualités. L’article \" Google donne aux internautes plus de contrôle sur Search, Discover et News \" a été publié sur le site Abondance .",
     "image": "https://www.abondance.com/wp-content/uploads/2026/08/nouveautes-google-prefered-sources.webp",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-25T18:58:53.153570+00:00"
   },
@@ -632,7 +658,7 @@
     "description": "An owned promo code page can keep purchase-ready shoppers away from coupon affiliates and recover revenue leaking from ecommerce checkout flows. The post Your Promo Code Field May Be Sending Revenue To Affiliates appeared first on Search Engine Journal .",
     "content_text": "An owned promo code page can keep purchase-ready shoppers away from coupon affiliates and recover revenue leaking from ecommerce checkout flows. The post Your Promo Code Field May Be Sending Revenue To Affiliates appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/promo-code-680.png",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-25T18:58:51.480801+00:00"
   },
@@ -645,8 +671,8 @@
     "description": "Google's recent Spam Update may have partially focused on catching mass-generated SEO AI content. The post Reports Indicate Google&#8217;s Spam Update Focused On SEO AI Content appeared first on Search Engine Journal .",
     "content_text": "Google's recent Spam Update may have partially focused on catching mass-generated SEO AI content. The post Reports Indicate Google&#8217;s Spam Update Focused On SEO AI Content appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/google-spam-update-548.jpg",
-    "summary": null,
-    "interesting": false,
+    "summary": "Plusieurs retours indiquent que la Spam Update d'août 2026 a en partie visé les contenus SEO générés en masse par IA. Point d'attention direct pour toute flotte publiant du contenu produit avec de l'IA.",
+    "interesting": true,
     "fetched_at": "2026-08-25T11:26:40.216071+00:00"
   },
   {
@@ -658,7 +684,7 @@
     "description": "Cloudflare's EmDash CMS, the spiritual successor to WordPress, is set to release version 1.0 soon after proving itself on their high traffic blog. The post Cloudflare Says EmDash Version 1.0 Is Releasing Soon appeared first on Search Engine Journal .",
     "content_text": "Cloudflare's EmDash CMS, the spiritual successor to WordPress, is set to release version 1.0 soon after proving itself on their high traffic blog. The post Cloudflare Says EmDash Version 1.0 Is Releasing Soon appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/cloudflare-emdash-v1-454.jpg",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-25T11:26:40.413921+00:00"
   },
@@ -671,7 +697,7 @@
     "description": "Webflow adds Codex support with built-in Skills that vastly simplifies automating common website management and development tasks. The post Webflow&#8217;s New OpenAI Codex Integration Simplifies Site Management appeared first on Search Engine Journal .",
     "content_text": "Webflow adds Codex support with built-in Skills that vastly simplifies automating common website management and development tasks. The post Webflow&#8217;s New OpenAI Codex Integration Simplifies Site Management appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/webflow-411.jpg",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-25T11:26:40.619070+00:00"
   },
@@ -684,7 +710,7 @@
     "description": "Google is folding Local Services Ads into Performance Max. Join CallRail's on 9/8 for the audit checklist to run before and after your account migrates. The post Google Local Services Ads Are Moving To Performance Max: What To Check First appeared first on Search Engine Journal .",
     "content_text": "Google is folding Local Services Ads into Performance Max. Join CallRail's on 9/8 for the audit checklist to run before and after your account migrates. The post Google Local Services Ads Are Moving To Performance Max: What To Check First appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/google-local-services-ads-performance-max-webinar.png",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-25T11:26:40.839472+00:00"
   },
@@ -697,8 +723,8 @@
     "description": "L’article \" Goossips SEO : Déploiement des mises à jour \" a été publié sur le site Abondance .",
     "content_text": "Goossip #1 Google ne déploie pas ses grosses mises à jour avant les annonces John Mueller a réaffirmé une position déjà répétée à de nombreuses reprises par le passé : G oogle n'annonce jamais une update avec du retard . L'annonce arrive quasiment en même temps que le déploiement réel. Pourquoi certains doutent ? Car on constate souvent de la volatilité en amont des updates, comme ce fut dernièrement le cas avant l’annonce officielle de la Spam Update d’août 2026 . Google nous affirme que les deux événements sont indépendants, même s’il peut y avoir un léger décalage dû aux fuseaux horaires, qui n’excède pas quelques heures. Source : Search Engine Roundtable Taux de fiabilité : On a quelques doutes... En dehors des Core Update et des Spam Update, Google déploie également régulièrement des mises à jour mineures qui ne sont pas forcément annoncées. Cela pourrait éventuellement expliquer ces mouvements en amont de l’annonce des grosses mises à jour. L’article \" Goossips SEO : Déploiement des mises à jour \" a été publié sur le site Abondance .",
     "image": "https://www.abondance.com/wp-content/uploads/2026/08/goossips-25-08-2026.jpg",
-    "summary": null,
-    "interesting": false,
+    "summary": "John Mueller réaffirme que Google n'annonce jamais une update en retard : l'annonce coïncide avec le déploiement réel, à quelques heures près. La volatilité observée avant la Spam Update d'août 2026 s'expliquerait par des mises à jour mineures non annoncées.",
+    "interesting": true,
     "fetched_at": "2026-08-25T11:26:43.138520+00:00"
   },
   {
@@ -710,8 +736,8 @@
     "description": "Pew found AI authorship signs on 10% of sampled webpages and 35% of pages carrying a post-ChatGPT publication date. The post 1 In 10 Webpages Shows Signs Of AI Authorship, Pew Reports appeared first on Search Engine Journal .",
     "content_text": "Pew found AI authorship signs on 10% of sampled webpages and 35% of pages carrying a post-ChatGPT publication date. The post 1 In 10 Webpages Shows Signs Of AI Authorship, Pew Reports appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/pew-ai-authorship-featured-1600x840-1.jpg",
-    "summary": null,
-    "interesting": false,
+    "summary": "Une étude Pew détecte des signes de rédaction par IA sur 10 % des pages web échantillonnées, et sur 35 % des pages publiées après ChatGPT. Donne une base chiffrée sur la détectabilité du contenu IA à l'échelle du web.",
+    "interesting": true,
     "fetched_at": "2026-08-25T11:26:41.041374+00:00"
   },
   {
@@ -723,7 +749,7 @@
     "description": "As an SEO professional, metrics like rankings, traffic, and clicks are meaningful to you, but to a leadership team trained on market share and return on investment, they’re noise. That’s not a bias against SEO. It’s just what happens when &#8230; Read more &#8250;",
     "content_text": "As an SEO professional, metrics like rankings, traffic, and clicks are meaningful to you, but to a leadership team trained on market share and return on investment, they’re noise. That’s not a bias against SEO. It’s just what happens when &#8230; Read more &#8250;",
     "image": "https://ahrefs.com/blog/wp-content/uploads/2026/08/mba-metrics-for-seo-how-to-by-despina-gavoyannis-general-seo.jpg",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-24T18:01:58.657254+00:00"
   },
@@ -736,7 +762,7 @@
     "description": "Google Ads adds new Search and AI Max experimentation tools for testing budgets, ROI targets, brand controls, location settings, and campaign changes. The post Google Ads Launches New Search and AI Max Experimentation Tools appeared first on Search Engine Journal .",
     "content_text": "Google Ads adds new Search and AI Max experimentation tools for testing budgets, ROI targets, brand controls, location settings, and campaign changes. The post Google Ads Launches New Search and AI Max Experimentation Tools appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/google_ads_experimentation_1600x840-994.png",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-24T18:01:57.004223+00:00"
   },
@@ -749,7 +775,7 @@
     "description": "Platforms like Spotify and LinkedIn are cracking down on AI slop. SEOs face a choice: treat AI as a shortcut or as an editorial assistant. The post SEOs Are Becoming The Tools Of Their Tools – The AI Slop Backlash appeared first on Search Engine Journal .",
     "content_text": "Platforms like Spotify and LinkedIn are cracking down on AI slop. SEOs face a choice: treat AI as a shortcut or as an editorial assistant. The post SEOs Are Becoming The Tools Of Their Tools – The AI Slop Backlash appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/ai-slop-tools-593.png",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-24T18:01:57.242180+00:00"
   },
@@ -762,8 +788,8 @@
     "description": "Ce qu'il faut retenir : Le trafic Google des éditeurs a chuté de 30 % en un an selon les données Chartbeat relayées par le Reuters Institute, et le clic sur la première position tombe à un tiers de son niveau habituel dès qu'un AI Overview s'affiche, d'après Ahrefs. Le papier modélise le web crawlable [&#8230;] L’article \" Le web crawlable a un seuil de rupture, et le fondateur d’IBOU vient de le démontrer \" a été publié sur le site Abondance .",
     "content_text": "Ce qu'il faut retenir : Le trafic Google des éditeurs a chuté de 30 % en un an selon les données Chartbeat relayées par le Reuters Institute, et le clic sur la première position tombe à un tiers de son niveau habituel dès qu'un AI Overview s'affiche, d'après Ahrefs. Le papier modélise le web crawlable comme un « commun » économique et démontre l'existence d'un seuil unique au-delà duquel le corpus se dégrade de façon irréversible et s'éteint. Ni la concurrence entre moteurs ni la satisfaction des utilisateurs ne suffisent à empêcher ce dérapage : plus il y a de moteurs génératifs sur le même corpus, plus le taux d'extraction global grimpe vers ce seuil. Sylvain Peyronnet propose sept mécanismes correctifs, du plus simple (un engagement de trafic renvoyé) au plus complexe (une gestion collective des droits), pour maintenir le système sous ce seuil. Le contrat tacite que la recherche générative a rompu Le web repose depuis des décennies sur un échange implicite entre éditeurs et moteurs de recherche : le moteur crawle le contenu, et en retour il envoie des visites . Ces visites se monétisent en publicité, en abonnements ou en leads, et une partie de ce revenu finance la production du contenu suivant. Ce contrat n'a jamais été écrit nulle part, mais c'est lui qui a fait tourner l'économie du web éditorial. Un moteur génératif fonctionne différemment par construction. Il lit les pages, fabrique une réponse à partir de leur contenu, et garde l'utilisateur sur sa propre interface. La valeur du contenu original est bien utilisée puisqu'elle nourrit la réponse, mais l'absence de visite prive l'éditeur de la rémunération qui allait avec. Sylvain Peyronnet appelle ce phénomène l'extraction , et le mesure par un taux : la part de la valeur d'une page que le moteur conserve sans renvoyer de visite en échange. Un moteur de recherche classique se situe à 0 %, toute la valeur repart vers les sources sous forme de clics. Une réponse générative complète se situe à 100 %, l'utilisateur obtient ce qu'il cherchait et n'a plus de raison de cliquer. Trois dégradations qui frappent en même temps Pour comprendre ce qui se passe quand ce taux d'extraction augmente, le papier modélise le web crawlable comme ce que les économistes appellent un commun, une ressource partagée dont personne n'assume seul l'entretien. L'auteur compare cela à un pré communal : tant que peu de bêtes y paissent, l'herbe repousse sans problème, mais au-delà d'une certaine charge, elle ne repousse plus assez vite. Le web crawlable est ce pré, et le contenu neuf, financé jusqu'ici par les visites organiques, en est l'entretien. Le modèle identifie trois réactions des éditeurs face à la montée du taux d'extraction , et ces trois réactions dégradent le corpus chacune à leur manière. La première concerne le tri par la qualité . Un site à forte valeur ajoutée dispose d'alternatives au trafic organique : abonnement, licences, audience directe. Ces alternatives rapportent d'autant plus que le contenu est bon. Quand le trafic ne paie plus, ce sont donc logiquement les meilleurs contenus qui se ferment aux crawlers ou passent derrière un paywall, laissant un corpus ouvert de plus en plus composé de contenu de faible valeur. La deuxième concerne le renouvellement. Moins de visites signifie moins de revenu, donc moins de moyens pour produire du contenu neuf. Le corpus continue de vieillir normalement, mais ce qui expire n'est plus remplacé au même rythme. La troisième concerne la nature même du contenu produit . Face à un moteur qui absorbe tout ce qui est durable, un éditeur qui cherche à survivre a tout intérêt à déplacer sa valeur vers ce que le moteur ne peut pas stocker facilement : données en temps réel, flux, outils, communauté. À l'inverse, la tentation existe aussi de produire du contenu qui ne coûte presque rien, ce que l'auteur associe à l'AI slop. Ces trois dégradations, précise l'article, ont la même cause et surviennent donc simultanément : le volume, la qualité moyenne et la durée de vie du corpus baissent en même temps. Un seuil unique, et une phase silencieuse avant la chute Le résultat central du papier est la démonstration mathématique d'un seuil unique sur le taux d'extraction , au-delà duquel le renouvellement du corpus ne compense plus son usure. En dessous de ce seuil, le web se dégrade, mais se stabilise à un niveau plus petit et de moindre qualité, et le mouvement reste réversible si l'extraction diminue. Au-delà, le corpus s'éteint, et la chute s'accélère au fil du temps. Le papier ne fixe pas de valeur chiffrée pour ce seuil sur le web réel, faute de paramètres observables aujourd'hui, mais il prouve que ce seuil existe mathématiquement et identifie les variables dont il dépend. Un point souligné par l'auteur mérite l'attention des éditeurs : tant que l'extraction reste sous un certain niveau, personne ne bouge, parce que quitter le corpus a un coût fixe (mettre en place un paywall, perdre en découvrabilité) identique pour un petit site comme pour un grand, et que ce coût n'est pas encore couvert par le bénéfice du départ. Un point de bascule survient ensuite, et les départs commencent par le haut de gamme, c'est à dire par les sites les plus qualitatifs. Le calme apparent du paysage actuel ne prouve donc rien en soi : dans le modèle, c'est exactement ce à quoi ressemble la phase qui précède les premiers départs. Le papier cite d'ailleurs des mesures qui vont dans ce sens : 25 % des mille plus gros sites mondiaux restreignent déjà les crawlers d'IA , et parmi les médias, ce sont les sources les plus fiables qui bloquent le plus. Ni la vision long terme des moteurs, ni la concurrence, ni le marché ne suffisent Deux arguments rassurants reviennent souvent face à ce constat. Le premier veut que les grands moteurs, qui pensent à long terme, n'aient aucun intérêt à détruire la ressource qui les fait vivre. Le second veut que la préférence des utilisateurs pour des réponses directes règle naturellement le problème via le marché. ",
     "image": "https://www.abondance.com/wp-content/uploads/2026/08/web-ia-seuil-rupture-sylvain-peyronnet.jpg",
-    "summary": null,
-    "interesting": false,
+    "summary": "Sylvain Peyronnet modélise le web crawlable comme un commun économique et démontre l'existence d'un seuil d'extraction au-delà duquel le corpus se dégrade irréversiblement. Chiffres à l'appui : -30 % de trafic Google pour les éditeurs en un an, et le clic en position 1 tombe à un tiers quand un AI Overview s'affiche.",
+    "interesting": true,
     "fetched_at": "2026-08-25T11:26:43.392672+00:00"
   },
   {
@@ -775,7 +801,7 @@
     "description": "A practical framework for auditing publisher websites in 2026, covering technical SEO, content quality, E-E-A-T, and entity consistency across passive and active discovery channels. The post How To Audit Publisher Websites In 2026 appeared first on Search Engine Journal .",
     "content_text": "A practical framework for auditing publisher websites in 2026, covering technical SEO, content quality, E-E-A-T, and entity consistency across passive and active discovery channels. The post How To Audit Publisher Websites In 2026 appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/audit-publisher-websites-13.png",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-24T18:01:57.459037+00:00"
   },
@@ -788,7 +814,7 @@
     "description": "Google explains whether some industries can get away with focusing on search and ignore GEO altogether. The post Google Answers If Some Sites Can Ignore GEO And Just Focus On SEO appeared first on Search Engine Journal .",
     "content_text": "Google explains whether some industries can get away with focusing on search and ignore GEO altogether. The post Google Answers If Some Sites Can Ignore GEO And Just Focus On SEO appeared first on Search Engine Journal .",
     "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/google-seo-geo-181.jpg",
-    "summary": null,
+    "summary": "",
     "interesting": false,
     "fetched_at": "2026-08-24T18:01:57.673646+00:00"
   },
@@ -801,8 +827,8 @@
     "description": "Ce qu'il faut retenir : Googlebot n'applique désormais qu'une seule passe de déséchappement HTML sur le JSON-LD, contre plusieurs passes auparavant. Les entités doublement échappées, comme &#38;amp; ou &#38;#10004;, ne seront plus « déroulées » automatiquement et risquent de casser le parsing. Google recommande de basculer vers les échappements JSON standards ou les échappements Unicode [&#8230;] L’article \" JSON-LD : Google arrête de corriger vos erreurs de code, voici ce qui change \" a été pub",
     "content_text": "Ce qu'il faut retenir : Googlebot n'applique désormais qu'une seule passe de déséchappement HTML sur le JSON-LD, contre plusieurs passes auparavant. Les entités doublement échappées, comme &amp;amp; ou &amp;#10004;, ne seront plus « déroulées » automatiquement et risquent de casser le parsing. Google recommande de basculer vers les échappements JSON standards ou les échappements Unicode hexadécimaux, comme \\u0026. Gary Illyes, de Google, renvoie vers la RFC 8259 (section 7) pour la définition exacte de l'échappement JSON correct. Google a annoncé ce changement via un post publié sur LinkedIn par son compte Search Central : l'équipe explique avoir modifié l'extraction du JSON-LD « pour mettre notre parseur en conformité avec JSON et les autres standards ». Concrètement, Googlebot ne fait plus qu'une seule passe de désérialisation des entités HTML lorsqu'il lit vos balises script type=\"application/ld+json\", alors qu'il en appliquait plusieurs jusqu'ici, ce qui masquait certaines erreurs de code. Fin de la tolérance chez Google Cette tolérance touche à sa fin. Jusqu'à présent, si votre CMS ou votre système de templating générait par erreur un double échappement, comme &amp;amp;amp; au lieu d'un simple &amp;amp;, Googlebot corrigeait le tir en appliquant plusieurs passes de déséchappement. Ce n'est plus le cas. Une entité doublement échappée reste désormais telle quelle dans la chaîne de caractères, ce qui peut invalider le JSON et empêcher Google d'exploiter vos données structurées , donc vos rich results (avis, prix produits, recettes, FAQ, etc.). Gary Illyes, de Google, a complété l'annonce en rappelant que l'échappement correct en JSON est précisément défini par la RFC 8259, dans sa section 7 . Ce standard décrit noir sur blanc les séquences d'échappement autorisées, dont les échappements Unicode hexadécimaux du type \\u0026 pour représenter le caractère &amp;. Pour les éditeurs et développeurs qui génèrent du JSON-LD dynamiquement (via des CMS, des plugins SEO ou des scripts maison), l'enjeu est donc de vérifier que leur code produit un échappement simple et conforme au standard JSON , et non un échappement HTML redondant hérité d'un traitement en plusieurs étapes. Un bon réflexe consiste à valider ses balises JSON-LD avec un outil comme le Rich Results Test de Google ou un validateur JSON strict, pour repérer d'éventuelles entités mal formées avant qu'elles ne posent problème en production. L’article \" JSON-LD : Google arrête de corriger vos erreurs de code, voici ce qui change \" a été publié sur le site Abondance .",
     "image": "https://www.abondance.com/wp-content/uploads/2026/08/json-erreur-code-google.jpg",
-    "summary": null,
-    "interesting": false,
+    "summary": "Googlebot n'applique plus qu'une seule passe de déséchappement HTML sur le JSON-LD : les entités doublement échappées (&amp;amp;) cassent désormais le parsing et font perdre les rich results. Google recommande de passer aux échappements JSON standards ou Unicode hexadécimaux (\\u0026).",
+    "interesting": true,
     "fetched_at": "2026-08-25T11:26:43.667740+00:00"
   },
   {
