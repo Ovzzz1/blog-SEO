@@ -1,5 +1,57 @@
 [
   {
+    "id": "https://www.searchenginejournal.com/entities-are-the-foundation-of-modern-seo/587886/",
+    "source": "Search Engine Journal",
+    "title": "Entities Are The Foundation Of Modern SEO",
+    "link": "https://www.searchenginejournal.com/entities-are-the-foundation-of-modern-seo/587886/",
+    "date": "2026-09-02T14:31:43+00:00",
+    "description": "GEO is just entity SEO with a new name. The foundations haven't changed in 15 years, but most brands still ignore them. The post Entities Are The Foundation Of Modern SEO appeared first on Search Engine Journal .",
+    "content_text": "GEO is just entity SEO with a new name. The foundations haven't changed in 15 years, but most brands still ignore them. The post Entities Are The Foundation Of Modern SEO appeared first on Search Engine Journal .",
+    "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/09/entity-seo-993.png",
+    "summary": "L'article défend que le GEO n'est qu'une reformulation du SEO d'entités, dont les fondamentaux (désambiguïsation, cohérence des entités, données structurées) n'ont pas changé depuis 15 ans. Utile pour cadrer la stratégie sémantique et le positionnement des sites face aux réponses génératives.",
+    "interesting": true,
+    "fetched_at": "2026-09-02T18:25:23.831975+00:00"
+  },
+  {
+    "id": "https://www.searchenginejournal.com/google-video-understanding-ask-youtube/588123/",
+    "source": "Search Engine Journal",
+    "title": "Google To Bring New Video Understanding Tech To Ask YouTube via @sejournal, @MattGSouthern",
+    "link": "https://www.searchenginejournal.com/google-video-understanding-ask-youtube/588123/",
+    "date": "2026-09-02T14:08:29+00:00",
+    "description": "Google says a new Gemini system that inspects frames, audio, and transcripts on demand will power Ask YouTube on video watch pages. The post Google To Bring New Video Understanding Tech To Ask YouTube appeared first on Search Engine Journal .",
+    "content_text": "Google says a new Gemini system that inspects frames, audio, and transcripts on demand will power Ask YouTube on video watch pages. The post Google To Bring New Video Understanding Tech To Ask YouTube appeared first on Search Engine Journal .",
+    "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/09/ask-youtube-featured-1600x840-1.jpg",
+    "summary": "",
+    "interesting": false,
+    "fetched_at": "2026-09-02T18:25:24.090413+00:00"
+  },
+  {
+    "id": "https://www.searchenginejournal.com/youtube-bigger-thumbnails-long-form-engagement/588102/",
+    "source": "Search Engine Journal",
+    "title": "YouTube Says Bigger Thumbnails Drove More Long-Form Views via @sejournal, @MattGSouthern",
+    "link": "https://www.searchenginejournal.com/youtube-bigger-thumbnails-long-form-engagement/588102/",
+    "date": "2026-09-02T13:11:52+00:00",
+    "description": "YouTube's Todd Beaupré says the desktop homepage redesign with larger thumbnails drove more long-form engagement despite showing fewer videos at once. The post YouTube Says Bigger Thumbnails Drove More Long-Form Views appeared first on Search Engine Journal .",
+    "content_text": "YouTube's Todd Beaupré says the desktop homepage redesign with larger thumbnails drove more long-form engagement despite showing fewer videos at once. The post YouTube Says Bigger Thumbnails Drove More Long-Form Views appeared first on Search Engine Journal .",
+    "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/09/youtube-long-form-viewing-1600x840-1.jpg",
+    "summary": "",
+    "interesting": false,
+    "fetched_at": "2026-09-02T18:25:24.343152+00:00"
+  },
+  {
+    "id": "https://www.searchenginejournal.com/what-happens-to-ppc-when-you-stop-managing-google-ads-through-google-ads/586580/",
+    "source": "Search Engine Journal",
+    "title": "What Happens To PPC When You Stop Managing Google Ads Through Google Ads via @sejournal, @siliconvallaeys",
+    "link": "https://www.searchenginejournal.com/what-happens-to-ppc-when-you-stop-managing-google-ads-through-google-ads/586580/",
+    "date": "2026-09-02T12:00:10+00:00",
+    "description": "As agents and MCP connectors take over PPC management outside the Google Ads UI, this piece maps the risks and the governance needed to avoid. The post What Happens To PPC When You Stop Managing Google Ads Through Google Ads appeared first on Search Engine Journal .",
+    "content_text": "As agents and MCP connectors take over PPC management outside the Google Ads UI, this piece maps the risks and the governance needed to avoid. The post What Happens To PPC When You Stop Managing Google Ads Through Google Ads appeared first on Search Engine Journal .",
+    "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/08/managing-google-ads-739.png",
+    "summary": "",
+    "interesting": false,
+    "fetched_at": "2026-09-02T18:25:24.577965+00:00"
+  },
+  {
     "id": "https://www.searchenginejournal.com/google-deepmind-says-gemini-is-evolving-from-chatbot-to-ai-agent/588077/",
     "source": "Search Engine Journal",
     "title": "Google DeepMind Says Gemini Is Evolving From Chatbot To AI Agent via @sejournal, @martinibuster",
