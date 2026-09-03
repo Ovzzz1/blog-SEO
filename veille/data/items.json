@@ -1,5 +1,57 @@
 [
   {
+    "id": "https://www.searchenginejournal.com/ai-slop-cleanup-job-listings-report/588235/",
+    "source": "Search Engine Journal",
+    "title": "AI Slop Cleanup Job Listings Up 87%, Report Says via @sejournal, @MattGSouthern",
+    "link": "https://www.searchenginejournal.com/ai-slop-cleanup-job-listings-report/588235/",
+    "date": "2026-09-03T09:30:43+00:00",
+    "description": "The Guardian reports AI cleanup listings are up 87%, while freelancers say clients lowball the work. The post AI Slop Cleanup Job Listings Up 87%, Report Says appeared first on Search Engine Journal .",
+    "content_text": "The Guardian reports AI cleanup listings are up 87%, while freelancers say clients lowball the work. The post AI Slop Cleanup Job Listings Up 87%, Report Says appeared first on Search Engine Journal .",
+    "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/09/ai-slop-cleanup-1600x840-1.jpg",
+    "summary": "",
+    "interesting": false,
+    "fetched_at": "2026-09-03T09:49:05.340811+00:00"
+  },
+  {
+    "id": "https://www.abondance.com/20260903-2860038-publication-modalites-dataset-google-europe.html",
+    "source": "Abondance",
+    "title": "Google publie les modalités d’accès à son dataset de recherche européen pour les moteurs concurrents",
+    "link": "https://www.abondance.com/20260903-2860038-publication-modalites-dataset-google-europe.html",
+    "date": "2026-09-03T08:03:03+00:00",
+    "description": "Ce qu'il faut retenir : Google doit partager un \"Search Dataset\" anonymisé (données de classement, de requêtes, de clics et de vues) avec les moteurs de recherche concurrents établis dans l'EEE, y compris les chatbots IA dotés de fonctions de recherche. L'accès est soumis à des conditions strictes d'éligibilité : ancienneté ou financement minimum, seuil [&#8230;] L’article \" Google publie les modalités d&rsquo;accès à son dataset de recherche européen pour les moteurs concurrents \" a été publié ",
+    "content_text": "Ce qu'il faut retenir : Google doit partager un \"Search Dataset\" anonymisé (données de classement, de requêtes, de clics et de vues) avec les moteurs de recherche concurrents établis dans l'EEE, y compris les chatbots IA dotés de fonctions de recherche. L'accès est soumis à des conditions strictes d'éligibilité : ancienneté ou financement minimum, seuil de 50 000 utilisateurs mensuels dans l'UE, absence de lien avec des acteurs étatiques hors EEE ou des entités sanctionnées. Les tarifs suivent des conditions FRAND (justes, raisonnables et non discriminatoires), limitées aux coûts marginaux de mise à disposition des données plus un taux de rendement défini. Le cadre juridique découle des Mesures adoptées par la Commission européenne le 16 juillet 2026, qui précisent les obligations de Google au titre de l'article 6(11) du DMA. Un partage de données imposé par le DMA Le 6 septembre 2023, la Commission européenne a désigné Google comme gatekeeper au sens du DMA . Cette désignation entraîne pour l'entreprise une série d'obligations, dont celle de donner accès à certaines données de recherche à ses concurrents. Dès mars 2024, Google avait commencé à mettre à disposition des données anonymisées pour se conformer à l'article 6(11) du DMA. Le 16 juillet 2026, la Commission européenne est allée plus loin en adoptant des mesures précisant concrètement comment Google doit remplir cette obligation. Ces mesures définissent le périmètre exact du Search Dataset que Google doit désormais partager avec les moteurs de recherche éligibles. Ce que contient le Search Dataset Le dataset couvre à la fois les résultats de recherche gratuits et payants. Il regroupe des données anonymisées générées par les utilisateurs sur Google Search, réparties en quatre catégories : Les données de classement (ranking) Les données de requêtes (query) Les données de clics (click) Les données de vues (view) Ces informations concernent les recherches effectuées dans l'Espace économique européen (EEE) . Elles sont accessibles aux moteurs de recherche tiers, y compris les chatbots dotés de fonctionnalités de recherche, à condition qu'ils opèrent dans l'UE ou l'EEE. Trois conditions encadrent le partage Google précise que l'accès aux données répond à trois exigences principales. D'abord, les conditions tarifaires doivent respecter le cadre FRAND : les tarifs sont limités aux coûts marginaux liés à la mise à disposition des données, auxquels s'ajoute un taux de rendement fixé par les Mesures. Ensuite, l'anonymisation doit être robuste . Alphabet est tenu de mettre en place des mesures techniques et contractuelles solides pour garantir que les données partagées ne permettent pas d'identifier des personnes. Enfin, Alphabet doit évaluer où et comment les données seront traitées . Si un candidat prévoit de transférer les données hors de l'EEE vers un pays sans décision d'adéquation européenne, Alphabet doit s'assurer d'un niveau de protection équivalent à celui garanti dans l'EEE, sous peine de rejeter la demande. Qui peut demander l'accès Google a détaillé les critères d'éligibilité que doit remplir un candidat pour espérer recevoir les données : être reconnu comme fournisseur d'un moteur de recherche en ligne au sens de l'article 2(6) du DMA opérer dans l'EEE, c'est-à-dire cibler des utilisateurs situés dans cette zone ne pas être sous le contrôle, direct ou indirect, d'un acteur étatique non membre de l'EEE ne pas être sous le contrôle, direct ou indirect, d'une personne physique ou morale visée par des sanctions ou mesures restrictives de l'UE justifier d'une activité suffisante : soit avoir proposé des services de moteur de recherche dans l'UE depuis au moins deux ans, soit avoir été fondé depuis moins de deux ans tout en ayant levé plus de 50 millions d'euros, et dans tous les cas avoir compté au moins 50 000 utilisateurs actifs mensuels dans l'UE au cours de l'année écoulée Un cadre également pensé pour la responsabilité des données Les mesures de la Commission ne se limitent pas à fixer qui peut candidater. Elles définissent aussi la fréquence de mise à disposition des données, les usages autorisés, et la responsabilité qui incombe aux destinataires puisqu'ils recevront des données à caractère personnel. Des exigences techniques et organisationnelles précises encadrent la ségrégation des données, le contrôle des accès et la journalisation des opérations, le tout soumis à un audit et un reporting par des tiers. L'accès aux données est par ailleurs conditionné à l'acceptation des conditions de licence fixées par Google . Les entreprises qui estiment remplir les critères peuvent déposer une demande via le formulaire mis en ligne par Google. L’article \" Google publie les modalités d&rsquo;accès à son dataset de recherche européen pour les moteurs concurrents \" a été publié sur le site Abondance .",
+    "image": "https://www.abondance.com/wp-content/uploads/2026/09/commission-europeenne-dataset-google.jpg",
+    "summary": "Google publie les conditions d'accès à son Search Dataset européen (données de ranking, requêtes, clics et vues anonymisées) imposé par l'article 6(11) du DMA, avec tarification FRAND. L'accès reste réservé aux moteurs concurrents éligibles (50 000 utilisateurs mensuels UE minimum), mais ces données pourraient à terme alimenter de nouveaux outils de data SEO.",
+    "interesting": true,
+    "fetched_at": "2026-09-03T09:49:07.574649+00:00"
+  },
+  {
+    "id": "https://www.searchenginejournal.com/google-ai-mode-prices-differ-from-product-carousel-for-same-items/588227/",
+    "source": "Search Engine Journal",
+    "title": "Google AI Mode Prices Differ From Product Carousel For Same Items via @sejournal, @MattGSouthern",
+    "link": "https://www.searchenginejournal.com/google-ai-mode-prices-differ-from-product-carousel-for-same-items/588227/",
+    "date": "2026-09-03T08:00:14+00:00",
+    "description": "Data finds Google AI Mode rarely shows the same products as the regular results carousel, and often lists a different seller when it does. The post Google AI Mode Prices Differ From Product Carousel For Same Items appeared first on Search Engine Journal .",
+    "content_text": "Data finds Google AI Mode rarely shows the same products as the regular results carousel, and often lists a different seller when it does. The post Google AI Mode Prices Differ From Product Carousel For Same Items appeared first on Search Engine Journal .",
+    "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/09/google-ai-mode-product-prices.jpg",
+    "summary": "",
+    "interesting": false,
+    "fetched_at": "2026-09-03T09:49:05.574410+00:00"
+  },
+  {
+    "id": "https://www.searchenginejournal.com/google-responds-to-sitemap-seo-technique-that-forces-daily-crawling/588222/",
+    "source": "Search Engine Journal",
+    "title": "Google Responds To Sitemap SEO Technique That Forces Daily Crawling via @sejournal, @martinibuster",
+    "link": "https://www.searchenginejournal.com/google-responds-to-sitemap-seo-technique-that-forces-daily-crawling/588222/",
+    "date": "2026-09-02T22:09:39+00:00",
+    "description": "Google's Mueller comments on a sitemap SEO method that forces search engines to crawl and index web pages every day. The post Google Responds To Sitemap SEO Technique That Forces Daily Crawling appeared first on Search Engine Journal .",
+    "content_text": "Google's Mueller comments on a sitemap SEO method that forces search engines to crawl and index web pages every day. The post Google Responds To Sitemap SEO Technique That Forces Daily Crawling appeared first on Search Engine Journal .",
+    "image": "https://cdn.searchenginejournal.com/wp-content/uploads/2026/09/seo-crawling-indexing-165.jpg",
+    "summary": "John Mueller réagit à une technique de sitemap censée forcer un crawl et une réindexation quotidiens des pages. Sujet directement lié à la gestion du crawl budget et de l'indexation sur une flotte de sites.",
+    "interesting": true,
+    "fetched_at": "2026-09-03T09:49:05.799077+00:00"
+  },
+  {
     "id": "https://www.searchenginejournal.com/google-gemini-3-8-flash-ai-mode/588194/",
     "source": "Search Engine Journal",
     "title": "Google Adds Gemini 3.8 Flash To AI Mode via @sejournal, @MattGSouthern",
