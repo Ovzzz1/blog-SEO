@@ -1,5 +1,18 @@
 [
   {
+    "id": "https://www.abondance.com/20260926-2973859-google-propriete-creator-donnees-structurees-video.html",
+    "source": "Abondance",
+    "title": "Google ajoute la propriété creator aux données structurées vidéo",
+    "link": "https://www.abondance.com/20260926-2973859-google-propriete-creator-donnees-structurees-video.html",
+    "date": "2026-09-26T15:15:45+00:00",
+    "description": "Damien constate aussi que Google Discover affiche de plus en plus de vidéos hébergées par les éditeurs, avec un bouton de lecture et leur durée. Google confirme qu'elles peuvent y apparaître et que ce balisage l'aide à les trouver. Autant mettre toutes les chances de votre côté pour apparaître dans les blocs vidéo de Google [&#8230;] L’article \" Google ajoute la propriété creator aux données structurées vidéo \" a été publié sur le site Abondance .",
+    "content_text": "Damien constate aussi que Google Discover affiche de plus en plus de vidéos hébergées par les éditeurs, avec un bouton de lecture et leur durée. Google confirme qu'elles peuvent y apparaître et que ce balisage l'aide à les trouver. Autant mettre toutes les chances de votre côté pour apparaître dans les blocs vidéo de Google comme dans le flux Discover. Une vidéo peut apparaître dans les résultats, Google Images, l'onglet Vidéos et Discover. Source : Google Search Central . Seules trois propriétés sont obligatoires : name , thumbnailUrl et uploadDate . Google recommande d'y ajouter contentUrl (ou embedUrl à défaut), description , duration et désormais creator . Voici un exemple : &lt;script type=\"application/ld+json\"&gt; { \"@context\": \"https://schema.org\", \"@type\": \"VideoObject\", \"name\": \"Titre unique de votre vidéo\", \"description\": \"Résumé unique de votre vidéo\", \"thumbnailUrl\": \"https://www.example.com/miniature.jpg\", \"uploadDate\": \"2026-09-24T10:00:00+02:00\", \"duration\": \"PT4M12S\", \"contentUrl\": \"https://www.example.com/videos/ma-video.mp4\", \"creator\": { \"@type\": \"Organization\", \"name\": \"Nom de votre marque\", \"url\": \"https://www.example.com\" } } &lt;/script&gt; La page qui héberge la vidéo doit elle-même être indexée ( bonnes pratiques SEO pour les vidéos ). Contrôlez ensuite votre code avec le test des résultats enrichis . L’article \" Google ajoute la propriété creator aux données structurées vidéo \" a été publié sur le site Abondance .",
+    "image": "https://www.abondance.com/wp-content/uploads/2026/09/video-schema-une.jpg",
+    "summary": null,
+    "interesting": false,
+    "fetched_at": "2026-09-26T17:39:54.895484+00:00"
+  },
+  {
     "id": "https://www.searchenginejournal.com/seo-pulse-google-spam-update-image-search-data/590882/",
     "source": "Search Engine Journal",
     "title": "Google Spam Update, Image Search Data In GSC – SEO Pulse via @sejournal, @MattGSouthern",
